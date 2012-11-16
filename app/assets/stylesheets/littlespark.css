@@ -1,0 +1,23 @@
+*{
+  margin:0;
+  padding:0;
+}
+body{
+
+}
+
+table{
+  border:1px solid #000000;
+  border-collapse:collapse;
+  margin-bottom:1.5em;
+}
+#page-wrapper{
+  width:1280px;
+  margin:auto;
+  padding:0px;
+  background-color:#ffffff;
+  font-size:14px;
+  color:#666666;
+  font-family:"Helvetica";
+	line-height:1.5em;
+}
