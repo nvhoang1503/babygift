@@ -17,11 +17,16 @@ gem 'faker'
 gem 'pg' # for postgresql
 gem 'bootstrap-will_paginate'
 gem 'validates_timeliness', '~> 3.0'
+# gem "therubyracer"
+# gem "less-rails" 
+# gem "twitter-bootstrap-rails"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem "therubyracer"
+	gem "less-rails" 
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
   gem 'bootstrap-datepicker-rails'
   gem 'jquery-ui-rails'
