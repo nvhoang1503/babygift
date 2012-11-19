@@ -1,0 +1,43 @@
+
+.btn{
+  font-size: 24px;
+  text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  padding-top:10px;
+  padding-bottom: 8px;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+a.btn:hover{
+  text-decoration:none;
+}
+.btn-pink{
+  background-color: #e42f5a;
+}
+.btn-pink:hover, .btn-pink:active, .btn-pink.active, .btn-pink.disabled, .btn-pink[disabled] {
+  background-color: #d11e48;
+}
+.btn-yellow{
+  background-color: #ffc91e;
+}
+.btn-yellow:hover, .btn-yellow:active, .btn-yellow.active, .btn-yellow.disabled, .btn-yellow[disabled] {
+  background-color: #fcc106;
+}
+
+.btn-green{
+  background-color: #2fb495;
+}
+.btn-green:hover, .btn-green:active, .btn-green.active, .btn-green.disabled, .btn-green[disabled] {
+  background-color: #0a9978;
+}
+
+.btn-example{
+  width: 150px;
+}

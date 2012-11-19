@@ -6,15 +6,15 @@
       = (yield(:title) || "Little Spark")
   %body
     #page-wrapper
-      .container.main-tab
+      #header
         = render 'shared/head_tab'
-        .row
-          - flash.each do |key, val|
-            = content_tag :div, val, :class => "alert alert-info #{key}" unless val.blank?
-          = yield
-        .push
-      .footer-box.container
+      #container
+        - flash.each do |key, val|
+          = content_tag :div, val, :class => "alert alert-info #{key}" unless val.blank?
+        = yield
+      #footer
         = render 'shared/footer'
+    = render 'shared/social_media_icon'
     = javascript_tag "Cufon.now()"
   = javascript_include_tag "application"
   = yield(:js)
