@@ -10,7 +10,7 @@
 #     - <Heroku config:var name>: <Heroku config:var value>
 #
 production: 
-  app: awesomeapp
+  app: littlespark
   stack: bamboo-ree-1.8.7
   tag: production/*
   config:
