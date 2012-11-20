@@ -1,11 +1,46 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-// *{
-//   margin:0;
-//   padding:0;
-// }
-// .container {
-//     margin-left: auto;
-//     margin-right: auto;
-// }
+#how_it_work_content{
+  width:940px;
+  margin-left: 55px;
+  margin-top:35px;
+}
+.step_box{
+  display: block;
+  background-color: blue;
+  height: 100px;
+}
+.work_box{
+  margin-top:25px;
+  width:300px;
+  float:left;
+  img.img_how{
+    margin-left:0px;
+    margin-bottom:30px;
+    max-width:305px;
+  }
+  .work_desc{
+    margin-top:10px;
+    font-size: 18px;
+    font-weight: 100;
+    letter-spacing:0;
+    a{
+      border-bottom:solid 1px #ffc91e;
+    }
+  }
+}
+.right_space{
+  margin-right:18px;
+}
+.gift_box{
+  clear:both;
+  margin-top: 55px;
+  // background-color: red;
+  img.img_gift{
+    float:left;
+  }
+  p.gift_text{
+    float:left;
+    margin-top:5px;
+    font-size:26px;
+    color:#515257;
+  }
+}
