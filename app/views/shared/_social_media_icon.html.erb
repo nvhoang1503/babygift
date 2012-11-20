@@ -1,7 +1,5 @@
 <div id="divAdRight" style="DISPLAY: none; POSITION: absolute; TOP: 0px">
-    <a href="http://hkda.vn">
-        <%= image_tag("demo/social.jpg")%>
-    </a>
+    <%= render "shared/social_media_icon_content"%>
 </div>
 <div id="divAdLeft" style="DISPLAY: none; POSITION: absolute; TOP: 0px">
 <!-- <a href=" http://hkda.vn "><img src=" http://vietxf.org/styles/default/xenforo/banner2.png" width="125" /></a> -->
@@ -12,7 +10,7 @@
         // startLX = ((document.body.clientWidth -MainContentW)/2)-LeftBannerW-LeftAdjust , startLY = TopAdjust+80;
         // startRX = ((document.body.clientWidth -MainContentW)/2)+MainContentW+RightAdjust , startRY = TopAdjust+80;
         startLX = ((document.body.clientWidth -MainContentW)/2)-LeftBannerW-LeftAdjust , startLY = TopAdjust+80;
-        startRX = document.body.clientWidth - 70  , startRY = TopAdjust+80;
+        startRX = document.body.clientWidth - 60  , startRY = TopAdjust+80;
         var d = document;
         function ml(id)
         {
