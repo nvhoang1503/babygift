@@ -1,0 +1,14 @@
+#-------- LINK ----------
+# Production: http://littlespark.herokuapp.com/
+# Staging: http://littlespark-stg.herokuapp.com/
+
+#-------- DEPLOY TO HEROKU -------------
+# deploy to staging
+git push staging master
+or
+rake staging heroku:push:force
+
+# deploy to production
+git push production master
+or
+rake production heroku:push:force

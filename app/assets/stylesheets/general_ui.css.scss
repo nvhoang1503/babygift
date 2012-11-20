@@ -1,5 +1,5 @@
 /*============== COMMON =====================*/
-.btn{
+.mybtn{
   font-size: 24px;
   text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25);
   border-radius: 5px;
@@ -41,6 +41,18 @@ a.btn:hover{
 .btn-example{
   width: 150px;
 }
+.title_page{
+  font-weight: bolder;
+  font-size:34px;
+  color: #515257;
+}
+.tittle_content{
+  font-weight: bolder;
+  font-size: 26px;
+  color:#2fb495;
+  display:block;
+  height:27px;
+}
 
 /*============== HEADER =====================*/
 #head_top{
@@ -63,16 +75,26 @@ a.btn:hover{
 
   }
   .top_menu_box{
-    // background-color:red;
     display:block;
     height: 70px;
-    ul.top_menu li{
-      float: left;
-      margin-top:40px;
-      margin-left:30px;
-      a{
-        color: #44464b;
-        font-size: 18px;
+    ul.top_menu{
+      li{
+        float: left;
+        margin-top:33px;
+        margin-left:30px;
+        height:38px;
+        a{
+          color: #44464b;
+          font-size: 18px;
+        }
+      }
+      li.selected , li:hover{
+        background-image: url(common/icon_select.png);
+        background-position: 50% 100%;
+        background-repeat: no-repeat;
+        a{
+          font-weight: bolder;
+        }
       }
     }
   }
