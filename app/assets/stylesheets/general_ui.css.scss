@@ -1,4 +1,4 @@
-
+/*============== COMMON =====================*/
 .btn{
   font-size: 24px;
   text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25);
@@ -40,4 +40,73 @@ a.btn:hover{
 
 .btn-example{
   width: 150px;
+}
+
+/*============== HEADER =====================*/
+#head_top{
+  text-align: right;
+  position:relative;
+  a.btn_top_login{
+    margin-left:10px;
+    float: right;
+  }
+  p.text_free_shipping{
+    float: right;
+    margin-top:10px;
+  }
+}
+#head_nav{
+  clear:both;
+  .logo_box{
+    float:left;
+    width:515px;
+
+  }
+  .top_menu_box{
+    // background-color:red;
+    display:block;
+    height: 70px;
+    ul.top_menu li{
+      float: left;
+      margin-top:40px;
+      margin-left:30px;
+      a{
+        color: #44464b;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+/*================ FOOTER ==================*/
+.footer_menu_box{
+  display:block;
+  height:75px;
+  ul.footer_menu{
+    margin-left: 55px;
+    li{
+      float: left;
+      margin-top:45px;
+      margin-right:30px;
+      a{
+        color: #fff;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.footer_line{
+  clear:both;
+  display: block;
+  height:3px;
+  width:940px;
+  background-color:#dbdbdb;
+  margin-left: 55px;
+}
+.footer_text{
+  text-align:right;
+  font-size:14px;
+  width:940px;
+  margin-left: 55px;
+  margin-top:10px;
 }
