@@ -1,0 +1,9 @@
+#head_top
+  = link_to image_tag("common/btn_login.png") , "#" , :class => "btn_top_login"
+  %p.text_free_shipping
+    = image_tag("common/text_free_shipping.png")
+#head_nav
+  .logo_box
+    = link_to image_tag("common/logo_text.png") , root_path
+  .top_menu_box
+    = render "shared/top_menu"
