@@ -65,11 +65,15 @@ a.btn:hover{
   color: #44464b;
   letter-spacing: 0;
   &.bold { font-weight: bold; }
+  &.unbold { font-weight: normal; }
+  &.italic { font-style: italic; }
   &.green { color: #2fb596; }
   &.font16 { font-size: 16px; }
   &.font18 { font-size: 18px; }
   &.font22 { font-size: 22px; }
   &.font26 { font-size: 26px; }
+  &.font34 { font-size: 34px; }
+  &.line26 { line-height: 26px; }
 }
 
 .small-wrapper {
