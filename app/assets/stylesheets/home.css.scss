@@ -341,7 +341,36 @@ ul.fqa_menu_link{
   }
 }
 
-
+#about_us_content{
+  .content_box{
+    margin-top:25px;
+    .box_lef{
+      display:block;
+      float:left;
+      width:550px;
+      p.description{
+        font-size:18px;
+        color:#515257;
+        height:80px;
+        // letter-spacing:0;
+      }
+      p.link{
+        a{
+          font-size: 20px;
+          font-weight:thin;
+          border-bottom:solid 1px #ffc91e;
+        }
+      }
+    }
+    .box_right{
+      max-width:390px;
+      float:left;
+      img{
+        max-width:390px;
+      }
+    }
+  }
+}
 
 
 
