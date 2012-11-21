@@ -1,0 +1,8 @@
+#about-content.small-wrapper
+  .title.text.bold.font34.capitalize= I18n.t('content.page.about.story_sum')
+  .info.pull-left
+    .text.font18= I18n.t('content.page.about.story_text')
+    = link_to I18n.t('content.page.about.team_link'), '#', :class => 'underline-link pull-left'
+    .clearfix
+    = link_to I18n.t('content.page.about.expert_link'), '#', :class => 'underline-link pull-left'
+  = image_tag 'common/story.png', :class => 'pull-right'
