@@ -149,7 +149,49 @@ ul.fqa_menu_link{
   }
 
 }
+#contactus_content{
+  .page_desception{
+    margin-top:30px;
+    color:#515257;
+    font-size: 18px;
+  }
+  .contact_box{
+    margin-top:40px;
+    .contact_child_box{
+      float:left;
+      text-align: center;
+      width:310px;
+      margin-left:2px;
+      .img_box{
+        height:55px;
+        .icon_email{
+          margin-top: 8px;
+        }
+        .icon_letter{
+          margin-top: 18px;
+        }
+      }
+      p.icon_name{
+        margin-top:10px;
+        color:#2fb495;
+        font-size: 18px;
+        font-weight:bolder;
+      }
+      p.icon_info{
+        font-size:18px;
+        span{
+          display: block;
+          color:#515257;
+        }
+        span.num{
+          font-weight:bolder;
+        }
+      }
 
+    }
+
+  }
+}
 
 
 

@@ -9,5 +9,9 @@ class HomeController < ApplicationController
   def fqa
 	
   end
+
+  def contact_us
+	
+  end
   
 end
