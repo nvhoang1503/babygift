@@ -5,4 +5,9 @@ class HomeController < ApplicationController
   def how_it_work
     
   end
+
+  def faq
+	
+  end
+  
 end
