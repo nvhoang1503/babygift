@@ -5,8 +5,7 @@
 }
 .step_box{
   display: block;
-  background-color: blue;
-  height: 100px;
+  height: 410px;
 }
 .work_box{
   margin-top:25px;
@@ -32,15 +31,93 @@
 }
 .gift_box{
   clear:both;
-  margin-top: 55px;
-  // background-color: red;
+  margin-top: 40px;
   img.img_gift{
     float:left;
+    margin-left:85px;
+    margin-right:10px;
   }
   p.gift_text{
     float:left;
-    margin-top:5px;
+    margin-top:15px;
     font-size:26px;
     color:#515257;
+    margin-right:10px;
+  }
+  .gift_action{
+    .btn-enroll, .btn-gift{
+      width:130px;
+      margin-right:10px;
+      margin-top:5px;
+    }
+  }
+}
+.people_say{
+  clear:both;
+  background-color: #e1f5f1;
+  margin-top:65px;
+  display:block;
+  height:auto;
+  margin-bottom:-10px;
+  .people_say_line{
+    width:940px;
+    margin-left: 55px;
+    border-bottom: dotted 1px #c5c6c8;
+    height:40px;
+  }
+  .people_say_text{
+    font-size:22px;
+    font-weight: bolder;
+    color:#2fb495;
+    position:absolute;
+    margin-top: -12px;
+    margin-left: 365px;
+    background-color:#e1f5f1;
+  }
+  .people_box{
+    margin-top:40px;
+    padding-left: 70px;
+   .people_info{
+      display:block;
+      float:left;
+      width:455px;
+      height: 135px;
+      img.img_info{
+        float:left;
+      }
+      .people_desc{
+        float:left;
+        padding-left:40px;
+        width:315px;
+        font-size:16px;
+        color:#44464b;
+        letter-spacing:0;
+        .img_comman_lef{
+          position:absolute;
+          margin-left:-30px;
+        }
+        .img_comman_right{
+          position:absolute;
+          margin-left:280px;
+          margin-top: -35px
+        }
+        p.last_desc{
+          text-align: right;
+          padding-right: 50px;
+          font-style:italic;
+        }
+      }
+    }
+
+    p.see_more_link{
+      text-align:right;
+      padding-right:30px;
+      clear:both;
+      height:50px;
+      a{
+        border-bottom: solid 1px #ffc91e;
+      }
+    }
+
   }
 }
