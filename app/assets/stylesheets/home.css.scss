@@ -39,6 +39,7 @@
     color:#515257;
     margin-right:10px;
   }
+
   .gift_action{
     .btn-enroll, .btn-gift{
       width:130px;
@@ -115,7 +116,120 @@
         border-bottom: solid 1px #ffc91e;
       }
     }
+  }
+}
 
+
+/*================================ Specific ================================*/
+.dotted-line {
+  border-bottom: 1px dotted;
+  margin: 10px 0 15px;
+}
+.small-wrapper .half-section {
+  width: 420px;
+  margin: 35px 20px 35px 30px;
+  text-align: center;
+  .text.green { margin: 15px 0 20px 0; }
+}
+#spotlight {
+  width: 920px;
+  padding: 10px;
+  box-shadow: 1px 2px 5px -2px;
+  .intro {
+    width: 277px;
+    height: 286px;
+    padding: 22px;
+    margin-right: 11px;
+    background-color: #f9f7f7;
+    #btn-gift, #btn-enroll {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 55px;
+      letter-spacing: 0;
+      width: 130px;
+    }
+    #btn-gift { margin-left: 12px;}
+  }
+  #slides {
+    display: block;
+    height: 330px;
+    position: relative;
+  }
+}
+.testimonial {
+  margin-bottom: -10px;
+}
+
+/*================================ CAROUSEL ================================*/
+.slides_container {
+  width: 588px;
+  height: 330px;
+}
+.slides_container div {
+  width: 588px;
+  height: 330px;
+  line-height: 330px;
+  display:block;
+  text-align: center;
+}
+.caption {
+  text-align: left !important;
+  line-height: 20px !important;
+  left: 0;
+  bottom: -257px;
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
+  height: 73px;
+  padding: 5px 20px 0;
+  position: absolute;
+  text-shadow: none;
+  width: 540px;
+  z-index: 500;
+}
+.btn-slide-next, .btn-slide-prev {
+  background-image: url('common/btn-next-prev.png');
+  background-repeat: no-repeat;
+  width: 46px;
+  height: 93px;
+  z-index: 101;
+  position: absolute;
+  display: block;
+  top: 115px;
+}
+.btn-slide-next {
+  background-position: -46 0;
+  right: -5px;
+}
+.btn-slide-prev {
+  background-position: 0 0;
+  left: -5px;
+}
+.pagination {
+  position: absolute;
+  width: auto;
+  z-index: 100;
+  top: 285px;
+  right: 10px;
+  li {
+    float: left;
+    list-style: none outside none;
+    margin: 0 1px;
+    a {
+      color: #FFFFFF;
+      background-image: url('common/bg-slide-num.png');
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: block;
+      overflow: hidden;
+      float: left;
+      width: 11px;
+      height: 17px;
+      line-height: 17px;
+      font-size: 10px;
+      padding-left: 5px;
+    }
+    &.current a{
+      background-position: 0 -18px;
+    }
   }
 }
 #fqa_menu_link_page{

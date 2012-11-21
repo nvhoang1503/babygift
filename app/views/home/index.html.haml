@@ -1,2 +1,40 @@
-/ = image_tag('demo/home.jpg')
-%p WELCOM TO LITTLE SPARK
+- @page_title = "#{I18n.t('titles.pages.name')} | #{I18n.t('titles.pages.home')}"
+
+#spotlight.small-wrapper
+  .intro.pull-left
+    .text.bold.font26= I18n.t('content.page.home.intro_sum')
+    .dotted-line
+    .text.font18= I18n.t('content.page.home.intro_text')
+    = link_to I18n.t('label.button.enroll'), '#', :class => 'mybtn btn-pink uppercase', :id => 'btn-enroll'
+    = link_to I18n.t('label.button.gift'), '#', :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
+
+  #slides.pull-left
+    .slides_container
+      - (1..6).each do |idx|
+        %div
+          = image_tag "sample/cute-baby-#{idx}.jpg"
+          .caption.text.font16
+            %p= "Cute Baby #{idx}"
+    %a.prev{:href => '#'}
+      .btn-slide-prev
+    %a.next{:href => '#'}
+      .btn-slide-next
+  .clearfix
+
+.small-wrapper
+  .half-section.pull-left
+    = image_tag 'common/icon-how-it-works.png'
+    .text.green.font22.bold.capitalize= I18n.t('content.page.home.how_sum')
+    .text.font16= I18n.t('content.page.home.how_text')
+  .half-section.pull-right
+    = image_tag 'common/icon-cirriculum.png'
+    .text.green.font22.bold.capitalize= I18n.t('content.page.home.cirriculum_sum')
+    .text.font16= I18n.t('content.page.home.cirriculum_text')
+.clearfix
+
+.testimonial
+  = render "shared/people_say"
+
+
+- content_for :js do
+  = javascript_include_tag 'libs/slides.jquery.js', 'home'
