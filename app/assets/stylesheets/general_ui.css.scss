@@ -85,7 +85,8 @@ a.btn:hover{
       li{
         float: left;
         margin-top:28px;
-        margin-left:30px;
+        text-align:center;
+        // margin-left:30px;
         height:38px;
         a{
           color: #44464b;
@@ -100,6 +101,21 @@ a.btn:hover{
           font-weight: bolder;
         }
       }
+      li#howitworks{
+        width: 140px;
+      }
+      li#kits{
+        width: 70px;
+      }
+      li#enrolls{
+        width: 80px;
+      }
+      li#gifts{
+        width: 80px;
+      }
+      li#blog{
+        width: 60px;
+      }
     }
   }
 }
@@ -113,7 +129,7 @@ a.btn:hover{
   padding-top:5px;
 }
 ul.social_medial_icon li{
-  margin-left:-10px;
+  margin-left:-13px;
   margin-top:10px;
   a img{
     // width:50px;
