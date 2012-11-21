@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     
   end
 
-  def faq
+  def fqa
 	
   end
   
