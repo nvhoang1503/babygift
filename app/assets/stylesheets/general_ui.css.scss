@@ -54,6 +54,10 @@ a.btn:hover{
   height:27px;
 }
 
+.clearboth{
+  clear:both;
+}
+
 /*============== HEADER =====================*/
 #head_top{
   text-align: right;
@@ -80,7 +84,7 @@ a.btn:hover{
     ul.top_menu{
       li{
         float: left;
-        margin-top:33px;
+        margin-top:28px;
         margin-left:30px;
         height:38px;
         a{
@@ -106,11 +110,14 @@ a.btn:hover{
   width: 60px;
   height:190px;
   background-color:#f9f7f7;
-  padding-top:10px;
+  padding-top:5px;
 }
 ul.social_medial_icon li{
-  margin-left:12px;
-  margin-top:5px;
+  margin-left:-10px;
+  margin-top:10px;
+  a img{
+    // width:50px;
+  }
 }
 /*================ FOOTER ==================*/
 .footer_menu_box{

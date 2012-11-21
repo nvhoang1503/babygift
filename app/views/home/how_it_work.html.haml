@@ -1,6 +1,6 @@
 #how_it_work_content
   .title_page How It Works
-  .step_box.clear-fix.row
+  .step_box.clear-fix
     / step 1
     .work_box.right_space
       = image_tag("common/how01.png" , :class => "img_how")
@@ -35,3 +35,26 @@
     .gift_action
       = link_to "ENROLL" , "#" , :class => "mybtn btn-pink btn-enroll"
       = link_to "GIFT" , "#" , :class=> "mybtn btn-green btn-gift"
+.people_say.clear-fix
+  .people_say_line
+  .people_say_text What People Are Saying About Us
+  .people_box.clear-fix
+    / left
+    .people_info
+      = image_tag("common/p1.gif" , :class => "img_info")
+      .people_desc
+        = image_tag("common/comman_left.png" , :class => "img_comman_lef")
+        %p.desc This is the time in my daughter’s life <br> when she is changing rapidly, on a <br> monthly basis. With Little Spark, parents <br> can foster that fast-paced growth!
+        = image_tag("common/comman_right.png" , :class => "img_comman_right")
+        %p.last_desc - Vivian, mom to Clara, 10 month old
+    / right
+    .people_info
+      = image_tag("common/p1.gif" , :class => "img_info")
+      .people_desc
+        = image_tag("common/comman_left.png" , :class => "img_comman_lef")
+        %p.desc I want to buy my son the best toys out <br> there but I don’t have the time to look.<br> Now his toys are chosen by a cognitive <br> researcher from a world-class infant lab!
+        = image_tag("common/comman_right.png" , :class => "img_comman_right")
+        %p.last_desc - Kate, mom to Mason, 2 month old
+    %p.see_more_link
+      = link_to "View more testimonials >" , "#"
+
