@@ -134,6 +134,7 @@
 #spotlight {
   width: 920px;
   padding: 10px;
+  margin-top: 30px;
   box-shadow: 1px 2px 5px -2px;
   .intro {
     width: 277px;
@@ -158,6 +159,27 @@
 }
 .testimonial {
   margin-bottom: -10px;
+}
+
+#curriculum-content {
+  margin-top: 35px;
+  margin-bottom: 50px;
+  color: 515257 !important;
+  .curriculum.text {
+    margin: 25px 0 40px;
+    a { border-bottom: solid 1px #ffc91e; }
+  }
+  .philosophies .section {
+    margin-top: 30px;
+    .img-holder {
+      margin-right: 20px;
+      width: 200px;
+      height: 116px;
+      box-shadow: 1px 1px 3px 0 rgb(209, 209, 209);
+      background-color: rgb(209, 209, 209);
+    }
+    .info { margin-top: 20px; }
+  }
 }
 
 /*================================ CAROUSEL ================================*/

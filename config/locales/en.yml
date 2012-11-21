@@ -24,4 +24,16 @@ en:
         cirriculum_text: 'Learn more about our proprietary curriculum and our panel of experts.'
         people_say_sum: 'What People Are Saying About Us'
         people_say_more: 'View more testimonials >'
+      cirriculum:
+        intro_sum: 'Our Curriculum'
+        intro_text: 'Our curriculum is a set of 48 different <a href="#">kits</a>, one to cover each month from the ages of 0 to 4 years old. Developed by a team of <a href="#">experts</a>, the kits collectively address all <a href="#">developmental milestones</a> typically achieved in the first three years of life – gross motor skills, fine motor skills, language, social, among others. The kits contain the tools you need to engage in learning play with your baby and progress as your baby progresses. You and your baby can start at any time... because learning starts at birth and continues for a lifetime!'
+        philosophies: 'Curriculum Philosophies ... What We Believe'
+        independent_play_sum: 'Independent play is critical'
+        independent_play_text: 'In the first year of life, play enables baby to learn about Your baby learns important concepts from unstructured play. Thereafter, your baby develops concepts; he or she learns to plan, organize, sequence, and make decisions through play.'
+        baby_development_sum: 'Baby development is a <span class="text green italic unbold">progressive art</span>'
+        baby_development_text: 'Babies learn skills progressively. This is because they are developing the physical capabilities and because they are practice existing skills which build up their ...'
+        time_spent_sum: 'Your time should be spent with your baby, not reading'
+        time_spent_text: 'We have designed our curriculum with busy parents and babies in mind. We think you’ll find our kits easy to use and save you 0me from doing research on development and toys on your own.'
+        confidence_sum: 'No Tears, Confidence Building'
+        confidence_text: 'Different babies develop at different paces. Even the same baby will occasionally “plateau” and not learn anything new for awhile.'
 
