@@ -1,40 +1,27 @@
 #how_it_work_content.page_content_space
-  .title_page How It Works
+  .title_page= I18n.t('content.page.how.title')
   .step_box.clear-fix
     / step 1
     .work_box.right_space
       = image_tag("common/how01.png" , :class => "img_how")
       %p.tittle_content Sign Up
-      %p.work_desc
-        %span Simple
-        = link_to "join" , "#"
-        %span for a monthly subscription <br> or send a 
-        = link_to "gift" ,"#"
-        %span .
+      %p.work_desc= I18n.t('content.page.how.step1', :link1 => '#', :link2 => '#').html_safe
+
     / step 2
     .work_box.right_space
       = image_tag("common/how02.png" , :class => "img_how")
       %p.tittle_content Receive a Box
-      .work_desc
-        %span A box filled with tools, toys, and an activity guide arrives at your doorstep each month.
-        = link_to "Learn how a box is designed" , "#"
-        %span .
+      .work_desc= I18n.t('content.page.how.step2', :link => '#').html_safe
+
     / step 3
     .work_box
       = image_tag("common/how03.png" , :class => "img_how")
       %p.tittle_content Grow, grow, grow!
-      %p.work_desc
-        %span Open the box and let the fun begin!
-        = link_to "See a sample box" , "#"
-        %span .
+      %p.work_desc= I18n.t('content.page.how.step3', :link => '#').html_safe
 
   / gift content
-  .gift_box
-    = image_tag("common/icon_gift.png" , :class => "img_gift")
-    %p.gift_text Enjoy a monthly subscription today!
-    .gift_action
-      = link_to "ENROLL" , "#" , :class => "mybtn btn-pink btn-enroll"
-      = link_to "GIFT" , "#" , :class=> "mybtn btn-green btn-gift"
+  #gift_box
+    = render "shared/gift_box"
 .what_people_say
   = render "shared/people_say"
 

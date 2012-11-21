@@ -1,25 +1,25 @@
 #contactus_content.page_content_space
-  .title_page Contact Us
-  .page_desception For questions about orders, please include your order number and the <br>name and ZIP code of the billing address.
+  .title_page= I18n.t('content.page.contact.title')
+  .page_desception= I18n.t('content.page.contact.desc').html_safe
   .contact_box.clear-fix
     .contact_child_box
       .img_box
         = image_tag("common/icon_phone.png" , :class => "icon_phone")
-      %p.icon_name By Phone
-      %p.icon_info 
+      %p.icon_name= I18n.t('content.page.contact.by_phone')
+      %p.icon_info
         %span.num 1-800-123-456
         %span.time 7am to 7pm PST, 7 days a week
     .contact_child_box
       .img_box
         = image_tag("common/icon_email.png" , :class => "icon_email")
-      %p.icon_name By Enail
-      %p.icon_info 
+      %p.icon_name= I18n.t('content.page.contact.by_email')
+      %p.icon_info
         =link_to "contactus@littlespark.com", "#"
     .contact_child_box
       .img_box
         = image_tag("common/icon_letter.png" , :class => "icon_letter")
-      %p.icon_name By Writing to Us At
-      %p.icon_info 
+      %p.icon_name= I18n.t('content.page.contact.by_letter')
+      %p.icon_info
         %span Little Spark Inc.
         %span 259 King Street
         %span Redwood City, CA 94029 <br> USA

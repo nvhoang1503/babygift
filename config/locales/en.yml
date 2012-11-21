@@ -14,7 +14,46 @@ en:
       gift: 'gift'
 
   content:
+    top_menu:
+      how: "How It Works"
+      kit: "Kits"
+      enroll: "Enroll"
+      gift: "Gifts"
+      blog: "Blog"
+    footer:
+      redeem: 'Redeem a gift'
+      faq: 'FAQs'
+      refer: 'Refer a Friend'
+      term: 'Terms'
+      privacy: 'Privacy'
+      contact: 'Contact Us'
+      about: 'About Us'
+      copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
+      common:
+        enjoy: 'Enjoy a monthly subscription today!'
+      contact:
+        title: 'Contact Us'
+        desc: 'For questions about orders, please include your order number and the <br>name and ZIP code of the billing address.'
+        by_phone: 'By Phone'
+        by_email: 'By Email'
+        by_letter: 'By Writing to Us At'
+      fqa:
+        title: 'Frequently Asked Questions'
+        about: 'About Little Spark'
+        sign_up: 'Signing Up'
+        ship: 'Shipping ang Billing'
+        gift: 'Gifts'
+        other: 'Other'
+        question1: 'What is Little Spark?'
+        question1_text: '<p> Little Spark is an early childhood development company. Our team of experts have devel-<br>oped a monthly curriculum for parents interested in development in babies 0 to 36 months old.</p> <p> With your enrollment, each month you will receive a kit that contains 2-4 developmental toys and an activity guide. The activity guide explains what skills your baby is developing that month and how to use the toys to encourage your baby to practice those all-<br>important life skills. Our kits are progressive, meaning that each month’s kit builds upon the previous month. It progresses as your baby progresses! Click here to see a sample kit.</p> <p>You keep the toys so that your baby can continue to practice existing skills and play with them in a different way to learn other skills.</p>'
+        question2: 'What is special about your curriculum, kits, and toys?'
+        question2_text: '<p> Our curriculum of 36 kits is developed by an expert panel that includes an infant develop-<br>mental psychologist, a pediatrician, an infant cognitive researcher, an infant occupational therapist, teachers, and parents. Click here to read their bios.</p> <p> The toys are specifically chosen for their learning and play value. The included activity guide details how to use the toys to encourage developmental growth. We also ship only toys that meet our high standards for high quality and safe materials used. Some of the brands we feature are Plan Toys, Hape, Haba, Melissa & Doug, Wimmer Ferguson, Lamaze, among others.</p>'
+      how:
+        title: 'How It Works'
+        step1: "Simple <a href='%{link1}'>join</a> for a monthly subscription or send a <a href='%{link2}'>gift</a> . "
+        step2: "A box filled with tools, toys, and an activity guide arrives at your doorstep each month. <a href='%{link}'>Learn how a box is designed</a> . "
+        step3: "Open the box and let the fun begin! <a href='%{link}'>See a sample box</a> . "
       home:
         intro_sum: 'Learning and Discovery begins at birth'
         intro_text: 'Little Spark delivers a monthly curriculum that enhances early childhood development specifically geared for your little one’s age.'

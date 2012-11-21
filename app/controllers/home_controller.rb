@@ -14,9 +14,6 @@ class HomeController < ApplicationController
   def cirriculum
   end
 
-  def about
-  end
-
   def about_us
   end
 

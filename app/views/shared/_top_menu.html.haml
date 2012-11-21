@@ -1,11 +1,11 @@
 %ul.top_menu
   %li#howitworks{:class => (current_page?(home_how_it_work_path)  ? "selected" : "")}
-    = link_to "How It Works" , home_how_it_work_path
+    = link_to I18n.t('content.top_menu.how') , home_how_it_work_path
   %li#kits
-    = link_to "Kits" , "#"
+    = link_to I18n.t('content.top_menu.kit'), "#"
   %li#enrolls
-    = link_to "Enroll" , "#"
+    = link_to I18n.t('content.top_menu.enroll'), "#"
   %li#gifts
-    = link_to "Gifts" , "#"
+    = link_to I18n.t('content.top_menu.gift'), "#"
   %li#blog
-    = link_to "Blog" , "#"
+    = link_to I18n.t('content.top_menu.blog'), "#"
