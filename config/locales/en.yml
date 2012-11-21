@@ -36,4 +36,9 @@ en:
         time_spent_text: 'We have designed our curriculum with busy parents and babies in mind. We think you’ll find our kits easy to use and save you 0me from doing research on development and toys on your own.'
         confidence_sum: 'No Tears, Confidence Building'
         confidence_text: 'Different babies develop at different paces. Even the same baby will occasionally “plateau” and not learn anything new for awhile.'
+      about:
+        story_sum: 'Our Story'
+        story_text: 'Each box includes an activity guide that explains what is going on with your baby that month and how to engage with him or her using the toys. It’s written by our panel of experts.'
+        team_link: '> Meet Our Team'
+        expert_link: '> Meet Our Panel of Experts'
 
