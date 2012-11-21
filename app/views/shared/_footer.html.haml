@@ -1,18 +1,18 @@
 .footer_menu_box
   %ul.footer_menu
     %li
-      = link_to "Redeem a gift" , "#"
+      = link_to I18n.t('content.footer.redeem') , "#"
     %li
-      = link_to "FAQs" , home_fqa_path
+      = link_to I18n.t('content.footer.faq') , home_fqa_path
     %li
-      = link_to "Refer a Friend" , "#"
+      = link_to I18n.t('content.footer.refer') , "#"
     %li
-      = link_to "Terms" , "#"
+      = link_to I18n.t('content.footer.term') , "#"
     %li
-      = link_to "Privacy" , "#"
+      = link_to I18n.t('content.footer.privacy') , "#"
     %li
-      = link_to "Contact Us" , home_contact_us_path
+      = link_to I18n.t('content.footer.contact') , home_contact_us_path
     %li
-      = link_to "About Us" , home_about_us_path
+      = link_to I18n.t('content.footer.about') , home_about_us_path
 .footer_line
-.footer_text 2012 Little Spark Inc. All Rights Reserved.
+.footer_text= I18n.t('content.footer.copyright')

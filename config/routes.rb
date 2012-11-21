@@ -6,6 +6,5 @@ Littlespark::Application.routes.draw do
   get "home/about_us"
   root :to => 'home#index'
   get 'cirriculum', :to => 'home#cirriculum'
-  get 'about_us', :to => 'home#about'
 
 end

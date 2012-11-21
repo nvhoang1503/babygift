@@ -1,11 +1,11 @@
 #about_us_content.page_content_space
-  .title_page Our Story
+  .title_page= I18n.t('content.page.about.story_sum')
   .content_box
     .box_lef
-      %p.description Each box includes an activity guide that explains what is going on with your baby that month and how to engage with him or her using the toys. It’s written by our panel of experts.
-      %p.link 
-        = link_to "> Meet Our Team" ,"#"
+      %p.description= I18n.t('content.page.about.story_text')
       %p.link
-        = link_to "> Meet Our Panel of Experts", "#"
+        = link_to I18n.t('content.page.about.team_link'), "#"
+      %p.link
+        = link_to I18n.t('content.page.about.expert_link'), "#"
     .box_right
       = image_tag("common/p_about.jpg")
