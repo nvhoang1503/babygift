@@ -3,3 +3,25 @@
 
 en:
   hello: "Hello world"
+  titles:
+    pages:
+      name: 'Little Spark'
+      home: 'Home'
+
+  label:
+    button:
+      enroll: 'enroll'
+      gift: 'gift'
+
+  content:
+    page:
+      home:
+        intro_sum: 'Learning and Discovery begins at birth'
+        intro_text: 'Little Spark delivers a monthly curriculum that enhances early childhood development specifically geared for your little one’s age.'
+        how_sum: 'how it works'
+        how_text: 'Enroll today and receive a monthly kit specifically geared for your child’s development goals.'
+        cirriculum_sum: 'Our Custom Curriculum'
+        cirriculum_text: 'Learn more about our proprietary curriculum and our panel of experts.'
+        people_say_sum: 'What People Are Saying About Us'
+        people_say_more: 'View more testimonials >'
+

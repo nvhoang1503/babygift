@@ -1,6 +1,6 @@
 .people_say.clear-fix
   .people_say_line
-  .people_say_text What People Are Saying About Us
+  .people_say_text= I18n.t('content.page.home.people_say_sum')
   .people_box.clear-fix
     / left
     .people_info
@@ -19,4 +19,4 @@
         = image_tag("common/comman_right.png" , :class => "img_comman_right")
         %p.last_desc - Kate, mom to Mason, 2 month old
     %p.see_more_link
-      = link_to "View more testimonials >" , "#"
+      = link_to I18n.t('content.page.home.people_say_more'), "#"

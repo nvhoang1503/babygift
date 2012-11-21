@@ -57,6 +57,26 @@ a.btn:hover{
 .clearboth{
   clear:both;
 }
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+.text {
+  color: #44464b;
+  letter-spacing: 0;
+  &.bold { font-weight: bold; }
+  &.green { color: #2fb596; }
+  &.font16 { font-size: 16px; }
+  &.font18 { font-size: 18px; }
+  &.font22 { font-size: 22px; }
+  &.font26 { font-size: 26px; }
+}
+
+.small-wrapper {
+  clear: both;
+  width: 940px;
+  margin: 0 auto;
+}
 
 /*============== HEADER =====================*/
 #head_top{
