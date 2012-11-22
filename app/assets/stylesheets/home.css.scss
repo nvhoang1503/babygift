@@ -67,7 +67,7 @@
   }
   .people_say_text{
     font-size:22px;
-    font-weight: bolder;
+    font-family: 'GudeaBold';
     color:#2fb495;
     position:absolute;
     margin-top: -12px;
@@ -104,7 +104,7 @@
         p.last_desc{
           text-align: right;
           padding-right: 50px;
-          font-style:italic;
+          font-family: 'GudeaItalic';
         }
       }
     }
@@ -325,7 +325,7 @@ ul.fqa_menu_link{
         margin-top:10px;
         color:#2fb495;
         font-size: 18px;
-        font-weight:bolder;
+        font-family: 'GudeaBold';
       }
       p.icon_info{
         font-size:18px;
@@ -334,7 +334,7 @@ ul.fqa_menu_link{
           color:#515257;
         }
         span.num{
-          font-weight:bolder;
+          font-family: 'GudeaBold';
         }
       }
 
