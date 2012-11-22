@@ -14,12 +14,7 @@
         %div
           = image_tag "sample/home_slide_#{idx}.jpg"
           .caption.text.font16
-            - if idx==3
-              %p= '&#8226; Monthly curriculum for ages 0-4'.html_safe
-              %p= '&#8226;  $34.95/month, with free shipping'.html_safe
-              %p= '&#8226; Delivered your way: 1, 3, 6, or 12 month programs'.html_safe
-            - else
-              %p= "Cute Baby #{idx}"
+            %p= "Our fan club"
     %a.prev{:href => '#'}
       .btn-slide-prev
     %a.next{:href => '#'}
@@ -28,13 +23,15 @@
 
 .page_content_space
   .half-section.pull-left
-    = image_tag 'common/icon-how-it-works.png'
+    %a{:href => home_how_it_work_path }
+      = image_tag 'common/icon-how-it-works.png'
     .text.green.font22.bold.capitalize= I18n.t('content.page.home.how_sum')
     .text.font16= I18n.t('content.page.home.how_text')
   .half-section.pull-right
-    = image_tag 'common/icon-cirriculum.png'
-    .text.green.font22.bold.capitalize= I18n.t('content.page.home.cirriculum_sum')
-    .text.font16= I18n.t('content.page.home.cirriculum_text')
+    %a{:href => curriculum_path }
+      = image_tag 'common/icon-curriculum.png'
+    .text.green.font22.bold.capitalize= I18n.t('content.page.home.curriculum_sum')
+    .text.font16= I18n.t('content.page.home.curriculum_text')
 .clearfix
 
 .testimonial

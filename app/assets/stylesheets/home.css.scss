@@ -155,18 +155,12 @@
     }
     #btn-gift { margin-left: 12px;}
   }
-  #slides {
-    display: block;
-    height: 330px;
-    position: relative;
-  }
 }
 .testimonial {
   margin-bottom: -10px;
 }
 
 #curriculum-content {
-  margin-top: 35px;
   margin-bottom: 50px;
   color: 515257 !important;
   .curriculum.text {
@@ -186,90 +180,142 @@
   }
 }
 
-#about-content {
-  margin-top: 35px;
-  .title { margin-bottom: 25px; }
-  .info{
-    width: 540px;
-    a { margin: 30px 0 -10px; }
+#kits-content {
+  margin-bottom: 50px;
+  color: 515257 !important;
+  .title {
+    margin-bottom: 28px;
   }
-  img {
-    width: 380px;
-    height: 345px;
+  .details {
+    width: 608px;
+    .section {
+      margin-bottom: 35px;
+      .info { margin-top: 15px; }
+    }
+  }
+  #gift_box {
+    margin-top: 65px;
+    margin-bottom: 145px;
   }
 }
+
 /*================================ CAROUSEL ================================*/
-.slides_container {
-  width: 588px;
-  height: 330px;
-}
-.slides_container div {
-  width: 588px;
-  height: 330px;
-  line-height: 330px;
-  display:block;
-  text-align: center;
-}
-.caption {
-  text-align: left !important;
-  line-height: 12px !important;
-  left: 0;
-  bottom: -257px;
-  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
-  height: 73px;
-  padding: 5px 20px 0;
-  position: absolute;
-  text-shadow: none;
-  width: 540px;
-  z-index: 500;
-}
-.btn-slide-next, .btn-slide-prev {
-  background-image: url('common/btn-next-prev.png');
-  background-repeat: no-repeat;
-  width: 46px;
-  height: 93px;
-  z-index: 101;
-  position: absolute;
-  display: block;
-  top: 115px;
-}
-.btn-slide-next {
-  background-position: -46 0;
-  right: -5px;
-}
-.btn-slide-prev {
-  background-position: 0 0;
-  left: -5px;
-}
-.pagination {
-  position: absolute;
-  width: auto;
-  z-index: 100;
-  top: 285px;
-  right: 10px;
-  li {
-    float: left;
-    list-style: none outside none;
-    margin: 0 1px;
-    a {
-      color: #FFFFFF;
-      background-image: url('common/bg-slide-num.png');
-      background-position: 0 0;
-      background-repeat: no-repeat;
-      display: block;
-      overflow: hidden;
-      float: left;
-      width: 11px;
-      height: 17px;
-      line-height: 17px;
-      font-size: 10px;
-      padding-left: 5px;
+#kits-slides {
+  height: 198px;
+  width: 299px;
+  box-shadow: 1px 1px 2px 0 #000;
+  background-color: gray;
+  .slides_container div {
+    height: 100%;
+    img { height: 100%; }
+  }
+  .pagination {
+    margin-top: 10px;
+    li {
+      background-color: rgb(236, 236, 236);
+      box-shadow: 1px 1px 0 0 rgb(236, 236, 236);
+      margin: 0 4px 0 5px;
+      &:first-child {
+        margin: 0 4px 0 0;
+      }
+      &:last-child {
+        margin: 0 0 0 5px;
+      }
     }
-    &.current a{
-      background-position: 0 -18px;
+    img {
+      width: 68px;
+      height: 48px;
     }
   }
 }
+
+.slides_container {
+  height: 100%;
+  width: 100%;
+  div {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    display:block;
+    text-align: center;
+    img {
+      max-height: 100%;
+    }
+  }
+}
+
+.pagination li {
+  float: left;
+  list-style: none outside none;
+}
+
+#slides {
+  display: block;
+  height: 330px;
+  width: 588px;
+  position: relative;
+
+  .caption {
+    text-align: left !important;
+    line-height: 12px !important;
+    left: 0;
+    bottom: 0;
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
+    height: 63px !important;
+    padding: 10px 20px 0;
+    position: absolute;
+    text-shadow: none;
+    z-index: 500;
+    width: 548px !important;
+  }
+  .btn-slide-next, .btn-slide-prev {
+    background-image: url('common/btn-next-prev.png');
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 93px;
+    z-index: 101;
+    position: absolute;
+    display: block;
+    top: 115px;
+  }
+  .btn-slide-next {
+    background-position: -46 0;
+    right: -5px;
+  }
+  .btn-slide-prev {
+    background-position: 0 0;
+    left: -5px;
+  }
+  .pagination {
+    position: absolute;
+    width: auto;
+    z-index: 100;
+    top: 285px;
+    right: 10px;
+    li {
+      margin: 0 1px;
+      a {
+        color: #FFFFFF;
+        background-image: url('common/bg-slide-num.png');
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        display: block;
+        overflow: hidden;
+        float: left;
+        width: 11px;
+        height: 17px;
+        line-height: 17px;
+        font-size: 10px;
+        padding-left: 5px;
+      }
+      &.current a{
+        background-position: 0 -18px;
+      }
+    }
+  }
+}
+
+
 #fqa_menu_link_page{
   margin-top: 20px;
 }

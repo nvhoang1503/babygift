@@ -2,7 +2,7 @@
   %li#howitworks{:class => (current_page?(home_how_it_work_path)  ? "selected" : "")}
     = link_to I18n.t('content.top_menu.how') , home_how_it_work_path
   %li#kits
-    = link_to I18n.t('content.top_menu.kit'), "#"
+    = link_to I18n.t('content.top_menu.kit'), kits_path
   %li#enrolls
     = link_to I18n.t('content.top_menu.enroll'), "#"
   %li#gifts
