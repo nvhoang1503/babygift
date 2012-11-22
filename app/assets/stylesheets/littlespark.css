@@ -1,3 +1,4 @@
+@charset "utf-8";
 @font-face {
     font-family: 'Gudea';
     src: url('common/gudea-fontfacekit/Gudea-Regular-webfont.eot');
@@ -103,7 +104,7 @@ ul, ol{
   margin:auto;
   padding:0px;
   background-color: #fff;
-  font-family:"Gudea" ;
+  font-family:"Gudea", serif;
   font-size: 16px;
   line-height:20.71px;
   letter-spacing: 0px;
