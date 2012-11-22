@@ -30,8 +30,17 @@ en:
       about: 'About Us'
       copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
-      common:
-        enjoy: 'Enjoy a monthly subscription today!'
+      kits:
+        title: 'our kits'
+        designed_sum: 'Designed by Experts'
+        designed_text: 'Our advisory panel is made up of baby psychologists, pediatricians, occupa0onal therapists, teachers, and parents. Meet our <a href="%{link1}" class="underline-link">experts</a> and learn more about our <a href="%{link2}" class="underline-link">curriculum</a> and our philosophies behind it.'
+        toy_sum: 'Carefully Selected Toys'
+        toy_text: 'Your kit will contain 2-­‐4 developmental toys, appropriate for your baby’s age. These toys were chosen for their developmental value, age appropriateness, quality, and safety. They have also been tested by real <a href="%{link}" class="underline-link">babies</a>! You can expect to see toys from trusted brands like Plan Toys, ManhaDan Toys, Hape, Lamaze, among others.'
+        instruction_sum: 'Instruction Manual Included!'
+        instruction_text: 'Did you ever wish your baby came with an instruction manual? Our kits come with an activity guide that explains what skills your baby is developing that month and how to use the toys to help him or her prac0ce the skills being acquired. Don’t worry, it’s short – so you spend the 0me playing with your baby rather than reading!'
+        delight_sum: 'Delighted Parents and Babies'
+        delight_text: 'Read <a href="%{link1}" class="underline-link">testimonials</a> from parents and see <a href="%{link2}" class="underline-link">babies</a> in action.'
+        enjoy: 'Sign up for a monthly box of baby learning'
       contact:
         title: 'Contact Us'
         desc: 'For questions about orders, please include your order number and the <br>name and ZIP code of the billing address.'
@@ -54,18 +63,19 @@ en:
         step1: "Simple <a href='%{link1}'>join</a> for a monthly subscription or send a <a href='%{link2}'>gift</a> . "
         step2: "A box filled with tools, toys, and an activity guide arrives at your doorstep each month. <a href='%{link}'>Learn how a box is designed</a> . "
         step3: "Open the box and let the fun begin! <a href='%{link}'>See a sample box</a> . "
+        enjoy: 'Enjoy a monthly subscription today!'
       home:
         intro_sum: 'Learning and Discovery begins at birth'
         intro_text: 'Little Spark delivers a monthly curriculum that enhances early childhood development specifically geared for your little one’s age.'
         how_sum: 'how it works'
         how_text: 'Enroll today and receive a monthly kit specifically geared for your child’s development goals.'
-        cirriculum_sum: 'Our Custom Curriculum'
-        cirriculum_text: 'Learn more about our proprietary curriculum and our panel of experts.'
+        curriculum_sum: 'Our Custom Curriculum'
+        curriculum_text: 'Learn more about our proprietary curriculum and our panel of experts.'
         people_say_sum: 'What People Are Saying About Us'
         people_say_more: 'View more testimonials >'
-      cirriculum:
+      curriculum:
         intro_sum: 'Our Curriculum'
-        intro_text: 'Our curriculum is a set of 48 different <a href="#">kits</a>, one to cover each month from the ages of 0 to 4 years old. Developed by a team of <a href="#">experts</a>, the kits collectively address all <a href="#">developmental milestones</a> typically achieved in the first three years of life – gross motor skills, fine motor skills, language, social, among others. The kits contain the tools you need to engage in learning play with your baby and progress as your baby progresses. You and your baby can start at any time... because learning starts at birth and continues for a lifetime!'
+        intro_text: 'Our curriculum is a set of 48 different <a href="%{link1}">kits</a>, one to cover each month from the ages of 0 to 4 years old. Developed by a team of <a href="%{link2}">experts</a>, the kits collectively address all <a href="%{link3}">developmental milestones</a> typically achieved in the first three years of life – gross motor skills, fine motor skills, language, social, among others. The kits contain the tools you need to engage in learning play with your baby and progress as your baby progresses. You and your baby can start at any time... because learning starts at birth and continues for a lifetime!'
         philosophies: 'Curriculum Philosophies ... What We Believe'
         independent_play_sum: 'Independent play is critical'
         independent_play_text: 'In the first year of life, play enables baby to learn about Your baby learns important concepts from unstructured play. Thereafter, your baby develops concepts; he or she learns to plan, organize, sequence, and make decisions through play.'

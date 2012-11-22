@@ -11,10 +11,13 @@ class HomeController < ApplicationController
   def contact_us
   end
 
-  def cirriculum
+  def curriculum
   end
 
   def about_us
+  end
+
+  def kits
   end
 
 end

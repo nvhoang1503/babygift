@@ -1,0 +1,34 @@
+#kits-content.page_content_space
+  .title.text.bold.font34.capitalize= I18n.t('content.page.kits.title')
+
+  #kits-slides.pull-left
+    .slides_container
+      - (1..4).each do |idx|
+        %div
+          = image_tag "sample/home_slide_#{idx}.jpg"
+    %ul.pagination
+      - (1..4).each do |idx|
+        %li
+          %a{ :href => '#' }
+            = image_tag "sample/home_slide_#{idx}.jpg"
+
+  .details.pull-right
+    .section.clearfix
+      .text.green.bold.font26= I18n.t('content.page.kits.designed_sum')
+      .info.text.font18= I18n.t('content.page.kits.designed_text', :link1 => '#', :link2 => curriculum_path).html_safe
+    .section.clearfix
+      .text.green.bold.font26= I18n.t('content.page.kits.toy_sum')
+      .info.text.font18= I18n.t('content.page.kits.toy_text', :link => '#').html_safe
+    .section.clearfix
+      .text.green.bold.font26= I18n.t('content.page.kits.instruction_sum')
+      .info.text.font18= I18n.t('content.page.kits.instruction_text')
+    .section.clearfix
+      .text.green.bold.font26= I18n.t('content.page.kits.delight_sum')
+      .info.text.font18= I18n.t('content.page.kits.delight_text', :link1 => '#', :link2 => '#').html_safe
+  .clearfix
+  #gift_box
+    = render "shared/gift_box", :text => I18n.t('content.page.kits.enjoy')
+
+
+- content_for :js do
+  = javascript_include_tag 'libs/slides.jquery.js', 'home'
