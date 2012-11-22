@@ -10,9 +10,9 @@
 
   #slides.pull-left
     .slides_container
-      - (1..6).each do |idx|
+      - (1..4).each do |idx|
         %div
-          = image_tag "sample/cute-baby-#{idx}.jpg"
+          = image_tag "sample/home_slide_#{idx}.jpg"
           .caption.text.font16
             - if idx==3
               %p= '&#8226; Monthly curriculum for ages 0-4'.html_safe

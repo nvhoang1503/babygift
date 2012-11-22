@@ -84,6 +84,8 @@
       height: 135px;
       img.img_info{
         float:left;
+        width:70px;
+        height: 70px;
       }
       .people_desc{
         float:left;
@@ -98,12 +100,12 @@
         }
         .img_comman_right{
           position:absolute;
-          margin-left:280px;
-          margin-top: -35px
+          margin-left:300px;
+          margin-top: -30px
         }
         p.last_desc{
           text-align: right;
-          padding-right: 50px;
+          padding-right: 20px;
           font-family: 'GudeaItalic';
         }
       }
