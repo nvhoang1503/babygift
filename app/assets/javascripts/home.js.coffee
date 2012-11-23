@@ -9,7 +9,7 @@ $ ->
     pause: 1000
     play: 5000
     animationStart: ->
-      $('.caption').animate({ bottom: -73}, 100)
+      $('.caption').animate({ bottom: -34}, 100)
     animationComplete: ->
       $('.caption').animate({ bottom: 0}, 200)
 
