@@ -7,14 +7,14 @@
         = image_tag("common/icon_phone.png" , :class => "icon_phone")
       %p.icon_name= I18n.t('content.page.contact.by_phone')
       %p.icon_info
-        %span.num 1-800-123-456
+        %span.num 1-800-123-4567
         %span.time 7am to 7pm PST, 7 days a week
     .contact_child_box
       .img_box
         = image_tag("common/icon_email.png" , :class => "icon_email")
       %p.icon_name= I18n.t('content.page.contact.by_email')
       %p.icon_info
-        =link_to "contactus@littlespark.com", "#"
+        =link_to "contactus@littlespark.com", "#" , :class=> "underline-link"
     .contact_child_box
       .img_box
         = image_tag("common/icon_letter.png" , :class => "icon_letter")
