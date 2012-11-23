@@ -64,7 +64,6 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
 .capitalize { text-transform: capitalize; }
 
 .text {
-  color: #44464b;
   letter-spacing: 0;
   &.bold { 
     font-family: "GudeaBold"
@@ -170,11 +169,36 @@ ul.social_medial_icon li{
     li{
       float: left;
       margin-top:45px;
-      margin-right:30px;
+      margin-right:20px;
+      text-align:left;
       a{
         color: #fff;
         font-size: 16px;
       }
+      &:hover , &.selected{
+        font-family:"GudeaBold";
+      }
+    }
+    #redeem{
+      width:110px;
+    }
+    #faq{
+      width:50px;
+    }
+    #refer{
+      width:110px;
+    }
+    #terms{
+      width:50px;
+    }
+    #privacy{
+      width:60px;
+    }
+    #contact{
+      width:90px;
+    }
+    #about{
+      width:90px;
     }
   }
 }

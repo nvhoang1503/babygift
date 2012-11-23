@@ -1,18 +1,18 @@
 .footer_menu_box
   %ul.footer_menu
-    %li
+    %li#redeem
       = link_to I18n.t('content.footer.redeem') , "#"
-    %li
+    %li#faq{:class => (current_page?(home_fqa_path)  ? "selected" : "")}
       = link_to I18n.t('content.footer.faq') , home_fqa_path
-    %li
+    %li#refer
       = link_to I18n.t('content.footer.refer') , "#"
-    %li
+    %li#terms
       = link_to I18n.t('content.footer.term') , "#"
-    %li
+    %li#privacy
       = link_to I18n.t('content.footer.privacy') , "#"
-    %li
+    %li#contact{:class => (current_page?(home_contact_us_path)  ? "selected" : "")}
       = link_to I18n.t('content.footer.contact') , home_contact_us_path
-    %li
+    %li#about{:class => (current_page?(home_about_us_path)  ? "selected" : "")}
       = link_to I18n.t('content.footer.about') , home_about_us_path
 .footer_line
-.footer_text= I18n.t('content.footer.copyright')
+.footer_text.text.italic= I18n.t('content.footer.copyright')
