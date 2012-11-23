@@ -276,9 +276,16 @@
   .details {
     .section {
       margin-bottom: 35px;
-      .info { margin-top: 15px; }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .info {
+        margin-top: 15px;
+      }
     }
-    &.title { margin-bottom: 20px; }
+    &.title {
+      margin-bottom: 20px;
+    }
   }
   #gift_box {
     margin-top: 65px;
