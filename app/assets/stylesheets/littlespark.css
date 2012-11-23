@@ -108,6 +108,8 @@ ul, ol{
   font-size: 16px;
   line-height:20.71px;
   letter-spacing: 0px;
+  border-left:solid 1px #dbdbdb;
+  border-right:solid 1px #dbdbdb;
 }
 #header{
   clear: both;
@@ -121,6 +123,7 @@ ul, ol{
   clear: both;
   width:1050px;
   min-height: 600px;
+
 }
 .page_content_space{
   width:940px;
