@@ -11,13 +11,13 @@
     .work_box.right_space
       = image_tag("common/how02.png" , :class => "img_how")
       %p.tittle_content Receive a Box
-      .work_desc= I18n.t('content.page.how.step2', :link => '#').html_safe
+      .work_desc= I18n.t('content.page.how.step2', :link => home_about_us_path).html_safe
 
     / step 3
     .work_box
       = image_tag("common/how03.png" , :class => "img_how")
       %p.tittle_content Grow, grow, grow!
-      %p.work_desc= I18n.t('content.page.how.step3', :link => '#').html_safe
+      %p.work_desc= I18n.t('content.page.how.step3', :link => kits_path).html_safe
 
   / gift content
   #gift_box
