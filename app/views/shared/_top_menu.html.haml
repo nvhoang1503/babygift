@@ -1,7 +1,7 @@
 %ul.top_menu
   %li#howitworks{:class => (current_page?(home_how_it_work_path)  ? "selected" : "")}
     = link_to I18n.t('content.top_menu.how') , home_how_it_work_path
-  %li#kits
+  %li#kits{:class => (current_page?(kits_path)  ? "selected" : "")}
     = link_to I18n.t('content.top_menu.kit'), kits_path
   %li#enrolls
     = link_to I18n.t('content.top_menu.enroll'), "#"

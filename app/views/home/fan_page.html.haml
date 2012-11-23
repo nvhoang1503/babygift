@@ -1,0 +1,47 @@
+#fan-club-content.page_content_space
+  .title.text.bold.font34.capitalize= I18n.t('content.page.fan.title')
+
+  #slides.pull-left
+    .slides_container
+      - (1..4).each do |idx|
+        %div
+          = image_tag "sample/fan-club-#{idx}.jpg"
+    %ul.pagination
+      - (1..4).each do |idx|
+        %li
+          %a{ :href => '#' }
+            = image_tag "sample/fan-club-#{idx}.jpg"
+
+  .details.pull-right
+    .title.text.green.bold.font26= I18n.t('content.page.fan.testimonial')
+    .section.clearfix
+      .comment.clearfix
+        = image_tag("common/comman_left.png" , :class => "pull-left")
+        .text.font18.pull-left This is the time in my daughter’s life when she is changing rapidly, on a monthly basis. With Little Spark, parents can foster that fast-paced growth!
+        = image_tag("common/comman_right.png" , :class => "pull-right right-quote")
+      .info.text.font18.pull-right - Vivian, mom to Clara, 10 months old
+    .section.clearfix
+      .comment.clearfix
+        = image_tag("common/comman_left.png" , :class => "pull-left")
+        .text.font18.pull-left I want to buy my son the best toys out there but I don’t have the time to look. Now his toys are chosen by a cognitive researcher from a world-class infant lab!
+        = image_tag("common/comman_right.png" , :class => "pull-right right-quote")
+      .info.text.font18.pull-right - Kate, mom to Mason, 2 months old
+    .section.clearfix
+      .comment.clearfix
+        = image_tag("common/comman_left.png" , :class => "pull-left")
+        .text.font18.pull-left Now that she is a toddler, it’s hard to keep her interested in anything for too long. My kits arrive just in time to bring some freshness to her toy box.
+        = image_tag("common/comman_right.png" , :class => "pull-right right-quote")
+      .info.text.font18.pull-right - Tom, dad to Sophia, 18 months old
+    .section.clearfix
+      .comment.clearfix
+        = image_tag("common/comman_left.png" , :class => "pull-left")
+        .text.font18.pull-left I wish I had Little Spark 4 years ago when I had my twin boys. I subscribed for my newborn son and it’s enabled me to focus on bonding with him when I finally find the time!
+        = image_tag("common/comman_right.png" , :class => "pull-right right-quote")
+      .info.text.font18.pull-right - Jennifer, mom to Daniel, 6 months old and his 5 year old brothers
+  .clearfix
+  #gift_box
+    = render "shared/gift_box", :text => I18n.t('content.page.kits.enjoy')
+
+
+- content_for :js do
+  = javascript_include_tag 'libs/slides.jquery.js', 'home'

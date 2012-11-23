@@ -30,6 +30,10 @@ en:
       about: 'About Us'
       copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
+      fan:
+        title: 'Our Fan Club'
+        testimonial: 'Testimonials from Parents'
+        enjoy: 'Sign up for a monthly box of baby learning'
       kits:
         title: 'our kits'
         designed_sum: 'Designed by Experts'

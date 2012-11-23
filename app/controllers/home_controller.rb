@@ -20,4 +20,6 @@ class HomeController < ApplicationController
   def kits
   end
 
+  def fan_page
+  end
 end
