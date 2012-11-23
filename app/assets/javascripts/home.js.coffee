@@ -9,9 +9,9 @@ $ ->
     pause: 1000
     play: 5000
     animationStart: ->
-      $('.caption').animate({ bottom: -34}, 100)
+      $('.caption').animate({ top:  330}, 100)
     animationComplete: ->
-      $('.caption').animate({ bottom: 0}, 200)
+      $('.caption').animate({ top: 296}, 200)
 
   $.each ['#kits-content #slides', '#fan-club-content #slides'], (idx, val) ->
     $(val).slides
