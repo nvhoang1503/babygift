@@ -9,5 +9,6 @@ Littlespark::Application.routes.draw do
 
   get 'curriculum', :to => 'home#curriculum'
   get 'kits', :to => 'home#kits'
+  get 'fan_page', :to => 'home#fan_page'
 
 end
