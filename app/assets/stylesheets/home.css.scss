@@ -8,20 +8,16 @@
   float:left;
 
   .img_box{
-    background-color: #ffc91e;
+    border: solid 3px #ffc91e;
     display: block;
     width: 300px;
-    padding: 3px;
-
     img.img_how{
       margin-left:0px;
-      // margin-bottom:30px;
       width:300px;
       height: 200px;
     }
-
-
   }
+  
   .step{
     height: 40px;
     width: 55px;
