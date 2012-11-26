@@ -1,25 +1,25 @@
 - @page_title = "#{I18n.t('titles.pages.name')} | #{I18n.t('titles.pages.home')}"
 
-#spotlight.page_content_space
-  .intro.pull-left
-    .text.bold.font26.line26= I18n.t('content.page.home.intro_sum')
-    .dotted-line
-    .text.font18= I18n.t('content.page.home.intro_text')
-    = link_to I18n.t('label.button.enroll'), '#', :class => 'mybtn btn-pink uppercase', :id => 'btn-enroll'
-    = link_to I18n.t('label.button.gift'), '#', :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
-
-  #slides.pull-left
-    .slides_container
-      - (1..4).each do |idx|
-        %div
-          = image_tag "sample/slideshow#{idx}.jpg"
-          .caption.text.font16
-            %p= I18n.t("content.page.home.slide_#{idx}_text")
-    %a.prev{:href => '#'}
-      .btn-slide-prev
-    %a.next{:href => '#'}
-      .btn-slide-next
-  .clearfix
+#spotlight.page_content_space.clearfix
+  .wrapper
+    .intro.pull-left
+      .text.bold.font26.line26= I18n.t('content.page.home.intro_sum')
+      .dotted-line
+      .text.font18= I18n.t('content.page.home.intro_text')
+      = link_to I18n.t('label.button.enroll'), '#', :class => 'mybtn btn-pink uppercase', :id => 'btn-enroll'
+      = link_to I18n.t('label.button.gift'), '#', :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
+    #slides.pull-left
+      .slides_container
+        - (1..4).each do |idx|
+          %div
+            = image_tag "sample/slideshow#{idx}.jpg"
+            .caption.text.font16
+              %p= I18n.t("content.page.home.slide_#{idx}_text")
+      %a.prev{:href => '#'}
+        .btn-slide-prev
+      %a.next{:href => '#'}
+        .btn-slide-next
+    .clearfix
 
 .page_content_space
   .half-section.pull-left
