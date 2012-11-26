@@ -23,18 +23,16 @@
 
 .page_content_space
   .half-section.pull-left
-    / %a{:href => home_how_it_work_path }
-    = image_tag 'common/icon-how-it-works.png'
+    %a{:href => home_how_it_work_path }
+      = image_tag 'common/icon-how-it-works.png'
     .text.green.font22.bold.capitalize
       = link_to I18n.t('content.page.home.how_sum'), home_how_it_work_path
-      / = I18n.t('content.page.home.how_sum')
     .text.font16= I18n.t('content.page.home.how_text')
   .half-section.pull-right
-    / %a{:href => curriculum_path }
-    = image_tag 'common/icon-curriculum.png'
+    %a{:href => curriculum_path }
+      = image_tag 'common/icon-curriculum.png'
     .text.green.font22.bold.capitalize
       = link_to I18n.t('content.page.home.curriculum_sum'), curriculum_path
-      / = I18n.t('content.page.home.curriculum_sum')
     .text.font16= I18n.t('content.page.home.curriculum_text')
 .clearfix
 
