@@ -1,5 +1,9 @@
 #head_top
-  = link_to image_tag("common/btn_login.png") , "#" , :class => "btn_top_login"
+  / = link_to image_tag("common/btn_login.png") , "#" , :class => "btn_top_login"
+  - if user_signed_in?
+    = link_to "Log out" , destroy_user_session_path , :class => "btn_top_login"
+  - else
+    = link_to "Log in" , new_user_session_path , :class => "btn_top_login"
   %p.text_free_shipping
     = image_tag("common/text_free_shipping.png")
 #head_nav.clear-fix

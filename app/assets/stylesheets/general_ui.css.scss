@@ -83,6 +83,36 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   &.line26 { line-height: 26px; }
 }
 
+
+.simple_form{
+  label{
+    display: block;
+    float: left;
+    font-family: "GudeaBold";
+    width:141px;
+    text-align: right;
+    margin-right: 10px;
+    color: #44464b;
+    line-height: 30px;
+  }
+  input, textarea,select{
+    padding-left: 3px !important;
+    padding-top:2px !important; 
+    font-size: 16px !important;
+  }
+  input{
+    height: 30px !important;
+  }
+  select{
+    height: 30px !important;
+  }
+  textarea{
+    height: 80px !important;
+  }
+
+
+}
+
 /*============== HEADER =====================*/
 #head_top{
   text-align: right;
