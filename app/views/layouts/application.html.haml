@@ -12,7 +12,7 @@
         = render 'shared/head_tab'
       #container
         - flash.each do |key, val|
-          = content_tag :div, val, :class => "alert alert-info #{key}" unless val.blank?
+          = content_tag :div, val, :class => "alert-box page_content_space #{key}" unless val.blank?
         = yield
       #footer
         = render 'shared/footer'
