@@ -265,10 +265,14 @@
     margin-top: 30px;
     .img-holder {
       margin-right: 20px;
-      width: 200px;
-      height: 116px;
+      width: 300px;
+      height: 120px;
       box-shadow: 1px 1px 3px 0 rgb(209, 209, 209);
       background-color: rgb(209, 209, 209);
+      img{
+        width: 300px;
+        height: 120px;
+      }
     }
     .info { margin-top: 20px; }
   }
@@ -484,8 +488,64 @@ ul.fqa_menu_link{
   }
 }
 
+/*======================= REGISTER ==================*/
+#register_login{
 
-
+  .login_box,.register_box{
+    display: block;
+    width: 430px;
+    float: left;
+    
+    // background-color: #d6ddde;
+  }
+  .login_box{
+    margin-left: 0px;
+  }
+  .register_box{
+    margin-left: 60px;
+  }
+  .title_login{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 380px;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: dotted 1px #44464b;
+  }
+  .login_left_space{
+    margin-left: 30px;
+  }
+  .remember_box{
+    width: 100%;
+    display: block;
+    height: 45px;
+    input[type="checkbox"]{
+      float: left;
+      margin-left: 90px;
+      margin-right: 10px;
+    }
+    label{
+      text-align: left;
+    }
+  }
+  .foget_pass{
+    width: 100%;
+    height: 35px;
+    a{
+      margin-left: 160px;
+    }
+  }
+  .btn_login, .btn_register{
+    width: 200px;
+    padding-top: 4px !important;
+  }
+  .btn_login{
+    margin-left: 75px;
+  }
+  .btn_register{
+    margin-left: -10px;
+  }
+}
 
 
 
