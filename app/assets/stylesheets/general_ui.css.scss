@@ -89,7 +89,7 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     display: block;
     float: left;
     font-family: "GudeaBold";
-    width:141px;
+    width:150px;
     text-align: right;
     margin-right: 10px;
     color: #44464b;
@@ -109,8 +109,25 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   textarea{
     height: 80px !important;
   }
+  .form-actions{
+    background-color: transparent;
+    border-top:none;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 19px 20px 20px;
+
+  }
+  
 
 
+}
+.alert-box{
+  background-image:url('common/bg_alert.png'); 
+  background-repeat: no-repeat;
+  height: 50px;
+  text-align: center;
+  padding-top: 20px;
+  color: #ffffff;
 }
 
 /*============== HEADER =====================*/
@@ -120,6 +137,13 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   a.btn_top_login{
     margin-left:10px;
     float: right;
+    background-image: url('common/btn_login.png');
+    background-repeat: no-repeat;
+    width:110px;
+    height: 35px;
+    text-align: center;
+    color: #44464b;
+    padding-top: 5px;
   }
   p.text_free_shipping{
     float: right;
