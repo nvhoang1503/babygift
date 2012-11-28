@@ -55,6 +55,15 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   display:block;
   height:27px;
 }
+.title_account{
+  font-family:"GudeaBold";
+  font-size:22px;
+  color: #2fb495;
+  width: 100%;
+  text-align: center;
+  border-bottom: dotted 1px #c5c6c8; 
+  padding-bottom: 10px;
+}
 
 .clearboth{
   clear:both;
@@ -95,6 +104,7 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     color: #44464b;
     line-height: 30px;
   }
+  
   input, textarea,select{
     padding-left: 3px !important;
     padding-top:2px !important; 
@@ -108,6 +118,12 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   }
   textarea{
     height: 80px !important;
+  }
+  .big_label2{
+    width:200px !important;
+  }
+  .input_width3{
+    width:300px !important;
   }
   .form-actions{
     background-color: transparent;

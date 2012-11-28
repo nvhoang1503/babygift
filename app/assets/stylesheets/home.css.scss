@@ -490,7 +490,6 @@ ul.fqa_menu_link{
 
 /*======================= REGISTER ==================*/
 #register_login{
-
   .login_box,.register_box{
     display: block;
     width: 430px;
@@ -536,7 +535,7 @@ ul.fqa_menu_link{
     }
   }
   .btn_login, .btn_register{
-    width: 200px;
+    width: 206px;
     padding-top: 4px !important;
   }
   .btn_login{
@@ -547,7 +546,28 @@ ul.fqa_menu_link{
   }
 }
 
-
+/*===================== FORGOT PASSWORK ====================*/
+#forgot_pass_box{
+  .forgot_box{
+    margin-top: 40px;
+  }
+  .btn_forgot{
+    width: 206px !important;
+    margin-left: 140px;
+    padding-top: 5px !important;
+  }
+}
+/*===================== CHANGE PASSWORK ====================*/
+#change_pass{
+  .change_box{
+    margin-top: 40px;
+  }
+  .btn_change_pass{
+    width: 206px !important;
+    margin-left: 190px;
+    padding-top: 5px !important;
+  }
+}
 
 
 
