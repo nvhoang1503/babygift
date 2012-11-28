@@ -63,21 +63,21 @@ Littlespark::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  onfig.action_mailer.default_url_options = { :host => 'littlespark-stg.herokuapp.com' }
-  # ActionMailer Config
-  # Setup for production - deliveries, no errors raised
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :domain => 'littlespark-stg.herokuapp.com',
-      :user_name => 'tpldev1',
-      :password => 'tpldev1@',
-      :authentication => 'plain',
-      :enable_starttls_auto => true
-  }
+  # onfig.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # # ActionMailer Config
+  # # Setup for production - deliveries, no errors raised
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.smtp_settings = {
+  #     :address => "smtp.gmail.com",
+  #     :port => 587,
+  #     :domain => 'localhost:3000',
+  #     :user_name => 'tpldev1',
+  #     :password => 'tpldev1@',
+  #     :authentication => 'plain',
+  #     :enable_starttls_auto => true
+  # }
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
