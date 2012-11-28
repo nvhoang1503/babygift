@@ -30,6 +30,28 @@ en:
       about: 'About Us'
       copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
+      enroll_1:
+        step: 'Your child'
+        title: 'Tell us a little about your child'
+        gender_question: 'Is your Little Spark a boy, girl, or surprise?'
+        name_question: 'What should we call your Little Spark?'
+        birth_question: "When is your Little Spark's birthday or due date?"
+        optional: 'You can update later.'
+        btn_submit: 'continue to plans <span><img src="/assets/common/icon-right-arrow.png"></span>'
+        first_name: 'first name'
+        last_name: 'last name'
+        mon: 'MM'
+        date: 'DD'
+        year: 'YYYY'
+      enroll_2:
+        step: 'Monthy plan'
+      enroll_3:
+        step: 'Your account'
+      enroll_4:
+        step: 'Shipping & billing'
+      enroll_5:
+        step: 'Payment'
+
       fan:
         title: 'Our Fan Club'
         testimonial: 'Testimonials from Parents'

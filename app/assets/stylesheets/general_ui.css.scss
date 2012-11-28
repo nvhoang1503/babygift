@@ -61,7 +61,7 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   color: #2fb495;
   width: 100%;
   text-align: center;
-  border-bottom: dotted 1px #c5c6c8; 
+  border-bottom: dotted 1px #c5c6c8;
   padding-bottom: 10px;
 }
 
@@ -74,19 +74,21 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
 
 .text {
   letter-spacing: 0;
-  &.bold { 
+  &.bold {
     font-family: "GudeaBold"
   }
-  &.unbold { 
+  &.unbold {
     font-family:"Gudea" ;
   }
-  &.italic { 
+  &.italic {
     font-family: "GudeaItalic"
   }
   &.green { color: #2fb596; }
   &.font16 { font-size: 16px; }
   &.font18 { font-size: 18px; }
+  &.font20 { font-size: 20px; }
   &.font22 { font-size: 22px; }
+  &.font24 { font-size: 24px; }
   &.font26 { font-size: 26px; }
   &.font34 { font-size: 34px; }
   &.line26 { line-height: 26px; }
@@ -104,13 +106,20 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     color: #44464b;
     line-height: 30px;
   }
-  
-  input, textarea,select{
+  label.inputHintOverlay {
+    text-align: left;
+    width: auto;
+    font-family: "Gudea";
+    color: #9fa3af;
+    font-size: 24px;
+    margin-left: 15px;
+  }
+  input[type=text], textarea, select{
     padding-left: 3px !important;
-    padding-top:2px !important; 
+    padding-top: 2px !important;
     font-size: 16px !important;
   }
-  input{
+  input[type=text]{
     height: 30px !important;
   }
   select{
@@ -131,14 +140,15 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     margin-bottom: 0px;
     margin-top: 0px;
     padding: 19px 20px 20px;
-
   }
-  
+}
 
-
+.icon-question {
+  width: 23px;
+  height: 23px;
 }
 .alert-box{
-  background-image:url('common/bg_alert.png'); 
+  background-image:url('common/bg_alert.png');
   background-repeat: no-repeat;
   height: 50px;
   text-align: center;
