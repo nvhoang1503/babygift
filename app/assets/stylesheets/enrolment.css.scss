@@ -1,0 +1,127 @@
+
+#enroll_steps {
+  width: 844px;
+  margin: 0 auto 30px;
+  li {
+    margin-right: 40px;
+    &:last-child { margin-right: 0; }
+    &.selected:before {
+      color: #ffffff;
+      margin-right: 8px;
+      background: url("common/bg-enroll-step.png") no-repeat scroll 0 0 transparent;
+    }
+    &:before {
+      color: #ffc91e;
+      font-size: 19px;
+      padding: 4px 11px 4px 10px;
+      margin-right: 8px;
+      text-align: center;
+      vertical-align: middle;
+      background: url("common/bg-enroll-step.png") no-repeat scroll -33px 0 transparent;
+      font-family: 'GudeaBold';
+    }
+    &#step_1:before { content: '1'; }
+    &#step_2:before { content: '2'; }
+    &#step_3:before { content: '3'; }
+    &#step_4:before { content: '4'; }
+    &#step_5:before { content: '5'; }
+    &#step_2.selected {
+      margin-right: 39px;
+    }
+    &#step_4.selected {
+      margin-right: 35px;
+    }
+    a {
+      font-size: 18px;
+      color: #44464b;
+    }
+    &.selected a {
+      font-family: 'GudeaBold';
+    }
+  }
+}
+
+#child-register {
+  .section {
+    width: 704px;
+    margin: 0 auto 55px;
+    text-align: center;
+    .info-panel {
+      margin: 20px auto 0;
+      input {
+        margin-bottom: 0;
+      }
+    }
+    .text.italic {
+      margin-top: 5px;
+    }
+    &:last-child {
+      margin-bottom: 78px;
+      margin-top: -10px;
+    }
+  }
+  #btn-submit {
+    width: 265px;
+    height: 40px;
+    position: absolute;
+    z-index: 100;
+    opacity: 0;
+  }
+  #lnk-submit {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  #birthday {
+    input {
+      width: 86px;
+    }
+    #child_day ~ label{
+      left: 106px !important;
+    }
+    .info-panel {
+      width: 314px;
+      div:nth-child(2) input {
+        margin: 0 18px;
+      }
+      div:nth-child(3) input {
+        width: 106px;
+      }
+    }
+    .icon-question {
+      margin-left: 5px;
+    }
+  }
+  #name {
+    input {
+      width: 226px;
+    }
+    .info-panel {
+      width: 460px;
+      &  > div:first-child input{
+        margin-right: 8px;
+      }
+    }
+  }
+  #gender {
+    margin-top: 25px;
+    .icon-question {
+      margin-left: 15px;
+    }
+    .icon-gender {
+      background: url('common/icon-gender.png') no-repeat;
+      height: 168px;
+      width: 224px;
+      &.boy {
+        background-position: 0 0;
+        width: 226px;
+      }
+      &.girl {
+        background-position: -227px 0;
+        margin: 0 15px;
+      }
+      &.surprize {
+        background-position: -451px 0;
+      }
+    }
+  }
+}
