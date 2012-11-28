@@ -1,38 +1,33 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for :child, :html => { :class => 'default_class', :id => 'child-register' } do |f|
+  = simple_form_for @child, :as => :child, :url => create_baby_path, :html => { :class => 'default_class', :id => 'child-register' } do |f|
     .text.green.font26= I18n.t('content.page.enroll_1.title')
 
     #gender.section.clearfix
       .text.font24
         = I18n.t('content.page.enroll_1.gender_question')
         %span.icon-question
-          = image_tag 'common/icon-question.png'
+          = image_tag 'common/icon-question.png', :title => I18n.t('content.page.enroll_1.gender_hint')
       .clearfix
       .text.font20.italic= I18n.t('content.page.enroll_1.optional')
       .info-panel.clearfix
-        .icon-gender.boy.pull-left
-        .icon-gender.girl.pull-left
-        .icon-gender.surprize.pull-left
+        = f.collection_radio_buttons :gender, gender_images_options, :first, :last
     #name.section.clearfix
       .text.font24= I18n.t('content.page.enroll_1.name_question')
       .info-panel.clearfix
-        = f.input :first_name, :label => false, :required => true, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.first_name') }
-        = f.input :last_name, :label => false, :required => true, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.last_name') }
+        = f.input :first_name, :label => false, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.first_name') }
+        = f.input :last_name, :label => false, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.last_name') }
     #birthday.section.clearfix
       .text.font24
         = I18n.t('content.page.enroll_1.birth_question')
         %span.icon-question
-          = image_tag 'common/icon-question.png'
+          = image_tag 'common/icon-question.png', :title => I18n.t('content.page.enroll_1.birth_hint')
       .clearfix
       .text.font20.italic= I18n.t('content.page.enroll_1.optional')
       .info-panel.clearfix
-        = f.input :month, :label => false, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.mon') }
-        = f.input :day, :label => false, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.date') }
-        = f.input :year, :label => false, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.year') }
+        = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }
     .section.clearfix
-      = f.submit '', :id => 'btn-submit'
-      = link_to I18n.t('content.page.enroll_1.btn_submit').html_safe, '#', :class => 'mybtn btn-pink uppercase text font20', :id => 'lnk-submit'
+      = f.submit I18n.t('content.page.enroll_1.submit'), :id => 'btn-submit', :class => 'mybtn btn-pink uppercase'
 
 = content_for :js do
   - javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js'

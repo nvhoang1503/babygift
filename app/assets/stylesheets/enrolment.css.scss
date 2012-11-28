@@ -50,6 +50,7 @@
       margin: 20px auto 0;
       input {
         margin-bottom: 0;
+        width: 226px;
       }
     }
     .text.italic {
@@ -62,22 +63,18 @@
   }
   #btn-submit {
     width: 265px;
-    height: 40px;
-    position: absolute;
-    z-index: 100;
-    opacity: 0;
+    background-image: url("common/icon-right-arrow.png");
+    width: 265px;
+    background-position: 220px 16px;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+    font-size: 20px;
   }
   #lnk-submit {
     padding-left: 30px;
     padding-right: 30px;
   }
   #birthday {
-    input {
-      width: 86px;
-    }
-    #child_day ~ label{
-      left: 106px !important;
-    }
     .info-panel {
       width: 314px;
       div:nth-child(2) input {
@@ -91,36 +88,39 @@
       margin-left: 5px;
     }
   }
-  #name {
-    input {
-      width: 226px;
-    }
-    .info-panel {
-      width: 460px;
-      &  > div:first-child input{
-        margin-right: 8px;
-      }
+  #name .info-panel {
+    width: 460px;
+    &  > div:first-child input{
+      margin-right: 8px;
     }
   }
   #gender {
     margin-top: 25px;
+    input[type=radio] {
+      display: none;
+    }
+    label.collection_radio_buttons {
+      width: auto;
+      margin: 0;
+    }
     .icon-question {
       margin-left: 15px;
     }
     .icon-gender {
       background: url('common/icon-gender.png') no-repeat;
       height: 168px;
-      width: 224px;
+      width: 222px;
+      cursor: pointer;
       &.boy {
         background-position: 0 0;
         width: 226px;
       }
       &.girl {
-        background-position: -227px 0;
-        margin: 0 15px;
+        background-position: -244px 0;
+        margin: 0 17px;
       }
       &.surprize {
-        background-position: -451px 0;
+        background-position: -484px 0;
       }
     }
   }

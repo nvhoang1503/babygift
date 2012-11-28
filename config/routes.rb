@@ -5,6 +5,7 @@ Littlespark::Application.routes.draw do
   get "enrolment/step_4"
   get "enrolment/step_5"
   get "enrolment/finish"
+  post 'create_baby', :to => 'enrolment#create_baby'
 
   devise_for :users
 
