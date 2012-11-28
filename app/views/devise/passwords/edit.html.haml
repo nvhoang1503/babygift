@@ -6,7 +6,7 @@
       = f.input :reset_password_token, :as => :hidden
       = f.full_error :reset_password_token
       .form-inputs
-        = f.input :password, :label => "New password",:label_html => {:class => "big_label2"}
-        = f.input :password_confirmation, :label => "Confirm your new password" ,:label_html => {:class => "big_label2"}
+        = f.input :password, :required => true, :label => "New password",:label_html => {:class => "big_label2"}
+        = f.input :password_confirmation, :required => true, :label => "Confirm your new password" ,:label_html => {:class => "big_label2"}
       .form-actions
         = f.button :submit, "Reset password" , :class => "mybtn btn-pink btn_change_pass uppercase"

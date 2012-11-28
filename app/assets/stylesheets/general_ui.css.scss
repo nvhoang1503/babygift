@@ -100,12 +100,18 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     display: block;
     float: left;
     font-family: "GudeaBold";
-    width:150px;
+    width:155px;
     text-align: right;
     margin-right: 10px;
     color: #44464b;
     line-height: 30px;
+    abbr{
+      float: right;
+      color: red;
+      margin-left: 5px;
+    }
   }
+
   label.inputHintOverlay {
     text-align: left;
     width: auto;
@@ -115,12 +121,17 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     margin-left: 15px;
   }
   input[type=text], textarea, select{
+
     padding-left: 3px !important;
     padding-top: 2px !important;
     font-size: 16px !important;
   }
   input[type=text]{
     height: 30px !important;
+  }
+  input[type='submit']{
+    height: 40px !important;
+    padding-top: 5px !important;
   }
   select{
     height: 30px !important;
@@ -141,12 +152,18 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     margin-top: 0px;
     padding: 19px 20px 20px;
   }
+  span.error{
+    display: block;
+    text-align: right;
+    color: red;
+  }
 }
 
 .icon-question {
   width: 23px;
   height: 23px;
 }
+
 .alert-box{
   background-image:url('common/bg_alert.png');
   background-repeat: no-repeat;
