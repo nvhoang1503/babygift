@@ -1,2 +1,17 @@
 .page_content_space
   = render 'steps_nav'
+
+  = simple_form_for @plan, :as => :plan, :url => create_plan_path, :html => { :class => 'enroll-form', :id => 'plan-register' } do |f|
+    .tittle_content= I18n.t('content.page.enroll_2.title')
+    .info-panel.clearfix
+      = f.collection_radio_buttons :type, plan_image_options, :first, :last
+    .text.font16
+      = I18n.t('content.page.enroll_2.note')
+      %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_2.hint') }
+        = image_tag 'common/icon-question.png'
+    %center
+      = f.submit I18n.t('content.page.enroll_2.submit'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
+
+= content_for :js do
+  - javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js'
+

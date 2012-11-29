@@ -1,17 +1,17 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for @child, :as => :child, :url => create_baby_path, :html => { :class => 'default_class', :id => 'child-register' } do |f|
-    .text.green.font26= I18n.t('content.page.enroll_1.title')
+  = simple_form_for @child, :as => :child, :url => create_baby_path, :html => { :class => 'enroll-form', :id => 'child-register' } do |f|
+    .tittle_content= I18n.t('content.page.enroll_1.title')
 
     #gender.section.clearfix
       .text.font24
         = I18n.t('content.page.enroll_1.gender_question')
-        %span.icon-question
-          = image_tag 'common/icon-question.png', :title => I18n.t('content.page.enroll_1.gender_hint')
+        %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_1.gender_hint') }
+          = image_tag 'common/icon-question.png'
       .clearfix
       .text.font20.italic= I18n.t('content.page.enroll_1.optional')
       .info-panel.clearfix
-        = f.collection_radio_buttons :gender, gender_images_options, :first, :last
+        = f.collection_radio_buttons :gender, gender_image_options, :first, :last
     #name.section.clearfix
       .text.font24= I18n.t('content.page.enroll_1.name_question')
       .info-panel.clearfix
@@ -20,14 +20,14 @@
     #birthday.section.clearfix
       .text.font24
         = I18n.t('content.page.enroll_1.birth_question')
-        %span.icon-question
-          = image_tag 'common/icon-question.png', :title => I18n.t('content.page.enroll_1.birth_hint')
+        %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_1.birth_hint') }
+          = image_tag 'common/icon-question.png'
       .clearfix
       .text.font20.italic= I18n.t('content.page.enroll_1.optional')
       .info-panel.clearfix
         = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }
     .section.clearfix
-      = f.submit I18n.t('content.page.enroll_1.submit'), :id => 'btn-submit', :class => 'mybtn btn-pink uppercase'
+      = f.submit I18n.t('content.page.enroll_1.submit'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
 = content_for :js do
   - javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js'

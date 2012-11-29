@@ -45,7 +45,13 @@ en:
         gender_hint: 'We currently offer gender neutral toys only but may use this information in the future to customize your subscription.'
         birth_hint: "Your kit is prepared to match your baby's age, down to the month! Please provide this information so we can send the right kit to you."
       enroll_2:
-        step: 'Monthy plan'
+        step: 'Monthly plan'
+        title: 'Choose your plan'
+        note: '*we will charge your credit card monthly'
+        hint: 'Your account will be debited monthly'
+        submit: 'continue to account'
+        monthly: '/month*'
+        plan_missing: 'Choose your plan first!'
       enroll_3:
         step: 'Your account'
       enroll_4:

@@ -14,6 +14,18 @@ class EnrolmentController < ApplicationController
   end
 
   def step_2
+    @plan = BabyPlan.new
+  end
+
+  def create_plan
+    @plan = BabyPlan.new params[:plan]
+    @plan.price = BabyPlan::PRICE[@plan.type] if params[:plan] && params[:plan].has_key?('type')
+    if @plan.save
+      redirect_to enrolment_step_3_path
+    else
+      flash[:error] = I18n.t('content.page.enroll_2.plan_missing')
+      render enrolment_step_2_path
+    end
   end
 
   def step_3
