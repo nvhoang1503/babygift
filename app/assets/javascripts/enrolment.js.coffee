@@ -1,5 +1,7 @@
 $ ->
-  $('#child-register').inputHintOverlay()
+  $('.icon-question').tooltip
+    placement: 'right'
+
   $('#child_birthday').datepicker({
     format: 'mm/dd/yyyy'
     weekStart: 1
@@ -8,3 +10,4 @@ $ ->
   }).on 'changeDate', ->
     if $('#child_birthday').val().trim() != ''
       $('#child_birthday ~ label.inputHintOverlay').css({display:'none'})
+  $('#child-register').inputHintOverlay()

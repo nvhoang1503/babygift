@@ -1,5 +1,118 @@
+.enroll-form {
+  margin: 0 auto;
+  width: 870px;
+  label.collection_radio_buttons {
+    width: auto;
+    margin: 0;
+  }
 
-#enroll_steps {
+  .mybtn.next {
+    background-image: url("common/icon-next.png");
+    background-repeat: no-repeat;
+    font-size: 20px !important;
+    &:hover {
+      background-image: url("common/icon-next-hover.png");
+    }
+  }
+}
+
+#plan-register {
+  input[type=radio] {
+    display: none;
+    &:checked ~ label {
+      .price {
+        color: blue;
+        text-decoration: underline;
+        font-family: 'GudeaItalic';
+        font-weight: bold;
+      }
+      .icon-plan {
+        border: 3px solid gray;
+        border-radius: 7px;
+        height: 190px;
+        width: 198px;
+        &._1-month {
+          background-position: -3px -3px;
+        }
+        &._3-month {
+          background-position: -228px -3px;
+        }
+        &._6-month {
+          background-position: -454px -3px;
+        }
+        &._12-month {
+          background-position: -678px -3px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .icon-plan {
+    cursor: pointer;
+    background: url('common/icon-month-plan.png') no-repeat;
+    width: 204px;
+    height: 196px;
+    margin: 22px 18px 15px 0;
+    position: relative;
+    &._1-month {
+      background-position: 0 0;
+    }
+    &._3-month {
+      background-position: -225px 0;
+    }
+    &._6-month {
+      background-position: -451px 0;
+    }
+    &._12-month {
+      background-position: -675px 0;
+      margin-right: 0;
+    }
+
+    &:hover {
+      border: 3px solid gray;
+      border-radius: 7px;
+      height: 190px;
+      width: 198px;
+
+      .price{
+        color: blue;
+        text-decoration: underline;
+        font-family: 'GudeaItalic';
+        font-weight: bold;
+      }
+      &._1-month {
+        background-position: -3px -3px;
+      }
+      &._3-month {
+        background-position: -228px -3px;
+      }
+      &._6-month {
+        background-position: -454px -3px;
+      }
+      &._12-month {
+        background-position: -678px -3px;
+        margin-right: 0;
+      }
+    }
+  }
+  .price {
+    color: #44464B;
+    font-size: 23px;
+    font-family: 'Gudea';
+    position: absolute;
+    left: 0;
+    bottom: 25px;
+    text-align: center;
+    width: 204px;
+  }
+  #btn-submit {
+    margin-top: 32px;
+    width: 266px;
+    padding-right: 24px;
+    background-position: 232px 12px;
+  }
+}
+#enroll-steps {
   width: 844px;
   margin: 0 auto 30px;
   li {
@@ -7,14 +120,13 @@
     &:last-child { margin-right: 0; }
     &.selected:before {
       color: #ffffff;
-      margin-right: 8px;
       background: url("common/bg-enroll-step.png") no-repeat scroll 0 0 transparent;
     }
     &:before {
       color: #ffc91e;
       font-size: 19px;
       padding: 4px 11px 4px 10px;
-      margin-right: 8px;
+      margin-right: 7px;
       text-align: center;
       vertical-align: middle;
       background: url("common/bg-enroll-step.png") no-repeat scroll -33px 0 transparent;
@@ -25,12 +137,8 @@
     &#step_3:before { content: '3'; }
     &#step_4:before { content: '4'; }
     &#step_5:before { content: '5'; }
-    &#step_2.selected {
-      margin-right: 39px;
-    }
-    &#step_4.selected {
-      margin-right: 35px;
-    }
+
+    &#step_4.selected { margin-right: 37px; }
     a {
       font-size: 18px;
       color: #44464b;
@@ -63,12 +171,8 @@
   }
   #btn-submit {
     width: 265px;
-    background-image: url("common/icon-right-arrow.png");
-    width: 265px;
-    background-position: 220px 16px;
-    background-repeat: no-repeat;
+    background-position: 220px 12px;
     padding-right: 20px;
-    font-size: 20px;
   }
   #lnk-submit {
     padding-left: 30px;
@@ -95,22 +199,37 @@
     }
   }
   #gender {
-    margin-top: 25px;
-    input[type=radio] {
-      display: none;
-    }
-    label.collection_radio_buttons {
-      width: auto;
-      margin: 0;
-    }
+    margin-top: 20px;
     .icon-question {
       margin-left: 15px;
+    }
+    input[type=radio] {
+      display: none;
+      &:checked ~ label .icon-gender {
+        height: 165px;
+        width: 219px;
+        border-radius: 8px;
+        border: 3px solid #FFC91E;
+        &.boy {
+          background-position: -3px -3px;
+        }
+        &.girl {
+          background-position: -247px -3px;
+        }
+        &.surprize {
+          background-position: -487px -3px;
+        }
+      }
     }
     .icon-gender {
       background: url('common/icon-gender.png') no-repeat;
       height: 168px;
       width: 222px;
       cursor: pointer;
+      &:hover {
+        border-radius: 8px;
+        box-shadow: 0 0 0 3px #FFC91E inset;
+      }
       &.boy {
         background-position: 0 0;
         width: 226px;
@@ -122,6 +241,7 @@
       &.surprize {
         background-position: -484px 0;
       }
+      &.selected {}
     }
   }
 }
