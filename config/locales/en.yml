@@ -32,6 +32,15 @@ en:
       about: 'About Us'
       copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
+      login:
+        title: 'Log in'
+        forgot_pass: 'Forgot your password?'
+        login: 'Already Registered? Log In'
+        sign_in: 'Sign in'
+        welcome: 'New to Little Spark? Welcome!'
+        email_confirm: 'Confirm Email'
+        pass_confirm: 'Comfirm Password'
+        join: 'Join the family'
       enroll_1:
         step: 'Your child'
         title: 'Tell us a little about your child'
@@ -54,6 +63,7 @@ en:
         plan_missing: 'Choose your plan first!'
       enroll_3:
         step: 'Your account'
+        title: 'Sign in'
       enroll_4:
         step: 'Shipping & billing'
       enroll_5:
