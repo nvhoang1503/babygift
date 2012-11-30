@@ -117,22 +117,25 @@
 }
 #enroll-steps {
   width: 844px;
-  margin: 0 auto 30px;
+  /*margin: 0 auto 18px;*/
+  margin: 0 auto;
+  & ~ .dotted-line {
+    margin: 25px 0 40px;
+  }
   li {
     margin-right: 40px;
-    &:last-child { margin-right: 0; }
     &.selected:before {
       color: #ffffff;
-      background: url("common/bg-enroll-step.png") no-repeat scroll 0 0 transparent;
+      background: url("common/bg-enroll-step.png") no-repeat scroll 0 2px transparent;
     }
     &:before {
       color: #ffc91e;
       font-size: 19px;
-      padding: 4px 11px 4px 10px;
+      padding: 5px 11px 5px 10px;
       margin-right: 7px;
       text-align: center;
       vertical-align: middle;
-      background: url("common/bg-enroll-step.png") no-repeat scroll -33px 0 transparent;
+      background: url("common/bg-enroll-step.png") no-repeat scroll -33px 2px transparent;
       font-family: 'GudeaBold';
     }
     &#step_1:before { content: '1'; }
@@ -140,6 +143,7 @@
     &#step_3:before { content: '3'; }
     &#step_4:before { content: '4'; }
     &#step_5:before { content: '5'; }
+    &#step_5 { margin-right: 0; }
 
     &#step_4.selected { margin-right: 37px; }
     a {
