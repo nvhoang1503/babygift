@@ -15,9 +15,12 @@ module EnrolmentHelper
 
   def gender_image_options
     [
-      [1, '<div class="icon-gender boy pull-left"></div>'.html_safe] ,
-      [-1, '<div class="icon-gender girl pull-left"></div>'.html_safe],
-      [0, '<div class="icon-gender surprize pull-left"></div>'.html_safe]
+      [Baby::GENDER[:boy],
+        '<div class="icon-gender boy pull-left"></div>'.html_safe] ,
+      [Baby::GENDER[:girl],
+        '<div class="icon-gender girl pull-left"></div>'.html_safe],
+      [Baby::GENDER[:surprize],
+        '<div class="icon-gender surprize pull-left"></div>'.html_safe]
     ]
   end
 
