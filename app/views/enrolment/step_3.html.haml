@@ -1,2 +1,6 @@
 .page_content_space
   = render 'steps_nav'
+
+  #register_login.enroll-form
+    .tittle_content.capitalize= I18n.t('content.page.enroll_3.title')
+    = render 'devise/sessions/form_login_and_register'
