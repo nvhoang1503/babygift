@@ -212,12 +212,13 @@
     }
     input[type=radio] {
       display: none;
-      &:checked ~ label .icon-gender {
-        height: 165px;
-        width: 219px;
+      &:checked + label .icon-gender {
+        height: 162px;
+        width: 216px;
         border-radius: 8px;
         border: 3px solid #FFC91E;
         &.boy {
+          width: 220px;
           background-position: -3px -3px;
         }
         &.girl {
@@ -234,21 +235,32 @@
       width: 222px;
       cursor: pointer;
       &:hover {
+        height: 162px;
+        width: 216px;
         border-radius: 8px;
-        box-shadow: 0 0 0 3px #FFC91E inset;
+        border: 3px solid #FFC91E;
       }
       &.boy {
         background-position: 0 0;
         width: 226px;
+        &:hover {
+          width: 220px;
+          background-position: -3px -3px;
+        }
       }
       &.girl {
         background-position: -244px 0;
         margin: 0 17px;
+        &:hover {
+          background-position: -247px -3px;
+        }
       }
       &.surprize {
         background-position: -484px 0;
+        &:hover {
+          background-position: -487px -3px;
+        }
       }
-      &.selected {}
     }
   }
 }

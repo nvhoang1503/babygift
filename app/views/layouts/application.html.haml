@@ -11,8 +11,14 @@
       #header
         = render 'shared/head_tab'
       #container
-        - flash.each do |key, val|
-          = content_tag :div, val, :class => "page_content_space alert alert-#{key}" unless val.blank?
+        #flash-panel
+          - flash.each do |key, val|
+            - if val.is_a?(Array) && val.any?
+              .page_content_space.alert{:class => "alert-#{key}"}
+                - val.each do |msg|
+                  = content_tag :div, msg unless msg.blank?
+            - else
+              = content_tag :div, val, :class => "page_content_space alert alert-#{key}" unless val.blank?
         = yield
       #footer
         = render 'shared/footer'
