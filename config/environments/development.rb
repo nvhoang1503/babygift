@@ -35,7 +35,7 @@ Littlespark::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.default_url_options = { :host => 'littlespark-stg.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.default :charset => "utf-8"
@@ -45,7 +45,7 @@ Littlespark::Application.configure do
   config.action_mailer.smtp_settings = {
       :address => "smtp.gmail.com",
       :port => 587,
-      :domain => 'littlespark-stg.herokuapp.com',
+      :domain => 'localhost:3000',
       :user_name => 'tpldev1',
       :password => 'tpldev1@',
       :authentication => 'plain',

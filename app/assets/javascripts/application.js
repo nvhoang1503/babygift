@@ -17,3 +17,4 @@
 //= require helper
 //= require application
 //= require init
+//= require validation
