@@ -489,6 +489,20 @@ ul.fqa_menu_link{
 }
 
 /*======================= REGISTER ==================*/
+#plan-addresses {
+  .title_fields {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: dotted 1px #44464b;
+  }
+  #billing-address, #shipping-address{
+    display: block;
+    width: 390px;
+  }
+}
 #register_login{
   .wrapper {
     width: 870px;

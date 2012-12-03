@@ -66,6 +66,8 @@ en:
         title: 'Sign in'
       enroll_4:
         step: 'Shipping & billing'
+        title: 'Tell us where to send your kits'
+        submit: 'continue to payment'
       enroll_5:
         step: 'Payment'
 
