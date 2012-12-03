@@ -494,15 +494,20 @@ ul.fqa_menu_link{
     width: 870px;
     margin: 0 auto;
   }
-  .login_box, .register_box{
+  .register_box{
     display: block;
     width: 390px;
+  }
+  .login_box{
+    display: block;
+    width: 300px;
+    margin-right: 90px;
   }
   .login_box label {
     width: 57px;
   }
   .register_box label {
-    width: 125px;
+    width: 155px;
   }
   .title_login{
     margin-top: 50px;
@@ -516,10 +521,11 @@ ul.fqa_menu_link{
     width: 100%;
     display: block;
     margin: 1px 0 5px;
+    height: 35px;
     input[type="checkbox"]{
       float: left;
       margin-right: 10px;
-      margin-top: 8px;
+      margin-top: 1px;
     }
     label{
       text-align: left;
