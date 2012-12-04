@@ -33,6 +33,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
+      # other
+      t.belongs_to :shipping
+      t.belongs_to :billing
 
       t.timestamps
     end
