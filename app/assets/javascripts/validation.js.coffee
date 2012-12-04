@@ -12,8 +12,8 @@ window.isEmail = (email) ->
   pattern.test email
 
 $(".btn_register").live 'click', ->
-  email = $("#user_email").val()
-  email_conform = $("#email_conform").val()
+  email = $("#user_mail_register").val()
+  email_conform = $("#email_register_conform").val()
   user_password = $("#user_password").val()
   user_password_confirmation = $("#user_password_confirmation").val()
   rs = true

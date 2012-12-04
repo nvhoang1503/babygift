@@ -17,13 +17,13 @@
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
     = f.error_notification
     .form-inputs
-      = f.input :email, :autofocus => true
+      = f.input :email, :input_html => {:id => "user_mail_register"}
       %span#email_error.hidden Email is not blank.
       .conform
         %label
           = I18n.t('content.page.login.email_confirm')
           %abbr{:title => "required"} *
-        %input{:type => 'text' , :id => 'email_conform'}
+        %input{:type => 'text' , :id => 'email_register_conform'}
       %span#email_confirm_error.hidden doesn't match confirmation
       = f.input :password
       %span#passwork_error.hidden Please fill out this field
