@@ -47,8 +47,11 @@
         }
       }
     }
-    input {
+    input, select {
       width: 225px;
+    }
+    input.zip {
+      width: 105px;
     }
   }
   #billing-address {
