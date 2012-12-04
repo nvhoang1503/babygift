@@ -14,8 +14,8 @@ window.isEmail = (email) ->
 $(".btn_register").live 'click', ->
   email = $("#user_mail_register").val()
   email_conform = $("#email_register_conform").val()
-  user_password = $("#user_password").val()
-  user_password_confirmation = $("#user_password_confirmation").val()
+  user_password = $("#user_passwork_register").val()
+  user_password_confirmation = $("#user_passwork_confirm_register").val()
   rs = true
   if isEmail(email)
     $("#email_error").removeClass 'error'
