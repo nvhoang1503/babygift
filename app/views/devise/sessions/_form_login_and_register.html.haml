@@ -25,8 +25,8 @@
           %abbr{:title => "required"} *
         %input{:type => 'text' , :id => 'email_register_conform'}
       %span#email_confirm_error.hidden doesn't match confirmation
-      = f.input :password
+      = f.input :password, :input_html => {:id => "user_passwork_register"}
       %span#passwork_error.hidden Please fill out this field
-      = f.input :password_confirmation, :label => I18n.t('content.page.login.pass_confirm')
+      = f.input :password_confirmation, :input_html => {:id => "user_passwork_confirm_register"}, :label => I18n.t('content.page.login.pass_confirm')
       %span#passwork_confirm_error.hidden doesn't match confirmation
     = f.button :submit, I18n.t('content.page.login.join') , :class => "mybtn btn-pink btn_register uppercase"
