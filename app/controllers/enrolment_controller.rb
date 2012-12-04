@@ -19,7 +19,8 @@ class EnrolmentController < ApplicationController
 
   def create_plan
     @plan = BabyPlan.new params[:plan]
-    @plan.price = BabyPlan::PRICE[@plan.type] if params[:plan] && params[:plan].has_key?('type')
+    @plan.baby = Baby.first #temp
+    @plan.price = BabyPlan::PRICE[@plan.plan_type] if params[:plan] && params[:plan].has_key?('plan_type')
     if @plan.save
       redirect_to enrolment_step_3_path
     else
@@ -35,6 +36,19 @@ class EnrolmentController < ApplicationController
 
   def step_4
     return redirect_to enrolment_step_3_path unless user_signed_in?
+    @plan = BabyPlan.first
+    @plan.build_shipping_address
+    @plan.build_billing_address
+  end
+
+  def update_plan
+    ship_to_billing = params[:plan].delete :ship_to_billing
+    @plan = BabyPlan.first #temp
+    if @plan.update_attributes params[:plan]
+      redirect_to enrolment_step_5_path
+    else
+      render enrolment_step_4_path
+    end
   end
 
   def step_5

@@ -19,6 +19,54 @@
   }
 }
 
+#plan-addresses {
+  .title_fields {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: dotted 1px #44464b;
+  }
+  #btn-submit {
+    margin: 20px 0 230px;
+    width: 288px;
+    padding-right: 24px;
+    background-position: 242px 12px;
+  }
+  #billing-address, #shipping-address{
+    display: block;
+    width: 390px;
+    label {
+      width: 100px;
+      &.optional {
+        line-height: 15px;
+        span.optional {
+          font-size: 12px;
+          font-family: 'Gudea';
+        }
+      }
+    }
+    input {
+      width: 225px;
+    }
+  }
+  #billing-address {
+  }
+  #shipping-address {
+    #ship_to_billing {
+      label {
+        width: auto;
+        line-height: 30px;
+        margin-bottom: 0px;
+      }
+      input {
+        margin: 8px 8px 8px 0;
+      }
+    }
+  }
+}
+
 #plan-register {
   input[type=radio] {
     display: none;

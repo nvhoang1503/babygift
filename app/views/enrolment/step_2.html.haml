@@ -4,7 +4,7 @@
   = simple_form_for @plan, :as => :plan, :url => create_plan_path, :html => { :class => 'enroll-form', :id => 'plan-register' } do |f|
     .tittle_content= I18n.t('content.page.enroll_2.title')
     .info-panel.clearfix
-      = f.collection_radio_buttons :type, plan_image_options, :first, :last
+      = f.collection_radio_buttons :plan_type, plan_image_options, :first, :last
     .text.font16
       = I18n.t('content.page.enroll_2.note')
       %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_2.hint') }

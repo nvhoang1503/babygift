@@ -7,6 +7,7 @@ Littlespark::Application.routes.draw do
   get "enrolment/finish"
   post 'create_baby', :to => 'enrolment#create_baby'
   post 'create_plan', :to => 'enrolment#create_plan'
+  put 'update_plan', :to => 'enrolment#update_plan'
 
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations"}

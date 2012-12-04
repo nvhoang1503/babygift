@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129090035) do
+ActiveRecord::Schema.define(:version => 20121204045319) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "babies", :force => true do |t|
     t.string   "first_name", :null => false
@@ -24,11 +37,13 @@ ActiveRecord::Schema.define(:version => 20121129090035) do
   end
 
   create_table "baby_plans", :force => true do |t|
-    t.integer  "baby_id",    :null => false
-    t.integer  "type",       :null => false
-    t.float    "price",      :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "baby_id",     :null => false
+    t.integer  "plan_type",   :null => false
+    t.float    "price",       :null => false
+    t.integer  "shipping_id"
+    t.integer  "billing_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -42,6 +57,8 @@ ActiveRecord::Schema.define(:version => 20121129090035) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "shipping_id"
+    t.integer  "billing_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

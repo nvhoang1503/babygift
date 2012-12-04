@@ -163,6 +163,18 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     display: block;
     text-align: right;
     color: red;
+    margin-top: -5px;
+  }
+  .field_with_errors {
+    margin-bottom: 10px;
+    &:before, &:after {
+      content: "";
+      display: table;
+      line-height: 0;
+    }
+    &:after {
+      clear: both;
+    }
   }
 }
 
