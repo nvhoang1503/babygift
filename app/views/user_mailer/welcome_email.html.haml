@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+    %p
+      Dear
+      = @email + ","
+    %p
+      Thanks for joining Little Spark!
+    %p
+      Please, follow this 
+      = link_to "link", @url
+      = "."
+
+    %p
+      Email:
+      = @email
+    %p
+      Password:
+      = @password
+    %p
+      Yours sincerely,
+      %br/
+      Little Spark.
+

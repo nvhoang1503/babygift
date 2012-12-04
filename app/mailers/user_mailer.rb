@@ -2,26 +2,18 @@ class UserMailer < ActionMailer::Base
   default from: "from@example.com"
 
 
-	def welcom_email(user)
-	  # mail(to: self.email, subject: "Welcome Message")
-
-    
-    # @url = url_for :controller=>'devise/sessions', :action=>'new'
-    mail(:to => self.email, :subject => "Welcome to Little Spark")
-
-    puts "=========================================================="
-	  puts " ================ nguyen van hoang put here ==================="
-    puts "=========================================================="
+	def welcome_email(user)
+	  @email = user.email
+    @password = user.password
+    @url = url_for :controller=>'devise/sessions', :action=>'new'
+    mail(:to => @email, :subject => "Welcome to Little Spark")
 	end
-  
+
   def register_mail(user)
     @user = user
-    mail(
-      to: "hoangtesting@gmail.com",
-      subject: "request for installation",
-      from: @user,
-      date: Time.now,
-      content_type: "text/html"
-    )
+    @user_mail = user.email
+    @user_id = user.id
+    @email = "littlesparktesting@gmail.com"
+    mail(:to => @email ,subject: "New User" )
   end
 end

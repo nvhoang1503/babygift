@@ -8,7 +8,8 @@ Littlespark::Application.routes.draw do
   post 'create_baby', :to => 'enrolment#create_baby'
   post 'create_plan', :to => 'enrolment#create_plan'
 
-  devise_for :users
+  # devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   root :to => 'home#index'
 
@@ -21,5 +22,6 @@ Littlespark::Application.routes.draw do
   get 'curriculum', :to => 'home#curriculum'
   get 'kits', :to => 'home#kits'
   get 'fan_page', :to => 'home#fan_page'
+
 
 end
