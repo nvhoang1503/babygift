@@ -16,5 +16,5 @@
 //= require bootstrap-datepicker
 //= require helper
 //= require application
-//= require init
+// require init
 //= require validation

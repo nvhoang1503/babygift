@@ -12,10 +12,10 @@
           = shipping_f.input :address_1, :label => 'Address Line 1'
           = shipping_f.input :address_2, :label => 'Address Line 2<span class="pull-right optional">(optional)</span>'.html_safe
           = shipping_f.input :city, :label => 'City'
-          = shipping_f.input :state, :collection => [1,2,3], :label => 'State', :prompt => 'Select One'
-          = shipping_f.input :zip, :label => 'Zip'
+          = shipping_f.input :state, :collection => [1,2,3], :label => 'State', :prompt => 'Please select one'
+          = shipping_f.input :zip, :label => 'Zip', :input_html => { :class => 'zip' }
           = shipping_f.input :phone, :label => 'Phone'
-        = f.input :ship_to_billing, :as => :boolean, :label => 'Use same address for billing', :input_html => {:checked => 'checked', :class => 'pull-left' }, :wrapper_html => { :id => 'ship_to_billing' }
+        = f.input :ship_to_billing, :as => :boolean, :label => 'Use same address for billing', :input_html => {:checked => false, :class => 'pull-left' }, :wrapper_html => { :id => 'ship_to_billing' }
 
     #billing-address.pull-right
       .title_fields Billing Address
@@ -27,8 +27,8 @@
           = billing_f.input :address_1, :label => 'Address Line 1'
           = billing_f.input :address_2, :label => 'Address Line 2<span class="pull-right optional">(optional)</span>'
           = billing_f.input :city, :label => 'City'
-          = billing_f.input :state, :collection => [1,2,3], :label => 'State'
-          = billing_f.input :zip, :label => 'Zip'
+          = billing_f.input :state, :collection => [1,2,3], :label => 'State', :prompt => 'Please select one'
+          = billing_f.input :zip, :label => 'Zip', :input_html => { :class => 'zip' }
           = billing_f.input :phone, :label => 'Phone'
     .clearfix
     .form-action.pull-left
