@@ -1,12 +1,16 @@
 !!!
 %html
-	%head
-		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-	%body
-		%h1
-		%p
-			User Id
-			= @user_id
-		%p
-			Email
-			= @user_mail
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    .mail_logo= image_tag(@image_link)
+    .mail_content{:style => "margin:20px;"}
+      %p{:style => "font-weight:bolder;"} 
+        = "You have got a new account!"
+      %p
+        = "Email:"
+        = @user_mail
+      %p
+        Have Fun!
+        %br/
+        The Little Spark Team.
