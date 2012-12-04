@@ -1,8 +1,8 @@
 class UserMailer < ActionMailer::Base
   default from: "from@example.com"
-
-
+  
 	def welcome_email(user)
+    @image_link = root_url.to_s + 'assets/common/logo_text.png'
 	  @email = user.email
     @password = user.password
     @url = url_for :controller=>'devise/sessions', :action=>'new'
@@ -10,6 +10,7 @@ class UserMailer < ActionMailer::Base
 	end
 
   def register_mail(user)
+    @image_link = root_url.to_s + 'assets/common/logo_text.png'
     @user = user
     @user_mail = user.email
     @user_id = user.id

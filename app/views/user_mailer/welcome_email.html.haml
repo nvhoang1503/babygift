@@ -3,25 +3,19 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    %h1
-    %p
-      Dear
-      = @email + ","
-    %p
-      Thanks for joining Little Spark!
-    %p
-      Please, follow this 
-      = link_to "link", @url
-      = "."
+    .mail_logo= image_tag(@image_link)
+    .mail_content{:style => "margin:20px;"}
+      %p{:style => "font-weight:bolder;"} 
+        = "Dear"
+        = @email + ","
+      %p Thank you for joining Little Spark!
+      %p
+        Please, follow this:
+        = link_to "littlespark.com", @url
+        = "."
 
-    %p
-      Email:
-      = @email
-    %p
-      Password:
-      = @password
-    %p
-      Yours sincerely,
-      %br/
-      Little Spark.
+      %p
+        Have Fun!
+        %br/
+        The Little Spark Team.
 
