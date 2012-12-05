@@ -1,2 +1,36 @@
 .page_content_space
   = render 'steps_nav'
+  .tittle_content= I18n.t('content.page.enroll_5.title')
+  .enroll5_box.pull-left
+    = render 'shared/card_information'
+  
+  .enroll5_box.pull-right
+    .title_box
+      .left_box Order Summary
+      .right_box= link_to 'edit' , '#' ,:class => 'underline-link'
+    .order_info_box
+      .info_box
+        .info_field
+          %p.info_text.text.bold Monthly Subscription
+          %p.number $34.123
+        .info_field
+          %p.info_text.text.bold Shipping
+          %p.number PREE
+        .line_sum
+        .info_field
+          %p.info_text
+            %span.text.bold Tax 
+            %span (CA residents only)
+          %p.number $0.00
+        .line_total
+        .info_field
+          %p.info_text.text.bold.pink ORDER TOTAL
+          %p.text.number.bold.pink $34.123
+      .img_box= image_tag('sample/gitf_dog.jpg')
+    .signup_box
+      %input{:type => 'checkbox' , :name => 'check_box_signup'}
+      %label Sign-up for updates from your friends at Little Spark!
+    .action_box
+      %input.mybtn.btn-pink.btn-place{:type => 'button', :value => 'PLACE YOUR ORDER'}
+      %p.text.italic Your credit card will be charged on a monthly basis. 
+

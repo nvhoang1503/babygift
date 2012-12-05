@@ -70,6 +70,7 @@ en:
         submit: 'continue to payment'
       enroll_5:
         step: 'Payment'
+        title: 'Tell us how you would like to pay'
       enroll:
         title: 'Congratulations!'
         tk:  'Thank you for choosing Little Spark!'

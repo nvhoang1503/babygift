@@ -30,7 +30,7 @@ class EnrolmentController < ApplicationController
   end
 
   def step_3
-    return redirect_to enrolment_step_4_path if user_signed_in?
+    # return redirect_to enrolment_step_4_path if user_signed_in?
 
   end
 
