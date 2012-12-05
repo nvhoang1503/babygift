@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    .mail_logo= image_tag(@image_link)
+    .mail_content{:style => "margin:20px;"}
+      %p
+        = "Dear"
+        = @user_email + ","
+      %p{:style => "font-weight:bolder;"}  
+        = "Congratulations!"
+      %p Thank you for choosing Little Spark!
+      %p
+        = "Your order number is:"
+        %span.text.bold "123-456-789".
+      %p
+        Have Fun!
+        %br/
+        The Little Spark Team.
