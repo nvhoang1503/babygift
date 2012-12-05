@@ -18,3 +18,5 @@
 //= require application
 // require init
 //= require validation
+//= require rails.validations
+//= require rails.validations.simple_form
