@@ -65,10 +65,35 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   color: #2fb495;
   width: 100%;
   text-align: center;
-  border-bottom: dotted 1px #c5c6c8;
   padding-bottom: 10px;
+  background-image: url('common/bg_line.png');
+  background-position: 0 100%;
+  background-repeat: repeat-x;
 }
 
+.title_box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 20px;
+  padding-bottom: 10px;
+  background-image: url('common/bg_line.png');
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+}
+.boder_bottom{
+  background-image: url('common/bg_line.png');
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+}
+.title_box{
+  .left_box{
+    float:left;
+  }
+  .right_box{
+    text-align: right;
+  }
+}
 .clearboth{
   clear:both;
 }
@@ -88,6 +113,7 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     font-family: "GudeaItalic"
   }
   &.green { color: #2fb596; }
+  &.pink{ color: #e42f5a}
   &.font16 { font-size: 16px; }
   &.font18 { font-size: 18px; }
   &.font20 { font-size: 20px; }
@@ -98,8 +124,12 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   &.line26 { line-height: 26px; }
 }
 
+.field{
+  height: 40px;
+}
 
-.simple_form{
+.simple_form, .field{
+  clear: both;
   label{
     display: block;
     float: left;
@@ -124,6 +154,7 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     font-size: 24px;
     margin-left: 15px;
   }
+
   input, textarea, select{
     padding-left: 3px !important;
     padding-top: 2px !important;
@@ -141,6 +172,9 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   }
   textarea{
     height: 80px !important;
+  }
+  .w220{
+    width: 220px;
   }
   .big_label2{
     width:200px !important;
@@ -191,6 +225,56 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   text-align: center;
   padding-top: 20px;
   color: #ffffff;
+}
+.floatleft{
+  float: left;
+}
+/*============ PAYMENT INFO ==========*/
+
+.card_box{
+  margin-bottom: 10px;
+}
+.date_field{
+  span.space{
+    float: left;
+    margin: 5px 15px 0px 15px;
+  }
+  #date_exp_month{
+    width: 65px;
+    float: left;
+  }
+  #date_exp_day{
+    width: 65px;
+    float: left;
+  }
+}
+label.lb_short{
+  width: 125px;
+}
+span.question{
+  width: 15px;
+  height: 21px;
+  display: block;
+  float: left;
+  // position: absolute;
+  color: #fff;
+  padding-left: 8px;
+  padding-top: 2px;
+  margin-top: 5px;
+  background-image: url('common/icon_question.png');
+}
+.security{
+  width: 65px;
+  float: left;
+  margin-right: 10px;
+}
+.field{
+  #btn_apply{
+    height: 30px !important;
+    width: 85px !important;
+    margin-top: -10px;
+    letter-spacing: 1;
+  }
 }
 
 /*============== HEADER =====================*/
@@ -291,6 +375,22 @@ ul.social_medial_icon_line{
   li{
     float: left;
     margin-right:10px;
+  }
+}
+#payment_card{
+  display:block;
+  height:40px;
+  padding-left: 0px;
+}
+ul.card{
+  margin-left: 0px;
+  li{
+    float: left;
+    margin-right:10px;
+    img{
+      height: 30px;
+      width: 60px;
+    }
   }
 }
 /*================ FOOTER ==================*/

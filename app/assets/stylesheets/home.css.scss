@@ -150,8 +150,12 @@
 
 /*================================ Specific ================================*/
 .dotted-line {
-  border-bottom: 1px dotted;
-  margin: 10px 0 15px;
+  // border-bottom: 1px dotted;
+  // margin: 10px 0 15px;
+  background-image: url('common/bg_line.png');
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  height: 2px;
 }
 .page_content_space .half-section {
   width: 420px;
@@ -515,7 +519,10 @@ ul.fqa_menu_link{
     width: 100%;
     font-size: 20px;
     padding-bottom: 10px;
-    border-bottom: dotted 1px #44464b;
+    // border-bottom: dotted 1px #44464b;
+    background-image: url('common/bg_line.png');
+    background-position: 0 100%;
+    background-repeat: repeat-x;
   }
   .remember_box{
     width: 100%;

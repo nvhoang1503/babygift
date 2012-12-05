@@ -320,6 +320,71 @@
     }
   }
 }
+/*======================  ENROLMENT 5 ================*/
+.enroll5_box{
+  width: 430px;
+}
+.order_info_box{
+  .info_box{
+    float: left;
+    width: 280px;
+    margin-right: 30px;
+    p.info_text{
+      float: left;
+    }
+    p.number{
+      float: right;
+    }
+  }
+  .info_field{
+    clear: both;
+  }
+  .img_box{
+    img{
+      width: 120px;
+      height:150px;
+    }
+    
+  }
+  .line_sum{
+    clear: both;
+    height: 2px;
+    border-bottom: solid 1px #44464b;
+    width: 110px;
+    float: right;
+    margin-bottom: 15px;
+  }
+  .line_total{
+    clear: both;
+    height: 2px;
+    border-bottom: solid 1px #44464b;
+    width: 290px;
+    float: right;
+    margin-bottom: 15px;
+  }
+}
+.signup_box{
+  clear: both;
+  margin-top: 40px;
+  input[type='checkbox']{
+    float:left;
+    margin-right: 10px;
+  }
+  label{
+    font-size: 16px;
+  }
+}
+.action_box{
+  clear: both;
+  margin-top: 30px;
+  .btn-place{
+    width: 265px;
+  }
+  p.text{
+    margin-top: 10px;
+  }
+}
+
 #enroll_finish_content{
   .content_box{
     margin-top: 30px;
