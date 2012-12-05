@@ -5,6 +5,8 @@ gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'nested_form'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 gem 'country_select'
 gem 'carrierwave'
 gem 'kaminari' #pagination
@@ -18,9 +20,6 @@ gem 'pg' # for postgresql
 gem 'bootstrap-will_paginate'
 gem 'validates_timeliness', '~> 3.0'
 gem 'countries'
-# gem "therubyracer"
-# gem "less-rails"
-# gem "twitter-bootstrap-rails"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
