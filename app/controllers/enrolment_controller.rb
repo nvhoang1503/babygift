@@ -56,5 +56,7 @@ class EnrolmentController < ApplicationController
   end
 
   def finish
+    user = current_user
+    UserMailer.enroll_email(user).deliver
   end
 end

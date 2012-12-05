@@ -17,4 +17,12 @@ class UserMailer < ActionMailer::Base
     @email = "littlesparktesting@gmail.com"
     mail(:to => @email ,subject: "New User" )
   end
+
+  def enroll_email(user)
+    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    @user = user
+    @user_email = user.email
+    mail(:to => @user_email, :subject => "Congratulation!")
+  end
+
 end
