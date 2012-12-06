@@ -26,29 +26,29 @@ module EnrolmentHelper
 
   def plan_image_options
     [
-      [BabyPlan::TYPE['1_mon'],
+      [Order::TYPE['1_mon'],
         "<div class='icon-plan _1-month pull-left'>
           <div class='price'>
-            #{ number_to_currency BabyPlan::PRICE[BabyPlan::TYPE['1_mon']]
+            #{ number_to_currency Order::PRICE[Order::TYPE['1_mon']]
             }#{I18n.t('content.page.enroll_2.monthly')}
           </div>
         </div>".html_safe] ,
-      [BabyPlan::TYPE['3_mon'],
+      [Order::TYPE['3_mon'],
         "<div class='icon-plan _3-month pull-left'>
           <div class='price'>
-            #{ number_to_currency BabyPlan::PRICE[BabyPlan::TYPE['3_mon']] }
+            #{ number_to_currency Order::PRICE[Order::TYPE['3_mon']] }
           </div>
         </div>".html_safe] ,
-      [BabyPlan::TYPE['6_mon'],
+      [Order::TYPE['6_mon'],
         "<div class='icon-plan _6-month pull-left'>
           <div class='price'>
-            #{ number_to_currency BabyPlan::PRICE[BabyPlan::TYPE['6_mon']] }
+            #{ number_to_currency Order::PRICE[Order::TYPE['6_mon']] }
           </div>
         </div>".html_safe] ,
-      [BabyPlan::TYPE['12_mon'],
+      [Order::TYPE['12_mon'],
         "<div class='icon-plan _12-month pull-left'>
           <div class='price'>
-            #{ number_to_currency BabyPlan::PRICE[BabyPlan::TYPE['12_mon']] }
+            #{ number_to_currency Order::PRICE[Order::TYPE['12_mon']] }
           </div>
         </div>".html_safe]
     ]

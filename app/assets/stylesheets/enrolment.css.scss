@@ -47,7 +47,7 @@
         }
       }
     }
-    input, select {
+    input[type=text], select {
       width: 225px;
     }
     input.zip {
@@ -81,7 +81,7 @@
         font-weight: bold;
       }
       .icon-plan {
-        border: 3px solid gray;
+        border: 3px solid #FFC91E;
         border-radius: 7px;
         height: 190px;
         width: 198px;
@@ -123,7 +123,7 @@
     }
 
     &:hover {
-      border: 3px solid gray;
+      border: 3px solid #FFC91E;
       border-radius: 7px;
       height: 190px;
       width: 198px;
@@ -344,7 +344,7 @@
       width: 120px;
       height:150px;
     }
-    
+
   }
   .line_sum{
     clear: both;
@@ -369,9 +369,11 @@
   input[type='checkbox']{
     float:left;
     margin-right: 10px;
+    margin-top: 10px;
   }
   label{
     font-size: 16px;
+    width: auto !important;
   }
 }
 .action_box{

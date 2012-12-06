@@ -2,7 +2,7 @@
   .title_page= I18n.t('content.page.enroll.title')
   .content_box
     %p= I18n.t('content.page.enroll.tk')
-    %p=I18n.t('content.page.enroll.order',:fone_num => "1234-5678-9012").html_safe
+    %p=I18n.t('content.page.enroll.order',:fone_num => @response.transaction_id).html_safe
     %p.check=I18n.t('content.page.enroll.check', :link => "#").html_safe
     .social
       = render 'shared/social_media_icon_line'

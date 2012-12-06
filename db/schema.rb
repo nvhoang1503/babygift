@@ -36,14 +36,23 @@ ActiveRecord::Schema.define(:version => 20121204045319) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "baby_plans", :force => true do |t|
-    t.integer  "baby_id",     :null => false
-    t.integer  "plan_type",   :null => false
-    t.float    "price",       :null => false
-    t.integer  "shipping_id"
-    t.integer  "billing_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "orders", :force => true do |t|
+    t.integer  "baby_id",                              :null => false
+    t.integer  "plan_type",                            :null => false
+    t.float    "price",               :default => 0.0
+    t.float    "tax",                 :default => 0.0
+    t.float    "shipping_fee",        :default => 0.0
+    t.float    "total"
+    t.string   "current_step"
+    t.integer  "shipping_address_id"
+    t.integer  "billing_address_id"
+    t.integer  "purchaser_id"
+    t.string   "transaction_code"
+    t.date     "transaction_date"
+    t.string   "transaction_status"
+    t.string   "gift_code"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   create_table "users", :force => true do |t|
