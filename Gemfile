@@ -20,6 +20,7 @@ gem 'pg' # for postgresql
 gem 'bootstrap-will_paginate'
 gem 'validates_timeliness', '~> 3.0'
 gem 'countries'
+gem 'authorize-net'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

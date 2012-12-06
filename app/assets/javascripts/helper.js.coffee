@@ -4,7 +4,7 @@ class window.Helper
 
   autoHideFlash: ->
     func =-> $('#flash-panel').fadeOut('slow')
-    window.setTimeout func, 5000
+    window.setTimeout func, 10000
 
   validateZip: (event) ->
     reg = /^\d{0,5}(-\d{0,4})?$/

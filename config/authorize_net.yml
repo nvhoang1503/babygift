@@ -1,0 +1,8 @@
+default:
+  api_login_id: 9Y853Fpaf
+  api_transaction_key: 63gH5n8XE64XptNZ
+  merchant_hash_value: 9Y853Fpaf
+
+development: 
+test: 
+production: 

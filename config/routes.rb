@@ -4,10 +4,10 @@ Littlespark::Application.routes.draw do
   get "enrolment/step_3"
   get "enrolment/step_4"
   get "enrolment/step_5"
-  get "enrolment/finish"
+  post "enrolment/finish"
   post 'create_baby', :to => 'enrolment#create_baby'
   post 'create_plan', :to => 'enrolment#create_plan'
-  put 'update_plan', :to => 'enrolment#update_plan'
+  put 'update_order_shipping', :to => 'enrolment#update_order_shipping'
 
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations"}

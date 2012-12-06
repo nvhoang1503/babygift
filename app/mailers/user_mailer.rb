@@ -18,10 +18,11 @@ class UserMailer < ActionMailer::Base
     mail(:to => @email ,subject: "New User" )
   end
 
-  def enroll_email(user)
+  def enroll_email(user, trans_id)
     @image_link = root_url.to_s + 'assets/common/logo_text.png'
     @user = user
     @user_email = user.email
+    @trans_id = trans_id
     mail(:to => @user_email, :subject => "Congratulation!")
   end
 

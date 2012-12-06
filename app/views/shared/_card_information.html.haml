@@ -2,7 +2,7 @@
   .title_box
     .left_box Credit Card Information
     .right_box= image_tag('common/icon_lock.png')
-  .card_box
+  .card_box.clear-fix
     = render 'shared/payment_card'
   .field
     %label.lb_short Credit Card Number
@@ -11,13 +11,14 @@
     %label.lb_short Expiration Date
     =select_month(Date.today,:use_month_numbers => true, :field_name => 'exp_month')
     %span.space /
-    = select_day(1 , :field_name => 'exp_day')
+    = select_year(Date.today, :start_year => Date.today.year, :end_year => Date.today.year + 15 , :field_name => 'exp_year')
+
   .field
     %label.lb_short Security Code
     %input.security{:type => 'text' , :name => 'card_security', :id => 'card_security'}
     %span.question ?
   .title_box Gift Codes and Coupons
   .field
-    %input{:type => 'text' , :name => 'card_number', :id => 'card_number'}
+    %input{:type => 'text' , :name => 'gift_code', :id => 'gift_code'}
     %input.mybtn.btn-green.btn-apply{:type => 'button' , :name => 'btn_apply', :id => 'btn_apply', :value => 'APPLY'}
-  
+

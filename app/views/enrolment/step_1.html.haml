@@ -1,6 +1,6 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for @child, :as => :child, :url => create_baby_path, :html => { :class => 'enroll-form', :id => 'child-register' } do |f|
+  = simple_form_for @baby, :as => :child, :url => create_baby_path, :html => { :class => 'enroll-form', :id => 'child-register' } do |f|
     .tittle_content= I18n.t('content.page.enroll_1.title')
 
     #gender.section.clearfix
@@ -15,7 +15,7 @@
     #name.section.clearfix
       .text.font24= I18n.t('content.page.enroll_1.name_question')
       .info-panel.clearfix
-        = f.input :first_name, :label => false, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.first_name') }
+        = f.input :first_name, :label => false, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.first_name') }, :validate => { :presence => true }
         = f.input :last_name, :label => false, :input_html => {:class => 'pull-left', :title => I18n.t('content.page.enroll_1.last_name') }
     #birthday.section.clearfix
       .text.font24
