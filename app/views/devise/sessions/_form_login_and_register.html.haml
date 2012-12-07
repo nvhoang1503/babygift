@@ -19,10 +19,10 @@
     .form-inputs
       = f.input :email, :input_html => {:id => "user_mail_register"}
       %span#email_error.hidden Email is not blank.
-      .conform
+      .conform.input.email.required
         %label
-          = I18n.t('content.page.login.email_confirm')
           %abbr{:title => "required"} *
+          = I18n.t('content.page.login.email_confirm')
         %input{:type => 'text' , :id => 'email_register_conform'}
       %span#email_confirm_error.hidden doesn't match confirmation
       = f.input :password, :input_html => {:id => "user_passwork_register"}
