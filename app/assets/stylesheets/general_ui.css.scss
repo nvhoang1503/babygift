@@ -218,16 +218,23 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   cursor: pointer;
 }
 
-.alert-box{
-  background-image:url('common/bg_alert.png');
-  background-repeat: no-repeat;
-  height: 50px;
-  text-align: center;
-  padding-top: 20px;
-  color: #ffffff;
-}
 .floatleft{
   float: left;
+}
+
+#flash-panel{
+  .alert-box{
+    background-image:url('common/bg_alert.png');
+    background-color: transparent !important;
+    border:none !important;
+    background-repeat: no-repeat;
+    height: 50px;
+    text-align: center;
+    padding: 20px 0px 0px 0px !important;
+    color: #ffffff;
+    border-radius: none !important;
+
+  }
 }
 /*============ PAYMENT INFO ==========*/
 
