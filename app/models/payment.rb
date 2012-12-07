@@ -1,4 +1,11 @@
 class Payment < ActiveRecord::Base
+  CARD_TYPE = {
+    :visa => 1,
+    :master => 2,
+    :am_express => 3,
+    :discover => 4
+  }
+
 	def self.an_process(params)
     card_num = params[:card_number]
     card_sec = params[:card_security]

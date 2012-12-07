@@ -1,7 +1,7 @@
 .page_content_space
   = render 'steps_nav'
 
-  = simple_form_for @order, :as => :order, :method => 'post', :url => enrolment_finish_path(:order_id => @order.id), :html => { :class => 'enroll-form', :id => 'plan-register' } do |f|
+  = simple_form_for @order, :as => :order, :method => 'post', :url => enrolment_finish_path(:order_id => @order.id), :html => { :class => 'enroll-form', :id => 'frm-payment' } do |f|
     .tittle_content= I18n.t('content.page.enroll_5.title')
     .enroll5_box.pull-left
       = render 'shared/card_information', :parent => f
@@ -11,7 +11,7 @@
         .left_box Order Summary
         .right_box= link_to 'edit' , '#' ,:class => 'underline-link'
       .order_info_box
-        .info_box
+        .info_box.pull-left
           .info_field
             %p.info_text.text.bold Monthly Subscription
             %p.number= number_to_currency @order.price
@@ -28,13 +28,14 @@
           .info_field
             %p.info_text.text.bold.pink ORDER TOTAL
             %p.text.number.bold.pink= number_to_currency @order.total_order
-        .img_box= image_tag('sample/gitf_dog.jpg')
+        .img_box.pull-right= image_tag('sample/gitf_dog.jpg')
       .signup_box.clearfix
-        / %input{:type => 'checkbox' , :name => 'check_box_signup'}
-        / %label Sign-up for updates from your friends at Little Spark!
-        = f.input :check_box_signup, :as => :boolean, :label => 'Sign-up for updates from your friends at Little Spark!', :input_html => {:checked => false, :class => 'pull-left' }, :wrapper_html => { :id => 'check_box_signup' }
+        %input.pull-left{:type => 'checkbox' , :name => 'check_box_signup'}
+        %label.pull-left Sign-up for updates from your friends at Little Spark!
+        / # = f.input :check_box_signup, :as => :boolean, :label => 'Sign-up for updates from your friends at Little Spark!', :input_html => {:checked => false, :class => 'pull-left' }, :wrapper_html => { :id => 'check_box_signup' }
       .action_box
-        / %input.mybtn.btn-pink.btn-place{:type => 'button', :value => 'PLACE YOUR ORDER'}
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
         %p.text.italic Your credit card will be charged on a monthly basis.
 
+= content_for :js do
+  - javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js'
