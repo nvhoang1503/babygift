@@ -29,7 +29,9 @@
     border-bottom: dotted 1px #44464b;
   }
   #btn-submit {
-    margin: 20px 0 230px;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom:230px;
     width: 288px;
     padding-right: 24px;
     background-position: 242px 12px;
@@ -38,7 +40,7 @@
     display: block;
     width: 390px;
     label {
-      width: 100px;
+      width: 135px;
       &.optional {
         line-height: 15px;
         span.optional {
@@ -62,8 +64,11 @@
         width: auto;
         line-height: 30px;
         margin-bottom: 0px;
+        padding-top: 0px;
       }
       input {
+        width: 15px;
+        height: 15px !important;
         margin: 8px 8px 8px 0;
       }
     }
@@ -337,6 +342,7 @@
   width: 390px;
 }
 .order_info_box{
+  height: 150px;
   .info_box{
     width: 245px;
     p.info_text{
@@ -372,10 +378,15 @@
 .signup_box{
   clear: both;
   margin-top: 40px;
+  height: 30px;
+  padding-top: 0px;
   input[type='checkbox']{
     float:left;
-    margin-right: 10px;
-    margin-top: 10px;
+    margin-right: 7px;
+    margin-top: 8px;
+    width: 15px;
+    height: 15px !important;
+    background-color: yellow;
   }
   label{
     font-size: 16px;
@@ -389,6 +400,7 @@
   margin-top: 30px;
   .btn-place{
     width: 265px;
+    font-size: 20px;
   }
   p.text{
     margin-top: 10px;
