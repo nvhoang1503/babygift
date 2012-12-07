@@ -5,16 +5,16 @@
   .card_box.clear-fix
     = render 'shared/payment_card'
   .field
-    %label.lb_short Credit Card Number
+    %label Credit Card Number
     %input.w220{:type => 'text' , :name => 'card_number', :id => 'card_number'}
   .field.date_field
-    %label.lb_short Expiration Date
+    %label Expiration Date
     =select_month(Date.today,:use_month_numbers => true, :field_name => 'exp_month')
     %span.space /
     = select_year(Date.today, :start_year => Date.today.year, :end_year => Date.today.year + 15 , :field_name => 'exp_year')
 
   .field
-    %label.lb_short Security Code
+    %label Security Code
     %input.security{:type => 'text' , :name => 'card_security', :id => 'card_security'}
     %span.question ?
   .title_box Gift Codes and Coupons

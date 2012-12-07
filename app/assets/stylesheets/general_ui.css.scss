@@ -239,7 +239,9 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   }
 }
 /*============ PAYMENT INFO ==========*/
-
+.card_info_box label {
+  width: 140px;
+}
 .card_box{
   margin-bottom: 10px;
 }
