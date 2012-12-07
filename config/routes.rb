@@ -19,6 +19,7 @@ Littlespark::Application.routes.draw do
   get "home/fqa"
   get "home/contact_us"
   get "home/about_us"
+  get "home/test"
 
   get 'curriculum', :to => 'home#curriculum'
   get 'kits', :to => 'home#kits'

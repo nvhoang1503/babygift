@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: "from@example.com"
-  
+
 	def welcome_email(user)
     @image_link = root_url.to_s + 'assets/common/logo_text.png'
 	  @email = user.email
@@ -18,11 +18,13 @@ class UserMailer < ActionMailer::Base
     mail(:to => @email ,subject: "New User" )
   end
 
-  def enroll_email(user, trans_id)
+  def enroll_email(user, order ,params , trans_id)
     @image_link = root_url.to_s + 'assets/common/logo_text.png'
     @user = user
     @user_email = user.email
     @trans_id = trans_id
+    @order = order
+
     mail(:to => @user_email, :subject => "Congratulation!")
   end
 

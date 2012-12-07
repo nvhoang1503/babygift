@@ -22,4 +22,11 @@ class HomeController < ApplicationController
 
   def fan_page
   end
+
+  def test
+    user = current_user
+    @response = 111111111
+    UserMailer.enroll_email(user, @response ).deliver
+  end
+
 end

@@ -3,18 +3,91 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    .mail_logo= image_tag(@image_link)
-    .mail_content{:style => "margin:20px;"}
-      %p
-        = "Dear"
-        = @user_email + ","
-      %p{:style => "font-weight:bolder;"}  
-        = "Congratulations!"
-      %p Thank you for choosing Little Spark!
-      %p
-        = "Your order number is:"
-        %span.text.bold= "#{@trans_id}."
-      %p
-        Have Fun!
-        %br/
-        The Little Spark Team.
+    .mail_info
+      .mail_logo= image_tag(@image_link)
+      .hello.text.bold Hello, Lillian Starks!
+      .mail_content
+        %p Thank you for your order from Little Spark. You can check the status of your order by
+        %p
+          = 'logging into'
+          = link_to " your account", "#"
+          = '. Please ask us any questions by contact us at atyourservice@littlespark.com.'
+      .mail_order
+        = "Your order #{@trans_id} (place on 10/10/2012 2:20 PM)"
+      .mail_box.billing
+        .box_left
+          %p Billing Information:
+          %p Lillian Starks
+          %p 7 East 14th Street #1423
+          %p New York, NY 10003
+        .box_right
+          %p Shipping Information:
+          %p Lillian Starks
+          %p 7 East 14th Street #1423
+          %p New York, NY 10003
+      .mail_payment_box
+        %p Payment Method: Credit Card
+        %p Credit Card Type: American Express
+        %p Credit Card Number: xxxx-1000
+      %p Children:
+      %P lola Starks
+      .mail_box.item
+        .box_left
+          %o.item Item:
+          %p.month Monthly Subscription
+          %p.subtotal Sub-total
+          %p.tax Tax:
+          %p.shipping Shipping:
+          %p.total Total:
+        .box_right
+          %o.item Amount
+          %p.month $34.99
+          %p $34.99
+          %p --
+          %p free
+          %p $34.99
+
+
+  :css
+    .mail_info{
+      margin-left:50px;
+      width:800px;
+    }
+    .hello{
+      margin-top:30px;
+    }
+    .mail_content{
+      margin-top:30px;
+    }
+    .mail_order{
+      clear:both;
+      margin:30px 0px;
+    }
+    .billing{
+      height:85px;
+    }
+    .item{
+      height:150px;
+      margin-top:30px;
+    }
+    .mail_box .box_left{
+      float:left;
+      width:50% ;
+    }
+    .mail_box .box_right{
+      float:left;
+      width:50% ;
+    }
+
+    .mail_payment_box{
+      clear:both;
+      margin:30px 0px;
+    }
+    .subtotal, .tax, .shipping, .total {
+      text-align:right;
+      margin-right: 20px;
+    }
+    p{
+      margin-top:0px;
+      line-height:10px;
+    }
