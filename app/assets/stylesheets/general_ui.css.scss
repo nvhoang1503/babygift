@@ -386,20 +386,69 @@ ul.social_medial_icon_line{
 }
 #payment_card{
   display:block;
-  height:40px;
-  padding-left: 0px;
-}
-ul.card{
-  margin-left: 0px;
-  li{
-    float: left;
-    margin-right:10px;
-    img{
-      height: 30px;
-      width: 60px;
+  input[type=radio] {
+    display: none;
+    &:checked ~ label .icon-credit-card {
+      width: 49px;
+      height: 27px;
+      border: 3px solid #FFC91E;
+      border-radius: 7px;
+      &.visa {
+        background-position: -4px -5px;
+      }
+      &.master {
+        background-position: -62px -5px;
+      }
+      &.am-express {
+        background-position: -120px -5px;
+      }
+      &.discover {
+        background-position: -178px -5px;
+      }
+    }
+  }
+  .icon-credit-card {
+    background: url('common/icon-credit-cards.png') no-repeat;
+    margin-right:5px;
+    width: 55px;
+    height: 33px;
+    &:before {
+      content: '';
+    }
+    &:hover {
+      width: 49px;
+      height: 27px;
+      border: 3px solid #FFC91E;
+      border-radius: 7px;
+
+      &.visa {
+        background-position: -4px -5px;
+      }
+      &.master {
+        background-position: -62px -5px;
+      }
+      &.am-express {
+        background-position: -120px -5px;
+      }
+      &.discover {
+        background-position: -178px -5px;
+      }
+    }
+    &.visa {
+      background-position: -1px -2px;
+    }
+    &.master {
+      background-position: -59px -2px;
+    }
+    &.am-express {
+      background-position: -117px -2px;
+    }
+    &.discover {
+      background-position: -175px -2px;
     }
   }
 }
+
 /*================ FOOTER ==================*/
 .footer_menu_box{
   display:block;

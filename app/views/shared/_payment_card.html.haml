@@ -1,10 +1,17 @@
-#payment_card
-  %ul.card
-    %li
-      = link_to image_tag("common/icon_visa.jpg") , "#"
-    %li
-      = link_to image_tag("common/icon_master.jpg") , "#"
-    %li
-      = link_to image_tag("common/icon_amex.jpg") , "#"
-    %li
-      = link_to image_tag("common/icon_discover.jpg") , "#"
+#payment_card.clearfix
+  %span
+    %input#rd-card-visa{:name => "card_type", :type => "radio", :value => Payment::CARD_TYPE[:visa]}
+    %label.collection_radio_buttons{:for => "rd-card-visa"}
+      .icon-credit-card.visa.pull-left
+  %span
+    %input#rd-card-master{:name => "card_type", :type => "radio", :value => Payment::CARD_TYPE[:master]}
+    %label.collection_radio_buttons{:for => "rd-card-master"}
+      .icon-credit-card.master.pull-left
+  %span
+    %input#rd-card-am-express{:name => "card_type", :type => "radio", :value => Payment::CARD_TYPE[:am_express]}
+    %label.collection_radio_buttons{:for => "rd-card-am-express"}
+      .icon-credit-card.am-express.pull-left
+  %span
+    %input#rd-card-discover{:name => "card_type", :type => "radio", :value => Payment::CARD_TYPE[:discover]}
+    %label.collection_radio_buttons{:for => "rd-card-discover"}
+      .icon-credit-card.discover.pull-left
