@@ -261,8 +261,13 @@
   }
   #name .info-panel {
     width: 460px;
-    &  > div:first-child input{
-      margin-right: 8px;
+    .input {
+      &:first-child {
+        margin-right: 8px;
+      }
+      .error {
+        margin-top: 5px;
+      }
     }
   }
   #gender {
