@@ -21,11 +21,11 @@ module CustomizedHelper
     if wrap_tag
       link = content_tag :a, text, options
       wrap_class = wrap_html_options.has_key?('class') ? wrap_html_options['class'] : ''
-      wrap_html_options['class'] = [wrap_class, active_class].join(' ') if active_paths.index(request.fullpath)
+      wrap_html_options['class'] = [wrap_class, active_class].join(' ') if active_paths.index(request.path)
       return content_tag wrap_tag, link, wrap_html_options
     else
       link_class = options.has_key?('class') ? options['class'] : ''
-      options['class'] = [link_class, active_class].join(' ') if active_paths.index(request.fullpath)
+      options['class'] = [link_class, active_class].join(' ') if active_paths.index(request.path)
       return content_tag :a, text, options
     end
   end
