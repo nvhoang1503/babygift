@@ -15,7 +15,7 @@
 .register_box.pull-right
   .title_login= I18n.t('content.page.login.welcome')
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-    = f.error_notification
+    / = f.error_notification
     .form-inputs
       = f.input :email, :input_html => {:id => "user_mail_register"}
       %span#email_error.hidden Email is not blank.
@@ -30,3 +30,14 @@
       = f.input :password_confirmation, :input_html => {:id => "user_passwork_confirm_register"}, :label => I18n.t('content.page.login.pass_confirm')
       %span#passwork_confirm_error.hidden doesn't match confirmation
     = f.button :submit, I18n.t('content.page.login.join') , :class => "mybtn btn-pink btn_register uppercase"
+
+- if params[:controller] == "registrations"
+  :css
+    .login_box span.error{
+      display:none !important;
+    }
+- else
+  :css
+    .register_box span.error{
+      display:none !important;
+    }

@@ -6,7 +6,7 @@
     .info-panel.clearfix
       = f.input :baby_id, :as => :hidden, :input_html => { :value => params[:baby_id] }
       = f.collection_radio_buttons :plan_type, plan_image_options, :first, :last
-    .text.font16
+    .text.font16.italic
       = I18n.t('content.page.enroll_2.note')
       %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_2.hint') }
         = image_tag 'common/icon-question.png'
