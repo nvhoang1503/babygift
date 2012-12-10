@@ -39,10 +39,10 @@ class EnrolmentController < ApplicationController
   end
 
   def step_4
-    # return redirect_to enrolment_step_3_path(:order_id => params[:order_id]) unless user_signed_in?
+    return redirect_to enrolment_step_3_path(:order_id => params[:order_id]) unless user_signed_in?
     @order = Order.find_by_id(params[:order_id])
-    # @order.build_shipping_address
-    # @order.build_billing_address
+    @order.build_shipping_address
+    @order.build_billing_address
   end
 
   def update_order_shipping
