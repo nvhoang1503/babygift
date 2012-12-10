@@ -230,7 +230,8 @@
       margin: 20px auto 0;
       input {
         margin-bottom: 0;
-        width: 226px;
+        width: 220px;
+        float: left;
       }
     }
     .text.italic {
@@ -262,6 +263,12 @@
     }
     .icon-question {
       margin-left: 5px;
+    }
+    .date_birthday{
+      input{
+        margin-left: 45px;
+        // width: 300px;
+      }
     }
   }
   #name .info-panel {
@@ -336,6 +343,12 @@
       }
     }
   }
+}
+.shipping_input_form, .billing_input_form{
+  margin-left: -20px;
+}
+.shipping_continue{
+  margin-left: -25px;
 }
 /*======================  ENROLMENT 5 ================*/
 .enroll5_box{
