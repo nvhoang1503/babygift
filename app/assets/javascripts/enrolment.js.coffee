@@ -8,6 +8,7 @@ class window.Enrolment
     $('#plan-addresses').delegate '#ship_to_billing input', 'click', @copyAddress
     $('#plan-addresses').delegate '#plan_billing_address_attributes_zip, #plan_shipping_address_attributes_zip', 'keypress', helper.validateZip
     $('#plan-addresses').delegate '#plan_billing_address_attributes_phone, #plan_shipping_address_attributes_phone', 'keypress', helper.validatePhone
+    $('#child_birthday').keypress -> return false
 
   initDatepicker: ->
     $('#child_birthday').datepicker({
