@@ -3,7 +3,7 @@
   = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     .form-inputs
       = f.input :email, :required => false, :autofocus => true
-      %span#email_login_error.hidden Email is invalid.
+      %span#email_login_error.hidden Please input correct email.
       = f.input :password, :required => false
       %span#passwork_login_error.hidden Please fill out this field
       .foget_pass
