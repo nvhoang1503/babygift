@@ -13,6 +13,18 @@ module EnrolmentHelper
   end
 # end: for devise login using
 
+  def enroll_path(step)
+    options = {
+      :controller => :enrolment,
+      :action => step.to_sym,
+      :only_path => true
+    }
+    options[:order_id] = @order.id if @order
+    options[:baby_id] = @baby.id if !@order and @baby
+
+    url_for(options)
+  end
+
   def gender_image_options
     [
       [Baby::GENDER[:boy],

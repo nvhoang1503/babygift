@@ -5,7 +5,7 @@ class CreateBabies < ActiveRecord::Migration
       t.string :last_name, :null => false
       t.date :birthday
       t.integer :gender
-      t.integer :caretaker #user_id
+      t.integer :user_id
 
       t.timestamps
     end
