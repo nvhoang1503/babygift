@@ -25,7 +25,7 @@
       .clearfix
       .text.font20.italic= I18n.t('content.page.enroll_1.optional')
       .info-panel.clearfix
-        = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }
+        = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }, :wrapper_html => {:class => "date_birthday"}
     .section.clearfix
       = f.submit I18n.t('content.page.enroll_1.submit'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
