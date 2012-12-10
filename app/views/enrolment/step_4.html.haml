@@ -38,4 +38,7 @@
 
 = content_for :js do
   = yield :addresses_validator
-  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js'
+  = javascript_tag do
+    :erb
+      var CARD_TYPE = <%= Payment::CARD_TYPE.to_json %>;
+  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'card.js', 'enrolment.js'
