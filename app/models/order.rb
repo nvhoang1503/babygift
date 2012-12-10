@@ -28,7 +28,7 @@ class Order < ActiveRecord::Base
     :payment => 4
   }
 
-  attr_accessible :baby_id, :plan_type, :price, :shipping_address_attributes, :billing_address_attributes
+  attr_accessible :baby_id, :plan_type, :price, :transaction_status, :transaction_date, :shipping_address_attributes, :billing_address_attributes
   validates_presence_of :baby, :plan_type, :price
 
   belongs_to :baby

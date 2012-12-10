@@ -18,13 +18,15 @@ class UserMailer < ActionMailer::Base
     mail(:to => @email ,subject: "New User" )
   end
 
-  # def enroll_email(user, order ,params , trans_id)
   def order_confirm(user, order ,params , trans_id)
     @image_link = root_url.to_s + 'assets/common/logo_text.png'
     @user = user
     @user_email = user.email
     @trans_id = trans_id
     @order = order
+    @params = params
+    @billing_address = @order.billing_address
+    @shipping_address = @order.shipping_address
     @url = url_for :controller=>'devise/sessions', :action=>'new'
 
     mail(:to => @user_email, :subject => "Congratulation!")

@@ -88,10 +88,9 @@ class EnrolmentController < ApplicationController
     order = Order.find_by_id(params[:order_id])
     order.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
     @response = Payment.an_process(params)
-
     if @response.success?
       flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
-      order.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:completed])
+      order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now})
       user = current_user
       UserMailer.order_confirm(user, order, params, @response.transaction_id).deliver
     else
