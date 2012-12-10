@@ -10,10 +10,11 @@
         %p Thank you for your order from Little Spark. You can check the status of your order by
         %p
           = 'logging into'
-          = link_to " your account", "#"
+          = link_to " your account", @url
           = '. Please ask us any questions by contact us at atyourservice@littlespark.com.'
       .mail_order
-        = "Your order #{@trans_id} (place on 10/10/2012 2:20 PM)"
+        = "Your order #{@trans_id} (place on #{@order.created_at})"
+        / = "Your order #{@trans_id} (place on 10/10/2012 2:20 PM)"
       .mail_box.billing
         .box_left
           %p Billing Information:
