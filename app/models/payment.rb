@@ -5,8 +5,14 @@ class Payment < ActiveRecord::Base
     :am_express => 3,
     :discover => 4
   }
+  CARD_NAME = {
+    CARD_TYPE[:visa] => 'Visa',
+    CARD_TYPE[:master] => 'Master Card',
+    CARD_TYPE[:am_express] => 'American Express',
+    CARD_TYPE[:discover] => 'Discover'
+  }
 
-	def self.an_process(params)
+  def self.an_process(params)
     card_num = params[:card_number]
     card_sec = params[:card_security]
     exp_date = Date.civil params[:date][:exp_year].to_i, params[:date][:exp_month].to_i

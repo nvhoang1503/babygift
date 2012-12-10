@@ -12,7 +12,7 @@ class CreateOrders < ActiveRecord::Migration
       t.belongs_to :billing_address
       t.belongs_to :purchaser
       t.string :transaction_code
-      t.date :transaction_date
+      t.datetime :transaction_date
       t.string :transaction_status
       t.string :gift_code
 

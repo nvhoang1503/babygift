@@ -18,18 +18,18 @@
       .mail_box.billing
         .box_left
           %p Billing Information:
-          %p Lillian Starks
-          %p 7 East 14th Street #1423
-          %p New York, NY 10003
+          %p= @billing_address.fullname
+          %p= @billing_address.address_1
+          %p= "#{@billing_address.city}, #{@billing_address.state} #{@billing_address.zip}"
         .box_right
           %p Shipping Information:
-          %p Lillian Starks
-          %p 7 East 14th Street #1423
-          %p New York, NY 10003
+          %p= @shipping_address.fullname
+          %p= @shipping_address.address_1
+          %p= "#{@shipping_address.city}, #{@shipping_address.state} #{@shipping_address.zip}"
       .mail_payment_box
         %p Payment Method: Credit Card
-        %p Credit Card Type: American Express
-        %p Credit Card Number: xxxx-1000
+        %p= "Credit Card Type: #{Payment::CARD_NAME[@params[:card_type]]}"
+        %p= "Credit Card Number: xxxx-#{@params[:card_number].slice(/\d{4}$/)}"
       %p Children:
       %P lola Starks
       .mail_box.item
@@ -42,11 +42,11 @@
           %p.total Total:
         .box_right
           %o.item Amount
-          %p.month $34.99
-          %p $34.99
-          %p --
+          %p.month= number_to_currency @order.price
+          %p= number_to_currency @order.price
+          %p= number_to_currency @order.get_tax
           %p free
-          %p $34.99
+          %p= number_to_currency @order.total_order
 
 
   :css
