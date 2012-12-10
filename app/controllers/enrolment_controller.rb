@@ -2,6 +2,7 @@ class EnrolmentController < ApplicationController
   before_filter :get_baby_order, :only => [:step_1, :step_2, :step_3, :step_4, :step_5]
 
   def step_1
+    @baby = Baby.new unless @baby
   end
 
   def create_baby
