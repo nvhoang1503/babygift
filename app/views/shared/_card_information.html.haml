@@ -13,7 +13,7 @@
     %span.space /
     = select_year(Date.today, :start_year => Date.today.year, :end_year => Date.today.year + 15 , :field_name => 'exp_year')
 
-  .field
+  .field.cvv
     %label Security Code
     %input.security{:type => 'text' , :name => 'card_security', :id => 'card_security'}
     %a.icon-question#cvv-popup{ :href => '#', :rel => "popover" }
