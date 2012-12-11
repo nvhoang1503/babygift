@@ -14,7 +14,8 @@ class UserMailer < ActionMailer::Base
     @user = user
     @user_mail = user.email
     @user_id = user.id
-    @email = "littlesparktesting@gmail.com"
+    # @email = "littlesparktesting@gmail.com"
+    @email = User::ADMIN_EMAIL
     mail(:to => @email ,subject: "New User" )
   end
 
@@ -28,8 +29,22 @@ class UserMailer < ActionMailer::Base
     @billing_address = @order.billing_address
     @shipping_address = @order.shipping_address
     @url = url_for :controller=>'devise/sessions', :action=>'new'
+    # mail(:to => @user_email, :subject => "Congratulation!")
+    mail(:to => @user_email, :subject => "Order confirmation!")
+  end
 
-    mail(:to => @user_email, :subject => "Congratulation!")
+  def order_confirm_to_admin(user, order ,params , trans_id)
+    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    @user = user
+    @admin_email = User::ADMIN_EMAIL
+    @user_email = user.email
+    @trans_id = trans_id
+    @order = order
+    @params = params
+    @billing_address = @order.billing_address
+    @shipping_address = @order.shipping_address
+    @url = url_for :controller=>'devise/sessions', :action=>'new'
+    mail(:to => @admin_email, :subject => "Order confirmation!")
   end
 
 end

@@ -12,12 +12,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   # after_create :email_user
 
-  # def email_user
-  #   puts "================ email to user ============="
-  #   u = "abc"
-  #   # resource = build_resource
-  #   UserMailer.welcom_email(u).deliver
-  # end
+  ADMIN_EMAIL = 'littlesparktesting@gmail.com'
+
 
   belongs_to :shipping_address,
     :class_name => 'Address', :foreign_key => :shipping_id
