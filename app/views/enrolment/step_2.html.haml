@@ -1,7 +1,7 @@
 .page_content_space
   = render 'steps_nav'
 
-  = simple_form_for @order, :as => :plan, :url => enroll_plan_path(params), :html => { :class => 'enroll-form', :id => 'plan-register' } do |f|
+  = simple_form_for @order, :as => :plan, :url => enroll_plan_path(:order_id => params[:order_id], :baby_id => params[:baby_id]), :html => { :class => 'enroll-form', :id => 'plan-register' } do |f|
     .tittle_content= I18n.t('content.page.enroll_2.title')
     .info-panel.clearfix
       = f.input :baby_id, :as => :hidden, :input_html => { :value => params[:baby_id] }
