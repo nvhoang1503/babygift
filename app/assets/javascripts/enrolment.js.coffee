@@ -11,6 +11,7 @@ class window.Enrolment
     $('#plan-addresses').delegate '#plan_billing_address_attributes_phone, #plan_shipping_address_attributes_phone', 'keypress', helper.validatePhone
     $('#child_birthday').keypress -> return false
     $('#frm-payment').submit @onPaymentSubmit
+    $('#enroll-steps li').click @onEnrollNavClick
 
   initCvvPopup: ->
     img = '<img src="/assets/common/cvv.png" alt="Cvv">'
@@ -62,3 +63,6 @@ class window.Enrolment
 
   onPaymentSubmit: (event) =>
     return @card.validateCardInfo()
+
+  onEnrollNavClick: (event) ->
+    window.location = $(event.target).find('a').prop('href')
