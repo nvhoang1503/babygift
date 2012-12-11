@@ -2,7 +2,6 @@ class EnrolmentController < ApplicationController
   before_filter :get_baby_order, :only => [:step_1, :step_2, :step_3, :step_4, :step_5]
 
   def step_1
-    @baby = Baby.new unless @baby
   end
 
   def create_baby
@@ -56,7 +55,7 @@ class EnrolmentController < ApplicationController
   def step_4
     return redirect_to enrolment_step_1_path unless @baby
     return redirect_to enrolment_step_2_path(:baby_id => @baby.id) unless @order
-   s
+    return redirect_to enrolment_step_3_path(:order_id => @order.id) unless user_signed_in?
     if @order
       @order.build_shipping_address unless @order.shipping_address
       @order.build_billing_address unless @order.billing_address
