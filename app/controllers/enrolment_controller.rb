@@ -2,6 +2,7 @@ class EnrolmentController < ApplicationController
   before_filter :get_baby_order
 
   def step_1
+    @baby = Baby.new unless @baby
   end
 
   def enroll_baby
