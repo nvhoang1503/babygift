@@ -250,6 +250,12 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
 .card_box{
   margin-bottom: 10px;
 }
+.field.card_number {
+  height: auto;
+  .error {
+    margin-bottom: 10px;
+  }
+}
 .date_field{
   span.space{
     float: left;

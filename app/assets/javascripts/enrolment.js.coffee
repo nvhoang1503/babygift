@@ -1,7 +1,7 @@
 class window.Enrolment
   constructor: ->
-    card = new Card
-    card.validateCard()
+    @card = new Card
+    @card.validateCard()
     @initDatepicker()
     @autoshowTooltip()
     @updateShipToBilling()
@@ -9,6 +9,7 @@ class window.Enrolment
     $('#plan-addresses').delegate '#plan_billing_address_attributes_zip, #plan_shipping_address_attributes_zip', 'keypress', helper.validateZip
     $('#plan-addresses').delegate '#plan_billing_address_attributes_phone, #plan_shipping_address_attributes_phone', 'keypress', helper.validatePhone
     $('#child_birthday').keypress -> return false
+    $('#frm-payment').submit @onPaymentSubmit
 
   initDatepicker: ->
     $('#child_birthday').datepicker({
@@ -16,6 +17,7 @@ class window.Enrolment
       weekStart: 1
       autoclose: true
       todayHighlight: true
+      startView: 2
     }).on 'changeDate', ->
       if $('#child_birthday').val().trim() != ''
         $('#child_birthday ~ label.inputHintOverlay').css({display:'none'})
@@ -48,3 +50,6 @@ class window.Enrolment
       attrs = ['first_name', 'last_name', 'address_1', 'address_2', 'city', 'state', 'zip', 'phone']
       $.each attrs, (idx, val) ->
         $("#plan_billing_address_attributes_#{val}").val $("#plan_shipping_address_attributes_#{val}").val()
+
+  onPaymentSubmit: (event) =>
+    return @card.validateCardInfo()
