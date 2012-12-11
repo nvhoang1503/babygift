@@ -6,8 +6,8 @@
       .text.bold.font26.line26= I18n.t('content.page.home.intro_sum')
       .dotted-line
       .text.font18= I18n.t('content.page.home.intro_text')
-      = link_to I18n.t('label.button.enroll'), enrolment_step_1_path, :class => 'mybtn btn-pink uppercase', :id => 'btn-enroll'
-      = link_to I18n.t('label.button.gift'), '#', :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
+      = link_to I18n.t('label.button.enroll'), enrolment_step_0_path, :class => 'mybtn btn-pink uppercase', :id => 'btn-enroll'
+      = link_to I18n.t('label.button.gift'), home_term_path, :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
     #slides.pull-left
       .slides_container
         - (1..4).each do |idx|

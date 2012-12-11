@@ -3,21 +3,21 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    %div{:style => "margin-left:50px; width:800px;"}
+    %div{:style => "margin-left:50px; width:800px; color:#000;"}
       .mail_logo= image_tag(@image_link)
-      %div{:style => "margin-top:30px; font-weight:bolder;"}
+      %div{:style => "margin-top:40px; font-weight:bolder;"}
         = 'Hello,'
         =  @user_email
         = "!"
-      %div{:style => "margin-top:30px;"}
+      %div{:style => "margin-top:40px; color:#000;"}
         %p Thank you for your order from Little Spark. You can check the status of your order by
         %p
           = 'logging into'
           = link_to " your account", @url
           = '. Please ask us any questions by contact us at atyourservice@littlespark.com.'
-      %div{:style => "clear:both; margin:30px 0px;"}
+      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
         = "Your order #{@trans_id} (place on #{@order.transaction_date.strftime('%m/%d/%Y %l:%M %p')})"
-      %div{:style => "height:85px;"}
+      %div{:style => "height:85px; color:#000;"}
         %div{:style => "float:left; width:50% ;"}
           %p Billing Information:
           %p= @billing_address.fullname
@@ -28,13 +28,13 @@
           %p= @shipping_address.fullname
           %p= @shipping_address.address_1
           %p= "#{@shipping_address.city}, #{@shipping_address.state} #{@shipping_address.zip}"
-      %div{:style => "clear:both; margin:30px 0px;"}
+      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
         %p Payment Method: Credit Card
         %p= "Credit Card Type: #{Payment::CARD_NAME[@params[:card_type]]}"
         %p= "Credit Card Number: xxxx-#{@params[:card_number].slice(/\d{4}$/)}"
       %p Children:
       %P lola Starks
-      %div{:style => "height:150px; margin-top:30px;"}
+      %div{:style => "height:150px; margin-top:40px; color:#000;"}
         %div{:style => "float:left; width:50% ;"}
           %o.item Item:
           %p.month Monthly Subscription

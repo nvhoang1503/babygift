@@ -1,5 +1,5 @@
 Littlespark::Application.routes.draw do
-  get 'enrolment/index'
+  get 'enrolment/step_0'
   get "enrolment/step_1"
   get "enrolment/step_2"
   get "enrolment/step_3"
@@ -22,7 +22,7 @@ Littlespark::Application.routes.draw do
   get "home/fqa"
   get "home/contact_us"
   get "home/about_us"
-  # get "home/test"
+  get "home/term"
 
   get 'curriculum', :to => 'home#curriculum'
   get 'kits', :to => 'home#kits'

@@ -7,7 +7,7 @@
     %li#refer
       = link_to I18n.t('content.footer.refer') , "#"
     %li#terms
-      = link_to I18n.t('content.footer.term') , "#"
+      = link_to I18n.t('content.footer.term') , home_term_path
     %li#privacy
       = link_to I18n.t('content.footer.privacy') , "#"
     %li#contact{:class => (current_page?(home_contact_us_path)  ? "selected" : "")}
