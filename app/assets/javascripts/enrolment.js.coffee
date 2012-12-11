@@ -12,6 +12,7 @@ class window.Enrolment
     $('#child_birthday').keypress -> return false
     $('#frm-payment').submit @onPaymentSubmit
     $('#enroll-steps li').click @onEnrollNavClick
+    $('#card_security').keypress helper.validateCvv
 
   initCvvPopup: ->
     img = '<img src="/assets/common/cvv.png" alt="Cvv">'

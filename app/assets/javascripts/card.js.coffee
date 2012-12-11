@@ -10,6 +10,7 @@ class window.Card
   validateCard:  =>
     $('#card_number').blur @onCardNumBlur
     $('input[type=radio][name=card_type]').change @onCardTypeChange
+    $('#card_security').blur @isExistCvv
 
   onCardNumBlur: =>
     if @isExistCardNum()
@@ -24,6 +25,18 @@ class window.Card
     if card_num.val().trim() == ''
       if card_num.siblings('.error').length==0
         card_num.after("<span class='error blank'>can't be blank</span>")
+      else
+        card_num.siblings('.error.blank').text "can't be blank"
+      return false
+    else
+      card_num.siblings('.error.blank').remove()
+      return true
+
+  isExistCvv: ->
+    card_num = $('#card_security')
+    if card_num.val().trim() == ''
+      if card_num.siblings('.error').length==0
+        card_num.siblings('a').after("<span class='error blank'>can't be blank</span>")
       else
         card_num.siblings('.error.blank').text "can't be blank"
       return false
@@ -63,4 +76,5 @@ class window.Card
     result = @isExistCardNum()
     result = @isExistCardType() and result
     result = @isCorrectCardNum() and result
+    result = @isExistCvv() and result
     return result
