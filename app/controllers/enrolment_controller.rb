@@ -1,13 +1,17 @@
 class EnrolmentController < ApplicationController
-  before_filter :get_baby_order, :only => [:step_1, :step_2, :step_3, :step_4, :step_5]
+  before_filter :get_baby_order
 
   def step_1
   end
 
-  def create_baby
+  def enroll_baby
     birthday = params[:child][:birthday]
     params[:child][:birthday] = Date.strptime(birthday, '%m/%d/%Y') if birthday.present?
-    @baby = Baby.new params[:child]
+    if @baby
+      @baby.attributes = params[:child]
+    else
+      @baby = Baby.new params[:child]
+    end
     if @baby.save
       redirect_to enrolment_step_2_path(:baby_id => @baby.id)
     else
@@ -22,11 +26,16 @@ class EnrolmentController < ApplicationController
     end
   end
 
-  def create_plan
-    @order = Order.new params[:plan]
-    @order.price = Order::PRICE[@order.plan_type] if params[:plan] && params[:plan].has_key?('plan_type')
-    # @order.transaction_status = Order::TRANSACTION_STATUS[:start]
-    @order.tax = 0
+  def enroll_plan
+    if @order
+      @order.attributes = params[:plan]
+      @order.price = Order::PRICE[@order.plan_type] if params[:plan] && params[:plan].has_key?('plan_type')
+      @order.baby = @baby
+    else
+      @order = Order.new params[:plan]
+      @order.price = Order::PRICE[@order.plan_type] if params[:plan] && params[:plan].has_key?('plan_type')
+      @order.tax = 0
+    end
     if @order.save
       redirect_to enrolment_step_3_path(:order_id => @order.id)
     else
@@ -56,18 +65,21 @@ class EnrolmentController < ApplicationController
     return redirect_to enrolment_step_1_path unless @baby
     return redirect_to enrolment_step_2_path(:baby_id => @baby.id) unless @order
     return redirect_to enrolment_step_3_path(:order_id => @order.id) unless user_signed_in?
-    if @order
-      @order.build_shipping_address unless @order.shipping_address
-      @order.build_billing_address unless @order.billing_address
-    end
+    @order.build_shipping_address unless @order.shipping_address
+    @order.build_billing_address unless @order.billing_address
   end
 
   def update_order_shipping
     ship_to_billing = params[:plan].delete :ship_to_billing
     @order = Order.find_by_id params[:plan][:id]
-    params[:plan].delete('billing_address_attributes') if ship_to_billing
+    if SharedMethods::Parser.Boolean(ship_to_billing)
+      params[:plan].delete('billing_address_attributes')
+    else
+      params[:plan][:billing_address_attributes].delete('id')
+    end
+
     if @order.update_attributes params[:plan]
-      @order.update_attribute(:billing_address_id, @order.shipping_address_id)
+      @order.update_attribute(:billing_address_id, @order.shipping_address_id) if SharedMethods::Parser.Boolean(ship_to_billing)
       redirect_to enrolment_step_5_path(:order_id => @order.id)
     else
       render enrolment_step_4_path(:order_id => @order.id)
@@ -108,10 +120,5 @@ class EnrolmentController < ApplicationController
         @baby = Baby.find_by_id params[:baby_id]
       end
       @baby.birthday = @baby.birthday.strftime('%m/%d/%Y') if @baby and @baby.birthday
-      # if params.has_key? 'baby_id'
-      #   @baby = Baby.find_by_id params[:baby_id]
-      # else
-      #   @baby = Baby.new
-      # end
     end
 end
