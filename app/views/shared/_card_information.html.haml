@@ -16,7 +16,9 @@
   .field
     %label Security Code
     %input.security{:type => 'text' , :name => 'card_security', :id => 'card_security'}
-    %span.question ?
+    %a.icon-question#cvv-popup{ :href => '#', :rel => "popover" }
+      = image_tag 'common/icon-question.png'
+
   .title_box Gift Codes and Coupons
   .field
     %input{:type => 'text' , :name => 'gift_code', :id => 'gift_code'}

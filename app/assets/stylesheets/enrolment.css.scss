@@ -78,6 +78,19 @@
   #payment_card {
     margin-bottom: 12px;
   }
+  #cvv-popup img{
+    margin-top: 5px;
+  }
+  .popover {
+    width: 480px;
+    .popover-title {
+      display: none;
+    }
+    .popover-content {
+      height: 202px;
+      width: 452px
+    }
+  }
 }
 #plan-register {
   input[type=radio] {
