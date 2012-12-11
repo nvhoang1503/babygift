@@ -17,7 +17,8 @@ class EnrolmentController < ApplicationController
       @baby = Baby.new params[:child]
     end
     if @baby.save
-      redirect_to enrolment_step_2_path(:baby_id => @baby.id)
+      return redirect_to enrolment_step_2_path(:baby_id => @baby.id) unless @order
+      return redirect_to enrolment_step_2_path(:order_id => @order.id)
     else
       render enrolment_step_1_path
     end
