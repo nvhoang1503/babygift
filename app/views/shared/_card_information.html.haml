@@ -4,9 +4,9 @@
     .right_box= image_tag('common/icon_lock.png')
   .card_box.clear-fix
     = render 'shared/payment_card'
-  .field
+  .field.card_number
     %label Credit Card Number
-    %input.w220{:type => 'text' , :name => 'card_number', :id => 'card_number'}
+    %input.w220{:type => 'text', :name => 'card_number', :id => 'card_number'}
   .field.date_field
     %label Expiration Date
     =select_month(Date.today,:use_month_numbers => true, :field_name => 'exp_month')
