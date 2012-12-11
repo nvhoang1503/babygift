@@ -1,4 +1,5 @@
 Littlespark::Application.routes.draw do
+  get 'enrolment/index'
   get "enrolment/step_1"
   get "enrolment/step_2"
   get "enrolment/step_3"
