@@ -56,7 +56,7 @@ class EnrolmentController < ApplicationController
   def step_4
     return redirect_to enrolment_step_1_path unless @baby
     return redirect_to enrolment_step_2_path(:baby_id => @baby.id) unless @order
-    return redirect_to enrolment_step_3_path(:order_id => @order.id) unless user_signed_in?
+   s
     if @order
       @order.build_shipping_address unless @order.shipping_address
       @order.build_billing_address unless @order.billing_address

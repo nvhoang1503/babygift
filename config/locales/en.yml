@@ -35,7 +35,7 @@ en:
       login:
         title: 'Log in'
         forgot_pass: 'Forgot your password?'
-        login: 'Already Registered? Log In'
+        login: 'Already Registered? %{login_text}'
         sign_in: 'Sign in'
         welcome: 'New to Little Spark? Welcome!'
         email_confirm: 'Confirm Email'

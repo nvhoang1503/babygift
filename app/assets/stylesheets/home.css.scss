@@ -500,6 +500,9 @@ ul.fqa_menu_link{
   .register_box{
     display: block;
     width: 390px;
+    .form-inputs{
+      margin-left:-12px;
+    }
   }
   .login_box{
     display: block;
