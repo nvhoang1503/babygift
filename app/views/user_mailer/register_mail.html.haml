@@ -5,11 +5,13 @@
   %body
     .mail_logo= image_tag(@image_link)
     .mail_content{:style => "margin:20px;"}
-      %p{:style => "font-weight:bolder;"} 
-        = "You have got a new account!"
+      %p{:style => "font-weight:bolder;"}
+        = "Hello, "
+        = @email
+        = "!"
       %p
-        = "Email:"
-        = @user_mail
+        = "You got a new user: "
+        %span{:style => "color:#2fb495;"}= @user_mail
       %p
         Have Fun!
         %br/

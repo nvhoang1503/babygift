@@ -106,6 +106,7 @@ class EnrolmentController < ApplicationController
       order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now})
       user = current_user
       UserMailer.order_confirm(user, order, params, @response.transaction_id).deliver
+      UserMailer.order_confirm_to_admin(user, order, params, @response.transaction_id).deliver
     else
       flash[:error] = @response.response_reason_text
       redirect_to :back

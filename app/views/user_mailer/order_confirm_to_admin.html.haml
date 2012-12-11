@@ -7,14 +7,14 @@
       .mail_logo= image_tag(@image_link)
       .hello
         = 'Hello,'
-        =  @user_email
+        =  @admin_email
         = "!"
       .mail_content
         %p Thank you for your order from Little Spark. You can check the status of your order by
         %p
-          = 'logging into'
-          = link_to " your account", @url
-          = '. Please ask us any questions by contact us at atyourservice@littlespark.com.'
+          = 'You got a new order by '
+          = @user_email
+      %div Detail:
       .mail_order
         = "Your order #{@trans_id} (place on #{@order.transaction_date.strftime('%m/%d/%Y %l:%M %p')})"
         / = "Your order #{@trans_id} (place on 10/10/2012 2:20 PM)"
