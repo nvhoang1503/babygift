@@ -60,6 +60,7 @@ class window.Enrolment
       attrs = ['first_name', 'last_name', 'address_1', 'address_2', 'city', 'state', 'zip', 'phone']
       $.each attrs, (idx, val) ->
         $("#plan_billing_address_attributes_#{val}").val $("#plan_shipping_address_attributes_#{val}").val()
+      $('#plan-addresses').resetClientSideValidations()
 
   onPaymentSubmit: (event) =>
     return @card.validateCardInfo()
