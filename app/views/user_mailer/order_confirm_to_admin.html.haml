@@ -3,96 +3,48 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    .mail_info
+    %div{:style => "margin-left:50px; width:800px;"}
       .mail_logo= image_tag(@image_link)
-      .hello
+      %div{:style => "margin-top:30px; font-weight:bolder;"}
         = 'Hello,'
         =  @admin_email
         = "!"
-      .mail_content
-        %p Thank you for your order from Little Spark. You can check the status of your order by
+      %div{:style => "margin-top:30px;"}
         %p
           = 'You got a new order by '
           = @user_email
       %div Detail:
-      .mail_order
+      %div{:style => "clear:both; margin:30px 0px;"}
         = "Your order #{@trans_id} (place on #{@order.transaction_date.strftime('%m/%d/%Y %l:%M %p')})"
-        / = "Your order #{@trans_id} (place on 10/10/2012 2:20 PM)"
-      .mail_box.billing
-        .box_left
+      %div{:style => "height:85px;"}
+        %div{:style => "float:left; width:50% ;"}
           %p Billing Information:
           %p= @billing_address.fullname
           %p= @billing_address.address_1
           %p= "#{@billing_address.city}, #{@billing_address.state} #{@billing_address.zip}"
-        .box_right
+        %div{:style => "float:left; width:50% ;"}
           %p Shipping Information:
           %p= @shipping_address.fullname
           %p= @shipping_address.address_1
           %p= "#{@shipping_address.city}, #{@shipping_address.state} #{@shipping_address.zip}"
-      .mail_payment_box
+      %div{:style => "clear:both; margin:30px 0px;"}
         %p Payment Method: Credit Card
         %p= "Credit Card Type: #{Payment::CARD_NAME[@params[:card_type]]}"
         %p= "Credit Card Number: xxxx-#{@params[:card_number].slice(/\d{4}$/)}"
       %p Children:
       %P lola Starks
-      .mail_box.item
-        .box_left
+      %div{:style => "height:150px; margin-top:30px;"}
+        %div{:style => "float:left; width:50% ;"}
           %o.item Item:
           %p.month Monthly Subscription
-          %p.subtotal Sub-total
-          %p.tax Tax:
-          %p.shipping Shipping:
-          %p.total Total:
-        .box_right
+          %p{:style => "text-align:right; margin-right:20px;"} Sub-total
+          %p{:style => "text-align:right; margin-right:20px;"} Tax:
+          %p{:style => "text-align:right; margin-right:20px;"} Shipping:
+          %p{:style => "text-align:right; margin-right:20px;"} Total:
+        %div{:style => "float:left; width:50% ;"}
           %o.item Amount
           %p.month= number_to_currency @order.price
           %p= number_to_currency @order.price
           %p= number_to_currency @order.get_tax
           %p free
           %p= number_to_currency @order.total_order
-
-
-  :css
-    .mail_info{
-      margin-left:50px;
-      width:800px;
-    }
-    .hello{
-      margin-top:30px;
-      font-weight:bolder;
-    }
-    .mail_content{
-      margin-top:30px;
-    }
-    .mail_order{
-      clear:both;
-      margin:30px 0px;
-    }
-    .billing{
-      height:85px;
-    }
-    .item{
-      height:150px;
-      margin-top:30px;
-    }
-    .mail_box .box_left{
-      float:left;
-      width:50% ;
-    }
-    .mail_box .box_right{
-      float:left;
-      width:50% ;
-    }
-
-    .mail_payment_box{
-      clear:both;
-      margin:30px 0px;
-    }
-    .subtotal, .tax, .shipping, .total {
-      text-align:right;
-      margin-right: 20px;
-    }
-    p{
-      margin-top:0px;
-      line-height:10px;
-    }
