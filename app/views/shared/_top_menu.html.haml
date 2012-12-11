@@ -3,8 +3,8 @@
     = link_to I18n.t('content.top_menu.how') , home_how_it_work_path
   %li#kits{:class => (current_page?(kits_path)  ? "selected" : "")}
     = link_to I18n.t('content.top_menu.kit'), kits_path
-  = customized_link_to I18n.t('content.top_menu.enroll'), enrolment_index_path, :active_class => 'selected', :active_at => enroll_steps_paths, :wrap_tag => ['li', :id => 'enrolls']
+  = customized_link_to I18n.t('content.top_menu.enroll'), enrolment_step_0_path, :active_class => 'selected', :active_at => enroll_steps_paths, :wrap_tag => ['li', :id => 'enrolls']
   %li#gifts
-    = link_to I18n.t('content.top_menu.gift'), "#"
+    = link_to I18n.t('content.top_menu.gift'), home_term_path
   %li#blog
     = link_to I18n.t('content.top_menu.blog'), "#"

@@ -23,6 +23,9 @@ class HomeController < ApplicationController
   def fan_page
   end
 
+  def term
+  end
+
   # def test
   #   user = current_user
   #   @response = 111111111

@@ -1,7 +1,8 @@
 class EnrolmentController < ApplicationController
   before_filter :get_baby_order
 
-  def index
+  def step_0
+
   end
 
   def step_1
