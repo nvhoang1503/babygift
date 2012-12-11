@@ -2,6 +2,7 @@ class window.Enrolment
   constructor: ->
     @card = new Card
     @card.validateCard()
+    @initCvvPopup()
     @initDatepicker()
     @autoshowTooltip()
     @updateShipToBilling()
@@ -10,6 +11,14 @@ class window.Enrolment
     $('#plan-addresses').delegate '#plan_billing_address_attributes_phone, #plan_shipping_address_attributes_phone', 'keypress', helper.validatePhone
     $('#child_birthday').keypress -> return false
     $('#frm-payment').submit @onPaymentSubmit
+
+  initCvvPopup: ->
+    img = '<img src="/assets/common/cvv.png" alt="Cvv">'
+    $('#cvv-popup').popover
+      title: null
+      html: 'true'
+      content: img
+      trigger: 'hover'
 
   initDatepicker: ->
     $('#child_birthday').datepicker({
@@ -24,7 +33,7 @@ class window.Enrolment
     $('#child-register').inputHintOverlay()
 
   autoshowTooltip: ->
-    $('.icon-question').tooltip
+    $('.icon-question').not('#cvv-popup').tooltip
       placement: 'right'
 
   updateShipToBilling: ->
