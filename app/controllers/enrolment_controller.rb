@@ -65,6 +65,7 @@ class EnrolmentController < ApplicationController
       Order.where(:id => params[:order_id].to_i).update_all(:purchaser_id => current_user.id)
       return redirect_to enrolment_step_4_path(:order_id => params[:order_id])
     end
+    @submit_from = RegistrationsController::ENROLMENT_RECEIVE
   end
 
   def step_4
