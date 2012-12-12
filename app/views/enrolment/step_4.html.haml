@@ -17,7 +17,7 @@
           = shipping_f.input :zip, :label => 'Zip', :input_html => { :class => 'zip' }
           = shipping_f.input :phone, :label => 'Phone'
         = f.input :id, :as => :hidden
-        = f.input :ship_to_billing, :as => :boolean, :label => 'Use same address for billing', :input_html => {:checked => (@order.shipping_address_id == @order.billing_address_id), :class => 'pull-left' }, :wrapper_html => { :id => 'ship_to_billing' }
+        = f.input :ship_to_billing, :as => :boolean, :label => '<span>Use same address for billing</span>'.html_safe, :input_html => {:checked => (@order.shipping_address_id == @order.billing_address_id), :class => 'pull-left' }, :wrapper_html => { :id => 'ship_to_billing' }
 
     #billing-address.pull-right
       .title_fields Billing Address
