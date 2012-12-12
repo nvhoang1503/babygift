@@ -12,7 +12,6 @@ en:
     button:
       enroll: 'enroll'
       gift: 'gift'
-
   content:
     common:
       date_format: 'MM/DD/YYYY'
