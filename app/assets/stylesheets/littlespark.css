@@ -87,7 +87,13 @@ input, textarea,select{
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+input[type="password"],
+.opera input[type="password"],
+.webkit input[type="password"]
+{
+  font: large Verdana,sans-serif;
+  letter-spacing: 1px;
+ }
 
 label{
   vertical-align:top;
