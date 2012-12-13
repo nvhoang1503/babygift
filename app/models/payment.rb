@@ -19,6 +19,7 @@ class Payment < ActiveRecord::Base
 
     transaction = AuthorizeNet::AIM::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
     credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y')
-    return transaction.purchase('10.00', credit_card)
+    order = Order.find_by_id(params[:order_id])
+    return transaction.purchase(order.total_order, credit_card)
 	end
 end
