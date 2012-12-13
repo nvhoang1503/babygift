@@ -13,7 +13,7 @@ Littlespark::Application.routes.draw do
   put 'update_order_shipping', :to => 'enrolment#update_order_shipping'
 
   # devise_for :users
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => 'sessions'}
 
   root :to => 'home#index'
 

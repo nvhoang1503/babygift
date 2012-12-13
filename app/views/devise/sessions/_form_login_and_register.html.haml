@@ -1,4 +1,3 @@
-- @submit_from ||= ''
 .login_box.pull-left
   .title_login.login_left_space= I18n.t('content.page.login.login', :login_text => login_text)
   = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
@@ -12,7 +11,7 @@
       .remember_box.clearfix
         = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
       = hidden_field_tag 'submit_from', @submit_from
-      - if @submit_from.present? and @order.id
+      - if @submit_from==SessionsController::ENROLMENT_RECEIVE and @order.id
         = hidden_field_tag 'order_id', @order.id
     = f.button :submit, I18n.t('content.page.login.sign_in') , :class => "mybtn btn-pink btn_login uppercase"
 
@@ -34,7 +33,7 @@
       = f.input :password_confirmation, :input_html => {:id => "user_passwork_confirm_register"}, :label => I18n.t('content.page.login.pass_confirm')
       %span#passwork_confirm_error.hidden Passwords must be the same.
       = hidden_field_tag 'submit_from', @submit_from
-      - if @submit_from.present? and @order.id
+      - if @submit_from==RegistrationsController::ENROLMENT_RECEIVE and @order.id
         = hidden_field_tag 'order_id', @order.id
     = f.button :submit, I18n.t('content.page.login.join') , :class => "mybtn btn-pink btn_register uppercase"
 
