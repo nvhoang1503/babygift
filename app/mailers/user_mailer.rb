@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
     @image_link = root_url.to_s + 'assets/common/logo_text.png'
 	  @email = user.email
     @password = user.password
-    @url = url_for :controller=>'devise/sessions', :action=>'new'
+    @url = url_for :controller=>'sessions', :action=>'new'
     mail(:to => @email, :subject => "Welcome to Little Spark")
 	end
 
@@ -28,7 +28,7 @@ class UserMailer < ActionMailer::Base
     @params = params
     @billing_address = @order.billing_address
     @shipping_address = @order.shipping_address
-    @url = url_for :controller=>'devise/sessions', :action=>'new'
+    @url = url_for :controller=>'sessions', :action=>'new'
     # mail(:to => @user_email, :subject => "Congratulation!")
     mail(:to => @user_email, :subject => "Order confirmation!")
   end
@@ -43,7 +43,7 @@ class UserMailer < ActionMailer::Base
     @params = params
     @billing_address = @order.billing_address
     @shipping_address = @order.shipping_address
-    @url = url_for :controller=>'devise/sessions', :action=>'new'
+    @url = url_for :controller=>'sessions', :action=>'new'
     mail(:to => @admin_email, :subject => "Order confirmation!")
   end
 
