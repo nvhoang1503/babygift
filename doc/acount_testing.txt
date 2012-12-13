@@ -7,6 +7,3 @@ Account:  littlespark123
 Password: TPLlittle$123
 API login ID: 9Y853Fpaf
 Transaction Key: 63gH5n8XE64XptNZ
-
-rails generate authorize_net:direct_post payments 9Y853Fpaf 63gH5n8XE64XptNZ \
-  9Y853Fpaf

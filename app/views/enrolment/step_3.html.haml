@@ -4,3 +4,12 @@
   #register_login.enroll-form
     .tittle_content.capitalize= I18n.t('content.page.enroll_3.title')
     = render 'devise/sessions/form_login_and_register', :login_text => "Sign In"
+
+= content_for :js do
+  = javascript_tag do
+    :erb
+      $(function() {
+        if(<%= @submit_from == SessionsController::ENROLMENT_RECEIVE %> && !$('#head_nav li#enrolls').hasClass('selected')) {
+          $('#head_nav li#enrolls').addClass('selected');
+        }
+      })
