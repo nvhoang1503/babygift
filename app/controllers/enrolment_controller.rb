@@ -26,6 +26,7 @@ class EnrolmentController < ApplicationController
   end
 
   def step_2
+    @order = Order.new unless @order
     unless @baby
       flash[:warning] = 'Register your child first!'
       redirect_to enrolment_step_1_path
