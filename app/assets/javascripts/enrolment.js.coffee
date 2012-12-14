@@ -34,9 +34,11 @@ class window.Enrolment
     $('#terms_content').click ->
       $('#terms_popup_content').modal
         closeHTML:
-          "<a class='modalCloseImg' href='#for_module' title='Close' onclick=\"$('.popup_content .no').trigger('click')\" style='color:#000 !important'>
-            <img src='/assets/common/closebox.png' width='24px' height='24px' alt='X'>
-          </a>"
+          "<div>
+            <a class='modalCloseImg' href='#for_module' title='Close' onclick=\"$('.popup_content .no').trigger('click')\" style='color:#000 !important'>
+              <img src='/assets/common/closebox.png' width='24px' height='24px' alt='X'>
+            </a>
+          </div>"
         position: [ "10%" ]
         focus: false
         persist: true
