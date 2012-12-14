@@ -39,8 +39,8 @@
       .action_box
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
         %p.text.italic Your credit card will be charged on a monthly basis.
-#terms_popup_content
-  = render 'shared/terms_conditions_popup'
+  #terms_popup_content
+    = render 'shared/terms_conditions_popup'
 
 = content_for :js do
   = javascript_tag do

@@ -521,3 +521,48 @@ ul.social_medial_icon_line{
   margin-left: 55px;
   margin-top:10px;
 }
+.simplemodal-wrap{
+  height: auto !important;
+  width: auto !important;
+  overflow: hidden !important;
+
+}
+#terms_popup_content{
+  display: none;
+  width: auto;
+}
+.modalCloseImg{
+  // margin-left: 100%;
+}
+.popup{
+  width: auto;
+  height: auto;
+  border: solid 1px #dbdbdb;
+
+  .popup_header{
+    height: 25px;
+    width: auto;
+    background-color: #f9f7f7;
+    font-family: "GudeaBold";
+    padding: 5px 20px 5px 20px;
+    border-bottom: solid 1px #dbdbdb;
+  }
+  .popup_content{
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+    padding:10px 20px 10px 20px;
+
+  }
+  .popup_footer{
+    height: 50px;
+    background-color: #fff;
+    text-align: right;
+    padding:0px 20px 0px 20px;
+    .mybtn{
+      height: 30px;
+      padding: 0 20px;
+    }
+
+  }
+}
