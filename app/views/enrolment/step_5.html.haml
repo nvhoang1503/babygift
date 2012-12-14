@@ -30,11 +30,17 @@
             %p.text.number.bold.pink= number_to_currency @order.total_order
         .img_box.pull-right= image_tag('sample/gitf_dog.jpg')
       .signup_box.clearfix
-        %input.pull-left{:type => 'checkbox' , :name => 'check_box_signup'}
-        %label.pull-left Sign-up for updates from your friends at Little Spark!
+        %input.pull-left{:type => 'checkbox' , :name => 'check_box_signup', :id => 'cb_signup'}
+        %label.pull-left{:for => 'cb_signup'} Sign-up for updates from your friends at Little Spark!
+
+        %input.pull-left{:type => 'checkbox' , :name => 'terms_agreement', :id => 'cb_terms'}
+        %label.pull-left{:for => 'cb_terms'}= "I agree with the <a href='#' id='terms_content' rel='popover'>Terms and Conditions</a>".html_safe
+
       .action_box
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
         %p.text.italic Your credit card will be charged on a monthly basis.
+#terms_popup_content
+  = render 'shared/terms_conditions_popup'
 
 = content_for :js do
   = javascript_tag do
