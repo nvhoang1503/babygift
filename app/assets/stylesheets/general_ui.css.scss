@@ -538,6 +538,7 @@ ul.social_medial_icon_line{
   width: auto;
   height: auto;
   border: solid 1px #dbdbdb;
+  border-radius: 5px;
 
   .popup_header{
     height: 25px;
@@ -546,6 +547,8 @@ ul.social_medial_icon_line{
     font-family: "GudeaBold";
     padding: 5px 20px 5px 20px;
     border-bottom: solid 1px #dbdbdb;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
   .popup_content{
     height: 200px;
@@ -559,6 +562,8 @@ ul.social_medial_icon_line{
     background-color: #fff;
     text-align: right;
     padding:0px 20px 0px 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     .mybtn{
       height: 30px;
       padding: 0 20px;
