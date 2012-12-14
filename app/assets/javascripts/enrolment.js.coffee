@@ -13,6 +13,8 @@ class window.Enrolment
     $('#frm-payment').submit @onPaymentSubmit
     $('#enroll-steps li').click @onEnrollNavClick
     $('#card_security').keypress helper.validateCvv
+    $('#child-register input:radio').change @onGenderChange
+    $('#plan-register input:radio').change @onPlanChange
 
   initCvvPopup: ->
     img = '<img src="/assets/common/cvv.png" alt="Cvv">'
@@ -68,3 +70,11 @@ class window.Enrolment
 
   onEnrollNavClick: (event) ->
     window.location = $(event.target).find('a').prop('href')
+
+  onGenderChange: (event) ->
+    $('#child-register input:radio').not(':checked').siblings('label').find('.icon-gender').removeClass('selected')
+    $('#child-register input:radio:checked').siblings('label').find('.icon-gender').addClass('selected')
+
+  onPlanChange: (event) ->
+    $('#plan-register input:radio').not(':checked').siblings('label').find('.icon-plan').removeClass('selected')
+    $('#plan-register input:radio:checked').siblings('label').find('.icon-plan').addClass('selected')
