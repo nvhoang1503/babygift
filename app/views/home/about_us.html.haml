@@ -2,7 +2,7 @@
   .title_page= I18n.t('content.page.about.story_sum')
   .content_box
     .box_lef
-      %p.description= I18n.t('content.page.about.story_text')
+      .description= I18n.t('content.page.about.story_text').html_safe
       %p.link
         = link_to I18n.t('content.page.about.team_link'), "#"
       %p.link

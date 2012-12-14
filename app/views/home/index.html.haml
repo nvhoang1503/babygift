@@ -5,7 +5,7 @@
     .intro.pull-left
       .text.bold.font26.line26= I18n.t('content.page.home.intro_sum')
       .dotted-line
-      .text.font18= I18n.t('content.page.home.intro_text')
+      .text.font18= I18n.t('content.page.home.intro_text').html_safe
       = link_to I18n.t('label.button.enroll'), enrolment_step_0_path, :class => 'mybtn btn-pink uppercase', :id => 'btn-enroll'
       = link_to I18n.t('label.button.gift'), home_term_path, :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
     #slides.pull-left
@@ -27,13 +27,13 @@
       = image_tag 'common/icon-how-it-works.png'
     .text.green.font22.bold.capitalize
       = link_to I18n.t('content.page.home.how_sum'), home_how_it_work_path
-    .text.font16= I18n.t('content.page.home.how_text')
+    .text.font16= I18n.t('content.page.home.how_text').html_safe
   .half-section.pull-right
     %a{:href => curriculum_path }
       = image_tag 'common/icon-curriculum.png'
     .text.green.font22.bold.capitalize
       = link_to I18n.t('content.page.home.curriculum_sum'), curriculum_path
-    .text.font16= I18n.t('content.page.home.curriculum_text')
+    .text.font16= I18n.t('content.page.home.curriculum_text').html_safe
 .clearfix
 
 .testimonial
