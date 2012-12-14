@@ -11,7 +11,7 @@
       .clearfix
       .text.font20.italic= I18n.t('content.page.enroll_1.optional')
       .info-panel.clearfix
-        = f.collection_radio_buttons :gender, gender_image_options, :first, :last
+        = f.collection_radio_buttons :gender, gender_image_options(@baby.gender), :first, :last
     #name.section.clearfix
       .text.font24= I18n.t('content.page.enroll_1.name_question')
       .info-panel.clearfix
