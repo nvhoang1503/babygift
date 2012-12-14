@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
+//= require libs/jquery.simplemodal
 //= require helper
 //= require application
 //= require validation

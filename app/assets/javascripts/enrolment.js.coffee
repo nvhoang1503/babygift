@@ -3,6 +3,7 @@ class window.Enrolment
     @card = new Card
     @card.validateCard()
     @initCvvPopup()
+    @initTermsNConditionsPopup()
     @initDatepicker()
     @autoshowTooltip()
     @updateShipToBilling()
@@ -24,13 +25,41 @@ class window.Enrolment
       content: img
       trigger: 'hover'
 
+  initTermsNConditionsPopup: ->
+    # content = '<div style="width:100px;height:100px;">may phai doc ne</div>'
+    # $('#terms_content').popover
+    #   title: null
+    #   html: 'true'
+    #   content: content
+    $('#terms_content').click ->
+      $('#terms_popup_content').modal
+        closeHTML:
+          "<a class='modalCloseImg' href='#for_module' title='Close' onclick=\"$('.popup_content .no').trigger('click')\" style='color:#000 !important'>
+            <img src='/assets/common/closebox.png' width='24px' height='24px' alt='X'>
+          </a>"
+        position: [ "10%" ]
+        focus: false
+        persist: true
+        maxWidth: "740px"
+        minWidth: "700px"
+
+        onShow: (dialog) ->
+            $('.popup_content .yes').click ->
+              # to do ...
+            $('.popup_content .no').click ->
+              $.modal.close()
+
+        onClose: (dialog) ->
+          $.modal.close()
+      return
+
   initDatepicker: ->
     $('#child_birthday').datepicker({
       format: 'mm/dd/yyyy'
       weekStart: 1
       autoclose: true
       todayHighlight: true
-      startView: 2
+      startView: 0
     }).on 'changeDate', ->
       if $('#child_birthday').val().trim() != ''
         $('#child_birthday ~ label.inputHintOverlay').css({display:'none'})
@@ -66,7 +95,7 @@ class window.Enrolment
       $('#plan-addresses').resetClientSideValidations()
 
   onPaymentSubmit: (event) =>
-    return @card.validateCardInfo()
+    return helper.checkTermsNConditions(cb_terms, @card.validateCardInfo)
 
   onEnrollNavClick: (event) ->
     window.location = $(event.target).find('a').prop('href')
