@@ -55,7 +55,7 @@
   clear:both;
   img.img_gift{
     float:left;
-    margin-left:85px;
+    margin-left:10px;
     margin-right:10px;
   }
   p.gift_text{
@@ -461,16 +461,19 @@ ul.fqa_menu_link{
 }
 
 #about_us_content{
+  padding-bottom: 50px;
   .content_box{
     margin-top:25px;
     .box_lef{
       display:block;
       float:left;
       width:550px;
-      p.description{
+      padding-bottom: 50px;
+      .description{
         font-size:18px;
         color:#515257;
-        height:80px;
+        width: 540px;
+        // height:80px;
         // letter-spacing:0;
       }
       p.link{
