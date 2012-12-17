@@ -1,0 +1,5 @@
+%ul#gift-steps.clearfix
+  = customized_link_to I18n.t('content.page.enroll_1.step') , gifts_step_1_path, :wrap_tag => ['li', :id => 'step_1', :class => 'pull-left capitalize'], :active_class => 'selected', :active_at => [gifts_step_1_path, gifts_step_1_path]
+  = customized_link_to I18n.t('content.page.enroll_2.step'), "#", :wrap_tag => ['li', :id => 'step_2', :class => 'pull-left capitalize'], :active_class => 'selected', :active_at => [enrolment_step_2_path, enroll_plan_path]
+  = customized_link_to I18n.t('content.page.enroll_3.step'), "#", :wrap_tag => ['li', :id => 'step_3', :class => 'pull-left capitalize'], :active_class => 'selected', :active_at => ["enrolment_step_3_path", user_registration_path, new_user_session_path]
+.dotted-line

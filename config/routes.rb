@@ -1,16 +1,4 @@
 Littlespark::Application.routes.draw do
-  get 'enrolment/step_0'
-  get "enrolment/step_1"
-  get "enrolment/step_2"
-  get "enrolment/step_3"
-  get "enrolment/step_4"
-  get "enrolment/step_5"
-  post "enrolment/finish"
-  post 'enroll_baby', :to => 'enrolment#enroll_baby'
-  put 'enroll_baby', :to => 'enrolment#enroll_baby'
-  post 'enroll_plan', :to => 'enrolment#enroll_plan'
-  put 'enroll_plan', :to => 'enrolment#enroll_plan'
-  put 'update_order_shipping', :to => 'enrolment#update_order_shipping'
 
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => 'sessions'}
@@ -27,6 +15,27 @@ Littlespark::Application.routes.draw do
   get 'curriculum', :to => 'home#curriculum'
   get 'kits', :to => 'home#kits'
   get 'fan_page', :to => 'home#fan_page'
+
+
+  get 'enrolment/step_0'
+  get "enrolment/step_1"
+  get "enrolment/step_2"
+  get "enrolment/step_3"
+  get "enrolment/step_4"
+  get "enrolment/step_5"
+  post "enrolment/finish"
+  post 'enroll_baby', :to => 'enrolment#enroll_baby'
+  put 'enroll_baby', :to => 'enrolment#enroll_baby'
+  post 'enroll_plan', :to => 'enrolment#enroll_plan'
+  put 'enroll_plan', :to => 'enrolment#enroll_plan'
+  put 'update_order_shipping', :to => 'enrolment#update_order_shipping'
+
+
+  # resources :gifts
+  get 'gifts/step_1'
+  put 'gift_step1', :to => 'gifts#gift_step1'
+
+
 
 
 end

@@ -1,6 +1,6 @@
 #
 # Format:
-# 
+#
 # <stage name>:
 #   app: <Heroku app name>
 #   stack: <Heroku stack, optional>
@@ -9,13 +9,11 @@
 #   config:
 #     - <Heroku config:var name>: <Heroku config:var value>
 #
-production: 
+production:
   app: littlespark
-  stack: bamboo-ree-1.8.7
-  tag: production/*
+  stack: cedar
   config:
     BUNDLE_WITHOUT: "development:test"
-    GOOGLE_ANALYTICS: "UA-12345678-1"
 
 staging:
   stack: cedar
@@ -28,6 +26,6 @@ staging:
     - logging:basic
     - scheduler:standard
 
-demo: 
+demo:
   app: awesomeapp-demo
   config: *default
