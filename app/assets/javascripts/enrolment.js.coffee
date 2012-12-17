@@ -16,6 +16,7 @@ class window.Enrolment
     $('#card_security').keypress helper.validateCvv
     $('.icon-gender').click @onGenderChange
     $('.icon-plan').click @onPlanChange
+    $('.icon-plan .price').click @onPlanChange
 
   initCvvPopup: ->
     img = '<img src="/assets/common/cvv.png" alt="Cvv">'
@@ -112,6 +113,7 @@ class window.Enrolment
 
   onPlanChange: (event) ->
     target = $(event.target)
+    target = target.closest('.icon-plan') if target.hasClass('price')
     $('.icon-plan').not(target).removeClass('selected')
     target.addClass('selected')
     rad = target.closest('span').find('input:radio')
