@@ -296,13 +296,7 @@
       height: 168px;
       width: 222px;
       cursor: pointer;
-      &:hover {
-        height: 162px;
-        width: 216px;
-        border-radius: 8px;
-        border: 3px solid #FFC91E;
-      }
-      &.selected {
+      &:hover, &.selected {
         height: 162px;
         width: 216px;
         border-radius: 8px;

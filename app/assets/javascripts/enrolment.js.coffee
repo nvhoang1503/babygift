@@ -14,6 +14,7 @@ class window.Enrolment
     $('#frm-payment').submit @onPaymentSubmit
     $('#enroll-steps li').click @onEnrollNavClick
     $('#card_security').keypress helper.validateCvv
+    $('.icon-credit-card').click @onCardChange
     $('.icon-gender').click @onGenderChange
     $('.icon-plan').click @onPlanChange
     $('.icon-plan .price').click @onPlanChange
@@ -115,6 +116,14 @@ class window.Enrolment
     target = $(event.target)
     target = target.closest('.icon-plan') if target.hasClass('price')
     $('.icon-plan').not(target).removeClass('selected')
+    target.addClass('selected')
+    rad = target.closest('span').find('input:radio')
+    rad.prop('checked', true)
+    $('input:radio').not(rad).prop('checked', false)
+
+  onCardChange: (event) ->
+    target = $(event.target)
+    $('.icon-credit-card').not(target).removeClass('selected')
     target.addClass('selected')
     rad = target.closest('span').find('input:radio')
     rad.prop('checked', true)
