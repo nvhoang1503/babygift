@@ -17,13 +17,7 @@ Then /^I wanna sleep '([^"]*)' seconds$/ do |arg1|
   sleep arg1.to_i
 end
 
-
-When /^I input email address #{capture_model} $/ do |input|
-  # pending # express the regexp above with the code you wish you had
-  puts input
+Given /^I'm in 'gift_recipient' page$/ do
+  visit path_to('gift recipient')
 end
 
-Then /^confirm email should be #{capture_model} $/ do |input|
-  # pending # express the regexp above with the code you wish you had
-  puts input
-end

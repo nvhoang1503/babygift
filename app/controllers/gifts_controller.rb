@@ -2,9 +2,6 @@ class GiftsController < ApplicationController
   def step_1
   end
 
-  def gift_step1
-
-  end
   # # GET /gifts
   # # GET /gifts.json
   # def index

@@ -4,7 +4,7 @@ def path_to(page_name)
     kits_path
   when /home page/ then
     root_path
-  else
-    root_path
+  when /gift recipient/ then
+    gifts_step_1_path
   end
 end

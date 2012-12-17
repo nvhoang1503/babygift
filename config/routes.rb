@@ -32,9 +32,10 @@ Littlespark::Application.routes.draw do
 
 
   # resources :gifts
+  # resources :gifts do
+  #   get "step_1", :to => 'gifts#step_1'
+  # end
   get 'gifts/step_1'
-  put 'gift_step1', :to => 'gifts#gift_step1'
-
 
 
 
