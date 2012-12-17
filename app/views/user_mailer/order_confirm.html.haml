@@ -30,7 +30,7 @@
           %p= "#{@shipping_address.city}, #{@shipping_address.state} #{@shipping_address.zip}"
       %div{:style => "clear:both; margin:40px 0px; color:#000;"}
         %p Payment Method: Credit Card
-        %p= "Credit Card Type: #{Payment::CARD_NAME[@params[card_type].to_i]}"
+        %p= "Credit Card Type: #{Payment::CARD_NAME[@params['card_type'].to_i]}"
         %p= "Credit Card Number: xxxx-#{@params[:card_number].slice(/\d{4}$/)}"
       %p Children:
       %P= @order.baby.fullname
