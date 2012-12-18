@@ -82,10 +82,11 @@ en:
       enroll_5:
         step: 'Payment'
         title: 'Tell us how you would like to pay'
-      enroll:
+      congrate:
         title: 'Congratulations!'
         tk:  'Thank you for choosing Little Spark!'
-        order: 'Your order number is<span class="text bold"> "%{fone_num}"</span>. You will receive a confirmation email shortly.'
+        gift_sent: "%{email}'s gift has been sent."
+        order: 'Your order number is<span class="text bold"> "%{order}"</span>. You will receive a confirmation email shortly.'
         check: 'Check out our <a href="%{link}" class="underline-link">blog</a> and stay connected!'
         qa: 'Questions or problems? Call 1-800-123-4567 or email us <a href="mailto:%{mail}" class="underline-link">contactus@littlespark.com</a>'
 

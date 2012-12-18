@@ -252,6 +252,19 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
 
   }
 }
+
+.congrate_finish_content{
+  .content_box{
+    margin-top: 30px;
+    .social{
+      margin-bottom: 30px;
+    }
+    p.check{
+      margin-top: 30px;
+    }
+  }
+}
+
 /*============ PAYMENT INFO ==========*/
 .card_info_box label {
   width: 140px;
