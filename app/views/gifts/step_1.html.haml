@@ -1,6 +1,22 @@
 .page_content_space
   = render 'steps_nav'
-  .tittle_content= I18n.t('content.page.gift_1.title')
-  .description= I18n.t('content.page.gift_1.desc')
+  = simple_form_for :gift, :url => '#', :html => {:id => 'gift_info', :class => 'gift-form' } do |f|
+    .tittle_content= I18n.t('content.page.gift_1.title')
+    .description= I18n.t('content.page.gift_1.desc')
+    #left-section.pull-left
+      = image_tag 'sample/pic-gift.jpg'
+      %a#ln_redeem{:href => '#', :class => 'underline-link capitalize pull-left'}= I18n.t('content.page.gift_1.redeem')
+    .form-inputs.pull-left
+      = f.input :recipient_email, :as => :string, :label => I18n.t('content.page.gift_1.recipient'), :input_html => {:title => I18n.t('content.page.gift_1.recipient_hint')}
+      = f.input :recipient_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.recipient_cfrm_hint')}
+      = f.input :sender_email, :as => :string, :label => I18n.t('content.page.gift_1.sender'), :input_html => {:title => I18n.t('content.page.gift_1.sender_hint')}
+      = f.input :sender_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.sender_cfrm_hint')}
+      = f.input :note, :as => :text, :label => I18n.t('content.page.gift_1.note'), :required => false, :input_html => {:title => I18n.t('content.page.gift_1.note_hint')}
+      = f.submit I18n.t('content.page.enroll_1.submit'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
+= content_for :js do
+  = javascript_tag do
+    :erb
+      var CARD_TYPE = <%= Payment::CARD_TYPE.to_json %>;
+  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'card.js', 'gifts.js'
 

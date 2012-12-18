@@ -1,3 +1,17 @@
+/*---------- CONSTANT---------------------------------------------------------*/
+$color-text: #44464b;
+
+// END
+
+.gift-form {
+  margin: 0 auto;
+  width: 874px;
+  label.collection_radio_buttons {
+    width: auto;
+    margin: 0;
+  }
+}
+
 #gift-steps {
   width: 844px;
   margin-left: 210px;
@@ -36,10 +50,54 @@
     }
     a {
       font-size: 18px;
-      color: #44464b;
+      color: $color-text;
     }
     &.selected a {
       font-family: 'GudeaBold';
     }
+  }
+}
+
+#gift_info {
+  input, textarea {
+    width: 388px;
+    margin-top: 5px
+  }
+  input {
+    height: 44px !important;
+  }
+  textarea {
+    height: 116px !important;
+  }
+  label.control-label {
+    font-family: 'Gudea';
+    color: $color-text;
+    font-size: 24px;
+    width: auto;
+  }
+  label.inputHintOverlay {
+    margin-top: 17px;
+  }
+  .form-inputs {
+    width: 388px;
+  }
+  .description {
+    font-size: 15px;
+    font-family: 'Gudea';
+    color: $color-text;
+    margin: 3px 0 22px;
+  }
+  #left-section {
+    width: 378px;
+    margin-right: 20px
+  }
+  #ln_redeem {
+    margin-top: 10px;
+  }
+  #btn-submit {
+    background-position: 222px 13px;
+    padding-right: 24px;
+    width: 267px;
+    margin: 30px 0 110px;
   }
 }
