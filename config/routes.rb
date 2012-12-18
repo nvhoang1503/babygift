@@ -16,19 +16,20 @@ Littlespark::Application.routes.draw do
   get 'kits', :to => 'home#kits'
   get 'fan_page', :to => 'home#fan_page'
 
-
-  get 'enrolment/step_0'
-  get "enrolment/step_1"
-  get "enrolment/step_2"
-  get "enrolment/step_3"
-  get "enrolment/step_4"
-  get "enrolment/step_5"
-  post "enrolment/finish"
-  post 'enroll_baby', :to => 'enrolment#enroll_baby'
-  put 'enroll_baby', :to => 'enrolment#enroll_baby'
-  post 'enroll_plan', :to => 'enrolment#enroll_plan'
-  put 'enroll_plan', :to => 'enrolment#enroll_plan'
-  put 'update_order_shipping', :to => 'enrolment#update_order_shipping'
+  resources :enrolment, :as => 'enrolments', :path => 'enrollment', :only => [] do
+    collection do
+      get 'step_0'
+      get 'step_1'
+      get 'step_2'
+      get 'step_3'
+      get 'step_4'
+      get 'step_5'
+      post 'finish'
+      put 'update_order_shipping'
+      match 'enroll_baby' => 'enrolment#enroll_baby', :via => [:post, :put], :as => :baby
+      match 'enroll_plan' => 'enrolment#enroll_plan', :via => [:post, :put]
+    end
+  end
 
   resources :gifts, :only => [] do
     collection do

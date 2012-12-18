@@ -1,6 +1,6 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for @baby, :as => :child, :url => enroll_baby_path(params), :method => :put, :html => {  :class => 'enroll-form', :id => 'child-register' }, :validate => :child_validator do |f|
+  = simple_form_for @baby, :as => :child, :url => baby_enrolment_index_path(params), :method => :put, :html => {  :class => 'enroll-form', :id => 'child-register' }, :validate => :child_validator do |f|
     .tittle_content= I18n.t('content.page.enroll_1.title')
 
     #gender.section.clearfix

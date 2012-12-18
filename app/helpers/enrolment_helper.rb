@@ -19,9 +19,11 @@ module EnrolmentHelper
       :action => step.to_sym,
       :only_path => true
     }
-    options[:order_id] = @order.id if @order
-    options[:baby_id] = @baby.id if !@order and @baby
-
+    if @order and @order.id
+      options[:order_id] = @order.id
+    else
+      options[:baby_id] = @baby.id if @baby and @baby.id
+    end
     url_for(options)
   end
 
