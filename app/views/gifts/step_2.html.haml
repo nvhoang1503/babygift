@@ -1,0 +1,13 @@
+.page_content_space
+  = render 'steps_nav'
+
+  = simple_form_for :gift, :url => '#', :html => { :class => 'gift-form', :id => 'gift-plan' } do |f|
+    .tittle_content= I18n.t('content.page.gift_2.title')
+    .plan-section
+      = f.collection_radio_buttons :plan_type, plan_image_options(nil), :first, :last
+    %center
+      = f.submit I18n.t('label.button.continue', :next_step => 'account'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
+
+= content_for :js do
+  = javascript_include_tag 'gifts.js'
+

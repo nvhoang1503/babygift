@@ -1,6 +1,6 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for :gift, :url => '#', :html => {:id => 'gift_info', :class => 'gift-form clearfix' } do |f|
+  = simple_form_for :gift, :url => '#', :html => {:id => 'gift-info', :class => 'gift-form clearfix' } do |f|
     .tittle_content= I18n.t('content.page.gift_1.title')
     .description= I18n.t('content.page.gift_1.desc')
     #left-section.pull-left
@@ -17,8 +17,5 @@
       = f.submit I18n.t('label.button.continue', :next_step => 'plans'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
 = content_for :js do
-  = javascript_tag do
-    :erb
-      var CARD_TYPE = <%= Payment::CARD_TYPE.to_json %>;
-  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'card.js', 'gifts.js'
+  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'gifts.js'
 

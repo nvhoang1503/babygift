@@ -95,74 +95,11 @@
     margin-top: 5px;
   }
 }
-#plan-register {
-  input[type=radio] {
-    display: none;
-  }
-  .icon-plan {
-    cursor: pointer;
-    background: url('common/icon-month-plan.png') no-repeat;
-    width: 204px;
-    height: 196px;
-    margin: 22px 18px 15px 0;
-    position: relative;
-    &._1-month {
-      background-position: 0 0;
-    }
-    &._3-month {
-      background-position: -225px 0;
-    }
-    &._6-month {
-      background-position: -451px 0;
-    }
-    &._12-month {
-      background-position: -675px 0;
-      margin-right: 0;
-    }
-
-    &:hover, &.selected {
-      border: 3px solid #FFC91E;
-      border-radius: 7px;
-      height: 190px;
-      width: 198px;
-
-      .price{
-        color: blue;
-        text-decoration: underline;
-        font-family: 'GudeaItalic';
-        font-weight: bold;
-      }
-      &._1-month {
-        background-position: -3px -3px;
-      }
-      &._3-month {
-        background-position: -228px -3px;
-      }
-      &._6-month {
-        background-position: -454px -3px;
-      }
-      &._12-month {
-        background-position: -678px -3px;
-        margin-right: 0;
-      }
-    }
-  }
-  .price {
-    color: #44464B;
-    font-size: 23px;
-    font-family: 'Gudea';
-    position: absolute;
-    left: 0;
-    bottom: 25px;
-    text-align: center;
-    width: 204px;
-  }
-  #btn-submit {
-    margin-top: 32px;
-    width: 266px;
-    padding-right: 24px;
-    background-position: 232px 12px;
-  }
+#plan-register #btn-submit {
+  margin-top: 32px;
+  width: 266px;
+  padding-right: 24px;
+  background-position: 232px 12px;
 }
 
 #enroll-steps {

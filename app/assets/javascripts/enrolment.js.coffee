@@ -1,7 +1,7 @@
 class window.Enrolment
   constructor: ->
-    @card = new Card
-    @card.validateCard()
+    @card = new Card if window.Card
+    @card.validateCard() if @card
     @initCvvPopup()
     @initTermsNConditionsPopup()
     @initDatepicker()
@@ -28,11 +28,6 @@ class window.Enrolment
       trigger: 'hover'
 
   initTermsNConditionsPopup: ->
-    # content = '<div style="width:100px;height:100px;">may phai doc ne</div>'
-    # $('#terms_content').popover
-    #   title: null
-    #   html: 'true'
-    #   content: content
     $('#terms_content').click ->
       $('#terms_popup_content').modal
         closeHTML:
@@ -67,7 +62,7 @@ class window.Enrolment
     }).on 'changeDate', ->
       if $('#child_birthday').val().trim() != ''
         $('#child_birthday ~ label.inputHintOverlay').css({display:'none'})
-    $('#child-register').inputHintOverlay()
+    $('#child-register').inputHintOverlay() if $('#child-register').length > 0
 
   autoshowTooltip: ->
     $('.icon-question').not('#cvv-popup').tooltip
@@ -113,13 +108,7 @@ class window.Enrolment
     $('input:radio').not(rad).prop('checked', false)
 
   onPlanChange: (event) ->
-    target = $(event.target)
-    target = target.closest('.icon-plan') if target.hasClass('price')
-    $('.icon-plan').not(target).removeClass('selected')
-    target.addClass('selected')
-    rad = target.closest('span').find('input:radio')
-    rad.prop('checked', true)
-    $('input:radio').not(rad).prop('checked', false)
+    helper.changePlanOnClick(event.target)
 
   onCardChange: (event) ->
     target = $(event.target)

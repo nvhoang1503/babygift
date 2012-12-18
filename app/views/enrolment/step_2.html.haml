@@ -3,8 +3,8 @@
 
   = simple_form_for @order, :as => :plan, :url => enroll_plan_path(:order_id => params[:order_id], :baby_id => params[:baby_id]), :html => { :class => 'enroll-form', :id => 'plan-register' } do |f|
     .tittle_content= I18n.t('content.page.enroll_2.title')
-    .info-panel.clearfix
-      = f.input :baby_id, :as => :hidden, :input_html => { :value => params[:baby_id] }
+    = f.input :baby_id, :as => :hidden, :input_html => { :value => params[:baby_id] }
+    .plan-section
       = f.collection_radio_buttons :plan_type, plan_image_options(@order.plan_type), :first, :last
     .text.italic.font16
       = I18n.t('content.page.enroll_2.note')
@@ -14,8 +14,4 @@
       = f.submit I18n.t('label.button.continue', :next_step => 'account'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
 = content_for :js do
-  = javascript_tag do
-    :erb
-      var CARD_TYPE = <%= Payment::CARD_TYPE.to_json %>;
-  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'card.js', 'enrolment.js'
-
+  = javascript_include_tag 'enrolment.js'

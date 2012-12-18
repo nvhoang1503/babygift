@@ -30,8 +30,10 @@ Littlespark::Application.routes.draw do
   put 'enroll_plan', :to => 'enrolment#enroll_plan'
   put 'update_order_shipping', :to => 'enrolment#update_order_shipping'
 
-  get 'gifts/step_1'
-
-
-
+  resources :gifts, :only => [] do
+    collection do
+      get 'step_1'
+      get 'step_2'
+    end
+  end
 end

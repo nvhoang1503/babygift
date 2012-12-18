@@ -37,3 +37,12 @@ class window.Helper
         $('#flash-panel').fadeIn()
         @autoHideFlash()
       return false
+
+  changePlanOnClick: (target) ->
+    target = $(target)
+    target = target.closest('.icon-plan') if target.hasClass('price')
+    $('.icon-plan').not(target).removeClass('selected')
+    target.addClass('selected')
+    rad = target.closest('span').find('input:radio')
+    rad.prop('checked', true)
+    $('input:radio').not(rad).prop('checked', false)
