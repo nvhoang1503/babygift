@@ -47,13 +47,14 @@ class window.Helper
     rad.prop('checked', true)
     $('input:radio').not(rad).prop('checked', false)
 
-  changeCardOnClick: (target) ->
+  changeCardOnClick: (target, callback) ->
     target = $(target)
     $('.icon-credit-card').not(target).removeClass('selected')
     target.addClass('selected')
     rad = target.closest('span').find('input:radio')
     rad.prop('checked', true)
     $('input:radio').not(rad).prop('checked', false)
+    callback()
 
   initCvvPopup: ->
     img = '<img src="/assets/common/cvv.png" alt="Cvv">'

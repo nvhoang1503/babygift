@@ -13,8 +13,8 @@ class window.Gift
     $('#frm-payment').submit @onPaymentSubmit
     $('#card_security').keypress helper.validateCvv
 
-  onCardChange: (event) ->
-    helper.changeCardOnClick(event.target)
+  onCardChange: (event) =>
+    helper.changeCardOnClick(event.target, @card.onCardTypeChange)
 
   onPlanChange: (event) ->
     helper.changePlanOnClick(event.target)

@@ -104,5 +104,5 @@ class window.Enrolment
   onPlanChange: (event) ->
     helper.changePlanOnClick(event.target)
 
-  onCardChange: (event) ->
-    helper.changeCardOnClick(event.target)
+  onCardChange: (event) =>
+    helper.changeCardOnClick(event.target, @card.onCardTypeChange)

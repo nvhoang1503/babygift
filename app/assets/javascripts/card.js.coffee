@@ -9,7 +9,6 @@ class window.Card
 
   validateCard:  =>
     $('#card_number').blur @onCardNumBlur
-    $('input[type=radio][name=card_type]').change @onCardTypeChange
     $('#card_security').blur @isExistCvv
 
   onCardNumBlur: =>
