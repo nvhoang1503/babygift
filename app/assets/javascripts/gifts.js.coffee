@@ -3,12 +3,24 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 class window.Gift
   constructor: ->
+    helper.initCvvPopup()
+    @card = new Card if window.Card
+    @card.validateCard() if @card
     @initFormGiftInfo()
     $('.icon-plan').click @onPlanChange
     $('.icon-plan .price').click @onPlanChange
+    $('.icon-credit-card').click @onCardChange
+    $('#frm-payment').submit @onPaymentSubmit
+    $('#card_security').keypress helper.validateCvv
+
+  onCardChange: (event) ->
+    helper.changeCardOnClick(event.target)
 
   onPlanChange: (event) ->
     helper.changePlanOnClick(event.target)
+
+  onPaymentSubmit: (event) =>
+    return helper.checkTermsNConditions(cb_terms, @card.validateCardInfo)
 
   initFormGiftInfo: ->
     $('#gift-info').inputHintOverlay() if $('#gift-info').length > 0

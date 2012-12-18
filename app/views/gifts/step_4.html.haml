@@ -1,13 +1,13 @@
 .page_content_space
   = render 'steps_nav'
 
-  = simple_form_for @order, :as => :order, :method => 'post', :url => enrolment_finish_path(:order_id => @order.id), :html => { :class => 'enroll-form payment-form', :id => 'frm-payment' } do |f|
+  = simple_form_for :gift, :method => 'post', :url => '#', :html => { :class => 'gift-form payment-form', :id => 'frm-payment' } do |f|
     .tittle_content= I18n.t('content.page.enroll_5.title')
     .enroll5_box.pull-left
       = render 'shared/card_information', :parent => f
 
     .enroll5_box.pull-right
-      = render 'shared/order_summary', :price => @order.price, :tax => @order.get_tax, :total => @order.total_order
+      = render 'shared/order_summary', :price => 34.99, :tax => 0, :total => 34.99
       .action_box
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
         %p.text.italic Your credit card will be charged on a monthly basis.
@@ -18,4 +18,4 @@
   = javascript_tag do
     :erb
       var CARD_TYPE = <%= Payment::CARD_TYPE.to_json %>;
-  = javascript_include_tag 'card.js', 'enrolment.js'
+  = javascript_include_tag 'card.js', 'gifts.js'

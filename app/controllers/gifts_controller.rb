@@ -7,4 +7,7 @@ class GiftsController < ApplicationController
 
   def step_3
   end
+
+  def step_4
+  end
 end

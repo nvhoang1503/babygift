@@ -1,12 +1,14 @@
 class window.Enrolment
   constructor: ->
+    helper.initCvvPopup()
     @card = new Card if window.Card
     @card.validateCard() if @card
-    @initCvvPopup()
+
     @initTermsNConditionsPopup()
     @initDatepicker()
     @autoshowTooltip()
     @updateShipToBilling()
+
     $('#plan-addresses').delegate '#ship_to_billing input', 'click', @copyAddress
     $('#plan-addresses').delegate '#plan_billing_address_attributes_zip, #plan_shipping_address_attributes_zip', 'keypress', helper.validateZip
     $('#plan-addresses').delegate '#plan_billing_address_attributes_phone, #plan_shipping_address_attributes_phone', 'keypress', helper.validatePhone
@@ -18,14 +20,6 @@ class window.Enrolment
     $('.icon-gender').click @onGenderChange
     $('.icon-plan').click @onPlanChange
     $('.icon-plan .price').click @onPlanChange
-
-  initCvvPopup: ->
-    img = '<img src="/assets/common/cvv.png" alt="Cvv">'
-    $('#cvv-popup').popover
-      title: null
-      html: 'true'
-      content: img
-      trigger: 'hover'
 
   initTermsNConditionsPopup: ->
     $('#terms_content').click ->
@@ -111,9 +105,4 @@ class window.Enrolment
     helper.changePlanOnClick(event.target)
 
   onCardChange: (event) ->
-    target = $(event.target)
-    $('.icon-credit-card').not(target).removeClass('selected')
-    target.addClass('selected')
-    rad = target.closest('span').find('input:radio')
-    rad.prop('checked', true)
-    $('input:radio').not(rad).prop('checked', false)
+    helper.changeCardOnClick(event.target)

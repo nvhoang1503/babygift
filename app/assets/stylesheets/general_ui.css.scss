@@ -333,6 +333,77 @@ span.question{
     padding-bottom: 10px;
   }
 }
+
+.payment-form {
+  #payment_card {
+    margin-bottom: 12px;
+  }
+  #cvv-popup img{
+    margin-top: 5px;
+  }
+  .popover {
+    width: 480px;
+    .popover-title {
+      display: none;
+    }
+    .popover-content {
+      height: 202px;
+      width: 452px
+    }
+  }
+  .cvv .error {
+    float: right;
+    margin-top: 5px;
+  }
+}
+
+#payment_card{
+  display:block;
+  input[type=radio] {
+    display: none;
+  }
+  .icon-credit-card {
+    background: url('common/icon-credit-cards.png') no-repeat;
+    margin-right:5px;
+    width: 55px;
+    height: 33px;
+    &:before {
+      content: '';
+    }
+    &:hover, &.selected {
+      width: 49px;
+      height: 27px;
+      border: 3px solid #FFC91E;
+      border-radius: 7px;
+
+      &.visa {
+        background-position: -4px -5px;
+      }
+      &.master {
+        background-position: -62px -5px;
+      }
+      &.am-express {
+        background-position: -120px -5px;
+      }
+      &.discover {
+        background-position: -178px -5px;
+      }
+    }
+    &.visa {
+      background-position: -1px -2px;
+    }
+    &.master {
+      background-position: -59px -2px;
+    }
+    &.am-express {
+      background-position: -117px -2px;
+    }
+    &.discover {
+      background-position: -175px -2px;
+    }
+  }
+}
+
 /*============== HEADER =====================*/
 #head_top{
   text-align: right;
@@ -431,52 +502,6 @@ ul.social_medial_icon_line{
   li{
     float: left;
     margin-right:10px;
-  }
-}
-#payment_card{
-  display:block;
-  input[type=radio] {
-    display: none;
-  }
-  .icon-credit-card {
-    background: url('common/icon-credit-cards.png') no-repeat;
-    margin-right:5px;
-    width: 55px;
-    height: 33px;
-    &:before {
-      content: '';
-    }
-    &:hover, &.selected {
-      width: 49px;
-      height: 27px;
-      border: 3px solid #FFC91E;
-      border-radius: 7px;
-
-      &.visa {
-        background-position: -4px -5px;
-      }
-      &.master {
-        background-position: -62px -5px;
-      }
-      &.am-express {
-        background-position: -120px -5px;
-      }
-      &.discover {
-        background-position: -178px -5px;
-      }
-    }
-    &.visa {
-      background-position: -1px -2px;
-    }
-    &.master {
-      background-position: -59px -2px;
-    }
-    &.am-express {
-      background-position: -117px -2px;
-    }
-    &.discover {
-      background-position: -175px -2px;
-    }
   }
 }
 

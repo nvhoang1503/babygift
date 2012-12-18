@@ -46,3 +46,19 @@ class window.Helper
     rad = target.closest('span').find('input:radio')
     rad.prop('checked', true)
     $('input:radio').not(rad).prop('checked', false)
+
+  changeCardOnClick: (target) ->
+    target = $(target)
+    $('.icon-credit-card').not(target).removeClass('selected')
+    target.addClass('selected')
+    rad = target.closest('span').find('input:radio')
+    rad.prop('checked', true)
+    $('input:radio').not(rad).prop('checked', false)
+
+  initCvvPopup: ->
+    img = '<img src="/assets/common/cvv.png" alt="Cvv">'
+    $('#cvv-popup').popover
+      title: null
+      html: 'true'
+      content: img
+      trigger: 'hover'
