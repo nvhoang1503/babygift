@@ -11,7 +11,7 @@
       %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_2.hint') }
         = image_tag 'common/icon-question.png'
     %center
-      = f.submit I18n.t('content.page.enroll_2.submit'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
+      = f.submit I18n.t('label.button.continue', :next_step => 'account'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
 = content_for :js do
   = javascript_tag do

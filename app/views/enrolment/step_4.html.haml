@@ -36,7 +36,7 @@
             = billing_f.input :phone, :label => 'Phone'
     .clearfix
     .form-action.pull-left.shipping_continue
-      = f.submit I18n.t('content.page.enroll_4.submit'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
+      = f.submit I18n.t('label.button.continue', :next_step => 'payment'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
 = content_for :js do
   = yield :addresses_validator

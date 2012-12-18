@@ -1,6 +1,6 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for :gift, :url => '#', :html => {:id => 'gift_info', :class => 'gift-form' } do |f|
+  = simple_form_for :gift, :url => '#', :html => {:id => 'gift_info', :class => 'gift-form clearfix' } do |f|
     .tittle_content= I18n.t('content.page.gift_1.title')
     .description= I18n.t('content.page.gift_1.desc')
     #left-section.pull-left
@@ -14,7 +14,7 @@
         = f.input :sender_email, :as => :string, :label => I18n.t('content.page.gift_1.sender'), :input_html => {:title => I18n.t('content.page.gift_1.sender_hint')}
         = f.input :sender_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.sender_cfrm_hint')}
       = f.input :note, :as => :text, :label => I18n.t('content.page.gift_1.note'), :required => false, :input_html => {:title => I18n.t('content.page.gift_1.note_hint')}, :wrapper_html => {:class => 'section'}
-      = f.submit I18n.t('content.page.enroll_1.submit'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
+      = f.submit I18n.t('label.button.continue', :next_step => 'plans'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
 = content_for :js do
   = javascript_tag do

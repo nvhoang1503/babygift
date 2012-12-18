@@ -59,6 +59,7 @@ $color-text: #44464b;
 }
 
 #gift_info {
+  margin-bottom: 110px;
   input, textarea {
     width: 388px;
     margin: 15px 0px 0px;
@@ -98,12 +99,13 @@ $color-text: #44464b;
     margin-right: 20px
   }
   #ln_redeem {
-    margin-top: 10px;
+    margin-top: 25px;
+    font-size: 26px;
   }
   #btn-submit {
     background-position: 222px 13px;
     padding-right: 24px;
     width: 267px;
-    margin: 0px 0px 110px;
+    margin: 0px;
   }
 }

@@ -12,6 +12,7 @@ en:
     button:
       enroll: 'enroll'
       gift: 'gift'
+      continue: 'continue to %{next_step}'
   content:
     common:
       date_format: 'MM/DD/YYYY'
@@ -59,7 +60,6 @@ en:
         name_question: 'What should we call your Little Spark?'
         birth_question: "When is your Little Spark's birthday or due date?"
         optional: 'You can update later.'
-        submit: 'continue to plans'
         first_name: 'first name'
         last_name: 'last name'
         gender_hint: 'We currently offer gender neutral toys only but may use this information in the future to customize your subscription.'
@@ -69,7 +69,6 @@ en:
         title: 'Choose your plan'
         note: '*we will charge your credit card monthly'
         hint: 'Your account will be debited monthly'
-        submit: 'continue to account'
         monthly: '/month*'
         plan_missing: 'Choose your plan first!'
       enroll_3:
@@ -78,7 +77,6 @@ en:
       enroll_4:
         step: 'Shipping & billing'
         title: 'Tell us where to send your kits'
-        submit: 'continue to payment'
       enroll_5:
         step: 'Payment'
         title: 'Tell us how you would like to pay'
