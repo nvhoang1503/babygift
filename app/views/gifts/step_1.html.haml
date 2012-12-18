@@ -7,11 +7,13 @@
       = image_tag 'sample/pic-gift.jpg'
       %a#ln_redeem{:href => '#', :class => 'underline-link capitalize pull-left'}= I18n.t('content.page.gift_1.redeem')
     .form-inputs.pull-left
-      = f.input :recipient_email, :as => :string, :label => I18n.t('content.page.gift_1.recipient'), :input_html => {:title => I18n.t('content.page.gift_1.recipient_hint')}
-      = f.input :recipient_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.recipient_cfrm_hint')}
-      = f.input :sender_email, :as => :string, :label => I18n.t('content.page.gift_1.sender'), :input_html => {:title => I18n.t('content.page.gift_1.sender_hint')}
-      = f.input :sender_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.sender_cfrm_hint')}
-      = f.input :note, :as => :text, :label => I18n.t('content.page.gift_1.note'), :required => false, :input_html => {:title => I18n.t('content.page.gift_1.note_hint')}
+      .section
+        = f.input :recipient_email, :as => :string, :label => I18n.t('content.page.gift_1.recipient'), :input_html => {:title => I18n.t('content.page.gift_1.recipient_hint')}
+        = f.input :recipient_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.recipient_cfrm_hint')}
+      .section
+        = f.input :sender_email, :as => :string, :label => I18n.t('content.page.gift_1.sender'), :input_html => {:title => I18n.t('content.page.gift_1.sender_hint')}
+        = f.input :sender_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.sender_cfrm_hint')}
+      = f.input :note, :as => :text, :label => I18n.t('content.page.gift_1.note'), :required => false, :input_html => {:title => I18n.t('content.page.gift_1.note_hint')}, :wrapper_html => {:class => 'section'}
       = f.submit I18n.t('content.page.enroll_1.submit'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
 = content_for :js do

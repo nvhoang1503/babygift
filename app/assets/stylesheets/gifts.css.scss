@@ -61,7 +61,7 @@ $color-text: #44464b;
 #gift_info {
   input, textarea {
     width: 388px;
-    margin-top: 5px
+    margin: 15px 0px 0px;
   }
   input {
     height: 44px !important;
@@ -69,14 +69,17 @@ $color-text: #44464b;
   textarea {
     height: 116px !important;
   }
-  label.control-label {
-    font-family: 'Gudea';
-    color: $color-text;
-    font-size: 24px;
-    width: auto;
-  }
-  label.inputHintOverlay {
-    margin-top: 17px;
+  label {
+    margin: 0;
+    &.control-label {
+      font-family: 'Gudea';
+      color: $color-text;
+      font-size: 24px;
+      width: auto;
+    }
+    &.inputHintOverlay {
+      margin: 27px 0 0 15px;
+    }
   }
   .form-inputs {
     width: 388px;
@@ -86,6 +89,9 @@ $color-text: #44464b;
     font-family: 'Gudea';
     color: $color-text;
     margin: 3px 0 22px;
+  }
+  .section {
+    margin-bottom: 35px;
   }
   #left-section {
     width: 378px;
@@ -98,6 +104,6 @@ $color-text: #44464b;
     background-position: 222px 13px;
     padding-right: 24px;
     width: 267px;
-    margin: 30px 0 110px;
+    margin: 0px 0px 110px;
   }
 }
