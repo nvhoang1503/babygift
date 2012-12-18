@@ -34,6 +34,7 @@ Littlespark::Application.routes.draw do
     collection do
       get 'step_1'
       get 'step_2'
+      get 'step_3'
     end
   end
 end

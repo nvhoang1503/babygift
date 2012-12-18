@@ -1,0 +1,12 @@
+.page_content_space
+  = render 'steps_nav'
+  = simple_form_for :gift, :url => '#', :html => {:class => "gift-form", :id => 'gift-billing'} do |f|
+    .tittle_content= I18n.t('content.page.enroll_4.title')
+    .billing-address.pull-left
+      = render 'shared/form_billing', :form_builder => f
+    .clearfix
+    .form-action.pull-left.shipping_continue
+      = f.submit I18n.t('label.button.continue', :next_step => 'payment'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
+
+= content_for :js do
+  = javascript_include_tag 'gifts.js'

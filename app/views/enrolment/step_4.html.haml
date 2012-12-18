@@ -3,37 +3,12 @@
   = simple_form_for @order, :as => :plan, :url => update_order_shipping_path, :html => {:class => "enroll-form", :id => 'plan-addresses'}, :validate => :addresses_validator do |f|
     .tittle_content= I18n.t('content.page.enroll_4.title')
 
-    #shipping-address.pull-left
-      .title_fields Shipping Address
-      .dotted-line
-      .form-inputs.shipping_input_form
-        = f.simple_fields_for :shipping_address do |shipping_f|
-          = shipping_f.input :first_name, :label => 'First Name', :autofocus => true
-          = shipping_f.input :last_name, :label => 'Last Name'
-          = shipping_f.input :address_1, :label => 'Address Line 1'
-          = shipping_f.input :address_2, :label => 'Address Line 2<span class="pull-right optional text unbold ">(optional)</span>'.html_safe, :label_html=> {:class => "bl_option"}, :wrapper_html=> { :class => 'address_option'}
-          = shipping_f.input :city, :label => 'City', :wrapper_html => {:class => 'clearboth'}
-          = shipping_f.input :state, :collection => us_states_collection, :label_method => :second, :value_method => :first, :label => 'State', :prompt => 'Please select one'
-          = shipping_f.input :zip, :label => 'Zip', :input_html => { :class => 'zip' }
-          = shipping_f.input :phone, :label => 'Phone'
-        = f.input :id, :as => :hidden
-        = f.input :ship_to_billing, :as => :boolean, :label => '<span>Use same address for billing</span>'.html_safe, :input_html => {:checked => (@order.shipping_address_id == @order.billing_address_id), :class => 'pull-left' }, :wrapper_html => { :id => 'ship_to_billing' }
+    .shipping-address.pull-left
+      = render 'shared/form_shipping', :form_builder => f
+      = f.input :ship_to_billing, :as => :boolean, :label => '<span>Use same address for billing</span>'.html_safe, :input_html => {:checked => (@order.shipping_address_id == @order.billing_address_id), :class => 'pull-left' }, :wrapper_html => { :id => 'ship_to_billing' }
 
-    #billing-address.pull-right
-      .title_fields Billing Address
-      .dotted-line
-      .line-separator.left
-      .billing_input_form
-        = f.simple_fields_for :billing_address do |billing_f|
-          .form-inputs.left
-            = billing_f.input :first_name, :label => 'First Name'
-            = billing_f.input :last_name, :label => 'Last Name'
-            = billing_f.input :address_1, :label => 'Address Line 1'
-            = billing_f.input :address_2, :label => 'Address Line 2<span class="pull-right text unbold optional ">(optional)</span>', :label_html=> {:class => "bl_option"}
-            = billing_f.input :city, :label => 'City' , :wrapper_html => {:class => 'clearboth'}
-            = billing_f.input :state, :collection => us_states_collection, :label_method => :second, :value_method => :first, :label => 'State', :prompt => 'Please select one'
-            = billing_f.input :zip, :label => 'Zip', :input_html => { :class => 'zip' }
-            = billing_f.input :phone, :label => 'Phone'
+    .billing-address.pull-right
+      = render 'shared/form_billing', :form_builder => f
     .clearfix
     .form-action.pull-left.shipping_continue
       = f.submit I18n.t('label.button.continue', :next_step => 'payment'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'

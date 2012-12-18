@@ -1,0 +1,15 @@
+/locals: form_builder
+.title_fields Billing Address
+.dotted-line
+.line-separator.left
+.billing_input_form
+  = form_builder.simple_fields_for :billing_address do |billing_f|
+    .form-inputs.left
+      = billing_f.input :first_name, :label => 'First Name'
+      = billing_f.input :last_name, :label => 'Last Name'
+      = billing_f.input :address_1, :label => 'Address Line 1'
+      = billing_f.input :address_2, :label => 'Address Line 2<span class="pull-right text unbold optional ">(optional)</span>', :label_html=> {:class => "bl_option"}, :required => false
+      = billing_f.input :city, :label => 'City' , :wrapper_html => {:class => 'clearboth'}
+      = billing_f.input :state, :collection => us_states_collection, :label_method => :second, :value_method => :first, :label => 'State', :prompt => 'Please select one'
+      = billing_f.input :zip, :label => 'Zip', :input_html => { :class => 'zip' }
+      = billing_f.input :phone, :label => 'Phone', :required => false

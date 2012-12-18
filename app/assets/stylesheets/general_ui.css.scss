@@ -307,7 +307,32 @@ span.question{
     letter-spacing: 1;
   }
 }
-
+.billing-address, .shipping-address{
+  display: block;
+  width: 390px;
+  label {
+    width: 135px;
+    &.optional {
+      line-height: 15px;
+      span.optional {
+        font-size: 12px;
+        font-family: 'Gudea';
+      }
+    }
+  }
+  input[type=text], select {
+    width: 225px;
+  }
+  input.zip {
+    width: 105px;
+  }
+  .title_fields {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+}
 /*============== HEADER =====================*/
 #head_top{
   text-align: right;
