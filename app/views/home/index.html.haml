@@ -7,7 +7,7 @@
       .dotted-line
       .text.font18= I18n.t('content.page.home.intro_text').html_safe
       = link_to I18n.t('label.button.enroll'), step_1_enrolments_path, :class => 'mybtn btn-pink uppercase', :id => 'btn-enroll'
-      = link_to I18n.t('label.button.gift'), home_term_path, :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
+      = link_to I18n.t('label.button.gift'), term_homes_path, :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
     #slides.pull-left
       .slides_container
         - (1..4).each do |idx|
@@ -23,16 +23,16 @@
 
 .page_content_space
   .half-section.pull-left
-    %a{:href => home_how_it_work_path }
+    %a{:href => how_it_work_homes_path }
       = image_tag 'common/icon-how-it-works.png'
     .text.green.font22.bold.capitalize
-      = link_to I18n.t('content.page.home.how_sum'), home_how_it_work_path
+      = link_to I18n.t('content.page.home.how_sum'), how_it_work_homes_path
     .text.font16= I18n.t('content.page.home.how_text').html_safe
   .half-section.pull-right
-    %a{:href => curriculum_path }
+    %a{:href => curriculum_homes_path }
       = image_tag 'common/icon-curriculum.png'
     .text.green.font22.bold.capitalize
-      = link_to I18n.t('content.page.home.curriculum_sum'), curriculum_path
+      = link_to I18n.t('content.page.home.curriculum_sum'), curriculum_homes_path
     .text.font16= I18n.t('content.page.home.curriculum_text').html_safe
 .clearfix
 

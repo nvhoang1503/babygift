@@ -1,20 +1,22 @@
 Littlespark::Application.routes.draw do
-
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => 'sessions'}
 
   root :to => 'home#index'
 
-  get "home/index"
-  get "home/how_it_work"
-  get "home/fqa"
-  get "home/contact_us"
-  get "home/about_us"
-  get "home/term"
-
-  get 'curriculum', :to => 'home#curriculum'
-  get 'kits', :to => 'home#kits'
-  get 'fan_page', :to => 'home#fan_page'
+  resources :home, :as => :homes, :only => [:index] do
+    collection do
+      # get 'index'
+      get 'how_it_work'
+      get 'fqa'
+      get 'contact_us'
+      get 'about_us'
+      get 'term'
+      get 'curriculum'
+      get 'kits'
+      get 'fan_page'
+    end
+  end
 
   resources :enrolment, :as => 'enrolments', :path => 'enrollment', :only => [] do
     collection do

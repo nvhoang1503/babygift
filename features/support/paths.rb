@@ -2,7 +2,7 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
     when /kits page/ then
-      kits_path
+      kits_homes_path
     when /home page/ then
       root_path
     when /gift recipient/ then
