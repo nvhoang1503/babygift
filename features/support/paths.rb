@@ -7,6 +7,12 @@ module NavigationHelpers
       root_path
     when /gift recipient/ then
       step_1_gifts_path
+    when /gift monthly plan/ then
+      step_2_gifts_path
+    when /gift billing/ then
+      step_3_gifts_path
+    when /gift payment/ then
+      step_4_gifts_path
     end
   end
 end
