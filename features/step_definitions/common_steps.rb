@@ -1,4 +1,8 @@
 
-Then /^I wanna sleep "([^"]*)" seconds for synchronizing with server$/ do |arg1|
+Then /^I wanna sleep "([^"]*)" seconds$/ do |arg1|
   sleep arg1.to_i
+end
+
+Then /^I should see "(.*?)" within "(.*?)" '(\d+)' times$/ do |text, selector, number|
+  find(selector).size.should == number.to_i
 end

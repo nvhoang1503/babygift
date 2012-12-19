@@ -8,59 +8,67 @@ Feature: SendGift
     When I click the element within "#gifts a"
     Then I should see the element within "#gift-info"
 
-  @current
-  @javascript
+  #to do
   Scenario: Do not fill recipient's email
     Given I go to gift recipient
-    When I focus on 'recipient_email'
-      And leave input field
-    Then I should see error message "Can't be blank"
+    When I click the element within "#gift_recipient_email"
+      And I wanna sleep "2" seconds
+      And I click the element within "#gift_recipient_email_confirm"
+    Then I should see "Can't be blank" within "span.error"
 
+  #to do
   Scenario: Fill wrong format of recipient's email
-    Given I go to the gift recipient page
-    When I focus on 'recipient_email'
-      And I fill 'email' to 'recipient_email' field
-      And leave input field
-    Then I should see error message "Invalid email"
+    Given I go to gift recipient
+    When I fill in "gift[recipient_email]" with "email" within ".form-inputs"
+      And I click the element within "#gift_recipient_email_confirm"
+    Then I should see "Invalid email" within "span.error"
 
+  #to do
   Scenario: Wrong confirm recipient's email
-    Given I go to the gift recipient page
-    When I fill 'user@gmail.com' to 'recipient_email' field
-      And I fill 'user1@gmail.com' to 'recipient_email_confirm' field
-      And leave input field
-    Then I should see error message "Doesn't match confirmation"
+    Given I go to gift recipient
+    When I fill in "gift[recipient_email]" with "email@littlespark.com" within ".form-inputs"
+      And I fill in "gift[recipient_email_confirm]" with "email1@littlespark.com" within ".form-inputs"
+      And I click the element within "#gift_sender_email"
+    Then I should see "Doesn't match confirmation" within "span.error"
 
+  # todo
   Scenario: Submit without filling required fields
-    Given Igo to the gift recipient page
-    When I click on continue button
-    Then I should see error message "Can't be blank" bellow 'recipient_email' and 'sender_email' fields
+    Given I go to gift recipient
+    When I press "continue to plans" within ".form-inputs"
+    Then I should see "Can't be blank" within "span.error" '4' times
 
+  #to do
   Scenario: Do not input sender's email
-    Given I' go to the gift recipient page
-    When I focus on 'sender_email'
-      And leave input field
-    Then I should see error message "Can't be blank"
+    Given I go to gift recipient
+    When I click the element within "#gift_sender_email"
+      And I wanna sleep "2" seconds
+      And I click the element within "#gift_sender_email_confirm"
+    Then I should see "Can't be blank" within "span.error"
 
+  #todo
   Scenario: Input wrong format of sender's email
-    Given I go to the gift recipient page
-    When I focus on 'sender_email'
-      And I fill 'email' to 'sender_email' field
-      And leave input field
-    Then I should see error message "Invalid email"
+    Given I go to gift recipient
+    When I fill in "gift[sender_email]" with "email"
+      And I click the element within "#gift_sender_email_confirm"
+    Then I should see "Invalid email" within "span.error"
 
+  #to do
   Scenario: Wrong confirm sender's email
-    Given I go to the gift recipient page
-    When I fill 'sender@gmail.com' to 'sender_email' field
-      And I fill 'sender1@gmail.com' to 'sender_email_confirm' field
-      And leave input field
-    Then I should see error message "Doesn't match confirmation"
+    Given I go to gift recipient
+    When I fill in "gift[sender_email]" with "email@littlespark.com"
+      And I fill in "gift[sender_email_confirm]" with "email1@littlespark.com"
+      And I click the element within "#gift_note"
+    Then I should see "Doesn't match confirmation" within "span.error"
 
+  # @current
+  # @javascript
+  #to do
   Scenario: submit basic information
-    Given I go to the gift recipient page
-    When I fill 'recipient@gmail.com' to 'recipient_email' field
-      And I fill 'recipient@gmail.com' to 'recipient_confirm_email' field
-      And I fill 'sender@gmail.com' to 'sender_email' field
-      And I fill 'sender@gmail.com' to 'sender_confirm_email' field
-      And I fill 'Good luck to you!' to 'gift_message' field
-      And I click on 'continue' button
-    Then I should go to 'gift monthly_plan' page
+    Given I go to gift recipient
+    When I fill in "gift[recipient_email]" with "email@littlespark.com" within ".form-inputs"
+      And I fill in "gift[recipient_email_confirm]" with "email@littlespark.com" within ".form-inputs"
+      And I fill in "gift[sender_email]" with "email@littlespark.com"
+      And I fill in "gift[sender_email_confirm]" with "email@littlespark.com"
+      And I fill in "gift[note]" with "Good luck"
+      And I press "continue to plans" within ".form-inputs"
+    Then I should see the element within "#gift-plan"
