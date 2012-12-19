@@ -14,7 +14,7 @@
           %div
             = image_tag "sample/slideshow#{idx}.jpg"
             .caption.text.font16
-              %p= I18n.t("content.page.home.slide_#{idx}_text")
+              %p= I18n.t("content.page.home.slide_#{idx}_text").html_safe
       %a.prev{:href => '#'}
         .btn-slide-prev
       %a.next{:href => '#'}
