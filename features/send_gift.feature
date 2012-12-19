@@ -5,8 +5,9 @@ Feature: SendGift
 
   Scenario: Access gift page
     Given I go to home page
-    When I click 'Gifts' on header
-    Then I go to kits page
+    When I click the element within "#gifts a"
+    Then I should see the element within "#gift-info"
+
   @current
   @javascript
   Scenario: Do not fill recipient's email
