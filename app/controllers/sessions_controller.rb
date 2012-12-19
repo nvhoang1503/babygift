@@ -15,7 +15,7 @@ class SessionsController < Devise::SessionsController
   protected
     def after_sign_in_path(resource, submit_from=nil, order_id=nil)
       if submit_from == ENROLMENT_RECEIVE
-        enrolment_step_4_path(:order_id => order_id)
+        step_4_enrolments_path(:order_id => order_id)
       else
         after_sign_in_path_for(resource)
       end

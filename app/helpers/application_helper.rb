@@ -1,7 +1,7 @@
 module ApplicationHelper
   def enroll_steps_paths
-    [ enrolment_step_1_path, enrolment_step_2_path, enrolment_step_3_path,
-      enrolment_step_4_path, enrolment_step_5_path, enrolment_finish_path ]
+    [ step_1_enrolments_path, step_2_enrolments_path, step_3_enrolments_path,
+      step_4_enrolments_path, step_5_enrolments_path, finish_enrolments_path ]
   end
 
   def us_states_collection

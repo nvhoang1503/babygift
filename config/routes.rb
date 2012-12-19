@@ -18,7 +18,6 @@ Littlespark::Application.routes.draw do
 
   resources :enrolment, :as => 'enrolments', :path => 'enrollment', :only => [] do
     collection do
-      get 'step_0'
       get 'step_1'
       get 'step_2'
       get 'step_3'

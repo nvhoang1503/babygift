@@ -22,7 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
         req_referer = Rack::Request.new env
         @order = Order.find_by_id params[:order_id]
         @submit_from = ENROLMENT_RECEIVE
-        render enrolment_step_3_path(:order_id => req_referer.params[:order_id])
+        render step_3_enrolments_path(:order_id => req_referer.params[:order_id])
       else
         respond_with resource
       end
@@ -32,7 +32,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
     def after_sign_up_path_for(resource, submit_from, order_id)
       if submit_from == ENROLMENT_RECEIVE
-        enrolment_step_4_path(:order_id => order_id)
+        step_4_enrolments_path(:order_id => order_id)
       else
         after_sign_in_path_for(resource)
       end
