@@ -26,9 +26,9 @@ Littlespark::Application.routes.draw do
       get 'step_4'
       get 'step_5'
       post 'finish'
-      put 'update_order_shipping'
+      put 'update_order_shipping', :as => :shipping_info
       match 'enroll_baby' => 'enrolment#enroll_baby', :via => [:post, :put], :as => :baby
-      match 'enroll_plan' => 'enrolment#enroll_plan', :via => [:post, :put]
+      match 'enroll_plan' => 'enrolment#enroll_plan', :via => [:post, :put], :as => :plan
     end
   end
 

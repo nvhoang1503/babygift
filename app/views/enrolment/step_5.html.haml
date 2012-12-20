@@ -1,7 +1,7 @@
 .page_content_space
   = render 'steps_nav'
 
-  = simple_form_for @order, :as => :order, :method => 'post', :url => enrolment_finish_path(:order_id => @order.id), :html => { :class => 'enroll-form payment-form', :id => 'frm-payment' } do |f|
+  = simple_form_for @order, :as => :order, :method => 'post', :url => finish_enrolments_path(:order_id => @order.id), :html => { :class => 'enroll-form payment-form', :id => 'frm-payment' } do |f|
     .tittle_content= I18n.t('content.page.enroll_5.title')
     .enroll5_box.pull-left
       = render 'shared/card_information', :parent => f

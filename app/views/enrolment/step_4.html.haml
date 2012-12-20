@@ -1,6 +1,6 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for @order, :as => :plan, :url => update_order_shipping_path, :html => {:class => "enroll-form", :id => 'plan-addresses'}, :validate => :addresses_validator do |f|
+  = simple_form_for @order, :as => :plan, :url => shipping_info_enrolments_path, :html => {:class => "enroll-form", :id => 'plan-addresses'}, :validate => :addresses_validator do |f|
     .tittle_content= I18n.t('content.page.enroll_4.title')
 
     .shipping-address.pull-left
