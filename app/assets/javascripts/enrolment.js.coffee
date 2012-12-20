@@ -88,7 +88,7 @@ class window.Enrolment
       $('#plan-addresses').resetClientSideValidations()
 
   onPaymentSubmit: (event) =>
-    return helper.checkTermsNConditions(cb_terms, @card.validateCardInfo)
+    return helper.checkTermsNConditions('#cb_terms', @card.validateCardInfo)
 
   onEnrollNavClick: (event) ->
     window.location = $(event.target).find('a').prop('href')

@@ -12,6 +12,7 @@ class window.Gift
     $('.icon-credit-card').click @onCardChange
     $('#frm-payment').submit @onPaymentSubmit
     $('#card_security').keypress helper.validateCvv
+    @checkConfirmEmail()
 
   onCardChange: (event) =>
     helper.changeCardOnClick(event.target, @card.onCardTypeChange)
@@ -25,3 +26,31 @@ class window.Gift
   initFormGiftInfo: ->
     func =-> $('#gift-info').inputHintOverlay() if $('#gift-info').length > 0
     window.setTimeout(func, 200)
+
+  checkConfirmEmail: ->
+    $('#gift-info').submit =>
+      flag1 = @validation_email('#gift_recipient_email' , '#gift_recipient_email_confirm')
+      flag2 = @validation_email('#gift_sender_email' , '#gift_sender_email_confirm')
+      flag = flag1 && flag2
+      return flag
+
+    $("#gift_recipient_email_confirm").live 'blur', =>
+      @validation_email('#gift_recipient_email' , '#gift_recipient_email_confirm')
+
+    $("#gift_sender_email_confirm").live 'blur', =>
+      @validation_email('#gift_sender_email' , '#gift_sender_email_confirm')
+
+  validation_email: (elem1, elem2) ->
+    val1 = $(elem1).val().trim()
+    val2 = $(elem2).val().trim()
+    s = "<span class='error'>#{message.not_match}</span>"
+    if val1 != val2
+      if $(elem2).siblings('.error').length == 0
+        $(elem2).after(s)
+      else
+        $(elem2).siblings('.error').text("#{message.not_match}")
+      return false
+    return true
+
+
+

@@ -1,6 +1,6 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for :gift, :url => '#', :html => {:id => 'gift-info', :class => 'gift-form clearfix' } do |f|
+  = simple_form_for @gift, :as => :gift, :url => update_gift_gifts_path, :html => {:id => 'gift-info', :class => 'gift-form clearfix' }, :validate => :gift_validator do |f|
     .tittle_content= I18n.t('content.page.gift_1.title')
     .description= I18n.t('content.page.gift_1.desc')
     #left-section.pull-left
@@ -8,14 +8,19 @@
       %a#ln_redeem{:href => '#', :class => 'underline-link capitalize pull-left'}= I18n.t('content.page.gift_1.redeem')
     .form-inputs.pull-left
       .section
-        = f.input :recipient_email, :as => :string, :label => I18n.t('content.page.gift_1.recipient'), :input_html => {:title => I18n.t('content.page.gift_1.recipient_hint')}
-        = f.input :recipient_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.recipient_cfrm_hint')}
+        .text.font24
+          =I18n.t('content.page.gift_1.recipient')
+          %abbr{:title => "required", :style => "color:red;"} *
+        = f.input :recipient_email, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.recipient_hint')}
+        / = f.input :recipient_email, :as => :string, :label => I18n.t('content.page.gift_1.recipient'), :input_html => {:title => I18n.t('content.page.gift_1.recipient_hint')}
+        = f.input :recipient_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.recipient_cfrm_hint'), :value => '' }
       .section
         = f.input :sender_email, :as => :string, :label => I18n.t('content.page.gift_1.sender'), :input_html => {:title => I18n.t('content.page.gift_1.sender_hint')}
-        = f.input :sender_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.sender_cfrm_hint')}
+        = f.input :sender_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.sender_cfrm_hint'), :value => ''}
       = f.input :note, :as => :text, :label => I18n.t('content.page.gift_1.note'), :required => false, :input_html => {:title => I18n.t('content.page.gift_1.note_hint')}, :wrapper_html => {:class => 'section'}
       = f.submit I18n.t('label.button.continue', :next_step => 'plans'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 
 = content_for :js do
+  = yield :gift_validator
   = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'gifts.js'
 

@@ -3,6 +3,9 @@
 
 en:
   hello: "Hello world"
+  message:
+    not_match: 'Does not match'
+    not_blank: "Can't be blank"
   titles:
     pages:
       name: 'Little Spark'
