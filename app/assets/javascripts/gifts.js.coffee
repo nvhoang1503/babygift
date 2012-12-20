@@ -29,16 +29,23 @@ class window.Gift
 
   checkConfirmEmail: ->
     $('#gift-info').submit =>
-      flag1 = @validation_email('#gift_recipient_email' , '#gift_recipient_email_confirm')
-      flag2 = @validation_email('#gift_sender_email' , '#gift_sender_email_confirm')
+      flag1 = @validateConfirmEmail('#gift_recipient_email' , '#gift_recipient_email_confirm')
+      flag2 = @validateConfirmEmail('#gift_sender_email' , '#gift_sender_email_confirm')
       flag = flag1 && flag2
       return flag
 
-    $("#gift_recipient_email_confirm").live 'blur', =>
-      @validation_email('#gift_recipient_email' , '#gift_recipient_email_confirm')
+    $("#gift_recipient_email").live 'blur', =>
+      if $('#gift_recipient_email_confirm').val().length > 0
+        @validateConfirmEmail('#gift_recipient_email' , '#gift_recipient_email_confirm')
 
+    $("#gift_recipient_email_confirm").live 'blur', =>
+      @validateConfirmEmail('#gift_recipient_email' , '#gift_recipient_email_confirm')
+
+    $("#gift_sender_email").live 'blur', =>
+      if $('#gift_sender_email_confirm').val().length > 0
+        @validateConfirmEmail('#gift_sender_email' , '#gift_sender_email_confirm')
     $("#gift_sender_email_confirm").live 'blur', =>
-      @validation_email('#gift_sender_email' , '#gift_sender_email_confirm')
+      @validateConfirmEmail('#gift_sender_email' , '#gift_sender_email_confirm')
 
   validation_email: (elem1, elem2) ->
     val1 = $(elem1).val().trim()
@@ -50,7 +57,22 @@ class window.Gift
       else
         $(elem2).siblings('.error').text("#{message.not_match}")
       return false
-    return true
+    else
+      $(elem2).siblings('.error').remove()
+      return true
 
+  validateConfirmEmail: (elem1, elem2) =>
+    result = true
+    target = $(elem2)
+    if isEmail($(target).val().trim())
+      result = @validation_email(elem1 , elem2)
+    else if target.siblings('.error').length == 0
+      s = "<span class='error'>#{message.invalid_email}</span>"
+      target.after(s)
+      result = false
+    else
+      target.siblings('.error').text("#{message.invalid_email}")
+      result = false
+    return result
 
 

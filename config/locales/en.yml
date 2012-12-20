@@ -6,6 +6,7 @@ en:
   message:
     not_match: 'Does not match'
     not_blank: "Can't be blank"
+    invalid_email: "Invalid email"
   titles:
     pages:
       name: 'Little Spark'
