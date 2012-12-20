@@ -7,6 +7,7 @@ en:
     not_match: 'Does not match'
     not_blank: "Can't be blank"
     invalid_email: "Invalid email"
+    plan_missing: 'Choose your plan first!'
   titles:
     pages:
       name: 'Little Spark'

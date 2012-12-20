@@ -4,6 +4,7 @@ class GiftsController < ApplicationController
   end
 
   def step_2
+    @gift = Gift.find_by_id params[:gift_id]
   end
 
   def step_3
@@ -16,6 +17,26 @@ class GiftsController < ApplicationController
   end
 
   def update_gift
+    if params.has_key? :gift_id
+      @gift = Gift.find_by_id params[:gift_id]
+
+      if params.has_key?(:gift)
+        if @gift.update_attributes(params[:gift])
+          redirect_to step_3_gifts_path(:gift_id => @gift.id)
+        else
+          flash[:notice] = @gift.errors.full_messages
+          render step_2_gifts_path
+        end
+      else
+        flash[:notice] = I18n.t('content.page.enroll_2.plan_missing')
+        render step_2_gifts_path
+      end
+    else
+      create_gift(params)
+    end
+  end
+
+  def create_gift(params)
     info = params[:gift]
     info.delete :recipient_email_confirm
     info.delete :sender_email_confirm
@@ -42,5 +63,8 @@ class GiftsController < ApplicationController
         render step_1_gifts_path
       end
     end
+
   end
+
 end
+

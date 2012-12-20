@@ -12,7 +12,9 @@ class window.Gift
     $('.icon-credit-card').click @onCardChange
     $('#frm-payment').submit @onPaymentSubmit
     $('#card_security').keypress helper.validateCvv
+
     @checkConfirmEmail()
+    @checkSelectPlan()
 
   onCardChange: (event) =>
     helper.changeCardOnClick(event.target, @card.onCardTypeChange)
@@ -75,4 +77,8 @@ class window.Gift
       result = false
     return result
 
-
+  checkSelectPlan: ->
+    $('#gift-plan').live 'submit',  ->
+      if $('input:radio:checked').length == 0
+        helper.showFlashMessage(message.plan_missing)
+        return false

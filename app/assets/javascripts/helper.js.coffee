@@ -26,16 +26,19 @@ class window.Helper
     part2 = @.value.substring @.selectionEnd, @.value.length
     return reg.test(part1 + String.fromCharCode(event.charCode) + part2)
 
+  showFlashMessage: (text) ->
+    if $('#flash-panel').find('.alert-box').length == 0
+      $('#flash-panel').append("<div class='page_content_space alert-box'>#{text}</div>")
+    else
+      $('#flash-panel .alert-box').text("#{text}")
+      $('#flash-panel').fadeIn()
+      @autoHideFlash()
+
   checkTermsNConditions: (cb_terms, callback) ->
     if $(cb_terms).is(':checked')
       return callback()
     else
-      if $('#flash-panel').find('.alert-box').length == 0
-        $('#flash-panel').append('<div class="page_content_space alert-box">You must agree the terms and conditions</div>')
-      else
-        $('#flash-panel .alert-box').text('You must agree the terms and conditions')
-        $('#flash-panel').fadeIn()
-        @autoHideFlash()
+      @showFlashMessage('You must agree the terms and conditions')
       return false
 
   changePlanOnClick: (target) ->
