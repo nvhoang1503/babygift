@@ -32,9 +32,15 @@ en:
       about: 'About Us'
       copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
+      gift_4:
+        step: 'Payment'
+      gift_3:
+        step: 'Billing'
       gift_2:
         title: 'Choose a gift option'
+        step: 'Monthly Plan'
       gift_1:
+        step: 'Recipient'
         title: 'Tell us a little about your lucky recipient'
         desc: "Want your gift to be a surprise? Enter your email address for the Recipient's email and you can forward the Gift Code when you are ready."
         recipient: 'Where should we send your gift?'
@@ -46,6 +52,8 @@ en:
         recipient_hint: "recipient's email"
         recipient_cfrm_hint: "confirm recipient's email"
         redeem: 'Redeem your gift! >>'
+
+
       login:
         title: 'Log in'
         forgot_pass: 'Forgot your password?'
