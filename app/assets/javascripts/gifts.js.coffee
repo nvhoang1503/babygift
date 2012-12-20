@@ -23,4 +23,5 @@ class window.Gift
     return helper.checkTermsNConditions(cb_terms, @card.validateCardInfo)
 
   initFormGiftInfo: ->
-    $('#gift-info').inputHintOverlay() if $('#gift-info').length > 0
+    func =-> $('#gift-info').inputHintOverlay() if $('#gift-info').length > 0
+    window.setTimeout(func, 200)
