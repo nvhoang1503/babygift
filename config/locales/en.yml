@@ -12,6 +12,7 @@ en:
     email_missing: 'Please input emails first!'
     phone_invalid: 'Must be from 5 to 15 figures'
     phone_format: "Must be 'xx-xxx...' or 'xx xxx...'"
+    gift_success: "The gift has been purchased"
 
   titles:
     pages:

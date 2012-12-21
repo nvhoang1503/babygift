@@ -1,15 +1,15 @@
 class GiftsController < ApplicationController
+  before_filter :complete_checking, :only => [:step_1, :step_2, :step_3, :step_4]
+
   def step_1
-    @gift = Gift.new
+    @gift = Gift.new unless @gift
   end
 
   def step_2
-    @gift = Gift.find_by_id params[:gift_id]
     redirect_to step_1_gifts_path unless @gift
   end
 
   def step_3
-    @gift = Gift.find_by_id params[:gift_id]
     if @gift.nil?
       flash[:notice] = I18n.t('message.email_missing')
       redirect_to step_1_gifts_path
@@ -22,7 +22,6 @@ class GiftsController < ApplicationController
   end
 
   def step_4
-    @gift = Gift.find_by_id params[:gift_id]
     if @gift.nil?
       flash[:notice] = I18n.t('message.email_missing')
       redirect_to step_1_gifts_path
@@ -121,5 +120,13 @@ class GiftsController < ApplicationController
       redirect_to :back
     end
   end
-end
 
+  protected
+    def complete_checking
+      @gift = Gift.find_by_id params[:gift_id]
+      if @gift and (@gift.transaction_status == Order::TRANSACTION_STATUS[:completed].to_s)
+        flash[:success] = I18n.t('message.gift_success')
+        redirect_to step_1_gifts_path
+      end
+    end
+end
