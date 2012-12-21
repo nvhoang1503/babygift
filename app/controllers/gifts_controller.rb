@@ -1,5 +1,5 @@
 class GiftsController < ApplicationController
-  before_filter :complete_checking, :only => [:step_1, :step_2, :step_3, :step_4]
+  before_filter :complete_checking, :only => [:step_1, :step_2, :step_3, :step_4, :finish]
 
   def step_1
     @gift = Gift.new unless @gift
@@ -107,14 +107,16 @@ class GiftsController < ApplicationController
 
   def finish
 
-    gift = Gift.find_by_id(params[:gift_id])
-    gift.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
-    @response = Payment.an_process(gift.total_price, params)
+    @gift.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
+    @response = Payment.an_process(@gift.total_price, params)
     if @response.success?
       flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
-      gift.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => @response.transaction_id})
-      # UserMailer.order_confirm(user, order, params, @response.transaction_id).deliver
-      # UserMailer.order_confirm_to_admin(user, order, params, @response.transaction_id).deliver
+      @gift.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => @response.transaction_id})
+
+      UserMailer.gift_confirm_to_admin(@gift, params, @response.transaction_id).deliver
+      UserMailer.gift_confirm_to_sender(@gift, params, @response.transaction_id).deliver
+      UserMailer.gift_confirm_to_recipient(@gift, params, @response.transaction_id).deliver
+
     else
       flash[:error] = @response.response_reason_text
       redirect_to :back
@@ -124,7 +126,7 @@ class GiftsController < ApplicationController
   protected
     def complete_checking
       @gift = Gift.find_by_id params[:gift_id]
-      if @gift and (@gift.transaction_status == Order::TRANSACTION_STATUS[:completed].to_s)
+      if @gift and ( (@gift.transaction_status == Order::TRANSACTION_STATUS[:completed].to_s) or @gift.transaction_code.present? )
         flash[:success] = I18n.t('message.gift_success')
         redirect_to step_1_gifts_path
       end

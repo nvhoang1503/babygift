@@ -53,8 +53,7 @@ class UserMailer < ActionMailer::Base
     @admin_email = User::ADMIN_EMAIL
     @trans_id = trans_id
     @params = params
-    @billing_address = @order.billing_address
-    @shipping_address = @order.shipping_address
+    @billing_address = @gift.billing_address
     @url = url_for :controller=>'home', :action=>'index'
     mail(:to => @admin_email, :subject => "Gift confirmation!")
   end
@@ -65,8 +64,7 @@ class UserMailer < ActionMailer::Base
     @admin_email = User::ADMIN_EMAIL
     @trans_id = trans_id
     @params = params
-    @billing_address = @order.billing_address
-    @shipping_address = @order.shipping_address
+    @billing_address = @gift.billing_address
     @url = url_for :controller=>'home', :action=>'index'
     mail(:to => @gift.sender_email, :subject => "Gift confirmation!")
   end
@@ -77,8 +75,7 @@ class UserMailer < ActionMailer::Base
     @admin_email = User::ADMIN_EMAIL
     @trans_id = trans_id
     @params = params
-    @billing_address = @order.billing_address
-    @shipping_address = @order.shipping_address
+    @billing_address = @gift.billing_address
     @url = url_for :controller=>'home', :action=>'index'
     mail(:to => @gift.sender_email, :subject => "Gift Congratulation!")
 
