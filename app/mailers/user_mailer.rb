@@ -47,4 +47,41 @@ class UserMailer < ActionMailer::Base
     mail(:to => @admin_email, :subject => "Order confirmation!")
   end
 
+  def gift_confirm_to_admin(gift, params , trans_id)
+    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    @gift = gift
+    @admin_email = User::ADMIN_EMAIL
+    @trans_id = trans_id
+    @params = params
+    @billing_address = @order.billing_address
+    @shipping_address = @order.shipping_address
+    @url = url_for :controller=>'home', :action=>'index'
+    mail(:to => @admin_email, :subject => "Gift confirmation!")
+  end
+
+  def gift_confirm_to_sender(gift ,params , trans_id)
+    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    @gift = gift
+    @admin_email = User::ADMIN_EMAIL
+    @trans_id = trans_id
+    @params = params
+    @billing_address = @order.billing_address
+    @shipping_address = @order.shipping_address
+    @url = url_for :controller=>'home', :action=>'index'
+    mail(:to => @gift.sender_email, :subject => "Gift confirmation!")
+  end
+
+  def gift_confirm_to_recipient(gift, params , trans_id)
+    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    @gift = gift
+    @admin_email = User::ADMIN_EMAIL
+    @trans_id = trans_id
+    @params = params
+    @billing_address = @order.billing_address
+    @shipping_address = @order.shipping_address
+    @url = url_for :controller=>'home', :action=>'index'
+    mail(:to => @gift.sender_email, :subject => "Gift Congratulation!")
+
+  end
+
 end

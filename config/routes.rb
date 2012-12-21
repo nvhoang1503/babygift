@@ -41,8 +41,7 @@ Littlespark::Application.routes.draw do
       get 'step_3'
       put 'update_gift_billing' #update  billing for gift
       get 'step_4'
-      get 'finish'
-      # match 'update_gift' => 'gifts#update_gift', :via => [:put, :post]
+      post 'finish'
     end
   end
 end

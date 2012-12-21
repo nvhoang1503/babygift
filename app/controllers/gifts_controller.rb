@@ -22,10 +22,23 @@ class GiftsController < ApplicationController
   end
 
   def step_4
+    @gift = Gift.find_by_id params[:gift_id]
+    if @gift.nil?
+      flash[:notice] = I18n.t('message.email_missing')
+      redirect_to step_1_gifts_path
+    elsif @gift.plan_type.nil?
+      flash[:notice] = I18n.t('message.plan_missing')
+      redirect_to step_2_gifts_path(:gift_id => @gift.id)
+    elsif @gift.billing_address.nil?
+      flash[:notice] = I18n.t('message.billing_missing')
+      redirect_to step_3_gifts_path(:gift_id => @gift.id)
+    else
+      # todo
+      @gift.update_attribute(:total, @gift.total_price)
+    end
   end
 
-  def finish
-  end
+
 
   def create_update_gift
     info = params[:gift]
@@ -60,7 +73,9 @@ class GiftsController < ApplicationController
   def update_gift_plan
     @gift = Gift.find_by_id params[:gift_id]
     if params.has_key?(:gift)
-      if @gift.update_attributes(params[:gift])
+      @gift.attributes = params[:gift]
+      @gift.price = Order::PRICE[@gift.plan_type] if params[:gift].has_key?('plan_type')
+      if @gift.save
         redirect_to step_3_gifts_path(:gift_id => @gift.id)
       else
         flash[:notice] = @gift.errors.full_messages
@@ -81,10 +96,29 @@ class GiftsController < ApplicationController
     else
       @gift.billing_address.attributes = info
     end
+
+    @gift.tax = @gift.get_tax
     if @gift.save
       redirect_to step_4_gifts_path(:gift_id => @gift.id)
     else
       render step_3_gifts_path
+    end
+  end
+
+
+  def finish
+
+    gift = Gift.find_by_id(params[:gift_id])
+    gift.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
+    @response = Payment.an_process(gift.total_price, params)
+    if @response.success?
+      flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
+      gift.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => @response.transaction_id})
+      # UserMailer.order_confirm(user, order, params, @response.transaction_id).deliver
+      # UserMailer.order_confirm_to_admin(user, order, params, @response.transaction_id).deliver
+    else
+      flash[:error] = @response.response_reason_text
+      redirect_to :back
     end
   end
 end
