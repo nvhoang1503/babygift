@@ -1,6 +1,6 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for @gift, :as => :gift, :url => create_update_gift_gifts_path, :html => {:id => 'gift-info', :class => 'gift-form clearfix' }, :validate => :gift_validator do |f|
+  = simple_form_for @gift, :as => :gift, :url => create_update_gift_gifts_path(:gift_id => params[:gift_id]), :html => {:id => 'gift-info', :class => 'gift-form clearfix' }, :validate => :gift_validator do |f|
     .tittle_content= I18n.t('content.page.gift_1.title')
     .description= I18n.t('content.page.gift_1.desc')
     #left-section.pull-left
@@ -12,7 +12,6 @@
           =I18n.t('content.page.gift_1.recipient')
           %abbr{:title => "required", :style => "color:red;"} *
         = f.input :recipient_email, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.recipient_hint')}
-        / = f.input :recipient_email, :as => :string, :label => I18n.t('content.page.gift_1.recipient'), :input_html => {:title => I18n.t('content.page.gift_1.recipient_hint')}
         = f.input :recipient_email_confirm, :as => :string, :label => false, :input_html => {:title => I18n.t('content.page.gift_1.recipient_cfrm_hint'), :value => '' }
       .section
         = f.input :sender_email, :as => :string, :label => I18n.t('content.page.gift_1.sender'), :input_html => {:title => I18n.t('content.page.gift_1.sender_hint')}

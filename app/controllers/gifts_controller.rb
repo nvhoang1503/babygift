@@ -1,5 +1,5 @@
 class GiftsController < ApplicationController
-  before_filter :complete_checking, :only => [:step_1, :step_2, :step_3, :step_4, :finish]
+  before_filter :complete_checking
 
   def step_1
     @gift = Gift.new unless @gift
@@ -37,14 +37,16 @@ class GiftsController < ApplicationController
     end
   end
 
-
-
   def create_update_gift
     info = params[:gift]
     recipient_email_conf = info.delete :recipient_email_confirm
     sender_email_conf = info.delete :sender_email_confirm
 
-    @gift = Gift.new info
+    if @gift
+      @gift.attributes = info
+    else
+      @gift = Gift.new info
+    end
     flag = true
     if recipient_email_conf != params[:gift][:recipient_email]
       @gift.errors.add('recipient_email_confirm', 'Does not match')
@@ -70,7 +72,6 @@ class GiftsController < ApplicationController
   end
 
   def update_gift_plan
-    @gift = Gift.find_by_id params[:gift_id]
     if params.has_key?(:gift)
       @gift.attributes = params[:gift]
       @gift.price = Order::PRICE[@gift.plan_type] if params[:gift].has_key?('plan_type')
@@ -89,7 +90,6 @@ class GiftsController < ApplicationController
 
   def update_gift_billing
     info = params[:gift][:billing_address_attributes]
-    @gift = Gift.find_by_id params[:gift_id]
     if @gift.billing_address.nil?
       @gift.build_billing_address(info)
     else
@@ -104,9 +104,7 @@ class GiftsController < ApplicationController
     end
   end
 
-
   def finish
-
     @gift.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
     @response = Payment.an_process(@gift.total_price, params)
     if @response.success?
