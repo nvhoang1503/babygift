@@ -1,7 +1,7 @@
 .page_content_space
   = render 'steps_nav'
 
-  = simple_form_for @gift, :url => update_gift_gifts_path(:gift_id => params[:gift_id]), :html => { :class => 'gift-form', :id => 'gift-plan' } do |f|
+  = simple_form_for @gift, :url => update_gift_plan_gifts_path(:gift_id => params[:gift_id]), :html => { :class => 'gift-form', :id => 'gift-plan' } do |f|
     .tittle_content= I18n.t('content.page.gift_2.title')
     .plan-section
       = f.collection_radio_buttons :plan_type, plan_image_options(@gift.plan_type), :first, :last

@@ -1,6 +1,6 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for @gift, :as => :gift, :url => update_gift_gifts_path, :html => {:id => 'gift-info', :class => 'gift-form clearfix' }, :validate => :gift_validator do |f|
+  = simple_form_for @gift, :as => :gift, :url => create_update_gift_gifts_path, :html => {:id => 'gift-info', :class => 'gift-form clearfix' }, :validate => :gift_validator do |f|
     .tittle_content= I18n.t('content.page.gift_1.title')
     .description= I18n.t('content.page.gift_1.desc')
     #left-section.pull-left
@@ -23,4 +23,3 @@
 = content_for :js do
   = yield :gift_validator
   = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'gifts.js'
-

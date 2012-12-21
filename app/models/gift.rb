@@ -3,7 +3,9 @@ class Gift < ActiveRecord::Base
 
   attr_accessible :plan_type, :sender_email, :note, :recipient_email
   validates :sender_email, :recipient_email , :presence => {:message => I18n.t('message.not_blank')}, :format => {:with => EMAIL_REG_EXP, :message => I18n.t('message.invalid_email')}
+  validates_associated :billing_address
 
   belongs_to :shipping_address, :class_name => 'Address'
   belongs_to :billing_address, :class_name => 'Address'
+  accepts_nested_attributes_for :billing_address
 end

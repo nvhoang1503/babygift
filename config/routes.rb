@@ -35,11 +35,14 @@ Littlespark::Application.routes.draw do
   resources :gifts, :only => [] do
     collection do
       get 'step_1'
+      match 'create_update_gift' => 'gifts#create_update_gift', :via => [:put, :post]
       get 'step_2'
+      put 'update_gift_plan'  #update  plan type for gift
       get 'step_3'
+      put 'update_gift_billing' #update  billing for gift
       get 'step_4'
       get 'finish'
-      match 'update_gift' => 'gifts#update_gift', :via => [:put, :post]
+      # match 'update_gift' => 'gifts#update_gift', :via => [:put, :post]
     end
   end
 end

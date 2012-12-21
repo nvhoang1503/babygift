@@ -15,6 +15,7 @@ class window.Gift
 
     @checkConfirmEmail()
     @checkSelectPlan()
+    @checkBillingValid()
 
   onCardChange: (event) =>
     helper.changeCardOnClick(event.target, @card.onCardTypeChange)
@@ -82,3 +83,21 @@ class window.Gift
       if $('input:radio:checked').length == 0
         helper.showFlashMessage(message.plan_missing)
         return false
+
+  checkBillingValid: ->
+    $('#gift_billing_address_attributes_zip').keypress helper.validateZip
+    $('#gift_billing_address_attributes_phone').keypress helper.validatePhone
+    $('#gift_billing_address_attributes_phone').live 'blur', ->
+      phone_num = $(@).val().replace(/\s/g, '')
+
+      if phone_num.length != 0
+        reg = /^\d{5,15}$/
+        if phone_num.indexOf('--') >= 0
+          helper.showErrorMessage(false, @, message.phone_format)
+        else if phone_num.indexOf('-') >= 0
+          phone_num = phone_num.replace(/-/g, '')
+          helper.showErrorMessage(reg.test(phone_num), @, message.phone_format)
+        else
+          helper.showErrorMessage(reg.test(phone_num), @, message.phone_invalid)
+      else if $(@).siblings('.error').length > 0
+          $(@).siblings('.error').remove()

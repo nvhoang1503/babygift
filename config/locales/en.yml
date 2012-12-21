@@ -8,6 +8,10 @@ en:
     not_blank: "Can't be blank"
     invalid_email: "Invalid email"
     plan_missing: 'Choose your plan first!'
+    email_missing: 'Please input emails first!'
+    phone_invalid: 'Must be from 5 to 15 figures'
+    phone_format: "Must be 'xx-xxx...' or 'xx xxx...'"
+
   titles:
     pages:
       name: 'Little Spark'

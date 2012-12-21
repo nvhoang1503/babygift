@@ -26,6 +26,18 @@ class window.Helper
     part2 = @.value.substring @.selectionEnd, @.value.length
     return reg.test(part1 + String.fromCharCode(event.charCode) + part2)
 
+  showErrorMessage: (condit_value , elem ,msg_text) ->
+    if !condit_value
+      if $(elem).siblings('.error').length == 0
+        s = "<span class='error'>#{msg_text}</span>"
+        $(elem).after(s)
+      else
+        $(elem).siblings('.error').text("#{msg_text}")
+      return false
+    else
+      $(elem).siblings('.error').remove()
+      return true
+
   showFlashMessage: (text) ->
     if $('#flash-panel').find('.alert-box').length == 0
       $('#flash-panel').append("<div class='page_content_space alert-box'>#{text}</div>")
