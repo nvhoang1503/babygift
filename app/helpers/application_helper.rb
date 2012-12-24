@@ -4,6 +4,10 @@ module ApplicationHelper
       step_4_enrolments_path, step_5_enrolments_path, finish_enrolments_path ]
   end
 
+  def gift_steps_paths
+    [ step_1_gifts_path, step_2_gifts_path, step_3_gifts_path, step_4_gifts_path, finish_gifts_path ]
+  end
+
   def us_states_collection
     Country['US'].states.map { |k,v| [k, v['name']]}
   end

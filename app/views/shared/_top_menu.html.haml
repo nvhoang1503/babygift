@@ -4,7 +4,6 @@
   %li#kits{:class => (current_page?(kits_homes_path)  ? "selected" : "")}
     = link_to I18n.t('content.top_menu.kit'), kits_homes_path
   = customized_link_to I18n.t('content.top_menu.enroll'), step_1_enrolments_path, :active_class => 'selected', :active_at => enroll_steps_paths, :wrap_tag => ['li', :id => 'enrolls']
-  %li#gifts
-    = link_to I18n.t('content.top_menu.gift'), step_1_gifts_path
+  = customized_link_to I18n.t('content.top_menu.gift'), step_1_gifts_path, :active_class => 'selected', :active_at => gift_steps_paths, :wrap_tag => ['li', :id => 'gifts']
   %li#blog
     = link_to I18n.t('content.top_menu.blog'), "#"
