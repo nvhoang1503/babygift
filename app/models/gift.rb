@@ -8,6 +8,7 @@ class Gift < ActiveRecord::Base
   belongs_to :shipping_address, :class_name => 'Address'
   belongs_to :billing_address, :class_name => 'Address'
   accepts_nested_attributes_for :billing_address
+  before_create :generate_gift_code
 
   def total_price
     self.price + self.get_tax + self.shipping_fee  #temp
@@ -20,4 +21,9 @@ class Gift < ActiveRecord::Base
       return 0
     end
   end
+
+  protected
+    def generate_gift_code
+      self.gift_code = SecureRandom.hex(6)
+    end
 end

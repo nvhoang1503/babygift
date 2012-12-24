@@ -73,11 +73,9 @@ class UserMailer < ActionMailer::Base
     @image_link = root_url.to_s + 'assets/common/logo_text.png'
     @gift = gift
     @admin_email = User::ADMIN_EMAIL
-    @trans_id = trans_id
     @params = params
-    @billing_address = @gift.billing_address
     @url = url_for :controller=>'home', :action=>'index'
-    mail(:to => @gift.sender_email, :subject => "Gift Congratulation!")
+    mail(:to => @gift.recipient_email, :subject => "Gift Congratulation!")
 
   end
 

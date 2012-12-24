@@ -3,4 +3,50 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    %p Hello sender
+    %div{:style => "margin-left:50px; width:800px; color:#000;"}
+      .mail_logo= image_tag(@image_link)
+      %div{:style => "margin-top:40px; font-weight:bolder;"}
+        = 'Hello,'
+        =  @gift.sender_email
+        = "!"
+      %div{:style => "margin-top:40px; color:#000;"}
+        %p
+          Thank you for your gift order from Little Spark. You can now share the gift code below to
+          %br
+          the lucky recipient for redemption. Please ask us any questions by contact us at
+          %br
+          = link_to "atyourservice@liRlespark.com", @url
+
+      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
+        %p= "Your order #{@trans_id} (place on #{@gift.transaction_date.strftime('%m/%d/%Y %l:%M %p')})"
+
+        %p= "Gift Code #{@gift.gift_code} "
+
+      %div{:style => "height:85px; color:#000;"}
+        %div{:style => "float:left; width:50% ;"}
+          %p Billing Information:
+          %p= @billing_address.fullname
+          %p= @billing_address.address_1
+          %p= "#{@billing_address.city}, #{@billing_address.state} #{@billing_address.zip}"
+        %div{:style => "float:left; width:50% ;"}
+          %p Shipping Information:
+          %p N/A
+      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
+        %p Payment Method: Credit Card
+        %p= "Credit Card Type: #{Payment::CARD_NAME[@params['card_type'].to_i]}"
+        %p= "Credit Card Number: xxxx-#{@params[:card_number].slice(/\d{4}$/)}"
+      %div{:style => "height:150px; margin-top:40px; color:#000;"}
+        %div{:style => "float:left; width:50% ;"}
+          %o.item Item:
+          %p.month= "#{Order::TYPE_NAME[@gift.plan_type]} Gift"
+          %p{:style => "text-align:right; margin-right:20px;"} Sub-total
+          %p{:style => "text-align:right; margin-right:20px;"} Tax:
+          %p{:style => "text-align:right; margin-right:20px;"} Shipping:
+          %p{:style => "text-align:right; margin-right:20px;"} Total:
+        %div{:style => "float:left; width:50% ;"}
+          %o.item Amount
+          %p.month= number_to_currency @gift.price
+          %p= number_to_currency @gift.price
+          %p= number_to_currency @gift.get_tax
+          %p FREE
+          %p= number_to_currency @gift.total_price

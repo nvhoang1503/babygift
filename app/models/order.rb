@@ -9,6 +9,12 @@ class Order < ActiveRecord::Base
     '6_mon' => 3,
     '12_mon' => 4
   }
+  TYPE_NAME = {
+    TYPE['1_mon'] => '1-Month',
+    TYPE['3_mon'] => '3-Months',
+    TYPE['6_mon'] => '6-Months',
+    TYPE['12_mon'] =>'12-Months'
+  }
   PRICE = {
     TYPE['1_mon'] => 34.99,
     TYPE['3_mon'] => 99.99,
