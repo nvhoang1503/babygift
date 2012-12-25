@@ -207,6 +207,9 @@
         text-shadow: none;
         z-index: 500;
         width: 568px !important;
+        p{
+          font-style: italic;
+        }
       }
       .btn-slide-next, .btn-slide-prev {
         background-image: url('common/btn-next-prev.png');
