@@ -6,7 +6,10 @@ class GiftsController < ApplicationController
   end
 
   def step_2
-    redirect_to step_1_gifts_path unless @gift
+    unless @gift
+      flash[:notice] = I18n.t('message.email_missing')
+      redirect_to step_1_gifts_path
+    end
   end
 
   def step_3

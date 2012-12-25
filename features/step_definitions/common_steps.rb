@@ -4,5 +4,5 @@ Then /^I wanna sleep "([^"]*)" seconds$/ do |arg1|
 end
 
 Then /^I should see "(.*?)" within "(.*?)" '(\d+)' times$/ do |text, selector, number|
-  find(selector).size.should == number.to_i
+  page.all(selector).size.should == number.to_i
 end
