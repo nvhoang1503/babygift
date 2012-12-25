@@ -11,7 +11,7 @@
         = "!"
       %div{:style => "margin-top:40px; color:#000;"}
         %p
-          Lucky you! Susan Kim has sent you a gift from Little Spark. Click below to redeem your gift
+          = "Lucky you! #{@gift.sender_email} has sent you a gift from Little Spark. Click below to redeem your gift"
           %br
           or visit
           = link_to "www.littlespark.com/redeem.", @url

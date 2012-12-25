@@ -106,7 +106,7 @@ Feature: SendGift
     When I fill in "gift[recipient_email]" with "email@littlespark.com" within ".form-inputs"
       And I fill in "gift[recipient_email_confirm]" with "email1@littlespark.com" within ".form-inputs"
       And I click the element within "#gift_sender_email"
-    Then I should see "Doesn't match confirmation" within "span.error"
+    Then I should see "Does not match" within "span.error"
 
   # todo
   Scenario: Submit without filling required fields
@@ -135,7 +135,7 @@ Feature: SendGift
     When I fill in "gift[sender_email]" with "email@littlespark.com"
       And I fill in "gift[sender_email_confirm]" with "email1@littlespark.com"
       And I click the element within "#gift_note"
-    Then I should see "Doesn't match confirmation" within "span.error"
+    Then I should see "Does not match" within "span.error"
 
   #to do
   Scenario: Submit basic information successfully

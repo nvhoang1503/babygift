@@ -2,7 +2,7 @@ class Address < ActiveRecord::Base
   attr_accessible :address_1, :address_2, :city, :first_name, :last_name, :phone, :state, :zip
   validates :address_1, :city, :first_name, :last_name, :state, :zip, :phone , :presence => { :message => "Can't be blank." }
 
-  validates :zip, :format => { :with => /^\d{5}(-\d{4})?$/, :message => 'format must be "12345" or "12345-1234"'}
+  validates :zip, :format => { :with => /^\d{5}(-\d{4})?$/, :message => 'Format must be "12345" or "12345-1234"'}
   validate :validate_phone_format
 
   def fullname

@@ -30,7 +30,7 @@ class UserMailer < ActionMailer::Base
     @shipping_address = @order.shipping_address
     @url = url_for :controller=>'sessions', :action=>'new'
     # mail(:to => @user_email, :subject => "Congratulation!")
-    mail(:to => @user_email, :subject => "Order confirmation!")
+    mail(:to => @user_email, :subject => "Order Confirmation")
   end
 
   def order_confirm_to_admin(user, order ,params , trans_id)
@@ -44,7 +44,7 @@ class UserMailer < ActionMailer::Base
     @billing_address = @order.billing_address
     @shipping_address = @order.shipping_address
     @url = url_for :controller=>'sessions', :action=>'new'
-    mail(:to => @admin_email, :subject => "Order confirmation!")
+    mail(:to => @admin_email, :subject => "Order Confirmation")
   end
 
   def gift_confirm_to_admin(gift, params , trans_id)
@@ -55,7 +55,7 @@ class UserMailer < ActionMailer::Base
     @params = params
     @billing_address = @gift.billing_address
     @url = url_for :controller=>'home', :action=>'index'
-    mail(:to => @admin_email, :subject => "Gift confirmation!")
+    mail(:to => @admin_email, :subject => "Gift Confirmation")
   end
 
   def gift_confirm_to_sender(gift ,params , trans_id)
@@ -66,7 +66,7 @@ class UserMailer < ActionMailer::Base
     @params = params
     @billing_address = @gift.billing_address
     @url = url_for :controller=>'home', :action=>'index'
-    mail(:to => @gift.sender_email, :subject => "Gift confirmation!")
+    mail(:to => @gift.sender_email, :subject => "Gift Giver Confirmation")
   end
 
   def gift_confirm_to_recipient(gift, params , trans_id)
@@ -75,7 +75,7 @@ class UserMailer < ActionMailer::Base
     @admin_email = User::ADMIN_EMAIL
     @params = params
     @url = url_for :controller=>'home', :action=>'index'
-    mail(:to => @gift.recipient_email, :subject => "Gift Congratulation!")
+    mail(:to => @gift.recipient_email, :subject => "Gift Recipient Notification")
 
   end
 
