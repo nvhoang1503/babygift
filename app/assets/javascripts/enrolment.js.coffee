@@ -4,7 +4,7 @@ class window.Enrolment
     @card = new Card if window.Card
     @card.validateCard() if @card
 
-    @initTermsNConditionsPopup()
+    helper.initTermsNConditionsPopup()
     @initDatepicker()
     @autoshowTooltip()
     @updateShipToBilling()
@@ -21,30 +21,7 @@ class window.Enrolment
     $('.icon-plan').click @onPlanChange
     $('.icon-plan .price').click @onPlanChange
 
-  initTermsNConditionsPopup: ->
-    $('#terms_content').click ->
-      $('#terms_popup_content').modal
-        closeHTML:
-          "<div>
-            <a class='modalCloseImg' href='#for_module' title='Close' onclick=\"$('.popup_content .no').trigger('click')\" style='color:#000 !important'>
-              <img src='/assets/common/closebox.png' width='24px' height='24px' alt='X'>
-            </a>
-          </div>"
-        position: [ "10%" ]
-        focus: false
-        persist: true
-        maxWidth: "740px"
-        minWidth: "700px"
 
-        onShow: (dialog) ->
-            $('.popup_content .yes').click ->
-              # to do ...
-            $('.popup_content .no').click ->
-              $.modal.close()
-
-        onClose: (dialog) ->
-          $.modal.close()
-      return
 
   initDatepicker: ->
     $('#child_birthday').datepicker({

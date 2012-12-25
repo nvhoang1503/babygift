@@ -47,6 +47,9 @@ $color-text: #44464b;
     }
     &#step_4.selected {
       margin-right: 33px;
+      &:before {
+        padding-right: 10px;
+      }
     }
     a {
       font-size: 18px;

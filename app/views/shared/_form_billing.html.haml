@@ -12,4 +12,4 @@
       = billing_f.input :city, :label => 'City' , :wrapper_html => {:class => 'clearboth'}
       = billing_f.input :state, :collection => us_states_collection, :label_method => :second, :value_method => :first, :label => 'State', :prompt => 'Please select one'
       = billing_f.input :zip, :label => 'Zip', :input_html => { :class => 'zip' }
-      = billing_f.input :phone, :label => 'Phone', :required => false
+      = billing_f.input :phone, :label => 'Phone'

@@ -16,6 +16,7 @@ class window.Gift
     @checkConfirmEmail()
     @checkSelectPlan()
     @checkBillingValid()
+    helper.initTermsNConditionsPopup()
 
   onCardChange: (event) =>
     helper.changeCardOnClick(event.target, @card.onCardTypeChange)
