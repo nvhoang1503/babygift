@@ -23,9 +23,9 @@ class window.Card
     card_num = $('#card_number')
     if card_num.val().trim() == ''
       if card_num.siblings('.error').length==0
-        card_num.after("<span class='error blank'>Can't be blank</span>")
+        card_num.after("<span class='error blank'>#{message.not_blank}</span>")
       else
-        card_num.siblings('.error.blank').text "Can't be blank"
+        card_num.siblings('.error.blank').text "#{message.not_blank}"
       return false
     else
       card_num.siblings('.error.blank').remove()
@@ -35,9 +35,9 @@ class window.Card
     card_num = $('#card_security')
     if card_num.val().trim() == ''
       if card_num.siblings('.error').length==0
-        card_num.siblings('a').after("<span class='error blank'>Can't be blank</span>")
+        card_num.siblings('a').after("<span class='error blank'>#{message.not_blank}</span>")
       else
-        card_num.siblings('.error.blank').text "Can't be blank"
+        card_num.siblings('.error.blank').text "#{message.not_blank}"
       return false
     else
       card_num.siblings('.error.blank').remove()
@@ -47,9 +47,9 @@ class window.Card
     card_type = $('input[type=radio][name=card_type]:checked')
     if card_type.length == 0
       if $('#payment_card').siblings('.error').length==0
-        $('#payment_card').after("<span class='error'>Choose a card</span>")
+        $('#payment_card').after("<span class='error'>#{message.card_missing}</span>")
       else
-        $('#payment_card').siblings('.error').text 'Choose a card'
+        $('#payment_card').siblings('.error').text "#{message.card_missing}"
       return false
     else
       $('#payment_card').siblings('.error').remove()
@@ -63,9 +63,9 @@ class window.Card
       if validator.value == card_type.val()
         if !validator.reg.test card_num.val().trim()
           if card_num.siblings('.error').length==0
-            card_num.after("<span class='error mismatch'>Does not match the card type </span>")
+            card_num.after("<span class='error mismatch'>#{message.card_format}</span>")
           else
-            card_num.siblings('.error.mismatch').text 'Does not match the card type'
+            card_num.siblings('.error.mismatch').text "#{message.card_format}"
           result = false
         break
     card_num.siblings('.error.mismatch').remove() if result

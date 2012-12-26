@@ -50,7 +50,7 @@ class window.Helper
     if $(cb_terms).is(':checked')
       return callback()
     else
-      @showFlashMessage('You must agree the terms and conditions')
+      @showFlashMessage("#{message.term_missing}")
       return false
 
   changePlanOnClick: (target) ->

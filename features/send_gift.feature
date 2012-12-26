@@ -9,10 +9,11 @@ Feature: SendGift
       |  |  | recipient_1@littlespark.com | sender_1@littlespark.com |  |  |  |  |  |  |  |  |  |  |
       |  |  | recipient_2@littlespark.com | sender_2@littlespark.com |  | 1 |  |  |  |  |  |  |  |  |
       |  |  | recipient_3@littlespark.com | sender_3@littlespark.com |  | 1 | 100 |  |0 |  |  |  |  |  |
+      | 1 |1 | recipient_4@littlespark.com | sender_4@littlespark.com | good luck | 1 | 100 | 0 |0  |100  |  |  |  | gkaii16284ksksk |
 
     Given the below addresses exist
       |first_name|last_name|address_1|address_2|city|state|zip  |phone     |
-      |Teo       |Adem     |ABC      |BCD      |BCD |CA   |12345|1234567890|
+      |ABC       |ABC     |ABC      |ABC      |ABC |CA   |12345|1234567890|
 
   Scenario: Access gift page
     Given I go to home page
@@ -46,43 +47,45 @@ Feature: SendGift
     When I click the element within "#step_4 a"
     Then I should see the key "message.plan_missing" within "#flash-panel"
 
-  #todo
   Scenario: Go to step 4 when staying in step 3
-    Given I go to gift billing
+    Given I go to gift billing with gift of sender "sender_2@littlespark.com"
     When I click the element within "#step_4 a"
     Then I should see the key "message.billing_missing" within "#flash-panel"
 
   # NAVIGATION LINK
   # ---- Updating step -----
-  #todo
   Scenario: Go to step 3 when staying in step 4
-    Given I go to gift payment
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
     When I click the element within "#step_3 a"
-    Then I should see the element within "#gift-billing"
+    Then I should see "ABC" in "gift_billing_address_attributes_first_name"
+      And I should see "ABC" in "gift_billing_address_attributes_last_name"
+      And I should see "ABC" in "gift_billing_address_attributes_address_1"
+      And I should see "ABC" in "gift_billing_address_attributes_city"
+      And I should see "CA" in "gift_billing_address_attributes_state"
+      And I should see "12345" in "gift_billing_address_attributes_zip"
+      And I should see "1234567890" in "gift_billing_address_attributes_phone"
 
-  #todo
   Scenario: Go to step 2 when staying in step 4
-    Given I go to gift payment
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
     When I click the element within "#step_2 a"
-    Then I should see the element within "#gift-plan"
+    Then I should see the element within "._1-month.selected"
 
-  #todo
   Scenario: Go to step 1 when staying in step 4
-    Given I go to gift payment
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
     When I click the element within "#step_1 a"
-    Then I should see the element within "#gift-info"
+    Then I should see "recipient_4@littlespark.com" in "gift_recipient_email"
+      And I should see "sender_4@littlespark.com" in "gift_sender_email"
 
-  #todo
   Scenario: Go to step 2 when staying in step 3
-    Given I go to gift billing
+    Given I go to gift billing with gift of sender "sender_2@littlespark.com"
     When I click the element within "#step_2 a"
-    Then I should see the element within "#gift-plan"
+    Then I should see the element within "._1-month.selected"
 
-  #todo
   Scenario: Go to step 1 when staying in step 3
-    Given I go to gift billing
+    Given I go to gift billing with gift of sender "sender_2@littlespark.com"
     When I click the element within "#step_1 a"
-    Then I should see the element within "#gift-info"
+    Then I should see "recipient_2@littlespark.com" in "gift_recipient_email"
+      And I should see "sender_2@littlespark.com" in "gift_sender_email"
 
   Scenario: Go to step 1 when staying in step 2
     Given I go to gift monthly plan with gift of sender "sender_1@littlespark.com"
@@ -236,6 +239,47 @@ Feature: SendGift
     Then I should see the element within ".payment-form"
 
   # STEP 4: PAYMENT
-  # @current
-  # @javascript
-  # Scenario:
+  Scenario: Do not input card number
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
+    When I click the element within "#card_number"
+      And I click the element within "#card_security"
+    Then I should see the key "message.not_blank" within "span.error"
+
+  Scenario: Do not match the card type
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
+    When I click the element within ".icon-credit-card.visa"
+      And I fill in "card_number" with "411111111"
+      And I click the element within "#card_security"
+    Then I should see the key "message.card_format" within "span.error"
+
+  Scenario: Do not choose card type
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
+    When I fill in "card_number" with "411111111"
+      And I click the element within "#card_security"
+    Then I should see the key "message.card_missing" within "span.error"
+
+   #to do
+  Scenario: Select an invalid expiration date
+
+  Scenario: Do not input security code
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
+    When I click the element within "#card_security"
+      And I click the element within "#card_number"
+    Then I should see the key "message.not_blank" within "span.error"
+
+  Scenario: Submit payment without select 'Terms & Conditions'
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
+    When I press "PLACE YOUR ORDER" within "#frm-payment"
+    Then I should see the key "message.term_missing" within "#flash-panel"
+
+  Scenario: Submit payment successfully
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
+    When I click the element within ".icon-credit-card.visa"
+      And I fill in "card_number" with "4111111111111111"
+      And I select "12" from "date[exp_month]" within "#frm-payment"
+      And I select "2013" from "date[exp_year]" within "#frm-payment"
+      And I fill in "card_security" with "123"
+      And I check "terms_agreement"
+      And I press "PLACE YOUR ORDER" within "#frm-payment"
+    Then I should see "Congratulations!"
+

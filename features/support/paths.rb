@@ -13,8 +13,9 @@ module NavigationHelpers
     when /gift billing with gift of sender "([^"]*)"/ then
       ob = Gift.find_by_sender_email($1)
       step_3_gifts_path(:gift_id => ob.id)
-    when /gift payment/ then
-      step_4_gifts_path
+    when /gift payment with gift of sender "([^"]*)"/ then
+      ob = Gift.find_by_sender_email($1)
+      step_4_gifts_path(:gift_id => ob.id)
     end
   end
 end
