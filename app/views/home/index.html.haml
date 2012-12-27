@@ -7,7 +7,7 @@
       .dotted-line
       .text.font18= I18n.t('content.page.home.intro_text').html_safe
       = link_to I18n.t('label.button.enroll'), step_1_enrolments_path, :class => 'mybtn btn-pink uppercase', :id => 'btn-enroll'
-      = link_to I18n.t('label.button.gift'), term_homes_path, :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
+      = link_to I18n.t('label.button.gift'), step_1_gifts_path, :class => 'mybtn btn-green uppercase', :id => 'btn-gift'
     #slides.pull-left
       .slides_container
         - (1..4).each do |idx|
