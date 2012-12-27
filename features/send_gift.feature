@@ -181,7 +181,6 @@ Feature: SendGift
       And I press "continue to account" within "#gift-plan"
     Then I should see the element within "#gift-billing"
 
-
   # STEP 3: BILLING
   @javascript
   Scenario: Do not input first name
@@ -239,7 +238,6 @@ Feature: SendGift
     Then I should see "Can't be blank" within "span.error" '7' times
 
   @javascript
-
   Scenario: Input wrong format of zip
     Given I go to gift billing with gift of sender "sender_2@littlespark.com"
     When I fill in "gift[billing_address_attributes][zip]" with "123"
@@ -275,7 +273,6 @@ Feature: SendGift
 
   # STEP 4: PAYMENT
   @javascript
-
   Scenario: Do not input card number
     Given I go to gift payment with gift of sender "sender_4@littlespark.com"
     When I click the element within "#card_number"
@@ -291,15 +288,17 @@ Feature: SendGift
     Then I should see the key "message.card_format" within "span.error"
 
   @javascript
-
   Scenario: Do not choose card type
     Given I go to gift payment with gift of sender "sender_4@littlespark.com"
     When I fill in "card_number" with "411111111"
       And I click the element within "#card_security"
     Then I should see the key "message.card_missing" within "span.error"
 
-   #to do
+  @javascript
   Scenario: Select an invalid expiration date
+    Given I go to gift payment with gift of sender "sender_4@littlespark.com"
+    When I select "11" from "date[exp_month]" within "#frm-payment"
+    Then I should see the key "message.invalid_expiration" within "span.error"
 
   @javascript
   Scenario: Do not input security code
@@ -309,7 +308,6 @@ Feature: SendGift
     Then I should see the key "message.not_blank" within "span.error"
 
   @javascript
-
   Scenario: Submit payment without select 'Terms & Conditions'
     Given I go to gift payment with gift of sender "sender_4@littlespark.com"
     When I press "PLACE YOUR ORDER" within "#frm-payment"
