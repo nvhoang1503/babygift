@@ -52,12 +52,14 @@ class GiftsController < ApplicationController
     end
     flag = true
     if recipient_email_conf != params[:gift][:recipient_email]
-      @gift.errors.add('recipient_email_confirm', 'Does not match')
+      # @gift.errors.add('recipient_email_confirm', 'Does not match information')
+      @gift.errors.add('recipient_email_confirm', I18n.t('message.not_match'))
       @gift.attributes['recipient_email_confirm'] = params[:gift][:recipient_email_confirm]
       flag = false
     end
     if sender_email_conf != params[:gift][:sender_email]
-      @gift.errors.add('sender_email_confirm', 'Does not match')
+      # @gift.errors.add('sender_email_confirm', 'Does not match information')
+      @gift.errors.add('sender_email_confirm', I18n.t('message.not_match'))
       @gift.attributes['sender_email_confirm'] = params[:gift][:sender_email_confirm]
       flag = false
     end

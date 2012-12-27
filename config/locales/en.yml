@@ -4,7 +4,7 @@
 en:
   hello: "Hello world"
   message:
-    not_match: 'Does not match'
+    not_match: 'Does not match information'
     not_blank: "Can't be blank"
     invalid_email: "Invalid email"
     plan_missing: 'Choose your gift plan first!'
