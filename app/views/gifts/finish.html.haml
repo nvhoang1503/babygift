@@ -3,7 +3,7 @@
   .content_box
     %p
       %span= I18n.t('content.page.congrate.tk')
-      %span= I18n.t('content.page.congrate.gift_sent', :email => 'vivian@littlespark')
+      %span= I18n.t('content.page.congrate.gift_sent', :email => @gift.sender_email)
     %p=I18n.t('content.page.congrate.order', :order => @response.transaction_id).html_safe
     %p.check=I18n.t('content.page.congrate.check', :link => "#").html_safe
     .social
