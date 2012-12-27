@@ -5,7 +5,6 @@ class window.Enrolment
     @card.validateCard() if @card
 
     helper.initTermsNConditionsPopup()
-    helper.checkExpriationDate('#date_exp_month', '#date_exp_year')
 
     @initDatepicker()
     @autoshowTooltip()

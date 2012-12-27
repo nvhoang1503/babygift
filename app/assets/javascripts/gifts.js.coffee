@@ -18,7 +18,6 @@ class window.Gift
     @checkBillingValid()
 
     helper.initTermsNConditionsPopup()
-    helper.checkExpriationDate('#date_exp_month', '#date_exp_year')
 
   onCardChange: (event) =>
     helper.changeCardOnClick(event.target, @card.onCardTypeChange)

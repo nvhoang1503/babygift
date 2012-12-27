@@ -10,6 +10,8 @@ class window.Card
   validateCard:  =>
     $('#card_number').blur @onCardNumBlur
     $('#card_security').blur @isExistCvv
+    $.each ['#date_exp_month', '#date_exp_year'], (idx, val) =>
+      $(val).change => @isValidExpirationDate('#date_exp_month', '#date_exp_year')
 
   onCardNumBlur: =>
     if @isExistCardNum()
@@ -72,8 +74,18 @@ class window.Card
     return result
 
   validateCardInfo: =>
-    result = @isExistCardNum()
+    result = @isValidExpirationDate('#date_exp_month', '#date_exp_year')
+    result = @isExistCardNum() and result
     result = @isExistCardType() and result
     result = @isCorrectCardNum() and result
     result = @isExistCvv() and result
+    return result
+
+  isValidExpirationDate: (mon_elem, year_elem) ->
+    month = $(mon_elem).val()
+    year = $(year_elem).val()
+    exp_date = new Date(year, month, 0, 23, 59, 59)
+    current_date = new Date
+    result = (exp_date >= current_date)
+    helper.showErrorMessage(result, year_elem, message.invalid_expiration)
     return result

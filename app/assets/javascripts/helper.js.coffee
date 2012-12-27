@@ -103,12 +103,3 @@ class window.Helper
         onClose: (dialog) ->
           $.modal.close()
       return
-
-  checkExpriationDate: (mon_elem, year_elem) ->
-    $.each [mon_elem, year_elem], (idx, val) =>
-      $(val).change =>
-        month = $(mon_elem).val()
-        year = $(year_elem).val()
-        exp_date = new Date(year, month, 0, 23, 59, 59)
-        current_date = new Date
-        @showErrorMessage(current_date < exp_date, year_elem, message.invalid_expiration)
