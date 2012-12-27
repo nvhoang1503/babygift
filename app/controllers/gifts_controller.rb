@@ -52,13 +52,11 @@ class GiftsController < ApplicationController
     end
     flag = true
     if recipient_email_conf != params[:gift][:recipient_email]
-      # @gift.errors.add('recipient_email_confirm', 'Does not match information')
       @gift.errors.add('recipient_email_confirm', I18n.t('message.not_match'))
       @gift.attributes['recipient_email_confirm'] = params[:gift][:recipient_email_confirm]
       flag = false
     end
     if sender_email_conf != params[:gift][:sender_email]
-      # @gift.errors.add('sender_email_confirm', 'Does not match information')
       @gift.errors.add('sender_email_confirm', I18n.t('message.not_match'))
       @gift.attributes['sender_email_confirm'] = params[:gift][:sender_email_confirm]
       flag = false
@@ -111,6 +109,8 @@ class GiftsController < ApplicationController
 
   def finish
     @gift.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
+    params[:billing_address_id] = @gift.billing_address_id
+    params[:shipping_address_id] = @gift.shipping_address_id
     @response = Payment.an_process(@gift.total_price, params)
     if @response.success?
       flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
@@ -121,7 +121,7 @@ class GiftsController < ApplicationController
       UserMailer.gift_confirm_to_recipient(@gift, params, @response.transaction_id).deliver
 
     else
-      flash[:error] = @response.response_reason_text
+      flash[:error] = Payment.get_error_messages(@response)
       redirect_to :back
     end
   end

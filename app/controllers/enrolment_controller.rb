@@ -103,6 +103,8 @@ class EnrolmentController < ApplicationController
   def finish
     order = Order.find_by_id(params[:order_id])
     order.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
+    params[:billing_address_id] = order.billing_address_id
+    params[:shipping_address_id] = order.shipping_address_id
     @response = Payment.an_process(order.total_order, params)
     if @response.success?
       flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
@@ -111,7 +113,7 @@ class EnrolmentController < ApplicationController
       UserMailer.order_confirm(user, order, params, @response.transaction_id).deliver
       UserMailer.order_confirm_to_admin(user, order, params, @response.transaction_id).deliver
     else
-      flash[:error] = @response.response_reason_text
+      flash[:error] = Payment.get_error_messages(@response)
       redirect_to :back
     end
   end
