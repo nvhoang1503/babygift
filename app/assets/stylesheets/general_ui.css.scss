@@ -91,6 +91,10 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   background-image: url('common/bg_line.png');
   background-position: 0 100%;
   background-repeat: repeat-x;
+  .right_box{
+    display: block;
+    height:20px;
+  }
 }
 .boder_bottom{
   background-image: url('common/bg_line.png');
@@ -445,6 +449,10 @@ span.question{
   .logo_box{
     float:left;
     width:510px;
+    img{
+      width:330;
+      height:70px;
+    }
 
   }
   .top_menu_box{
