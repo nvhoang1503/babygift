@@ -50,4 +50,5 @@ group :test do
   gem 'spork'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'headless'
 end

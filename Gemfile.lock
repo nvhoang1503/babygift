@@ -122,6 +122,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (~> 3.1)
       railties (>= 3.1, < 4.1)
+    headless (0.3.1)
     heroku-api (0.3.7)
       excon (~> 0.16.10)
     heroku_san (4.0.7)
@@ -283,6 +284,7 @@ DEPENDENCIES
   guard-rails
   haml (>= 3.1.4)
   haml-rails (>= 0.3.4)
+  headless
   heroku_san
   hpricot
   jquery-rails
