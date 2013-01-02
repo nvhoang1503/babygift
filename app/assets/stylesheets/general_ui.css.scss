@@ -670,8 +670,7 @@ ul.social_medial_icon_line{
       width: 198px;
 
       .price{
-        color: blue;
-        text-decoration: underline;
+        color: #FFC91E;
         font-family: 'GudeaItalic';
         font-weight: bold;
       }
@@ -699,5 +698,11 @@ ul.social_medial_icon_line{
     bottom: 25px;
     text-align: center;
     width: 204px;
+  }
+  .info {
+    width: 204px;
+    font-family: 'Gudea';
+    font-size: 15px;
+    text-align: center;
   }
 }

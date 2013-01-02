@@ -6,10 +6,6 @@
     = f.input :baby_id, :as => :hidden, :input_html => { :value => params[:baby_id] }
     .plan-section
       = f.collection_radio_buttons :plan_type, plan_image_options(@order.plan_type), :first, :last
-    .text.italic.font16
-      = I18n.t('content.page.enroll_2.note')
-      %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_2.hint') }
-        = image_tag 'common/icon-question.png'
     %center
       = f.submit I18n.t('label.button.continue', :next_step => 'account'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 

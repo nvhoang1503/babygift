@@ -4,7 +4,7 @@
   = simple_form_for @gift, :url => update_gift_plan_gifts_path(:gift_id => params[:gift_id]), :html => { :class => 'gift-form', :id => 'gift-plan' } do |f|
     .tittle_content= I18n.t('content.page.gift_2.title')
     .plan-section
-      = f.collection_radio_buttons :plan_type, plan_image_options(@gift.plan_type), :first, :last
+      = f.collection_radio_buttons :plan_type, gift_plan_image_options(@gift.plan_type), :first, :last
     %center
       = f.submit I18n.t('label.button.continue', :next_step => 'account'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
 

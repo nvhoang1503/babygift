@@ -99,7 +99,7 @@ en:
         note: '*we will charge your credit card monthly'
         hint: 'Your account will be debited monthly'
         monthly: '/month*'
-        plan_missing: 'Choose your plan first!'
+        plan_missing: 'Please make a selection'
       enroll_3:
         step: 'Your account'
         title: 'Sign in'

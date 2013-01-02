@@ -43,7 +43,7 @@ class EnrolmentController < ApplicationController
       redirect_to step_3_enrolments_path(:order_id => @order.id)
     else
       flash[:error] = I18n.t('content.page.enroll_2.plan_missing')
-      render step_2_enrolments_path
+      render :action => :step_2
     end
   end
 
