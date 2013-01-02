@@ -18,6 +18,7 @@ en:
     gift_success: "The gift has been purchased"
     term_missing: 'You must agree the terms and conditions'
     invalid_expiration: "Can't be smaller than today"
+    gender_missing: 'Please make a selection'
 
 
 
@@ -87,7 +88,7 @@ en:
         gender_question: 'Is your Little Spark a boy, girl, or surprise?'
         name_question: 'What should we call your Little Spark?'
         birth_question: "When is your Little Spark's birthday or due date?"
-        optional: 'You can update later.'
+        optional: 'You may update later.'
         first_name: 'first name'
         last_name: 'last name'
         gender_hint: 'We currently offer gender neutral toys only but may use this information in the future to customize your subscription.'
@@ -145,7 +146,7 @@ en:
         gift: 'Gifts'
         other: 'Other'
         question1: 'What is Little Spark?'
-        question1_text: '<p> Little Spark is an early childhood development company. Our team of experts have devel-<br>oped a monthly curriculum for parents interested in development in babies 0 to 36 months old.</p> <p> With your enrollment, each month you will receive a kit that contains 2-4 developmental toys and an activity guide. The activity guide explains what skills your baby is developing that month and how to use the toys to encourage your baby to practice those all-<br>important life skills. Our kits are progressive, meaning that each month’s kit builds upon the previous month. It progresses as your baby progresses! Click here to see a sample kit.</p> <p>You keep the toys so that your baby can continue to practice existing skills and play with them in a different way to learn other skills.</p>'
+        question1_text: '<p> Little Spark is an early childhood development company. Our team of experts have devel-<br>oped a monthly curriculum for parents interested in development in babies 0 to 36 months old.</p> <p> With your enrolment, each month you will receive a kit that contains 2-4 developmental toys and an activity guide. The activity guideexplains what skills your baby is developing that month and how to use the toys to encourage your baby to practice those all-<br>important life skills. Our kits are progressive, meaning that each month’s kit builds upon the previous month. It progresses as your baby progresses! Click here to see a sample kit.</p> <p>You keep the toys so that your baby can continue to practice existing skills and play with them in a different way to learn other skills.</p>'
         question2: 'What is special about your curriculum, kits, and toys?'
         question2_text: '<p> Our curriculum of 36 kits is developed by an expert panel that includes an infant develop-<br>mental psychologist, a pediatrician, an infant cognitive researcher, an infant occupational therapist, teachers, and parents. Click here to read their bios.</p> <p> The toys are specifically chosen for their learning and play value. The included activity guide details how to use the toys to encourage developmental growth. We also ship only toys that meet our high standards for high quality and safe materials used. Some of the brands we feature are Plan Toys, Hape, Haba, Melissa & Doug, Wimmer Ferguson, Lamaze, among others.</p>'
       how:
