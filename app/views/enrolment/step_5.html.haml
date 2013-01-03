@@ -10,7 +10,7 @@
       = render 'shared/order_summary', :price => @order.price, :tax => @order.get_tax, :total => @order.total_order
       .action_box
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
-        %p.text.italic Your credit card will be charged on a monthly basis.
+        %p.text.italic Plan renews automatically.
   #terms_popup_content
     = render 'shared/terms_conditions_popup'
 
