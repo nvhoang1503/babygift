@@ -1,6 +1,22 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Can't be blank"
+            password:
+              blank: "Can't be blank"
+            password_confirmation:
+              blank: "Can't be blank"
+
+      messages:
+        taken: "An account with this email already exists"
+        confirmation: "Doesn't match confirmation"
+        too_short: "Password must be at least %{count} characters"
   errors:
     messages:
       expired: "Has expired, please request a new one"

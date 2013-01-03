@@ -1,6 +1,6 @@
 class Address < ActiveRecord::Base
   attr_accessible :address_1, :address_2, :city, :first_name, :last_name, :phone, :state, :zip
-  validates :address_1, :city, :first_name, :last_name, :state, :zip, :phone , :presence => { :message => "Can't be blank." }
+  validates :address_1, :city, :first_name, :last_name, :state, :zip, :presence => { :message => "Can't be blank." }
 
   validates :zip, :format => { :with => /^\d{5}(-\d{4})?$/, :message => I18n.t('message.zip_format')}
   validate :validate_phone_format

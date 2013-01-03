@@ -574,11 +574,20 @@ ul.fqa_menu_link{
     margin-left: 146px;
     // padding-top: 5px !important;
   }
+  .error {
+    width: 372px;
+  }
 }
+
 /*===================== CHANGE PASSWORK ====================*/
 #change_pass{
   .change_box{
     margin-top: 40px;
+    .edit_user{
+      .error {
+        width: 417px;
+      }
+    }
   }
   .btn_change_pass{
     width: 206px !important;

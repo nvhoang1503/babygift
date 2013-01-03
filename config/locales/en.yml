@@ -4,6 +4,7 @@
 en:
   hello: "Hello world"
   message:
+    email_not_match: 'Email addresses do not match'
     not_match: 'Does not match information'
     not_blank: "Can't be blank"
     invalid_email: "Invalid email"

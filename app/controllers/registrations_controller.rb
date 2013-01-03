@@ -22,7 +22,11 @@ class RegistrationsController < Devise::RegistrationsController
         req_referer = Rack::Request.new env
         @order = Order.find_by_id params[:order_id]
         @submit_from = ENROLMENT_RECEIVE
-        render step_3_enrolments_path(:order_id => req_referer.params[:order_id])
+        p '-'*100
+        puts req_referer.params[:order_id]
+        # render :action => 'step_3', :controller => 'enrolment'
+        render '/enrolment/step_3'
+        # render step_3_enrolments_path(:order_id => req_referer.params[:order_id])
       else
         respond_with resource
       end

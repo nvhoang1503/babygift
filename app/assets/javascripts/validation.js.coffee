@@ -23,6 +23,10 @@ $(".btn_register").live 'click', ->
   else
     $("#email_error").addClass 'error'
     $("#email_error").removeClass 'hidden'
+    if email.length > 0
+      $("#email_error").text("#{message.invalid_email}")
+    else
+      $("#email_error").text("#{message.not_blank}")
     rs = false
 
   if email == email_conform
@@ -60,6 +64,10 @@ $(".btn_login").live 'click', ->
   else
     $("#email_login_error").addClass 'error'
     $("#email_login_error").removeClass 'hidden'
+    if email.length > 0
+      $("#email_login_error").text("#{message.invalid_email}")
+    else
+      $("#email_login_error").text("#{message.not_blank}")
     rs = false
   if user_password.length > 0
     $("#passwork_login_error").removeClass 'error'
