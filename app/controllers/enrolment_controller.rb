@@ -17,7 +17,7 @@ class EnrolmentController < ApplicationController
       return redirect_to step_2_enrolments_path(:baby_id => @baby.id) unless @order
       return redirect_to step_2_enrolments_path(:order_id => @order.id)
     else
-      render step_1_enrolments_path
+      render :action => :step_1
     end
   end
 
@@ -86,7 +86,7 @@ class EnrolmentController < ApplicationController
       @order.update_attribute(:billing_address_id, @order.shipping_address_id) if SharedMethods::Parser.Boolean(ship_to_billing)
       redirect_to step_5_enrolments_path(:order_id => @order.id)
     else
-      render step_4_enrolments_path(:order_id => @order.id)
+      render :action => :step_4
     end
   end
 
