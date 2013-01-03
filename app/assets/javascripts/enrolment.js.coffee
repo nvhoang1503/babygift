@@ -87,6 +87,6 @@ class window.Enrolment
     helper.changeCardOnClick(event.target, @card.onCardTypeChange)
 
   genderSelectChecking: ->
-    $('#btn-submit').click ->
+    $('#child-register').submit ->
       ck = $('input[name="child[gender]"]').is(':checked')
       helper.showErrorMessage(ck,'#gender' , message.gender_missing)
