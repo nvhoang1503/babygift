@@ -44,7 +44,7 @@ module EnrolmentHelper
         "<div class='icon-plan _1-month pull-left  #{'selected' if selected== Order::TYPE['1_mon']}'>
           <div class='price'>
             #{ number_to_currency Order::PRICE[Order::TYPE['1_mon']]
-            }#{I18n.t('content.page.enroll_2.monthly')}
+            }
           </div>
         </div>
         <div class='info'>Billed monthly,<br> cancel anytime</div>".html_safe] ,

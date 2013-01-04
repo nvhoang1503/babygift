@@ -85,9 +85,10 @@ class window.Enrolment
   genderSelectChecking: ->
     $('.btn_child_form').live 'click', ->
       ck = $('input[name="child[gender]"]').is(':checked')
+      helper.showErrorMessage(ck,'#gender' , message.selection_missing, 'gender_error')
       if !ck
-        helper.showErrorMessage(ck,'#gender' , message.selection_missing, 'gender_error')
         $("#child-register").submit()
+
 
   planSelectChecking: ->
     $('.btn_plan_form').live 'click', ->
