@@ -37,6 +37,8 @@
         = hidden_field_tag 'order_id', @order.id
     = f.button :submit, I18n.t('content.page.login.join') , :class => "mybtn btn-pink btn_register uppercase"
 
+= render 'shared/submit_form', :btn_form => '.btn_login'
+
 - if params[:controller] == "registrations"
   :css
     .login_box span.error{

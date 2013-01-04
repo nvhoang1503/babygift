@@ -25,7 +25,7 @@ class EnrolmentController < ApplicationController
     @order = Order.new unless @order
     unless @baby
       # flash[:error] = 'Register your child first!'
-      redirect_to step_1_enrolments_path
+      redirect_to step_1_enrolments_path(:submit => false)
     end
   end
 
@@ -51,10 +51,10 @@ class EnrolmentController < ApplicationController
     unless @order
       if @baby
         # flash[:error] = I18n.t('content.page.enroll_2.plan_missing')
-        return redirect_to step_2_enrolments_path(:baby_id => @baby.id)
+        return redirect_to step_2_enrolments_path(:baby_id => @baby.id , :submit => false)
       else
         # flash[:error] = 'Register your child first!'
-        return redirect_to step_1_enrolments_path
+        return redirect_to step_1_enrolments_path(:submit => false)
       end
     end
 
@@ -66,9 +66,9 @@ class EnrolmentController < ApplicationController
   end
 
   def step_4
-    return redirect_to step_1_enrolments_path unless @baby
-    return redirect_to step_2_enrolments_path(:baby_id => @baby.id) unless @order
-    return redirect_to step_3_enrolments_path(:order_id => @order.id) unless user_signed_in?
+    return redirect_to step_1_enrolments_path(:submit => false) unless @baby
+    return redirect_to step_2_enrolments_path(:baby_id => @baby.id, :submit => false) unless @order
+    return redirect_to step_3_enrolments_path(:order_id => @order.id, :submit => false) unless user_signed_in?
     @order.build_shipping_address unless @order.shipping_address
     @order.build_billing_address unless @order.billing_address
   end
@@ -91,12 +91,12 @@ class EnrolmentController < ApplicationController
   end
 
   def step_5
-    return redirect_to step_1_enrolments_path unless @baby
-    return redirect_to step_2_enrolments_path(:baby_id => @baby.id) unless @order
+    return redirect_to step_1_enrolments_path(:submit => false) unless @baby
+    return redirect_to step_2_enrolments_path(:baby_id => @baby.id,:submit => false) unless @order
     return redirect_to step_3_enrolments_path(:order_id => @order.id) unless user_signed_in?
     if !@order.shipping_address or !@order.billing_address
       # flash[:error] = 'Please update your addresses!'
-      return redirect_to step_4_enrolments_path(:order_id => params[:order_id])
+      return redirect_to step_4_enrolments_path(:order_id => params[:order_id] ,:submit => false)
     end
   end
 

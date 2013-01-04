@@ -1,0 +1,7 @@
+- if params[:submit] == 'false'
+  = javascript_tag do
+    :erb
+      window.onload = function(){
+        var cl = '<%= escape_javascript(btn_form) %>';
+        $(cl).click();
+      };
