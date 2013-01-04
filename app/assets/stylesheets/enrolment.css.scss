@@ -4,6 +4,9 @@
   label.collection_radio_buttons {
     width: auto;
     margin: 0;
+    .info{
+      cursor:auto;
+    }
   }
 
   &#register_login .title_login {
@@ -37,11 +40,17 @@
     }
   }
 }
-#plan-register #btn-submit {
-  margin-top: 32px;
-  width: 266px;
-  padding-right: 24px;
-  background-position: 232px 12px;
+#plan-register {
+   #btn-submit {
+    margin-top: 32px;
+    width: 266px;
+    padding-right: 24px;
+    background-position: 232px 12px;
+  }
+  .plan_error{
+    clear:both;
+    text-align: center;
+  }
 }
 
 #enroll-steps {
@@ -194,6 +203,21 @@
           background-position: -487px -3px;
         }
       }
+    }
+  }
+  .gender_error{
+    margin-left: 355px;
+    margin-top: -55px;
+    position: absolute;
+  }
+  .date_birthday{
+    .error{
+      clear: both;
+    }
+  }
+  #wraplastnamejqiho , #wrapfirstnamejqiho{
+    .error{
+      clear: both;
     }
   }
 }

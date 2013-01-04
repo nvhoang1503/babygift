@@ -24,7 +24,7 @@ class EnrolmentController < ApplicationController
   def step_2
     @order = Order.new unless @order
     unless @baby
-      flash[:warning] = 'Register your child first!'
+      # flash[:error] = 'Register your child first!'
       redirect_to step_1_enrolments_path
     end
   end
@@ -42,7 +42,7 @@ class EnrolmentController < ApplicationController
     if @order.save
       redirect_to step_3_enrolments_path(:order_id => @order.id)
     else
-      flash[:error] = I18n.t('content.page.enroll_2.plan_missing')
+      # flash[:error] = I18n.t('content.page.enroll_2.plan_missing')
       render :action => :step_2
     end
   end
@@ -50,10 +50,10 @@ class EnrolmentController < ApplicationController
   def step_3
     unless @order
       if @baby
-        flash[:notice] = I18n.t('content.page.enroll_2.plan_missing')
+        # flash[:error] = I18n.t('content.page.enroll_2.plan_missing')
         return redirect_to step_2_enrolments_path(:baby_id => @baby.id)
       else
-        flash[:notice] = 'Register your child first!'
+        # flash[:error] = 'Register your child first!'
         return redirect_to step_1_enrolments_path
       end
     end
@@ -95,7 +95,7 @@ class EnrolmentController < ApplicationController
     return redirect_to step_2_enrolments_path(:baby_id => @baby.id) unless @order
     return redirect_to step_3_enrolments_path(:order_id => @order.id) unless user_signed_in?
     if !@order.shipping_address or !@order.billing_address
-      flash[:warning] = 'Please update your addresses!'
+      # flash[:error] = 'Please update your addresses!'
       return redirect_to step_4_enrolments_path(:order_id => params[:order_id])
     end
   end

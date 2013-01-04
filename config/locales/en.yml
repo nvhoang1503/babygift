@@ -19,7 +19,7 @@ en:
     gift_success: "The gift has been purchased"
     term_missing: 'You must agree the terms and conditions'
     invalid_expiration: "Can't be smaller than today"
-    gender_missing: 'Please make a selection'
+    selection_missing: 'Please make a selection'
 
 
 

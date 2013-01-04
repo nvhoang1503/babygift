@@ -27,7 +27,7 @@
       .info-panel.clearfix
         = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }, :wrapper_html => {:class => "date_birthday"}
     .section.clearfix
-      = f.submit I18n.t('label.button.continue', :next_step => 'plans'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
+      = f.submit I18n.t('label.button.continue', :next_step => 'plans'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_child_form'
 
 = content_for :js do
   = yield :child_validator

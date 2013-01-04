@@ -3,7 +3,7 @@ class window.Helper
     @autoHideFlash()
 
   autoHideFlash: ->
-    func =-> $('#flash-panel').fadeOut('slow')
+    func =-> $('#flash-panel .success').fadeOut('slow')
     window.setTimeout func, 10000
 
   validateZip: (event) ->
@@ -26,10 +26,10 @@ class window.Helper
     part2 = @.value.substring @.selectionEnd, @.value.length
     return reg.test(part1 + String.fromCharCode(event.charCode) + part2)
 
-  showErrorMessage: (condit_value , elem ,msg_text) ->
+  showErrorMessage: (condit_value , elem ,msg_text, cl = '') ->
     if !condit_value
       if $(elem).siblings('.error').length == 0
-        s = "<span class='error'>#{msg_text}</span>"
+        s = "<span class='error #{cl}'>#{msg_text}</span>"
         $(elem).after(s)
       else
         $(elem).siblings('.error').text("#{msg_text}")

@@ -142,6 +142,11 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
 .field{
   height: 40px;
 }
+div.flash-content.error{
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
 
 .simple_form, .field{
   clear: both;
@@ -171,9 +176,7 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     font-size: 24px;
     margin-left: 15px;
   }
-  // div.input{
-  //   clear:both;
-  // }
+
   input, textarea, select{
     padding-left: 3px !important;
     padding-top: 2px !important;
@@ -219,6 +222,7 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
     margin-top: -5px;
     margin-right: 20px;
   }
+
   .field_with_errors {
     margin-bottom: 10px;
     &:before, &:after {

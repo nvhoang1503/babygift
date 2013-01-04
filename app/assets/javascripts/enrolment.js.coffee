@@ -3,18 +3,16 @@ class window.Enrolment
     helper.initCvvPopup()
     @card = new Card if window.Card
     @card.validateCard() if @card
-
     helper.initTermsNConditionsPopup()
-
     @initDatepicker()
     @autoshowTooltip()
     @updateShipToBilling()
     @genderSelectChecking()
+    @planSelectChecking()
 
     $('#plan-addresses').delegate '#ship_to_billing input', 'click', @copyAddress
     $('#plan-addresses').delegate '#plan_billing_address_attributes_zip, #plan_shipping_address_attributes_zip', 'keypress', helper.validateZip
     $('#plan-addresses').delegate '#plan_billing_address_attributes_phone, #plan_shipping_address_attributes_phone', 'keypress', helper.validatePhone
-    # $('#child_birthday').keypress -> return false
     $('#frm-payment').submit @onPaymentSubmit
     $('#enroll-steps li').click @onEnrollNavClick
     $('#card_security').keypress helper.validateCvv
@@ -22,8 +20,6 @@ class window.Enrolment
     $('.icon-gender').click @onGenderChange
     $('.icon-plan').click @onPlanChange
     $('.icon-plan .price').click @onPlanChange
-
-
 
   initDatepicker: ->
     $('#child_birthday').datepicker({
@@ -87,9 +83,17 @@ class window.Enrolment
     helper.changeCardOnClick(event.target, @card.onCardTypeChange)
 
   genderSelectChecking: ->
-    $('#child-register').live 'submit', ->
-      # ck = $('input[name="child[gender]"]').is(':checked')
-      # helper.showErrorMessage(ck,'#gender' , message.gender_missing)
-      if $('input:radio:checked').length == 0
-        helper.showFlashMessage(message.gender_missing)
-        return false
+    $('.btn_child_form').live 'click', ->
+      ck = $('input[name="child[gender]"]').is(':checked')
+      if !ck
+        helper.showErrorMessage(ck,'#gender' , message.selection_missing, 'gender_error')
+        $("#child-register").submit()
+
+  planSelectChecking: ->
+    $('.btn_plan_form').live 'click', ->
+      ck = $('input[name="plan[plan_type]"]').is(':checked')
+      helper.showErrorMessage(ck,'.plan-section' , message.selection_missing, 'plan_error')
+
+
+
+
