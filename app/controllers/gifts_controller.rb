@@ -7,18 +7,18 @@ class GiftsController < ApplicationController
 
   def step_2
     unless @gift
-      flash[:notice] = I18n.t('message.email_missing')
-      redirect_to step_1_gifts_path
+      # flash[:notice] = I18n.t('message.email_missing')
+      redirect_to step_1_gifts_path(:submit => false)
     end
   end
 
   def step_3
     if @gift.nil?
-      flash[:notice] = I18n.t('message.email_missing')
-      redirect_to step_1_gifts_path
+      # flash[:notice] = I18n.t('message.email_missing')
+      redirect_to step_1_gifts_path(:submit => false)
     elsif @gift.plan_type.nil?
-      flash[:notice] = I18n.t('message.plan_missing')
-      redirect_to step_2_gifts_path(:gift_id => @gift.id)
+      # flash[:notice] = I18n.t('message.plan_missing')
+      redirect_to step_2_gifts_path(:gift_id => @gift.id,:submit => false)
     else
       @gift.build_billing_address unless @gift.billing_address
     end
@@ -26,14 +26,14 @@ class GiftsController < ApplicationController
 
   def step_4
     if @gift.nil?
-      flash[:notice] = I18n.t('message.email_missing')
-      redirect_to step_1_gifts_path
+      # flash[:notice] = I18n.t('message.email_missing')
+      redirect_to step_1_gifts_path(:submit => false)
     elsif @gift.plan_type.nil?
-      flash[:notice] = I18n.t('message.plan_missing')
-      redirect_to step_2_gifts_path(:gift_id => @gift.id)
+      # flash[:notice] = I18n.t('message.plan_missing')
+      redirect_to step_2_gifts_path(:gift_id => @gift.id,:submit => false )
     elsif @gift.billing_address.nil?
-      flash[:notice] = I18n.t('message.billing_missing')
-      redirect_to step_3_gifts_path(:gift_id => @gift.id)
+      # flash[:notice] = I18n.t('message.billing_missing')
+      redirect_to step_3_gifts_path(:gift_id => @gift.id,:submit => false)
     else
       # todo
       @gift.update_attribute(:total, @gift.total_price)
@@ -81,13 +81,13 @@ class GiftsController < ApplicationController
       if @gift.save
         redirect_to step_3_gifts_path(:gift_id => @gift.id)
       else
-        flash[:notice] = @gift.errors.full_messages
+        flash[:error] = @gift.errors.full_messages
         render step_2_gifts_path
       end
       params[:gift_action]
     else
-      flash[:notice] = I18n.t('message.plan_missing')
-      render step_2_gifts_path
+      # flash[:error] = I18n.t('message.plan_missing')
+      render step_2_gifts_path(:submit => false)
     end
   end
 

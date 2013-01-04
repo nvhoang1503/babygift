@@ -117,11 +117,17 @@ $color-text: #44464b;
   }
 }
 
-#gift-plan #btn-submit {
-  margin-top: 32px;
-  width: 266px;
-  padding-right: 24px;
-  background-position: 232px 12px;
+#gift-plan{
+  #btn-submit {
+    margin-top: 32px;
+    width: 266px;
+    padding-right: 24px;
+    background-position: 232px 12px;
+  }
+  .plan_type_error{
+    clear: both;
+    text-align: center;
+  }
 }
 #gift-billing #btn-submit {
   margin-top: 20px;

@@ -3,7 +3,7 @@ class window.Helper
     @autoHideFlash()
 
   autoHideFlash: ->
-    func =-> $('#flash-panel .success').fadeOut('slow')
+    func =-> $('#flash-panel').fadeOut('slow')
     window.setTimeout func, 10000
 
   validateZip: (event) ->
@@ -50,7 +50,8 @@ class window.Helper
     if $(cb_terms).is(':checked')
       return callback()
     else
-      @showFlashMessage("#{message.term_missing}")
+      @showErrorMessage(false,'.signup_box',message.term_missing, 'term_error' )
+      # @showFlashMessage("#{message.term_missing}")
       return false
 
   changePlanOnClick: (target) ->

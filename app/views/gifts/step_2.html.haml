@@ -6,8 +6,8 @@
     .plan-section
       = f.collection_radio_buttons :plan_type, gift_plan_image_options(@gift.plan_type), :first, :last
     %center
-      = f.submit I18n.t('label.button.continue', :next_step => 'account'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase'
-
+      = f.submit I18n.t('label.button.continue', :next_step => 'account'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_plan_type_form'
+= render 'shared/submit_form', :btn_form => '.btn_plan_type_form'
 = content_for :js do
   = javascript_include_tag 'gifts.js'
 
