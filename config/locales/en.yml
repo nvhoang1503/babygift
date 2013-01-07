@@ -11,8 +11,8 @@ en:
     plan_missing: 'Choose your gift plan first!'
     billing_missing: 'Choose fill your billing address first!'
     email_missing: 'Please input emails first!'
-    phone_invalid: 'Must be from 5 to 15 figures'
-    phone_format: "Must be 'xx-xxx...' or 'xx xxx...'"
+    phone_invalid: 'Must be 10 digits'
+    phone_format: "Must be 'xxxxxxxxxx' "
     zip_format: "Format must be '12345' or '12345-1234'"
     card_format: 'Does not match the card type'
     card_missing: 'Choose a card'

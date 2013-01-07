@@ -7,10 +7,10 @@
       = render 'shared/card_information', :parent => f
 
     .enroll5_box.pull-right
-      = render 'shared/order_summary', :price => @gift.price, :tax => @gift.tax, :total => @gift.total_price
+      = render 'shared/order_summary', :price => @gift.price, :tax => @gift.tax, :total => @gift.total_price, :plan_type => @gift.plan_type
       .action_box
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
-        %p.text.italic Your credit card will be charged on a monthly basis.
+        / %p.text.italic Your credit card will be charged on a monthly basis.
   #terms_popup_content
     = render 'shared/terms_conditions_popup'
 

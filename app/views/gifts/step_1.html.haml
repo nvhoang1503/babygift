@@ -4,7 +4,10 @@
     .tittle_content= I18n.t('content.page.gift_1.title')
     .description= I18n.t('content.page.gift_1.desc')
     #left-section.pull-left
-      = image_tag 'sample/pic-gift.jpg'
+      - if params[:controller] == 'gifts'
+        = image_tag 'sample/white_baby.jpg'
+      - else
+        = image_tag 'sample/pic-gift.jpg'
       %a#ln_redeem{:href => '#', :class => 'underline-link capitalize pull-left'}= I18n.t('content.page.gift_1.redeem')
     .form-inputs.pull-left
       .section

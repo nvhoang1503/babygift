@@ -7,7 +7,7 @@
       = render 'shared/card_information', :parent => f
 
     .enroll5_box.pull-right
-      = render 'shared/order_summary', :price => @order.price, :tax => @order.get_tax, :total => @order.total_order
+      = render 'shared/order_summary', :price => @order.price, :tax => @order.get_tax, :total => @order.total_order, :plan_type => @order.plan_type
       .action_box
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
         %p.text.italic Plan renews automatically.

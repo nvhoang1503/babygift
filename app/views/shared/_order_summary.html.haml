@@ -7,7 +7,7 @@
 .order_info_box
   .info_box.pull-left
     .info_field
-      %p.info_text.text.bold Monthly Subscription
+      %p.info_text.text.bold=Order::TYPE_NAME[plan_type]
       %p.number= number_to_currency price
     .info_field
       %p.info_text.text.bold Shipping
