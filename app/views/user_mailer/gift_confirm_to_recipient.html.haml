@@ -23,5 +23,8 @@
           = link_to "contactus@littlespark.com", @admin_email
 
       %div{:style => "clear:both; margin:40px 0px; color:#000;"}
+        %p= @gift.note
+
+      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
         %p.month= "Gift Type: #{Order::TYPE_NAME[@gift.plan_type]} Gift"
         %p= "Gift Code: #{@gift.gift_code} "
