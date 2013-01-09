@@ -50,16 +50,13 @@
     {
         var objAdDivRight = document.getElementById("divAdRight");
         var objAdDivLeft = document.getElementById("divAdLeft");
-        if (document.body.clientWidth < 1050)
-        {
-            objAdDivRight.style.display = "none";
-            objAdDivLeft.style.display = "none";
-        }
-        else
+        if (document.body.clientWidth >= 1050)
         {
             objAdDivRight.style.display = "block";
             objAdDivLeft.style.display = "block";
             FloatTopDiv();
+            // objAdDivRight.style.display = "none";
+            // objAdDivLeft.style.display = "none";
         }
     }
 </script>
