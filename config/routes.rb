@@ -50,7 +50,6 @@ Littlespark::Application.routes.draw do
       get 'step_1'
       match 'create_update' => 'redeems#create_update', :via => [:put, :post]
       get 'step_2'
-      put 'update_redeem_plan'  #update  plan type for redeem
       get 'step_3'
       get 'step_3b'
       put 'create_update_child' #update  child for redeem

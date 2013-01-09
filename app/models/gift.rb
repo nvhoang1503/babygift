@@ -6,7 +6,7 @@ class Gift < ActiveRecord::Base
   validates_associated :billing_address
 
   has_one :redeem
-  belongs_to :shipping_address, :class_name => 'Address'
+  # belongs_to :shipping_address, :class_name => 'Address'
   belongs_to :billing_address, :class_name => 'Address'
   accepts_nested_attributes_for :billing_address
   before_create :generate_gift_code

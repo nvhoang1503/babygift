@@ -8,6 +8,12 @@ class CreateGifts < ActiveRecord::Migration
       t.text :note
       t.integer :plan_type
 
+      t.integer :baby_id
+      t.datetime :redeem_date
+      t.string :redeem_status
+
+
+
       t.float :price, :default => 0
       t.float :tax, :default => 0
       t.float :shipping_fee, :default => 0

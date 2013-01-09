@@ -13,7 +13,7 @@
         .description= I18n.t('content.page.gift_1.desc')
         .text.font24
           =I18n.t('content.page.redeem_1.fill_code')
-        = f.input :gift_code, :as => :string, :label => false
+        = f.input :gift_code , :as => :string, :label => false, :input_html => {:value => params[:gift_code]}
 
       = f.submit I18n.t('content.page.redeem_1.btn_submit_form', :next_step => 'plans'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_email_form'
 = render 'shared/submit_form', :btn_form => '.btn_email_form'
