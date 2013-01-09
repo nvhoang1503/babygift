@@ -9,7 +9,7 @@ class window.Gift
     @initFormGiftInfo()
     $('.icon-plan').click @onPlanChange
     $('.icon-plan .price').click @onPlanChange
-    $('.icon-credit-card').click @onCardChange
+    $('.icon-credit-card').click -> return false
     $('#frm-payment').submit @onPaymentSubmit
     $('#card_security').keypress helper.validateCvv
 
@@ -18,9 +18,6 @@ class window.Gift
     @checkBillingValid()
 
     helper.initTermsNConditionsPopup()
-
-  onCardChange: (event) =>
-    helper.changeCardOnClick(event.target, @card.onCardTypeChange)
 
   onPlanChange: (event) ->
     helper.changePlanOnClick(event.target)

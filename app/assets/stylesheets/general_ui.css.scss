@@ -386,6 +386,7 @@ span.question{
   input[type=radio] {
     display: none;
   }
+  label{ cursor: text; }
   .icon-credit-card {
     background: url('common/icon-credit-cards.png') no-repeat;
     margin-right:5px;

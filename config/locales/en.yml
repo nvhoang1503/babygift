@@ -14,7 +14,7 @@ en:
     phone_invalid: 'Must be 10 digits'
     phone_format: "Must be 'xxxxxxxxxx' "
     zip_format: "Format must be '12345' or '12345-1234'"
-    card_format: 'Does not match the card type'
+    card_format: 'Does not match any card types'
     card_missing: 'Choose a card'
     gift_success: "The gift has been purchased"
     term_missing: 'You must agree the terms and conditions'

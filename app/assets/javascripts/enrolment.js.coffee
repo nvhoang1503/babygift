@@ -16,7 +16,7 @@ class window.Enrolment
     $('#frm-payment').submit @onPaymentSubmit
     $('#enroll-steps li').click @onEnrollNavClick
     $('#card_security').keypress helper.validateCvv
-    $('.icon-credit-card').click @onCardChange
+    $('.icon-credit-card').click -> return false
     $('.icon-gender').click @onGenderChange
     $('.icon-plan').click @onPlanChange
     $('.icon-plan .price').click @onPlanChange
@@ -78,9 +78,6 @@ class window.Enrolment
 
   onPlanChange: (event) ->
     helper.changePlanOnClick(event.target)
-
-  onCardChange: (event) =>
-    helper.changeCardOnClick(event.target, @card.onCardTypeChange)
 
   genderSelectChecking: ->
     $('.btn_child_form').live 'click', ->

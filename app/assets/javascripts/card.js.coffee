@@ -1,25 +1,50 @@
 class window.Card
   constructor: ->
     @CARD_TYPE_VALIDATORS = [
-      { value: CARD_TYPE.am_express.toString(), reg: /^3[47][0-9]{13}$/ },
-      { value: CARD_TYPE.discover.toString(), reg: /^6(?:011|5[0-9]{2})[0-9]{12}$/ },
-      { value: CARD_TYPE.visa.toString(), reg: /^4[0-9]{12}(?:[0-9]{3})?$/ },
-      { value: CARD_TYPE.master.toString(), reg: /^5[1-5][0-9]{14}$/ }
+      { value: CARD_TYPE.am_express.toString(), reg: /^3[47][0-9]{13}$/, class: 'am-express' },
+      { value: CARD_TYPE.discover.toString(), reg: /^6(?:011|5[0-9]{2})[0-9]{12}$/, class: 'discover' },
+      { value: CARD_TYPE.visa.toString(), reg: /^4[0-9]{12}(?:[0-9]{3})?$/, class: 'visa' },
+      { value: CARD_TYPE.master.toString(), reg: /^5[1-5][0-9]{14}$/, class: 'master' }
     ]
 
   validateCard:  =>
-    $('#card_number').blur @onCardNumBlur
+    @autoSelectCardType() if $('#card_number').val().trim()!=''
+    $('#card_number').blur @autoSelectCardType
     $('#card_security').blur @isExistCvv
     $.each ['#date_exp_month', '#date_exp_year'], (idx, val) =>
       $(val).change => @isValidExpirationDate('#date_exp_month', '#date_exp_year')
 
-  onCardNumBlur: =>
+  autoSelectCardType: =>
     if @isExistCardNum()
-      @isCorrectCardNum() if @isExistCardType()
+      @validateCardNum true
+    else
+      $('input[type=radio][name=card_type]').prop('checked', false)
+      $('.icon-credit-card').removeClass('selected')
 
-  onCardTypeChange: =>
-    if @isExistCardType()
-      @isCorrectCardNum() if $('#card_number').val().trim() != ''
+  changeCardOnClick: (target) ->
+    target = $(target)
+    $('.icon-credit-card').not(target).removeClass('selected')
+    target.addClass('selected')
+    rad = target.closest('span').find('input:radio')
+    rad.prop('checked', true)
+    $('input:radio').not(rad).prop('checked', false)
+
+  validateCardNum: (card_checking=false) =>
+    result = false
+    card_num = $('#card_number')
+    for validator in @CARD_TYPE_VALIDATORS
+      if validator.reg.test card_num.val().trim()
+        result = true
+        break
+    helper.showErrorMessage(result, '#card_number', message.card_format, 'mismatch')
+    if result
+      @changeCardOnClick(".icon-credit-card.#{validator.class}") if card_checking
+      card_num.siblings('.error.mismatch').remove()
+    else
+      $('input[type=radio][name=card_type]').prop('checked', false)
+      $('.icon-credit-card').removeClass('selected')
+
+    return result
 
   isExistCardNum: ->
     card_num = $('#card_number')
@@ -27,7 +52,7 @@ class window.Card
       if card_num.siblings('.error').length==0
         card_num.after("<span class='error blank'>#{message.not_blank}</span>")
       else
-        card_num.siblings('.error.blank').text "#{message.not_blank}"
+        card_num.siblings('.error').text "#{message.not_blank}"
       return false
     else
       card_num.siblings('.error.blank').remove()
@@ -57,7 +82,32 @@ class window.Card
       $('#payment_card').siblings('.error').remove()
       return true
 
-  isCorrectCardNum: ->
+
+  validateCardInfo: =>
+    result = @isValidExpirationDate('#date_exp_month', '#date_exp_year')
+    result = @isExistCardNum() and result
+    result = (@validateCardNum() and result) if result
+    result = @isExistCvv() and result
+    return result
+
+  isValidExpirationDate: (mon_elem, year_elem) ->
+    month = $(mon_elem).val()
+    year = $(year_elem).val()
+    exp_date = new Date(year, month, 0, 23, 59, 59)
+    current_date = new Date
+    result = (exp_date >= current_date)
+    helper.showErrorMessage(result, year_elem, message.invalid_expiration)
+    return result
+
+  validateCardNumWithType: =>
+    if @isExistCardNum()
+      @isCorrectCardNumWithType() if @isExistCardType()
+
+  validateSelectedCardType: =>
+    if @isExistCardType()
+      @isCorrectCardNumWithType() if $('#card_number').val().trim() != ''
+
+  isCorrectCardNumWithType: ->
     result = true
     card_type = $('input[type=radio][name=card_type]:checked')
     card_num = $('#card_number')
@@ -71,21 +121,4 @@ class window.Card
           result = false
         break
     card_num.siblings('.error.mismatch').remove() if result
-    return result
-
-  validateCardInfo: =>
-    result = @isValidExpirationDate('#date_exp_month', '#date_exp_year')
-    result = @isExistCardNum() and result
-    result = @isExistCardType() and result
-    result = @isCorrectCardNum() and result
-    result = @isExistCvv() and result
-    return result
-
-  isValidExpirationDate: (mon_elem, year_elem) ->
-    month = $(mon_elem).val()
-    year = $(year_elem).val()
-    exp_date = new Date(year, month, 0, 23, 59, 59)
-    current_date = new Date
-    result = (exp_date >= current_date)
-    helper.showErrorMessage(result, year_elem, message.invalid_expiration)
     return result
