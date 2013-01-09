@@ -17,6 +17,7 @@ class EnrolmentController < ApplicationController
       return redirect_to step_2_enrolments_path(:baby_id => @baby.id) unless @order
       return redirect_to step_2_enrolments_path(:order_id => @order.id)
     else
+      @baby[:birthday] = @baby[:birthday].strftime("%m/%d/%Y") if @baby[:birthday]
       render :action => :step_1
     end
   end

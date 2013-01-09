@@ -1,6 +1,6 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for @baby, :as => :child, :url => baby_enrolments_path(params), :method => :put, :html => {  :class => 'enroll-form', :id => 'child-register' }, :validate => :child_validator do |f|
+  = simple_form_for @baby, :as => :child, :url => baby_enrolments_path, :method => :put, :html => {  :class => 'enroll-form', :id => 'child-register' } do |f|
     .tittle_content= I18n.t('content.page.enroll_1.title')
 
     #gender.section.clearfix
@@ -12,6 +12,8 @@
       .text.font20.italic= I18n.t('content.page.enroll_1.optional')
       .info-panel.clearfix
         = f.collection_radio_buttons :gender, gender_image_options(@baby.gender), :first, :last
+    - unless @baby.errors[:gender].blank?
+      %span.error.gender_error= I18n.t('message.selection_missing')
     #name.section.clearfix
       .text.font24= I18n.t('content.page.enroll_1.name_question')
       .info-panel.clearfix
