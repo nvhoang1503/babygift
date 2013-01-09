@@ -1,0 +1,13 @@
+.page_content_space
+  = render 'steps_nav'
+  = simple_form_for @redeem, :url => update_redeem_billing_redeems_path(:redeem_id => params[:redeem_id]), :html => {:class => "redeem-form", :id => 'redeem-billing'} , :validate => :redeem_validator do |f|
+    / .tittle_content= I18n.t('content.page.enroll_4.title')
+    .billing-address.pull-left
+      = render 'shared/form_billing', :form_builder => f
+    .clearfix
+    .form-action.pull-left.shipping_continue
+      = f.submit I18n.t('label.button.continue', :next_step => 'payment'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_billing_form'
+= render 'shared/submit_form', :btn_form => '.btn_billing_form'
+= content_for :js do
+  = yield :redeem_validator
+  = javascript_include_tag 'redeems.js'

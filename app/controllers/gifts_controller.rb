@@ -81,8 +81,9 @@ class GiftsController < ApplicationController
       if @gift.save
         redirect_to step_3_gifts_path(:gift_id => @gift.id)
       else
-        flash[:error] = @gift.errors.full_messages
-        render step_2_gifts_path
+        # flash[:error] = @gift.errors.full_messages
+        # render step_2_gifts_path
+        render step_2_gifts_path(:submit => false)
       end
       params[:gift_action]
     else

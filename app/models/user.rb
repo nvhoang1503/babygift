@@ -15,9 +15,11 @@ class User < ActiveRecord::Base
   ADMIN_EMAIL = 'littlesparktesting@gmail.com'
 
 
+  has_many :babies
   belongs_to :shipping_address,
     :class_name => 'Address', :foreign_key => :shipping_id
   belongs_to :billing_address,
     :class_name => 'Address', :foreign_key => :billing_id
   accepts_nested_attributes_for :shipping_address, :billing_address
+
 end

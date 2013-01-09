@@ -1,0 +1,107 @@
+$color-text: #44464b;
+.redeem-form {
+  margin: 0 auto;
+  width: 874px;
+  label.collection_radio_buttons {
+    width: auto;
+    margin: 0;
+  }
+}
+#redeem-info {
+  margin-bottom: 110px;
+  input, textarea {
+    width: 388px;
+    margin: 15px 0px 0px;
+  }
+  input {
+    height: 44px !important;
+  }
+  textarea {
+    height: 116px !important;
+  }
+  label {
+    margin: 0;
+    &.control-label {
+      font-family: 'Gudea';
+      color: $color-text;
+      font-size: 24px;
+      width: auto;
+    }
+    &.inputHintOverlay {
+      margin: 27px 0 0 15px;
+    }
+  }
+  .form-inputs {
+    width: 388px;
+  }
+  .description {
+    font-size: 18px;
+    font-family: 'Gudea';
+    color: $color-text;
+    margin: 3px 0 22px;
+  }
+  .section {
+    margin-bottom: 35px;
+  }
+  .redeem_title{
+    margin-bottom: 20px;
+  }
+  #left-section {
+    width: 378px;
+    margin-right: 20px
+
+  }
+  #ln_redeem {
+    margin-top: 25px;
+    font-size: 26px;
+    padding-bottom: 3px;
+  }
+  #btn-submit {
+    background-position: 222px 13px;
+    padding-right: 24px;
+    width: 267px;
+    margin: 0px;
+  }
+  span.error{
+    margin: 5px 0px -10px;
+  }
+}
+#child-info{
+  .description{
+    margin-top: 5px;
+  }
+}
+.child_box{
+  padding-left: 170px;
+  margin-top: 20px;
+  .apply_gift{
+    height: 30px;
+    margin-left: 42px;
+  }
+  .form_field{
+    clear: both;
+    height: 30px;
+    margin-top: 20px;
+    input,select{
+      width: 200px;
+    }
+    .first_name{
+      float: left;
+      margin-right: 20px;
+    }
+  }
+  #btn-submit{
+    width: 280px;
+    margin-left: 150px;
+    background-position: 242px 10px;
+    padding-right: 24px;
+  }
+}
+#redeem-billing #btn-submit {
+    background-position: 242px 12px;
+    margin-bottom: 230px;
+    margin-left: 27px;
+    margin-top: 20px;
+    padding-right: 24px;
+    width: 288px;
+}

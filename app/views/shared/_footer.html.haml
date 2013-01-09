@@ -1,7 +1,7 @@
 .footer_menu_box
   %ul.footer_menu
     %li#redeem
-      = link_to I18n.t('content.footer.redeem') , "#"
+      = link_to I18n.t('content.footer.redeem') , step_1_redeems_path
     %li#faq{:class => (current_page?(fqa_homes_path)  ? "selected" : "")}
       = link_to I18n.t('content.footer.faq') , fqa_homes_path
     %li#refer

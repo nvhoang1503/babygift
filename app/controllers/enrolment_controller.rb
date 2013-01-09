@@ -44,6 +44,8 @@ class EnrolmentController < ApplicationController
       redirect_to step_3_enrolments_path(:order_id => @order.id)
     else
       # flash[:error] = I18n.t('content.page.enroll_2.plan_missing')
+      puts '='*100
+      puts @order.errors.full_message
       render :action => :step_2
     end
   end
@@ -72,6 +74,8 @@ class EnrolmentController < ApplicationController
     return redirect_to step_3_enrolments_path(:order_id => @order.id, :submit => false) unless user_signed_in?
     @order.build_shipping_address unless @order.shipping_address
     @order.build_billing_address unless @order.billing_address
+    # update parent_id for current baby
+    @baby.update_attribute(:user_id,current_user.id)
   end
 
   def update_order_shipping

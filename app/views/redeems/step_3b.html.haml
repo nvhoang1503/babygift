@@ -1,0 +1,40 @@
+.page_content_space
+  = render 'steps_nav'
+  = simple_form_for @child, :as => :child, :url => update_child_redeems_path(:gift_id => params[:gift_id]), :html => {:id => 'child-info', :class => 'child-form clearfix' }, :validate => :gift_validator do |f|
+    .tittle_content= I18n.t('content.page.redeem_3.title')
+    .description= I18n.t('content.page.redeem_3.desc')
+    .child_box
+      .apply_gift
+        = link_to I18n.t('content.page.redeem_3.apply_gift') , step_3_redeems_path , :class=>'underline-link'
+        / %input{:type => 'checkbox'}
+        / %span= I18n.t('content.page.redeem_3.apply_gift')
+      .form_field
+        %label Which Child?
+        %select
+          %option  a
+          %option  b
+      .form_field
+        %label Child's Name
+        = f.input :first_name, :label => false, :input_html => {:class=> 'first_name'}
+        = f.input :last_name, :label => false, :input_html => {:class=> 'last_name'}
+      .form_field
+        %label Child's Birthday
+        / = f.input :birthday, :label => false
+        = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }, :wrapper_html => {:class => "date_birthday"}
+      .form_field
+        %label Which Gender
+        %select
+          %option  a
+          %option  b
+      .form_field
+        = f.submit I18n.t('label.button.continue', :next_step => 'shipping'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_child_form'
+
+
+= content_for :js do
+  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js','redeems.js'
+  :erb
+    <script>
+      $("li#step_3").addClass("selected");
+    </script>
+
+

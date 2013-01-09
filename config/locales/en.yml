@@ -20,6 +20,7 @@ en:
     term_missing: 'You must agree the terms and conditions'
     invalid_expiration: "Can't be smaller than today"
     selection_missing: 'Please make a selection'
+    gift_code_incorrect: 'This gift code is incorrect'
 
 
 
@@ -52,6 +53,28 @@ en:
       about: 'About Us'
       copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
+      redeem_1:
+        step: 'Redeem'
+        title: 'Welcome to Little Spark!'
+        desc: 'You and your baby are getting a special gift! We’ll be sending you a kit filled with developmental toys and an activity guide, customized for your baby’s age, down to the month.'
+        fill_code: 'Enter your gift code'
+        btn_submit_form: 'Redeem your gift'
+
+      redeem_2:
+        step: 'Your Account'
+      redeem_3:
+        step: 'Your Child'
+        title: "Please confirm your child’s details"
+        desc: "Have more than one Little Spark? Chose which child to apply the gift code. Have a new child to add? Check the box below."
+        apply_gift: "I’d like to apply the gift code to a new child."
+        child_name: "Child’s Name"
+        child_birth: "Child’s Birthday"
+        child_gender: "Child’s Gender"
+      redeem_4:
+        step: 'Shipping'
+      redeem_finish:
+        step: 'Payment'
+
       gift_4:
         step: 'Payment'
       gift_3:

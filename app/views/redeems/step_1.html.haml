@@ -1,0 +1,22 @@
+.page_content_space
+  = render 'steps_nav'
+  = simple_form_for @redeem, :as => :redeem, :url => create_update_redeems_path(:gift_id => params[:redeem_id]), :html => {:id => 'redeem-info', :class => 'redeem-form clearfix' }, :validate => :gift_validator do |f|
+    .tittle_content.redeem_title= I18n.t('content.page.redeem_1.title')
+
+    #left-section.pull-left
+      - if params[:controller] == 'redeems'
+        = image_tag 'sample/white_baby.jpg'
+      - else
+        = image_tag 'sample/pic-gift.jpg'
+    .form-inputs.pull-left
+      .section
+        .description= I18n.t('content.page.gift_1.desc')
+        .text.font24
+          =I18n.t('content.page.redeem_1.fill_code')
+        = f.input :gift_code, :as => :string, :label => false
+
+      = f.submit I18n.t('content.page.redeem_1.btn_submit_form', :next_step => 'plans'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_email_form'
+= render 'shared/submit_form', :btn_form => '.btn_email_form'
+= content_for :js do
+  = yield :gift_validator
+  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'redeems.js'

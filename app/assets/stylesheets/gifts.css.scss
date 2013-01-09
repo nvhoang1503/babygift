@@ -12,9 +12,15 @@ $color-text: #44464b;
   }
 }
 
-#gift-steps {
-  width: 844px;
+#gift-steps{
   margin-left: 190px;
+}
+#redeem-steps{
+  margin-left: 100px;
+}
+
+#gift-steps, #redeem-steps {
+  width: 844px;
   & ~ .dotted-line {
     margin: 24px 0 40px;
   }

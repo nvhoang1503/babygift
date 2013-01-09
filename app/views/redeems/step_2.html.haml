@@ -1,0 +1,13 @@
+= params[:submit_form]
+.page_content_space
+  = render 'steps_nav'
+  #register_login.enroll-form
+    .tittle_content.capitalize= I18n.t('content.page.enroll_3.title')
+    = render 'devise/sessions/form_login_and_register', :login_text => "Sign In"
+= content_for :js do
+  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js','redeems.js'
+  :erb
+    <script>
+      $("li#step_2").addClass("selected");
+      $('#head_nav li#gifts').addClass('selected');
+    </script>

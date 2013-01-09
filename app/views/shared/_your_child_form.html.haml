@@ -1,0 +1,32 @@
+= simple_form_for @baby, :as => :child, :url => url, :method => :put, :html => {  :class => 'enroll-form', :id => 'child-register' }, :validate => :child_validator do |f|
+  .tittle_content= I18n.t('content.page.enroll_1.title')
+  #gender.section.clearfix
+    .text.font24
+      = I18n.t('content.page.enroll_1.gender_question')
+      %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_1.gender_hint') }
+        = image_tag 'common/icon-question.png'
+    .clearfix
+    .text.font20.italic= I18n.t('content.page.enroll_1.optional')
+    .info-panel.clearfix
+      = f.collection_radio_buttons :gender, gender_image_options(@baby.gender), :first, :last
+  #name.section.clearfix
+    .text.font24= I18n.t('content.page.enroll_1.name_question')
+    .info-panel.clearfix
+      = f.input :first_name, :label => false, :input_html => { :title => I18n.t('content.page.enroll_1.first_name') }, :wrapper_html => { :class => 'pull-left' }
+      = f.input :last_name, :label => false, :input_html => { :title => I18n.t('content.page.enroll_1.last_name') }, :wrapper_html => { :class => 'pull-left' }
+  #birthday.section.clearfix
+    .text.font24
+      = I18n.t('content.page.enroll_1.birth_question')
+      %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_1.birth_hint') }
+        = image_tag 'common/icon-question.png'
+    .clearfix
+    .text.font20.italic= I18n.t('content.page.enroll_1.optional')
+    .info-panel.clearfix
+      = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }, :wrapper_html => {:class => "date_birthday"}
+  .section.clearfix
+    = f.submit I18n.t('label.button.continue', :next_step => 'plans'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_child_form'
+
+= render 'shared/submit_form', :btn_form => '.btn_child_form'
+= content_for :js do
+  = yield :child_validator
+  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js'
