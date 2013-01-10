@@ -83,6 +83,7 @@ en:
         email_confirm: 'Confirm Email'
         pass_confirm: 'Comfirm Password'
         join: 'Join the family'
+        sign_up_successfully: 'Sign up successfully'
       enroll_1:
         step: 'Your child'
         title: 'Tell us a little about your child'

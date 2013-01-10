@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
         UserMailer.welcome_email(resource).deliver
         UserMailer.register_mail(resource).deliver
         respond_with resource, :location => after_sign_up_path_for(resource, params[:submit_from], params[:order_id])
-        flash[:notice] = "Sign up successfully"
+        flash[:notice] = I18n.t('content.page.login.sign_up_successfully')
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
         expire_session_data_after_sign_in!
