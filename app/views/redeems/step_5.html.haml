@@ -1,4 +1,14 @@
 .page_content_space
   = render 'steps_nav'
+  = simple_form_for @redeem, :method => 'post', :url => finish_redeems_path(:redeem_id => @redeem.id), :html => { :class => 'enroll-form payment-form', :id => 'frm-payment' } do |f|
+    .tittle_content= I18n.t('content.page.enroll_5.title')
+    .enroll5_box.pull-left
+      = render 'shared/order_summary', :price => @redeem.price, :tax => @redeem.get_tax, :total => @redeem.total_price, :plan_type => @redeem.plan_type
+      .action_box
+        = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
+        %p.text.italic Plan renews automatically.
+  #terms_popup_content
+    = render 'shared/terms_conditions_popup'
 
-
+= content_for :js do
+  = javascript_include_tag 'redeems.js'

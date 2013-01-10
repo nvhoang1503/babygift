@@ -23,6 +23,8 @@ en:
     gift_code_incorrect: 'This gift code is incorrect'
     not_found: "%{obj} cannot be found"
     server_error: 'Something went wrong!'
+    invalid_gift: "This gift was redeemed."
+    fail_redeem: "Redeem is not successful right now."
 
 
   titles:

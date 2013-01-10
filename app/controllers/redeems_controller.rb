@@ -11,7 +11,12 @@ class RedeemsController < ApplicationController
     flag = true
     @redeem = Redeem.find_by_gift_code(gift_code)
     if @redeem
-      redirect_to step_2_redeems_path(:redeem_id => @redeem.id)
+      if @redeem.update_attribute(:redeem_status, Redeem::STATUS[:start])
+        redirect_to step_2_redeems_path(:redeem_id => @redeem.id)
+      else
+        flash[:error] = I18n.t('message.fail_redeem')
+        redirect_to step_1_redeems_path
+      end
     else
       @redeem = Redeem.new
       @redeem.errors.add('gift_code', I18n.t('message.gift_code_incorrect'))
@@ -88,27 +93,52 @@ class RedeemsController < ApplicationController
     end
   end
 
-
-  def update_redeem_billing
-
-  end
-
   def step_4
     @redeem = Redeem.new unless @redeem
-    @redeem.build_billing_address unless @redeem.billing_address
+    @redeem.build_shipping_address unless @redeem.shipping_address
   end
+
+  def update_redeem_shipping
+    info = params[:redeem][:shipping_address_attributes]
+    if @redeem.shipping_address.nil?
+      @redeem.build_shipping_address(info)
+    else
+      @redeem.shipping_address.attributes = info
+    end
+
+    if @redeem.save
+      redirect_to step_5_redeems_path(:redeem_id => @redeem.id)
+    else
+      render step_4_redeems_path
+    end
+  end
+
 
   def step_5
      @redeem = Redeem.new unless @redeem
   end
 
   def finish
+    @redeem.redeem_status = Redeem::STATUS[:completed]
+    @redeem.redeem_date = Time.now
+    if @redeem.save
+      UserMailer.redeem_confirm_to_admin(@redeem).deliver
+      UserMailer.redeem_confirm_to_recipient(@redeem).deliver
+    else
+      flash[:error] = I18n.t('message.fail_redeem')
+      redirect_to step_5_redeems_path(:redeem_id => @redeem.id)
+    end
+
 
   end
 
   protected
     def complete_checking
       @redeem = Redeem.find_by_id params[:redeem_id]
+      if @redeem && @redeem.redeem_status==Redeem::STATUS[:completed]
+        flash[:warning] = I18n.t('message.invalid_gift')
+        redirect_to step_1_redeems_path
+      end
     end
 
 end

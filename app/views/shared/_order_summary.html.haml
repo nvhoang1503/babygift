@@ -2,7 +2,7 @@
 .title_box
   .left_box Order Summary
   .right_box
-    - unless (params[:controller] == 'gifts' and params[:action] == 'step_4')
+    - unless (params[:controller] == 'gifts' or params[:controller] == 'redeems')
       .text.font16= link_to 'edit' , enroll_path(:step_2) ,:class => 'underline-link'
 .order_info_box
   .info_box.pull-left

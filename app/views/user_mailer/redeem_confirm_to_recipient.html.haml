@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %div{:style => "margin-left:50px; width:800px; color:#000;"}
+      .mail_logo= image_tag(@image_link)
+      %div{:style => "margin-top:40px; font-weight:bolder;"}
+        = 'Congratulations,'
+        =  @user.email
+        = "!"
+      %div{:style => "margin-top:40px; color:#000;"}
+        %p
+          = "You have redeemed a gift from Little Spark sent by #{@redeem.sender_email}."
+        %p
+          For more information, visit
+          = link_to "www.littlespark.com.", @url
+        %p
+          Please contact us at
+          = link_to "contactus@littlespark.com", @admin_email
+
+      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
+        %p= @redeem.note
+
+      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
+        %p.month= "Gift Type: #{Order::TYPE_NAME[@redeem.plan_type]} Gift"

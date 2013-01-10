@@ -79,4 +79,23 @@ class UserMailer < ActionMailer::Base
 
   end
 
+  def redeem_confirm_to_admin(redeem)
+    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    @redeem = redeem
+    @admin_email = User::ADMIN_EMAIL
+    @shipping_address = @redeem.shipping_address
+    @billing_address = @redeem.billing_address
+    @url = url_for :controller=>'home', :action=>'index'
+    mail(:to => @admin_email, :subject => "Redeem Confirmation")
+  end
+
+  def redeem_confirm_to_recipient(redeem)
+    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    @redeem = redeem
+    @admin_email = User::ADMIN_EMAIL
+    @url = url_for :controller=>'home', :action=>'index'
+    @user = @redeem.baby.parent
+    mail(:to => @user.email, :subject => "Redeem Recipient Notification")
+
+  end
 end

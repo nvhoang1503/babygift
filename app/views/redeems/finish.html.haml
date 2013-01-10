@@ -1,0 +1,11 @@
+.congrate_finish_content.page_content_space
+  .title_page= I18n.t('content.page.congrate.title')
+  .content_box
+    %p
+      %span= I18n.t('content.page.congrate.tk')
+      %span= I18n.t('content.page.congrate.gift_sent', :email => @redeem.sender_email)
+    %p.check=I18n.t('content.page.congrate.check', :link => "#").html_safe
+    .social
+      = render 'shared/social_media_icon_line'
+    %p.qa_problem
+      =I18n.t('content.page.congrate.qa', :mail => "contactus@littlespark.com").html_safe

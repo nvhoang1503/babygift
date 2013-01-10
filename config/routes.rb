@@ -54,8 +54,8 @@ Littlespark::Application.routes.draw do
       get 'step_3b'
       get 'reload_child'
       put 'update_child' #update  child for redeem
-      put 'create_child' #create  child
-      put 'update_redeem_billing' #update  billing for redeem
+      put 'update_redeem_shipping'
+      put 'create_shipping' #update  billing for redeem
       get 'step_4'
       get 'step_5'
       post 'finish'

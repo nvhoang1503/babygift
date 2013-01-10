@@ -1,13 +1,18 @@
 class window.Redeem
   constructor: ->
-
+    helper.initTermsNConditionsPopup()
     @checkBillingValid()
     @reloadChild()
+    @onPaymentSubmit()
+
+  onPaymentSubmit: ->
+    $('#frm-payment').submit ->
+      return helper.checkTermsNConditions('#cb_terms')
 
   checkBillingValid: ->
-    $('#redeem_billing_address_attributes_zip').keypress helper.validateZip
-    $('#redeem_billing_address_attributes_phone').keypress helper.validatePhone
-    $('#redeem_billing_address_attributes_phone').live 'blur', ->
+    $('#redeem_shipping_address_attributes_zip').keypress helper.validateZip
+    $('#redeem_shipping_address_attributes_phone').keypress helper.validatePhone
+    $('#redeem_shipping_address_attributes_phone').live 'blur', ->
       phone_num = $(@).val().replace(/\s/g, '')
 
       if phone_num.length != 0
