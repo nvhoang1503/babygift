@@ -83,6 +83,9 @@ class window.Enrolment
     $('.btn_child_form').live 'click', ->
       ck = $('input[name="child[gender]"]').is(':checked')
       helper.showErrorMessage(ck,'#gender' , message.selection_missing, 'gender_error')
+      if ( $.browser.webkit && $("#child_birthday").val() != "")
+        $('#child_birthday').siblings('.error').remove()
+        $('#child_birthday').removeAttr("data-validate")
       if !ck
         $("#child-register").submit()
 
