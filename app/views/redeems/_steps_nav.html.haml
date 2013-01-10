@@ -1,7 +1,7 @@
 %ul#redeem-steps.clearfix
   = customized_link_to I18n.t('content.page.redeem_1.step') , step_1_redeems_path(:redeem_id => params[:redeem_id]), :wrap_tag => ['li', :id => 'step_1', :class => 'pull-left capitalize'], :active_class => 'selected', :active_at => [step_1_redeems_path, create_update_redeems_path]
   = customized_link_to I18n.t('content.page.redeem_2.step'), step_2_redeems_path(:redeem_id => params[:redeem_id]), :wrap_tag => ['li', :id => 'step_2', :class => 'pull-left capitalize'], :active_class => 'selected', :active_at => [step_2_redeems_path, '#']
-  = customized_link_to I18n.t('content.page.redeem_3.step'), step_3b_redeems_path(:redeem_id => params[:redeem_id]), :wrap_tag => ['li', :id => 'step_3', :class => 'pull-left capitalize'], :active_class => 'selected', :active_at => [step_3_redeems_path, update_redeem_billing_redeems_path]
+  = customized_link_to I18n.t('content.page.redeem_3.step'), step_3b_redeems_path(:redeem_id => params[:redeem_id]), :wrap_tag => ['li', :id => 'step_3', :class => 'pull-left capitalize'], :active_class => 'selected', :active_at => [step_3_redeems_path, update_redeem_shipping_redeems_path]
   = customized_link_to I18n.t('content.page.redeem_4.step'), step_4_redeems_path(:redeem_id => params[:redeem_id]), :wrap_tag => ['li', :id => 'step_4', :class => 'pull-left capitalize'], :active_class => 'selected', :active_at => [step_4_redeems_path]
   = customized_link_to I18n.t('content.page.redeem_finish.step'), step_5_redeems_path(:redeem_id => params[:redeem_id]), :wrap_tag => ['li', :id => 'step_5', :class => 'pull-left capitalize'], :active_class => 'selected', :active_at => [step_5_redeems_path]
 .dotted-line
