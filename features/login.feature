@@ -22,3 +22,27 @@ Feature: Login
     And I click the element within ".btn_register"
     And I wanna sleep "2" seconds
     Then I should see the key "content.page.login.sign_up_successfully" within "#flash-panel"
+
+  @javascript
+  Scenario: Sign up (Join the family) with 3 length password
+    Given I go to the login page
+    When  I fill in "user[email]" with "test2@littlesparks.com" within ".register_box"
+    And  I fill in "email_register_conform" with "test2@littlesparks.com" within ".register_box"
+    And I fill in "user[password]" with "123" within ".register_box"
+    And I fill in "user[password_confirmation]" with "123" within ".register_box"
+
+    And I click the element within ".btn_register"
+    And I wanna sleep "2" seconds
+    Then I should see "Password must be at least 6 characters" within ".register_box .error"
+
+  @javascript
+  Scenario: Sign up (Join the family) with existing email address
+    Given I go to the login page
+    When  I fill in "user[email]" with "test@littlesparks.com" within ".register_box"
+    And  I fill in "email_register_conform" with "test@littlesparks.com" within ".register_box"
+    And I fill in "user[password]" with "123123" within ".register_box"
+    And I fill in "user[password_confirmation]" with "123123" within ".register_box"
+
+    And I click the element within ".btn_register"
+    And I wanna sleep "2" seconds
+    Then I should see "An account with this email already exists" within ".register_box .error"
