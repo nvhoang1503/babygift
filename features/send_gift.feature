@@ -27,37 +27,40 @@ Feature: SendGift
   Scenario: Go to step 2 when staying in step 1
     Given I go to gift recipient
     When I click the element within "#step_2 a"
-    Then I should see the key "message.email_missing" within "#flash-panel"
+      And I wanna sleep "5" seconds
+    Then I should see 2 error message(s) with the key "message.not_blank" within "span.error"
 
   @javascript
   Scenario: Go to step 3 when staying in step 1
     Given I go to gift recipient
     When I click the element within "#step_3 a"
-    Then I should see the key "message.email_missing" within "#flash-panel"
+      And I wanna sleep "5" seconds
+    Then I should see 2 error message(s) with the key "message.not_blank" within "span.error"
 
   @javascript
   Scenario: Go to step 4 when staying in step 1
     Given I go to gift recipient
     When I click the element within "#step_4 a"
-    Then I should see the key "message.email_missing" within "#flash-panel"
+    Then I should see 2 error message(s) with the key "message.not_blank" within "span.error"
 
   @javascript
   Scenario: Go to step 3 when staying in step 2
     Given I go to gift monthly plan with gift of sender "sender_1@littlespark.com"
     When I click the element within "#step_3 a"
-    Then I should see the key "message.plan_missing" within "#flash-panel"
+    Then I should see the key "message.plan_missing" within "span.error"
 
   @javascript
   Scenario: Go to step 4 when staying in step 2
     Given I go to gift monthly plan with gift of sender "sender_1@littlespark.com"
     When I click the element within "#step_4 a"
-    Then I should see the key "message.plan_missing" within "#flash-panel"
+    Then I should see the key "message.plan_missing" within "span.error"
 
   @javascript
   Scenario: Go to step 4 when staying in step 3
     Given I go to gift billing with gift of sender "sender_2@littlespark.com"
     When I click the element within "#step_4 a"
-    Then I should see the key "message.billing_missing" within "#flash-panel"
+      And I wanna sleep "5" seconds
+    Then I should see 7 error message(s) with the key "message.not_blank" within "span.error"
 
   # NAVIGATION LINK
   # ---- Updating step -----
@@ -169,16 +172,17 @@ Feature: SendGift
     Then I should see the element within "#gift-plan"
 
   # STEP 2: MONTHLY PLAN
+  @javascript
   Scenario: Continue to account without choosing a plan
     Given I go to gift monthly plan with gift of sender "sender_1@littlespark.com"
-    When I press "continue to account" within "#gift-plan"
-    Then I should see the key "message.plan_missing" within "#flash-panel"
+    When I press "continue to Billing" within "#gift-plan"
+    Then I should see the key "message.plan_missing" within "span.error"
 
   @javascript
   Scenario: Choose a gift option and continue to account successfully
     Given I go to gift monthly plan with gift of sender "sender_1@littlespark.com"
     When I click the element within "._6-month"
-      And I press "continue to account" within "#gift-plan"
+      And I press "continue to Billing" within "#gift-plan"
     Then I should see the element within "#gift-billing"
 
   # STEP 3: BILLING
@@ -256,7 +260,7 @@ Feature: SendGift
     Given I go to gift billing with gift of sender "sender_2@littlespark.com"
     When I fill in "gift[billing_address_attributes][phone]" with "1--23"
       And I click the element within "#gift_billing_address_attributes_city"
-    Then I should see the key "message.phone_format" within "span.error"
+    Then I should see the key "message.phone_invalid" within "span.error"
 
   Scenario: Submit billing address information successfully
     Given I go to gift billing with gift of sender "sender_3@littlespark.com"
@@ -292,13 +296,13 @@ Feature: SendGift
     Given I go to gift payment with gift of sender "sender_4@littlespark.com"
     When I fill in "card_number" with "411111111"
       And I click the element within "#card_security"
-    Then I should see the key "message.card_missing" within "span.error"
+    Then I should see the key "message.card_format" within "span.error"
 
   @javascript
   Scenario: Select an invalid expiration date
     Given I go to gift payment with gift of sender "sender_4@littlespark.com"
-    When I select "11" from "date[exp_month]" within "#frm-payment"
-    Then I should see the key "message.invalid_expiration" within "span.error"
+    When I select "1" from "date[exp_month]" within "#frm-payment"
+    Then I should see the error with key "message.invalid_expiration" within "span.error"
 
   @javascript
   Scenario: Do not input security code
@@ -311,7 +315,7 @@ Feature: SendGift
   Scenario: Submit payment without select 'Terms & Conditions'
     Given I go to gift payment with gift of sender "sender_4@littlespark.com"
     When I press "PLACE YOUR ORDER" within "#frm-payment"
-    Then I should see the key "message.term_missing" within "#flash-panel"
+    Then I should see the key "message.term_missing" within "span.error"
 
   Scenario: Submit payment successfully
     Given I go to gift payment with gift of sender "sender_4@littlespark.com"

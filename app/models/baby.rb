@@ -6,7 +6,7 @@ class Baby < ActiveRecord::Base
   }
 
   attr_accessible :birthday, :user_id, :first_name, :gender, :last_name
-  validates :first_name, :last_name, :birthday, :gender, :presence => { :message => "Can't be blank." }
+  validates :first_name, :last_name, :birthday, :gender, :presence => { :message => "Can't be blank" }
 
   belongs_to :parent, :class_name => 'User', :foreign_key => :user_id
 

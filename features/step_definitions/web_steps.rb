@@ -86,10 +86,12 @@ end
 # TODO: Add support for checkbox, select og option
 # based on naming conventions.
 #
-When /^(?:|I )fill in the following(?: within "([^"]*)")?:$/ do |selector, fields|
-  with_scope(selector) do
-    fields.rows_hash.each do |name, value|
-      When %{I fill in "#{name}" with "#{value}"}
+
+When /^I select the month "(.*?)" from "(.*?)" within "(.*?)"$/ do |value, field, selector|
+  month = Date.today.month
+  if month > 1 
+    with_scope(selector) do
+      select(value, :from => field)
     end
   end
 end
@@ -176,6 +178,26 @@ Then /^(?:|I )should see the element within "([^"]*)"$/ do |selector|
   find(selector).nil?.should be_false
 end
 
+Then /^I should see (\d+) error message\(s\) with the key "(.*?)" within "(.*?)"$/ do |num, text, selector|
+  count = all(selector).length
+  count.should == num.to_i
+  message = first(selector).text 
+  message.should == I18n.t(text)
+end
+
+Then /^I should see the error with key "(.*?)" within "(.*?)"$/ do |text, selector|
+  current_month = Date.today.month
+  if current_month > 1
+    with_scope(selector) do
+      if page.respond_to? :should
+        page.should have_content(I18n.t(text))
+      else
+        assert page.has_content?(I18n.t(text))
+      end
+    end
+  end
+end
+
 Then /^(?:|I )should see the key "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
     if page.respond_to? :should
@@ -185,6 +207,7 @@ Then /^(?:|I )should see the key "([^"]*)"(?: within "([^"]*)")?$/ do |text, sel
     end
   end
 end
+
 Then /^I should see the key "([^"]*)" with key "([^"]*)" value "([^"]*)" within "([^"]*)"$/ do |text, key, value, selector|
   with_scope(selector) do
     if page.respond_to? :should
