@@ -35,18 +35,50 @@ class RedeemsController < ApplicationController
     if current_user.babies.count == 0
       return redirect_to step_3_redeems_path(:redeem_id => params[:redeem_id])
     else
+
       @childs = current_user.babies
+      @child = @childs.first
+      @child.birthday = @child.birthday.strftime('%m/%d/%Y')
     end
   end
 
-  def create_update_child
+  def reload_child
+    baby_id = params[:baby_id].to_i
+    child = Baby.find_by_id(baby_id)
+    if child
+      result = child.attributes
+      result[:birthday] = child.birthday.strftime('%m/%d/%Y')
+      render :json => {:success => true, :data => result}
+    else
+      render :json => {:success => false, :msg => I18n.t('message.not_found', :obj => 'This child')}
+    end
+  end
+
+  def update_child
+    @child = Baby.find_by_id params[:child_id]
+    if @child
+      params[:child][:birthday] = Date.strptime(params[:child][:birthday], '%m/%d/%Y') if params[:child][:birthday].present?
+      if @child.update_attributes(params[:child])
+        @redeem.update_attribute(:baby_id,@child.id)
+        redirect_to step_4_redeems_path(:redeem_id => @redeem.id)
+      else
+        if current_user.babies.count == 0
+          return redirect_to step_3_redeems_path(:redeem_id => params[:redeem_id])
+        else
+          @childs = current_user.babies
+          @child.birthday = @child.birthday.strftime('%m/%d/%Y') if @child.birthday
+        end
+        render :action => :step_3b
+      end
+    else
+      redirect_to step_3b_redeems_path
+    end
+  end
+
+  def create_child
     birthday = params[:child][:birthday]
     params[:child][:birthday] = Date.strptime(birthday, '%m/%d/%Y') if birthday.present?
-    if @baby
-      @baby.attributes = params[:child]
-    else
-      @baby = Baby.new params[:child]
-    end
+    @baby = Baby.new params[:child]
     @baby.user_id = current_user.id
     if @baby.save
       @redeem.update_attribute(:baby_id , @baby.id)
@@ -55,6 +87,7 @@ class RedeemsController < ApplicationController
       render :action => :step_3
     end
   end
+
 
   def update_redeem_billing
 

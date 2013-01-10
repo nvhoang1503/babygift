@@ -95,3 +95,16 @@ class window.Helper
         onClose: (dialog) ->
           $.modal.close()
       return
+
+  initDatepicker: (elem) ->
+    $(elem).datepicker({
+      format: 'mm/dd/yyyy'
+      weekStart: 1
+      autoclose: true
+      todayHighlight: true
+      startView: 0
+    }).on 'changeDate', ->
+      if $(elem).val().trim() != ''
+        $("#{elem} ~ label.inputHintOverlay").css({display:'none'})
+        func =-> $(elem).focusout()
+        window.setTimeout(func, 100)

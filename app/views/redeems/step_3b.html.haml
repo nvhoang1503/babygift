@@ -1,30 +1,31 @@
 .page_content_space
   = render 'steps_nav'
-  = simple_form_for @child, :as => :child, :url => update_child_redeems_path(:gift_id => params[:gift_id]), :html => {:id => 'child-info', :class => 'child-form clearfix' }, :validate => :gift_validator do |f|
+  = simple_form_for @child, :as => :child, :url => update_child_redeems_path(:redeem_id => params[:redeem_id]), :html => {:id => 'child-info', :class => 'child-form clearfix' }, :validate => :redeem_validator do |f|
     .tittle_content= I18n.t('content.page.redeem_3.title')
     .description= I18n.t('content.page.redeem_3.desc')
     .child_box
       .apply_gift
-        = link_to I18n.t('content.page.redeem_3.apply_gift') , step_3_redeems_path , :class=>'underline-link'
+        = link_to I18n.t('content.page.redeem_3.apply_gift') , step_3_redeems_path(:redeem_id => params[:redeem_id]) , :class=>'underline-link'
       .form_field
         %label Which Child?
-        = select_tag(:child_name , options_from_collection_for_select( @childs , :id , :first_name))
+        = select_tag(:child_id , options_from_collection_for_select( @childs , :id , :first_name))
       .form_field
         %label Child's Name
-        = f.input :first_name, :label => false, :input_html => {:class=> 'first_name'}
-        = f.input :last_name, :label => false, :input_html => {:class=> 'last_name'}
+        = f.input :first_name, :label => false, :input_html => {:class=> 'first_name'}, :wrapper_html=>{:class => 'first_name_field'}
+        = f.input :last_name, :label => false, :input_html => {:class=> 'last_name'}, :wrapper_html=>{:class => 'first_name_field'}
       .form_field
         %label Child's Birthday
-        / = f.input :birthday, :label => false
-        = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }, :wrapper_html => {:class => "date_birthday"}
+
+        = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }, :wrapper_html => {:class => "pull-left"}
       .form_field
         %label Which Gender
-        = select_tag(:gender,options_for_select([['Boy', 1],['Girl', 0]] ))
+        = f.input :gender, :collection => gender_options, :label_method => :first, :value_method => :second, :label => false, :prompt => 'Please select one'
       .form_field
         = f.submit I18n.t('label.button.continue', :next_step => 'shipping'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_child_form'
 
 
 = content_for :js do
+  = yield :redeem_validator
   = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js','redeems.js'
   :erb
     <script>

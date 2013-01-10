@@ -21,7 +21,8 @@ en:
     invalid_expiration: "Can't be smaller than today"
     selection_missing: 'Please make a selection'
     gift_code_incorrect: 'This gift code is incorrect'
-
+    not_found: "%{obj} cannot be found"
+    server_error: 'Something went wrong!'
 
 
   titles:

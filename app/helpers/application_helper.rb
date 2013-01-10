@@ -9,6 +9,7 @@ module ApplicationHelper
   end
 
   def us_states_collection
+
     Country['US'].states.map { |k,v| [k, v['name']]}
   end
 end

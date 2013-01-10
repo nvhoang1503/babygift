@@ -24,7 +24,7 @@ class SessionsController < Devise::SessionsController
       if submit_from == ENROLMENT_RECEIVE
         step_4_enrolments_path(:order_id => ob_id)
       elsif submit_from == REDEEM_RECEIVE
-        step_3_redeems_path(:redeem_id => ob_id)
+        step_3b_redeems_path(:redeem_id => ob_id)
       else
         after_sign_in_path_for(resource)
       end

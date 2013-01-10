@@ -30,19 +30,13 @@ class RegistrationsController < Devise::RegistrationsController
         req_referer = Rack::Request.new env
         @order = Order.find_by_id params[:order_id]
         @submit_from = ENROLMENT_RECEIVE
-        # render :action => 'step_3', :controller => 'enrolment'
-        render '/enrolment/step_3'
-        # render step_3_enrolments_path(:order_id => req_referer.params[:order_id])
+        render '/enrolment/step_3b'
       elsif params[:submit_from] == REDEEM_RECEIVE
         env = Rack::MockRequest.env_for request.referer
         req_referer = Rack::Request.new env
         @redeem = Redeem.find_by_id params[:redeem_id]
-        # @baby = Redeem.find_by_id params[:redeem_id]
         @submit_from = REDEEM_RECEIVE
-        # render :action => 'step_3', :controller => 'enrolment'
-        render '/redeems/step_3'
-        # render step_3_enrolments_path(:order_id => req_referer.params[:order_id])
-
+        render '/redeems/step_3b'
       else
         respond_with resource
       end
@@ -54,7 +48,7 @@ class RegistrationsController < Devise::RegistrationsController
       if submit_from == ENROLMENT_RECEIVE
         step_4_enrolments_path(:order_id => ob_id)
       elsif submit_from == REDEEM_RECEIVE
-        step_3_redeems_path(:redeem_id => ob_id)
+        step_3b_redeems_path(:redeem_id => ob_id)
 
       else
         after_sign_in_path_for(resource)

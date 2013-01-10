@@ -4,11 +4,12 @@ class window.Enrolment
     @card = new Card if window.Card
     @card.validateCard() if @card
     helper.initTermsNConditionsPopup()
-    @initDatepicker()
     @autoshowTooltip()
     @updateShipToBilling()
     @genderSelectChecking()
     @planSelectChecking()
+    helper.initDatepicker('#child_birthday')
+    $('#child-register').inputHintOverlay() if $('#child-register').length > 0
 
     $('#plan-addresses').delegate '#ship_to_billing input', 'click', @copyAddress
     $('#plan-addresses').delegate '#plan_billing_address_attributes_zip, #plan_shipping_address_attributes_zip', 'keypress', helper.validateZip
@@ -20,18 +21,6 @@ class window.Enrolment
     $('.icon-gender').click @onGenderChange
     $('.icon-plan').click @onPlanChange
     $('.icon-plan .price').click @onPlanChange
-
-  initDatepicker: ->
-    $('#child_birthday').datepicker({
-      format: 'mm/dd/yyyy'
-      weekStart: 1
-      autoclose: true
-      todayHighlight: true
-      startView: 0
-    }).on 'changeDate', ->
-      if $('#child_birthday').val().trim() != ''
-        $('#child_birthday ~ label.inputHintOverlay').css({display:'none'})
-    $('#child-register').inputHintOverlay() if $('#child-register').length > 0
 
   autoshowTooltip: ->
     $('.icon-question').not('#cvv-popup').tooltip

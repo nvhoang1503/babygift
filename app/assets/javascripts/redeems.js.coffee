@@ -2,6 +2,7 @@ class window.Redeem
   constructor: ->
 
     @checkBillingValid()
+    @reloadChild()
 
   checkBillingValid: ->
     $('#redeem_billing_address_attributes_zip').keypress helper.validateZip
@@ -20,3 +21,25 @@ class window.Redeem
           helper.showErrorMessage(reg.test(phone_num), @, message.phone_invalid)
       else if $(@).siblings('.error').length > 0
           $(@).siblings('.error').remove()
+
+  reloadChild: ->
+    $("#child_id").change ->
+      baby_id = $("#child_id").val()
+      $.ajax
+        type: "GET"
+        url: "/redeems/reload_child"
+        data: {baby_id: baby_id}
+        dataType: 'json'
+        success: (response)->
+          if response.success
+            data = response.data
+            $('#child_first_name').val(data.first_name)
+            $('#child_last_name').val(data.last_name)
+            $('#child_birthday').val(data.birthday)
+            $('#child_gender').val(data.gender)
+          else
+            alert(response.msg)
+        error: (response)->
+          alert(message.server_error)
+
+
