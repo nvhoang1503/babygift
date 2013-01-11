@@ -144,6 +144,7 @@ en:
         order: 'Your order number is<span class="text bold"> "%{order}"</span>. You will receive a confirmation email shortly.'
         check: 'Check out our <a href="%{link}" class="underline-link">blog</a> and stay connected!'
         qa: 'Questions or problems? Call 1-800-123-4567 or email us <a href="mailto:%{mail}" class="underline-link">contactus@littlespark.com</a>'
+        redeemed: "You have redeemed a gift from Little Spark sent by %{email}."
 
       fan:
         title: 'Our Fan Club'

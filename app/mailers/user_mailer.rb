@@ -74,7 +74,7 @@ class UserMailer < ActionMailer::Base
     @gift = gift
     @admin_email = User::ADMIN_EMAIL
     @params = params
-    @url = url_for :controller=>'home', :action=>'index'
+    @url = url_for :controller=>'redeems', :action=>'step_1'
     mail(:to => @gift.recipient_email, :subject => "Gift Recipient Notification")
 
   end
