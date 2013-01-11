@@ -382,6 +382,21 @@ Given(/^current date is "([^"]*)"$/) do |date_str|
   # Time.stub!(:now).and_return(@now)
 
 end
+
+Then /^I should see the text "(.*?)" in "(.*?)" within "(.*?)"$/ do |type, color, selector|
+  page.should have_css(selector)
+  page.evaluate_script("$('#{selector}').css('#{type}')").should == color
+end
+
+Then /^I should see button with the key "(.*?)"$/ do |button|
+  find_button(I18n.t(button)).should_not be_nil
+end
+
+When /^I fill in "(.*?)" with the first gift code$/ do |field|
+  code = Gift.first.gift_code
+  fill_in(field, :with => code)
+end
+
 Given /^debugger$/ do
   debugger
 end

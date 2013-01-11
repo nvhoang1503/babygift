@@ -11,7 +11,7 @@
     .form-inputs.pull-left
       .section
         .description= I18n.t('content.page.redeem_1.desc')
-        .text.font24
+        .text.font24.common-color
           =I18n.t('content.page.redeem_1.fill_code')
         = f.input :gift_code , :as => :string, :label => false, :input_html => {:value => params[:gift_code]}
 

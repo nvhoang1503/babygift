@@ -18,6 +18,11 @@ module NavigationHelpers
     when /gift payment with gift of sender "([^"]*)"/ then
       ob = Gift.find_by_sender_email($1)
       step_4_gifts_path(:gift_id => ob.id)
+    when /gift redeem page/ then 
+      step_1_redeems_path
+    when /your account page/ then 
+      ob = Gift.find_by_sender_email($1)
+      step_2_redeems_path(:redeem_id => ob.id)
     end
   end
 end
