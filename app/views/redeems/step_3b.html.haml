@@ -10,15 +10,15 @@
         %label Which Child?
         = select_tag(:child_id , options_from_collection_for_select( @childs , :id , :first_name))
       .form_field
-        %label Child's Name
+        %label=I18n.t('content.page.redeem_3.child_name')
         = f.input :first_name, :label => false, :input_html => {:class=> 'first_name'}, :wrapper_html=>{:class => 'first_name_field'}
         = f.input :last_name, :label => false, :input_html => {:class=> 'last_name'}, :wrapper_html=>{:class => 'first_name_field'}
       .form_field
-        %label Child's Birthday
+        %label=I18n.t('content.page.redeem_3.child_birth')
 
         = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }, :wrapper_html => {:class => "pull-left"}
       .form_field
-        %label Which Gender
+        %label=I18n.t('content.page.redeem_3.child_gender')
         = f.input :gender, :collection => gender_options, :label_method => :first, :value_method => :second, :label => false, :prompt => 'Please select one'
       .form_field
         = f.submit I18n.t('label.button.continue', :next_step => 'shipping'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_child_form'
