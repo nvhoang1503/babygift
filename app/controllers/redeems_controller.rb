@@ -11,11 +11,18 @@ class RedeemsController < ApplicationController
     flag = true
     @redeem = Redeem.find_by_gift_code(gift_code)
     if @redeem
-      if @redeem.update_attribute(:redeem_status, Redeem::STATUS[:start])
-        redirect_to step_2_redeems_path(:redeem_id => @redeem.id)
+      if @redeem.redeem_status == Redeem::STATUS[:completed]
+        @redeem = Redeem.new
+        @redeem.errors.add('gift_code', I18n.t('message.invalid_gift'))
+        params[:gift_code] = gift_code
+        render step_1_redeems_path
       else
-        flash[:error] = I18n.t('message.fail_redeem')
-        redirect_to step_1_redeems_path
+        if @redeem.update_attribute(:redeem_status, Redeem::STATUS[:start])
+          redirect_to step_2_redeems_path(:redeem_id => @redeem.id)
+        else
+          flash[:error] = I18n.t('message.fail_redeem')
+          redirect_to step_1_redeems_path
+        end
       end
     else
       @redeem = Redeem.new
