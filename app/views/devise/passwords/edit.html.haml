@@ -4,7 +4,7 @@
     = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
       / = f.error_notification
       = f.input :reset_password_token, :as => :hidden
-      = f.full_error :reset_password_token
+      = f.full_error :reset_password_token, :class => "full_error"
       .form-inputs
         = f.input :password, :required => true, :label => "New password",:label_html => {:class => "big_label2"}
         = f.input :password_confirmation, :required => true, :label => "Confirm password" ,:label_html => {:class => "big_label2"}

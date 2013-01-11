@@ -29,6 +29,10 @@ Then /^I visited "([^"]*)" mail a link to reset your password$/ do |email|
   visit edit_user_password_path + "?reset_password_token=#{user.reset_password_token}"
 end
 
+Then /^I visited a link to reset your password with token "([^"]*)"$/ do |token|
+  visit edit_user_password_path + "?reset_password_token=#{token}"
+end
+
 When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
   with_scope(selector) do
     click_button(button)
@@ -58,6 +62,12 @@ When /^(?:|I )follow the key "([^"]*)"(?: within "([^"]*)")?$/ do |key, selector
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
+  with_scope(selector) do
+    fill_in(field, :with => value)
+  end
+end
+
+When /^(?:|I )fill in "([^"]*)" with '([^']*)'(?: within "([^"]*)")?$/ do |field, value, selector|
   with_scope(selector) do
     fill_in(field, :with => value)
   end
