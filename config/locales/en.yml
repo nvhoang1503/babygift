@@ -5,6 +5,7 @@ en:
   hello: "Hello world"
   message:
     email_not_match: 'Email addresses do not match'
+    pass_not_match: 'Passwords must be the same.'
     not_match: 'Does not match information'
     not_blank: "Can't be blank"
     invalid_email: "Invalid email"

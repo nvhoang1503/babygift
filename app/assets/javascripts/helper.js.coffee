@@ -15,7 +15,8 @@ class window.Helper
 
   validatePhone: (event) ->
     # reg need cover other special characters
-    reg = /^[-,\d,\s]$/i
+    # reg = /^[-,\d,\s]$/i
+    reg = /^[\d]$/i
     return true unless event.charCode
     return reg.test(String.fromCharCode(event.charCode))
 

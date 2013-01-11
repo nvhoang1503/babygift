@@ -6,6 +6,7 @@
       %span#email_login_error.hidden= I18n.t('message.not_blank')
       = f.input :password, :required => false
       %span#passwork_login_error.hidden= I18n.t('message.not_blank')
+      %span.error= flash[:alert]
       .foget_pass
         = link_to I18n.t('content.page.login.forgot_pass'), new_password_path(resource_name), :class => 'underline-link'
       .remember_box.clearfix
@@ -15,6 +16,7 @@
         = hidden_field_tag 'order_id', @order.id
       - if @submit_from==SessionsController::REDEEM_RECEIVE and @redeem.id
         = hidden_field_tag 'redeem_id', @redeem.id
+
     = f.button :submit, I18n.t('content.page.login.sign_in') , :class => "mybtn btn-pink btn_login uppercase"
 
 .register_box.pull-right
@@ -33,7 +35,7 @@
       = f.input :password, :input_html => {:id => "user_passwork_register"}
       %span#passwork_error.hidden= I18n.t('message.not_blank')
       = f.input :password_confirmation, :input_html => {:id => "user_passwork_confirm_register"}, :label => I18n.t('content.page.login.pass_confirm')
-      %span#passwork_confirm_error.hidden Passwords must be the same.
+      %span#passwork_confirm_error.hidden= I18n.t('message.pass_not_match')
       = hidden_field_tag 'submit_from', @submit_from
       - if @submit_from==RegistrationsController::ENROLMENT_RECEIVE and @order.id
         = hidden_field_tag 'order_id', @order.id
@@ -50,3 +52,7 @@
       display:none !important;
     }
 
+:css
+  #flash-panel{
+    display:none;
+  }
