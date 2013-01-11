@@ -23,7 +23,7 @@
       .form_field
         = f.submit I18n.t('label.button.continue', :next_step => 'shipping'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_child_form'
 
-
+= render 'shared/submit_form', :btn_form => '.btn_child_form'
 = content_for :js do
   = yield :redeem_validator
   = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js','redeems.js'

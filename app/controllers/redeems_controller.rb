@@ -26,9 +26,13 @@ class RedeemsController < ApplicationController
   end
 
   def step_2
-    @submit_from = RegistrationsController::REDEEM_RECEIVE
-    if user_signed_in?
-      return redirect_to step_3b_redeems_path(:redeem_id => params[:redeem_id])
+    if @redeem
+      @submit_from = RegistrationsController::REDEEM_RECEIVE
+      if user_signed_in?
+        return redirect_to step_3b_redeems_path(:redeem_id => params[:redeem_id])
+      end
+    else
+      return redirect_to step_1_redeems_path(:submit => false)
     end
   end
 
@@ -37,13 +41,20 @@ class RedeemsController < ApplicationController
   end
 
   def step_3b
-    if current_user.babies.count == 0
-      return redirect_to step_3_redeems_path(:redeem_id => params[:redeem_id])
+    if @redeem
+      if user_signed_in?
+        if current_user.babies.count == 0
+          return redirect_to step_3_redeems_path(:redeem_id => params[:redeem_id], :submit => params[:submit])
+        else
+          @childs = current_user.babies
+          @child = @childs.first
+          @child.birthday = @child.birthday.strftime('%m/%d/%Y')
+        end
+      else
+        return redirect_to step_2_redeems_path(:submit => false, :redeem_id => params[:redeem_id])
+      end
     else
-
-      @childs = current_user.babies
-      @child = @childs.first
-      @child.birthday = @child.birthday.strftime('%m/%d/%Y')
+      return redirect_to step_1_redeems_path(:submit => false)
     end
   end
 
@@ -76,7 +87,7 @@ class RedeemsController < ApplicationController
         render :action => :step_3b
       end
     else
-      redirect_to step_3b_redeems_path
+      redirect_to step_3b_redeems_path(:redeem_id => params[:redeem_id])
     end
   end
 
@@ -94,8 +105,15 @@ class RedeemsController < ApplicationController
   end
 
   def step_4
-    @redeem = Redeem.new unless @redeem
-    @redeem.build_shipping_address unless @redeem.shipping_address
+    if @redeem
+      if @redeem.baby
+        @redeem.build_shipping_address unless @redeem.shipping_address
+      else
+        return redirect_to step_3b_redeems_path(:redeem_id => params[:redeem_id],:submit => false)
+      end
+    else
+      return redirect_to step_1_redeems_path(:submit => false)
+    end
   end
 
   def update_redeem_shipping
@@ -115,7 +133,14 @@ class RedeemsController < ApplicationController
 
 
   def step_5
-     @redeem = Redeem.new unless @redeem
+     # @redeem = Redeem.new
+     if @redeem
+      unless @redeem.shipping_address
+        return redirect_to step_4_redeems_path(:redeem_id => params[:redeem_id],:submit => false)
+      end
+     else
+      return redirect_to step_1_redeems_path(:submit => false)
+     end
   end
 
   def finish
@@ -128,8 +153,6 @@ class RedeemsController < ApplicationController
       flash[:error] = I18n.t('message.fail_redeem')
       redirect_to step_5_redeems_path(:redeem_id => @redeem.id)
     end
-
-
   end
 
   protected
@@ -140,5 +163,4 @@ class RedeemsController < ApplicationController
         redirect_to step_1_redeems_path
       end
     end
-
 end
