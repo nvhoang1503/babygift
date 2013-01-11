@@ -18,9 +18,5 @@
         %p
           Please contact us at
           = link_to "contactus@littlespark.com", @admin_email
-
-      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
-        %p= @redeem.note
-
       %div{:style => "clear:both; margin:40px 0px; color:#000;"}
         %p.month= "Gift Type: #{Order::TYPE_NAME[@redeem.plan_type]} Gift"
