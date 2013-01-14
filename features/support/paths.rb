@@ -18,15 +18,27 @@ module NavigationHelpers
     when /gift payment with gift of sender "([^"]*)"/ then
       ob = Gift.find_by_sender_email($1)
       step_4_gifts_path(:gift_id => ob.id)
-    when /gift redeem page/ then 
+    when /gift redeem page/ then
       step_1_redeems_path
     when /gift monthly plan with gift of sender "([^"]*)"/ then
       ob = Gift.find_by_sender_email($1)
       step_2_gifts_path(:gift_id => ob.id)
-    when /your account page with the first gift code "([^"]*)"/ then 
+    when /gift redeem your child page with the redeem of sender "([^"]*)"/ then
+      ob =  Gift.find_by_sender_email($1)
+      step_3_redeems_path(:redeem_id => ob.id)
+    when /gift redeem Shipping page with the redeem of sender "([^"]*)"/ then
+      ob =  Gift.find_by_sender_email($1)
+      step_4_redeems_path(:redeem_id => ob.id)
+    when /gift redeem Payment page with the redeem of sender "([^"]*)"/ then
+      ob =  Gift.find_by_sender_email($1)
+      step_5_redeems_path(:redeem_id => ob.id)
+    when /your account page/ then
+      ob = Gift.find_by_sender_email($1)
+      step_2_gifts_path(:gift_id => ob.id)
+    when /your account page with the first gift code "([^"]*)"/ then
       ob = Gift.find_by_gift_code($1)
       step_2_redeems_path(:redeem_id => ob.id)
-    when /your child 1 page with the first gift code "([^"]*)"/ then 
+    when /your child 1 page with the first gift code "([^"]*)"/ then
       ob = Gift.find_by_gift_code($1)
       step_3_redeems_path(:redeem_id => ob.id)
     end

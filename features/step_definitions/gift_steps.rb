@@ -11,7 +11,12 @@ Given /^the below addresses exist$/ do |table|
 end
 
 Given /^the first gift code is "(.*?)"$/ do |gift_code|
-  gift = Gift.first 
+  gift = Gift.first
   gift.update_attributes({:gift_code => gift_code})
 end
 
+Given /^the below babies exist$/ do |table|
+  table.hashes.each do |attrs|
+    FactoryGirl.create(:baby, attrs)
+  end
+end

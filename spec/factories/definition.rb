@@ -10,3 +10,8 @@ FactoryGirl.define do
   end
 end
 
+FactoryGirl.define do
+  factory :baby do
+  end
+end
+

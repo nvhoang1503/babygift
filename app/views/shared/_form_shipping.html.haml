@@ -3,13 +3,13 @@
 .dotted-line
 .form-inputs.shipping_input_form
   = form_builder.simple_fields_for :shipping_address do |shipping_f|
-    = shipping_f.input :first_name, :label => 'First Name', :autofocus => true
-    = shipping_f.input :last_name, :label => 'Last Name'
-    = shipping_f.input :address_1, :label => 'Address Line 1'
+    = shipping_f.input :first_name, :label => 'First Name', :autofocus => true, :wrapper_html => {:class => 'first_name'}
+    = shipping_f.input :last_name, :label => 'Last Name', :wrapper_html => {:class => 'last_name'}
+    = shipping_f.input :address_1, :label => 'Address Line 1', :wrapper_html => {:class => 'address_1'}
     = shipping_f.input :address_2, :label => 'Address Line 2<span class="pull-right optional text unbold ">(optional)</span>'.html_safe, :label_html=> {:class => "bl_option"}, :wrapper_html=> { :class => 'address_option'}, :required => false
-    = shipping_f.input :city, :label => 'City', :wrapper_html => {:class => 'clearboth'}
-    = shipping_f.input :state, :collection => us_states_collection, :label_method => :second, :value_method => :first, :label => 'State', :prompt => 'Please select one'
-    = shipping_f.input :zip, :label => 'Zip', :input_html => { :class => 'zip' }
-    = shipping_f.input :phone, :label => 'Phone', :label_html=> {:class => "bl_phone"}
+    = shipping_f.input :city, :label => 'City', :wrapper_html => {:class => 'clearboth'}, :wrapper_html => {:class => 'city'}
+    = shipping_f.input :state, :collection => us_states_collection, :label_method => :second, :value_method => :first, :label => 'State', :prompt => 'Please select one', :wrapper_html => {:class => 'state'}
+    = shipping_f.input :zip, :label => 'Zip', :input_html => { :class => 'zip' }, :wrapper_html => {:class => 'zip'}
+    = shipping_f.input :phone, :label => 'Phone', :label_html=> {:class => "bl_phone"}, :wrapper_html => {:class => 'phone'}
 
   = form_builder.input :id, :as => :hidden
