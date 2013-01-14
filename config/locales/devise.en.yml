@@ -8,6 +8,7 @@ en:
           attributes:
             email:
               blank: "Can't be blank"
+              invalid: "Invalid email"
             password:
               blank: "Can't be blank"
             password_confirmation:
