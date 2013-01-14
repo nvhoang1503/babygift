@@ -11,15 +11,16 @@ Feature: Redeem the gift
       |  |  | recipient_3@littlespark.com | sender_3@littlespark.com |  | 1 | 100 |  |0 |  |  |  |  |  |
       | 1 |1 | recipient_4@littlespark.com | sender_4@littlespark.com | good luck | 1 | 100 | 0 |0  |100  |  |  |  | gkaii16284ksksk |
 
+      And the first gift code is "gkaii16284ksksk123"
     Given the below addresses exist
       |first_name|last_name|address_1|address_2|city|state|zip  |phone     |
       |ABC       |ABC     |ABC      |ABC      |ABC |CA   |12345|1234567890|
+    Given a user exists with email: "test@littlesparks.com", password: "123123"
 
   @javascript
   Scenario: Access redeem page
   	Given I go to gift recipient 
   	When I click the element within "#left-section a" 
-      And I wanna sleep "5" seconds
   	Then I should see the key "content.page.redeem_1.step" within "#step_1"
   	  And I should see the key "content.page.redeem_2.step" within "#step_2"
   	  And I should see the key "content.page.redeem_3.step" within "#step_3"
@@ -60,8 +61,47 @@ Feature: Redeem the gift
   @javascript 
   Scenario: submit step 1 with a valid code 
     Given I go to gift redeem page
-    When I fill in "redeem_gift_code" with the first gift code
+    When I fill in "redeem_gift_code" with "gkaii16284ksksk123"
       And I press the key "content.page.redeem_1.btn_submit_form"
-      And I wanna sleep "10" seconds
     Then I should see the key "content.page.redeem_2.step" within "#step_2"
       And I should see the text "font-family" in "'GudeaBold'" within "#step_2 a"
+
+  @javascript 
+  Scenario: access the your child 1 page with an existed account
+    Given I go to your account page with the first gift code "gkaii16284ksksk123"
+    When I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
+      And I fill in "user[password]" with "123123" within ".login_box"
+      And I click the element within ".btn_login"
+    Then I should see the key "content.page.redeem_3.step" within "#step_3"
+      And I should see the text "font-family" in "'GudeaBold'" within "#step_3 a"
+
+  @javascript 
+  @current
+  Scenario: access the your child 1 page by sign-up a new account
+    Given I go to your account page with the first gift code "gkaii16284ksksk123"
+    When  I fill in "user[email]" with "test2@littlesparks.com" within ".register_box"
+      And  I fill in "email_register_conform" with "test2@littlesparks.com" within ".register_box"
+      And I fill in "user[password]" with "123123" within ".register_box"
+      And I fill in "user[password_confirmation]" with "123123" within ".register_box"
+      And I click the element within ".btn_register"
+    Then I should see the key "content.page.redeem_3.step" within "#step_3"
+      And I should see the text "font-family" in "'GudeaBold'" within "#step_3 a"
+
+      And I should see the key "content.page.enroll_1.title" within ".tittle_content"
+      And I should see the text "color" in "rgb(47, 180, 149)" within ".tittle_content"
+      And I should see the text "font-size" in "26px" within ".tittle_content"
+      And I should see the text "font-family" in ""GudeaBold"" within ".tittle_content"
+
+      And I should see the key "content.page.enroll_1.optional" within "#gender .text.font20.italic.common-color"
+      And I should see the text "color" in "rgb(68, 70, 75)" within "#gender .text.font20.italic.common-color"
+      And I should see the text "font-size" in "20px" within "#gender .text.font20.italic.common-color"
+      And I should see the text "font-family" in ""GudeaItalic"" within "#gender .text.font20.italic.common-color"
+
+      And I should see the key "content.page.enroll_1.gender_question" within "#gender .text.font24"
+      And I should see the text "color" in "rgb(51, 51, 51)" within "#gender .text.font24"
+      And I should see the text "font-size" in "24px" within "#gender .text.font24"
+      And I should see the text "font-family" in ""Gudea",serif" within "#gender .text.font24"
+
+      And I should see the key "content.page.enroll_1.optional" within "#birthday .text.font20.italic.common-color"
+    When I mouseover to "#gender img" 
+    Then I should see the key "content.page.enroll_1.optional" within ".tooltip"

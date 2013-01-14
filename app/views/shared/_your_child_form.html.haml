@@ -7,7 +7,7 @@
       %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_1.gender_hint') }
         = image_tag 'common/icon-question.png'
     .clearfix
-    .text.font20.italic= I18n.t('content.page.enroll_1.optional')
+    .text.font20.italic.common-color= I18n.t('content.page.enroll_1.optional')
     .info-panel.clearfix
       = f.collection_radio_buttons :gender, gender_image_options(@baby.gender), :first, :last
   - unless @baby.errors[:gender].blank?
@@ -23,7 +23,7 @@
       %a.icon-question{ :href => '#', :title => I18n.t('content.page.enroll_1.birth_hint') }
         = image_tag 'common/icon-question.png'
     .clearfix
-    .text.font20.italic= I18n.t('content.page.enroll_1.optional')
+    .text.font20.italic.common-color= I18n.t('content.page.enroll_1.optional')
     .info-panel.clearfix
       = f.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker' }, :wrapper_html => {:class => "date_birthday"}
   .section.clearfix

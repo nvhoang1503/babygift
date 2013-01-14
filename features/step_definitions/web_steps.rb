@@ -397,6 +397,12 @@ When /^I fill in "(.*?)" with the first gift code$/ do |field|
   fill_in(field, :with => code)
 end
 
+When /^I mouseover to "(.*?)"$/ do |image|
+  a = "$('#{image}').mouseover()"
+  puts a.inspect
+  # page.evaluate_script("$('#{image}').mouseover()")
+end
+
 Given /^debugger$/ do
   debugger
 end
