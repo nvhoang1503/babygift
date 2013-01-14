@@ -17,6 +17,5 @@
 //= require libs/jquery.simplemodal
 //= require helper
 //= require application
-//= require validation
 //= require rails.validations
 //= require rails.validations.simple_form

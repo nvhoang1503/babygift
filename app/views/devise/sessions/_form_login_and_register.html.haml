@@ -1,12 +1,11 @@
 .login_box.pull-left
   .title_login.login_left_space= I18n.t('content.page.login.login', :login_text => login_text)
-  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :validate => :user_validator) do |f|
     .form-inputs
-      = f.input :email, :required => false, :autofocus => true
-      %span#email_login_error.hidden= I18n.t('message.not_blank')
+      = f.input :email, :required => false, :autofocus => true, :wrapper_html => {:class => 'login_email_field'}
       = f.input :password, :required => false
-      %span#passwork_login_error.hidden= I18n.t('message.not_blank')
-      %span.error= flash[:alert]
+      - if flash[:alert] == 'Your email or password invalid.'
+        %span#exsting_email.error= flash[:alert]
       .foget_pass
         = link_to I18n.t('content.page.login.forgot_pass'), new_password_path(resource_name), :class => 'underline-link'
       .remember_box.clearfix
@@ -21,21 +20,17 @@
 
 .register_box.pull-right
   .title_login= I18n.t('content.page.login.welcome')
-  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => :user_validator) do |f|
     / = f.error_notification
     .form-inputs
-      = f.input :email, :input_html => {:id => "user_mail_register"}
-      %span#email_error.hidden= I18n.t('message.not_blank')
-      .conform.input.email.required
+      = f.input :email, :input_html => {:id => "user_mail_register"}, :wrapper_html => {:class => 'register_email_field'}
+      .register_email_conform_field
         %label
           %abbr{:title => "required"} *
           = I18n.t('content.page.login.email_confirm')
         %input{:type => 'text' , :id => 'email_register_conform'}
-      %span#email_confirm_error.hidden= I18n.t('message.email_not_match')
       = f.input :password, :input_html => {:id => "user_passwork_register"}
-      %span#passwork_error.hidden= I18n.t('message.not_blank')
       = f.input :password_confirmation, :input_html => {:id => "user_passwork_confirm_register"}, :label => I18n.t('content.page.login.pass_confirm')
-      %span#passwork_confirm_error.hidden= I18n.t('message.pass_not_match')
       = hidden_field_tag 'submit_from', @submit_from
       - if @submit_from==RegistrationsController::ENROLMENT_RECEIVE and @order.id
         = hidden_field_tag 'order_id', @order.id
@@ -48,7 +43,6 @@
 - if params[:controller] == "registrations"
   :css
     .login_box span.error{
-      / color:blue !important;
       display:none !important;
     }
 
@@ -56,3 +50,7 @@
   #flash-panel{
     display:none;
   }
+= content_for :js do
+  = yield :user_validator
+  = javascript_include_tag 'register.js'
+

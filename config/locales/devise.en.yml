@@ -15,7 +15,7 @@ en:
 
       messages:
         taken: "An account with this email already exists"
-        confirmation: "Doesn't match confirmation"
+        confirmation: "Does not match confirmation"
         too_short: "Password must be at least %{count} characters"
   errors:
     messages:
