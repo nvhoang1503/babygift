@@ -43,9 +43,9 @@ class EnrolmentController < ApplicationController
     if @order.save
       redirect_to step_3_enrolments_path(:order_id => @order.id)
     else
-      # flash[:error] = I18n.t('content.page.enroll_2.plan_missing')
-      puts '='*100
-      puts @order.errors.full_message
+      # puts '='*100
+      # puts @order.errors.full_message
+      # flash[:error] = @order.errors.full_message
       render :action => :step_2
     end
   end

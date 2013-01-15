@@ -4,8 +4,8 @@
 en:
   hello: "Hello world"
   message:
-    email_not_match: 'Email addresses do not match'
-    pass_not_match: 'Passwords must be the same.'
+    email_not_match: 'Email addresses do not match.'
+    pass_not_match: 'Passwords do not match.'
     not_match: 'Does not match confirmation'
     not_blank: "Can't be blank"
     invalid_email: "Invalid email"

@@ -12,6 +12,10 @@ class window.Gift
     $('.icon-credit-card').click -> return false
     $('#frm-payment').submit @onPaymentSubmit
     $('#card_security').keypress helper.validateCvv
+    $('#gift_recipient_email').keypress helper.validateEmail
+    $('#gift_recipient_email_confirm').keypress helper.validateEmail
+    $('#gift_sender_email').keypress helper.validateEmail
+    $('#gift_sender_email_confirm').keypress helper.validateEmail
 
     @checkConfirmEmail()
     @checkSelectPlan()

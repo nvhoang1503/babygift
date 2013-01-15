@@ -63,18 +63,18 @@ class window.Register
       pass_cf = $('#user_passwork_confirm_register').val()
       if pass.length > 0 && pass_cf.length > 0
         if pass == pass_cf
-          helper.showErrorMessage(true,'#user_passwork_register',message.not_match)
+          helper.showErrorMessage(true,'#user_passwork_register',message.pass_not_match)
         else
-          helper.showErrorMessage(false,'#user_passwork_register',message.not_match)
+          helper.showErrorMessage(false,'#user_passwork_register',message.pass_not_match)
 
     $('#user_passwork_confirm_register').blur ->
       pass = $('#user_passwork_register').val()
       pass_cf = $('#user_passwork_confirm_register').val()
       if pass.length > 0 && pass_cf.length > 0
         if pass == pass_cf
-          helper.showErrorMessage(true,'#user_passwork_register',message.not_match)
+          helper.showErrorMessage(true,'#user_passwork_register',message.pass_not_match)
         else
-          helper.showErrorMessage(false,'#user_passwork_register',message.not_match)
+          helper.showErrorMessage(false,'#user_passwork_register',message.pass_not_match)
 
 
 
