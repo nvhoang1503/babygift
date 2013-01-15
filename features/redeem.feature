@@ -84,6 +84,7 @@ Feature: Redeem the gift
       And I should see the text "font-family" in "'GudeaBold'" within "#step_3 a"
 
   @javascript 
+  @current
   Scenario: access the your child 1 page by sign-up a new account
     Given I go to your account page with the first gift code "gkaii16284ksksk123"
     When  I fill in "user[email]" with "test2@littlesparks.com" within ".register_box"
@@ -121,7 +122,7 @@ Feature: Redeem the gift
       And I wait for the page to load 
     Then I should see the key "content.page.enroll_1.birth_hint" within "#birthday .tooltip-inner"
       And I should see "" within "#child_birthday"
-      And I should see button "continue to plans"
+      And I should see button "continue to shipping"
 
   @javascript
   Scenario: submit step 3a without input
@@ -130,7 +131,7 @@ Feature: Redeem the gift
       And I fill in "user[password]" with "123123" within ".login_box"
       And I click the element within ".btn_login"
     Then I should see the key "content.page.redeem_3.step" within "#step_3"
-    When I press "continue to plans"
+    When I press "continue to shipping"
     Then I should see 1 error message(s) with the key "message.selection_missing" within ".error.gender_error.error"
       And I should see 2 error message(s) with the key "message.not_blank" within "#name span.error"
       And I should see 1 error message(s) with the key "message.not_blank" within ".date_birthday span.error"
@@ -145,7 +146,7 @@ Feature: Redeem the gift
     When I fill in "child_first_name" with "First Name"
       And I fill in "child_last_name" with "Last Name"
       And I fill in "child_birthday" with "01/01/2013"
-      And I press "continue to plans"
+      And I press "continue to shipping"
     Then I should see 1 error message(s) with the key "message.selection_missing" within ".gender_error.error"
 
   @javascript
@@ -159,7 +160,7 @@ Feature: Redeem the gift
       And I wait for the page to load 
       And I fill in "child_first_name" with "First Name"
       And I fill in "child_birthday" with "01/01/2013"
-      And I press "continue to plans"
+      And I press "continue to shipping"
     Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
 
   @javascript
@@ -173,7 +174,7 @@ Feature: Redeem the gift
       And I wait for the page to load 
       And I fill in "child_first_name" with "First Name"
       And I fill in "child_last_name" with "Last Name"
-      And I press "continue to plans"
+      And I press "continue to shipping"
     Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
 
   @javascript
@@ -188,7 +189,7 @@ Feature: Redeem the gift
       And I fill in "child_first_name" with "First Name"
       And I fill in "child_last_name" with "Last Name"
       And I fill in "child_birthday" with "01/01/2013"
-      And I press "continue to plans"
+      And I press "continue to shipping"
     Then I should see the key "content.page.redeem_4.step" within "#step_4"
       And I should see the text "font-family" in "'GudeaBold'" within "#step_4 a"
 
