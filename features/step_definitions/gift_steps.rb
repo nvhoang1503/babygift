@@ -37,3 +37,12 @@ Given /^the below babies exist with user "([^"]*)"$/ do |sender, table|
     FactoryGirl.create(:baby, attrs)
   end
 end
+
+Given /^user "(.*?)" has children$/ do |email, table|
+  u = User.find_by_email(email)
+  if u 
+    table.hashes.each do |attrs|
+      FactoryGirl.create(:baby, attrs.merge({:user_id => u.id}))
+    end
+  end
+end

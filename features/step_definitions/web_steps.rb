@@ -392,15 +392,25 @@ Then /^I should see button with the key "(.*?)"$/ do |button|
   find_button(I18n.t(button)).should_not be_nil
 end
 
+Then /^I should see button "(.*?)"$/ do |button|
+  find_button(button).should_not be_nil
+end
+
 When /^I fill in "(.*?)" with the first gift code$/ do |field|
   code = Gift.first.gift_code
   fill_in(field, :with => code)
 end
 
-When /^I mouseover to "(.*?)"$/ do |image|
-  a = "$('#{image}').mouseover()"
-  puts a.inspect
-  # page.evaluate_script("$('#{image}').mouseover()")
+When 'I wait for the page to load' do
+  page.driver.browser.switch_to.alert.dismiss
+end
+
+When /^I mouseover to "(.*?)"$/ do |selector|
+  page.evaluate_script("$('#{selector}').trigger('mouseover')")
+end
+
+When /^I choose element within "(.*?)"$/ do |selector|
+  page.evaluate_script("$('#{selector}').click()")
 end
 
 Given /^debugger$/ do

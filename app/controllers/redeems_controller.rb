@@ -43,7 +43,7 @@ class RedeemsController < ApplicationController
     end
   end
 
-   def step_3
+  def step_3
     @baby = Baby.new
   end
 
