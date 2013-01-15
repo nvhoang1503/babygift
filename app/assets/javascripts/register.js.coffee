@@ -23,6 +23,16 @@ class window.Register
 
 
   checkValidRegisterEmailConform: ->
+    $('#user_mail_register').blur ->
+      email = $('#user_mail_register').val()
+      email_cf = $('#email_register_conform').val()
+      if email.length > 0 && email_cf.length > 0
+        helper.showErrorMessage(helper.isEmail(email_cf),'.register_email_conform_field',message.invalid_email)
+        if email == email_cf
+          helper.showErrorMessage(true,'.register_email_conform_field',message.email_not_match)
+        else
+          helper.showErrorMessage(false,'.register_email_conform_field',message.email_not_match)
+
     $('#email_register_conform').blur ->
       email = $('#user_mail_register').val()
       email_cf = $('#email_register_conform').val()
