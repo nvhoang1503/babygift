@@ -55,7 +55,7 @@ class RedeemsController < ApplicationController
         else
           @childs = current_user.babies
           @child = @childs.first
-          @child.birthday = @child.birthday.strftime('%m/%d/%Y')
+          @child.birthday = @child.birthday.strftime('%m/%d/%Y') if @child.birthday
         end
       else
         return redirect_to step_2_redeems_path(:submit => false, :redeem_id => params[:redeem_id])
