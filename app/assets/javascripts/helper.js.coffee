@@ -61,10 +61,10 @@ class window.Helper
 
   checkTermsNConditions: (cb_terms, callback) ->
     if $(cb_terms).is(':checked')
+      @showErrorMessage(true,'.signup_box',message.term_missing, 'term_error' )
       return callback()
     else
       @showErrorMessage(false,'.signup_box',message.term_missing, 'term_error' )
-      # @showFlashMessage("#{message.term_missing}")
       return false
 
   changePlanOnClick: (target) ->

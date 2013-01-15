@@ -6,10 +6,10 @@ en:
   message:
     email_not_match: 'Email addresses do not match'
     pass_not_match: 'Passwords must be the same.'
-    not_match: 'Does not match information'
+    not_match: 'Does not match confirmation'
     not_blank: "Can't be blank"
     invalid_email: "Invalid email"
-    plan_missing: 'Choose your gift plan first!'
+    plan_missing: 'Please make a selection'
     billing_missing: 'Choose fill your billing address first!'
     email_missing: 'Please input emails first!'
     phone_invalid: 'Must be 10 digits'
