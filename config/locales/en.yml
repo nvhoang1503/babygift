@@ -39,6 +39,8 @@ en:
       enroll: 'enroll'
       gift: 'gift'
       continue: 'continue to %{next_step}'
+  text:
+    plan_renew: 'Plan renews automatically.'
   content:
     common:
       date_format: 'MM/DD/YYYY'

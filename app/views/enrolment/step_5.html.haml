@@ -1,16 +1,15 @@
 .page_content_space
   = render 'steps_nav'
-
   = simple_form_for @order, :as => :order, :method => 'post', :url => finish_enrolments_path(:order_id => @order.id), :html => { :class => 'enroll-form payment-form', :id => 'frm-payment' } do |f|
     .tittle_content= I18n.t('content.page.enroll_5.title')
     .enroll5_box.pull-left
       = render 'shared/card_information', :parent => f
-
     .enroll5_box.pull-right
       = render 'shared/order_summary', :price => @order.price, :tax => @order.get_tax, :total => @order.total_order, :plan_type => @order.plan_type
       .action_box
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
-        %p.text.italic Plan renews automatically.
+        - if @order.plan_type != Order::TYPE['1_mon']
+          %p.text.italic= I18n.t('text.plan_renew')
   #terms_popup_content
     = render 'shared/terms_conditions_popup'
 

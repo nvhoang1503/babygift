@@ -2,10 +2,8 @@
   = render 'steps_nav'
   = simple_form_for @redeem, :url => update_redeem_shipping_redeems_path(:redeem_id => @redeem.id), :html => {:class => "enroll-form", :id => 'plan-addresses'}, :validate => :addresses_validator do |f|
     .tittle_content= I18n.t('content.page.enroll_4.title')
-
     .shipping-address.pull-left
       = render 'shared/form_shipping', :form_builder => f
-
     .clearfix
     .form-action.pull-left.shipping_continue
       = f.submit I18n.t('label.button.continue', :next_step => 'payment'), :id => 'btn-submit', :class => 'mybtn next btn-pink uppercase btn_shipping_form'
