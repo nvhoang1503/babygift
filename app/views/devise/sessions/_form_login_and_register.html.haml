@@ -4,7 +4,7 @@
     .form-inputs
       = f.input :email, :required => false, :wrapper_html => {:class => 'login_email_field'}
       = f.input :password, :required => false
-      - if flash[:alert] == 'Your email or password invalid.'
+      - if flash[:alert] == 'Your email or password is invalid.'
         %span#exsting_email.error= flash[:alert]
       .foget_pass
         = link_to I18n.t('content.page.login.forgot_pass'), new_password_path(resource_name), :class => 'underline-link'

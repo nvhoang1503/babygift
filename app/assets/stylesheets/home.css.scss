@@ -583,7 +583,7 @@ ul.fqa_menu_link{
 #change_pass{
   .change_box{
     margin-top: 40px;
-    .edit_user{
+    .edit_user,.new_user{
       .error {
         width: 417px;
       }
@@ -592,7 +592,6 @@ ul.fqa_menu_link{
   .btn_change_pass{
     width: 206px !important;
     margin-left: 190px;
-    // padding-top: 5px !important;
   }
 }
 

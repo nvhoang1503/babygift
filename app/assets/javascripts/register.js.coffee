@@ -9,6 +9,8 @@ class window.Register
     @checkRegisterEmail()
     @checkLoginEmail()
     @closeAlertDevise()
+    @checkValidForgotEmail()
+    @checkPassComform()
 
 
   checkValidRegisterEmail: ->
@@ -44,6 +46,38 @@ class window.Register
   closeAlertDevise: ->
     $('#user_password').blur ->
       $('#exsting_email').remove()
+
+  checkPassComform: ->
+    $('#user_passwork_register').blur ->
+      pass = $('#user_passwork_register').val()
+      pass_cf = $('#user_passwork_confirm_register').val()
+      if pass.length > 0 && pass_cf.length > 0
+        if pass == pass_cf
+          helper.showErrorMessage(true,'#user_passwork_register',message.not_match)
+        else
+          helper.showErrorMessage(false,'#user_passwork_register',message.not_match)
+
+    $('#user_passwork_confirm_register').blur ->
+      pass = $('#user_passwork_register').val()
+      pass_cf = $('#user_passwork_confirm_register').val()
+      if pass.length > 0 && pass_cf.length > 0
+        if pass == pass_cf
+          helper.showErrorMessage(true,'#user_passwork_register',message.not_match)
+        else
+          helper.showErrorMessage(false,'#user_passwork_register',message.not_match)
+
+
+
+  checkValidForgotEmail: ->
+    $('.btn_forgot').live 'click', ->
+      email = $('#user_email').val()
+      $('.login_email_field span.error').remove()
+      if email.length > 0
+        return helper.showErrorMessage(helper.isEmail(email),'.login_email_field',message.invalid_email)
+      else
+        return helper.showErrorMessage(helper.isEmail(email),'.login_email_field',message.not_blank)
+
+
 
   checkRegisterEmail: ->
     $(".btn_register").live 'click', ->
