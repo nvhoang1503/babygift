@@ -104,4 +104,4 @@ Feature: Redeem the gift
 
       And I should see the key "content.page.enroll_1.optional" within "#birthday .text.font20.italic.common-color"
     When I mouseover to "#gender img" 
-    Then I should see the key "content.page.enroll_1.optional" within ".tooltip"
+    #Then I should see the key "content.page.enroll_1.optional" within ".tooltip"

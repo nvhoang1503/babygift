@@ -66,7 +66,7 @@ class window.Gift
   validateConfirmEmail: (elem1, elem2) =>
     result = true
     target = $(elem2)
-    if isEmail($(target).val().trim())
+    if helper.isEmail($(target).val().trim())
       result = @validation_email(elem1 , elem2)
     else if target.siblings('.error').length == 0
       s = "<span class='error'>#{message.invalid_email}</span>"
