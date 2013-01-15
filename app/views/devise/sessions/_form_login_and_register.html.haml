@@ -2,7 +2,7 @@
   .title_login.login_left_space= I18n.t('content.page.login.login', :login_text => login_text)
   = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :validate => :user_validator) do |f|
     .form-inputs
-      = f.input :email, :required => false, :autofocus => true, :wrapper_html => {:class => 'login_email_field'}
+      = f.input :email, :required => false, :wrapper_html => {:class => 'login_email_field'}
       = f.input :password, :required => false
       - if flash[:alert] == 'Your email or password invalid.'
         %span#exsting_email.error= flash[:alert]
