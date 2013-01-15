@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me
-  validates :email, :password, :password_confirmation,  :presence => { :message => "Can't be blank" }
-  # attr_accessible :title, :body
-  # after_create :email_user
+  validates :email,:password, :password_confirmation,  :presence => { :message => "Can't be blank" }
+
+  validates :password, :password_confirmation,  :length => {:maximum => 20, :minimum => 6, :message => I18n.t('message.pass_format')}
 
   ADMIN_EMAIL = 'littlesparktesting@gmail.com'
 
