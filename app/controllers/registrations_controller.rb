@@ -30,7 +30,7 @@ class RegistrationsController < Devise::RegistrationsController
         req_referer = Rack::Request.new env
         @order = Order.find_by_id params[:order_id]
         @submit_from = ENROLMENT_RECEIVE
-        render '/enrolment/step_3b'
+        render '/enrolment/step_4'
       elsif params[:submit_from] == REDEEM_RECEIVE
         env = Rack::MockRequest.env_for request.referer
         req_referer = Rack::Request.new env
