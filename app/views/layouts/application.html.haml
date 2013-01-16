@@ -13,7 +13,7 @@
       #container
         #flash-panel
           - flash.each do |key, val|
-            - cl = (key == :error)? "error" : "success page_content_space alert-box"
+            - cl = (key == :error)? "error" : "success page_content_space alert-box #{key}"
             - if val.is_a?(Array) && val.any?
               .flash-content{:class => "#{cl}"}
                 - val.each do |msg|
