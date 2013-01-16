@@ -17,6 +17,9 @@ $color-text: #44464b;
 }
 #redeem-steps{
   margin-left: 100px;
+  #step_5.selected:before {
+    background-position: 2px 3px;
+  }
 }
 
 #gift-steps, #redeem-steps {
