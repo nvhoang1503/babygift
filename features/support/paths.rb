@@ -26,6 +26,9 @@ module NavigationHelpers
     when /gift redeem your child page with the redeem of sender "([^"]*)"/ then
       ob =  Gift.find_by_sender_email($1)
       step_3_redeems_path(:redeem_id => ob.id)
+    when /gift redeem your updating child page with the redeem of sender "([^"]*)"/ then
+      ob =  Gift.find_by_sender_email($1)
+      step_3b_redeems_path(:redeem_id => ob.id)
     when /gift redeem Shipping page with the redeem of sender "([^"]*)"/ then
       ob =  Gift.find_by_sender_email($1)
       step_4_redeems_path(:redeem_id => ob.id)
