@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me
   validates :email,:password, :password_confirmation,  :presence => { :message => "Can't be blank" }
 
-  validates :password, :password_confirmation,  :length => {:maximum => 20, :minimum => 6, :message => I18n.t('message.pass_format')}
+  validates :password,  :length => {:maximum => 20, :minimum => 6, :message => I18n.t('message.pass_format')}
 
   ADMIN_EMAIL = 'littlesparktesting@gmail.com'
 

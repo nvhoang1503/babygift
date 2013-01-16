@@ -16,32 +16,29 @@ class window.Register
   checkValidRegisterEmail: ->
     $('#user_mail_register').blur ->
       email = $('#user_mail_register').val()
+      email_cf = $('#email_register_conform').val()
       if email.length > 0
-        helper.showErrorMessage(helper.isEmail(email),'.register_email_field',message.invalid_email)
-      else
-        helper.showErrorMessage(true,'.register_email_field',message.invalid_email)
+        if !helper.isEmail(email)
+          helper.showErrorMessage(helper.isEmail(email),'.register_email_field',message.invalid_email)
+        else if email_cf.length > 0
+          if email == email_cf
+            helper.showErrorMessage(true,'.register_email_conform_field',message.email_not_match)
+          else
+            helper.showErrorMessage(false,'.register_email_conform_field',message.email_not_match)
 
 
   checkValidRegisterEmailConform: ->
-    $('#user_mail_register').blur ->
-      email = $('#user_mail_register').val()
-      email_cf = $('#email_register_conform').val()
-      if email.length > 0 && email_cf.length > 0
-        helper.showErrorMessage(helper.isEmail(email_cf),'.register_email_conform_field',message.invalid_email)
-        if email == email_cf
-          helper.showErrorMessage(true,'.register_email_conform_field',message.email_not_match)
-        else
-          helper.showErrorMessage(false,'.register_email_conform_field',message.email_not_match)
-
     $('#email_register_conform').blur ->
       email = $('#user_mail_register').val()
       email_cf = $('#email_register_conform').val()
       if email_cf.length > 0
-        helper.showErrorMessage(helper.isEmail(email_cf),'.register_email_conform_field',message.invalid_email)
-        if email == email_cf
-          helper.showErrorMessage(true,'.register_email_conform_field',message.email_not_match)
-        else
-          helper.showErrorMessage(false,'.register_email_conform_field',message.email_not_match)
+        if !helper.isEmail(email_cf)
+          helper.showErrorMessage(helper.isEmail(email_cf),'.register_email_conform_field',message.invalid_email)
+        else if email.length > 0
+          if email == email_cf
+            helper.showErrorMessage(true,'.register_email_conform_field',message.email_not_match)
+          else
+            helper.showErrorMessage(false,'.register_email_conform_field',message.email_not_match)
       else
         helper.showErrorMessage(false,'.register_email_conform_field',message.not_blank)
 
@@ -70,7 +67,7 @@ class window.Register
     $('#user_passwork_confirm_register').blur ->
       pass = $('#user_passwork_register').val()
       pass_cf = $('#user_passwork_confirm_register').val()
-      if pass.length >= 6 && pass_cf.length >= 6
+      if pass_cf.length > 0
         if pass == pass_cf
           helper.showErrorMessage(true,'#user_passwork_confirm_register',message.pass_not_match)
         else
