@@ -54,7 +54,7 @@ class window.Register
       else
         if email.length > 0
           helper.showErrorMessage(true,'.register_email_field',message.not_blank)
-        helper.showErrorMessage(false,'.register_email_conform_field',message.not_blank)
+        # helper.showErrorMessage(false,'.register_email_conform_field',message.not_blank)
 
 
   checkValidLoginEmail: ->
