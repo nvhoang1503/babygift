@@ -27,7 +27,6 @@ Feature: Redeem the gift
   Scenario: Access redeem page
   	Given I go to gift recipient
   	When I click the element within "#left-section a"
-      And I wanna sleep "5" seconds
   	Then I should see the key "content.page.redeem_1.step" within "#step_1"
   	  And I should see the key "content.page.redeem_2.step" within "#step_2"
   	  And I should see the key "content.page.redeem_3.step" within "#step_3"
@@ -70,7 +69,6 @@ Feature: Redeem the gift
     Given I go to gift redeem page
     When I fill in "redeem_gift_code" with the first gift code
       And I press the key "content.page.redeem_1.btn_submit_form"
-      And I wanna sleep "10" seconds
     Then I should see the key "content.page.redeem_2.step" within "#step_2"
       And I should see the text "font-family" in "'GudeaBold'" within "#step_2 a"
 
@@ -83,7 +81,6 @@ Feature: Redeem the gift
     And I go to gift redeem page
     When I fill in "redeem_gift_code" with the first gift code
       And I press the key "content.page.redeem_1.btn_submit_form"
-      And I wanna sleep "10" seconds
     Then I should see the key "content.page.redeem_2.step" within "#step_2"
       And I should see the text "font-family" in "'GudeaBold'" within "#step_3 a"
 
@@ -94,7 +91,6 @@ Feature: Redeem the gift
     And I fill in "user[password]" with "123123" within ".login_box"
     And I click the element within ".btn_login"
     And I go to gift redeem your child page with the redeem of sender "sender_1@littlespark.com"
-    And I wanna sleep "5" seconds
     When I click the element within "#step_4 a"
     Then I should see the key "message.not_blank" within "#wrapfirstnamejqiho span.error"
     And I should see the key "message.not_blank" within "#wraplastnamejqiho span.error"
@@ -111,16 +107,8 @@ Feature: Redeem the gift
     And I click the element within ".btn_login"
     And I go to gift redeem Shipping page with the redeem of sender "sender_1@littlespark.com"
     When I click the element within "#step_5 a"
-    And I wanna sleep "5" seconds
-    Then I should see the key "message.not_blank" within ".first_name"
-    And I should see the key "message.not_blank" within ".last_name"
-    And I should see the key "message.not_blank" within ".address_1"
-    And I should see the key "message.not_blank" within ".city"
-    And I should see the key "message.not_blank" within ".state"
-    And I should see the key "message.not_blank" within "div.zip"
-    And I should see the key "message.not_blank" within ".phone"
-
-
+    And I wanna sleep "7" seconds
+    Then I should see 7 error message(s) with the key "message.not_blank" within "span.error"
 
   @javascript
   Scenario: Place the order when staying in step 5 with blank checkbox values (logged in)
@@ -131,7 +119,6 @@ Feature: Redeem the gift
     And I go to gift redeem Payment page with the redeem of sender "sender_4@littlespark.com"
     When I click the element within ".btn-place"
     And I should see the key "message.term_missing" within ".error.term_error"
-    And I wanna sleep "5" seconds
 
   @javascript
   Scenario: Place the order when staying in step 5 with checking "I agree with the Terms and Conditions" (logged in)
@@ -141,31 +128,26 @@ Feature: Redeem the gift
     And I click the element within ".btn_login"
     And I go to gift redeem Payment page with the redeem of sender "sender_4@littlespark.com"
     When I click the element within "#cb_terms"
-    And I wanna sleep "5" seconds
     And I click the element within ".btn-place"
-    And I wanna sleep "5" seconds
     And I should see the key "content.page.congrate.title" within ".congrate_finish_content"
 
 
 # STEP 3: Shipping
-
   @javascript
   Scenario: Go to step 5 when staying in step 4 with wrong format of zip (logged in)
     Given the below babies exist
       |first_name|last_name|birthday   |gender|user_id|
       |A         |B        |01/01/1999 |-1    |1      |
     And I go to the login page
-    And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
+    And I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
+    #And I wanna sleep "7" seconds
     And I fill in "user[password]" with "123123" within ".login_box"
+    #And I wanna sleep "7" seconds
     And I click the element within ".btn_login"
-    And I wanna sleep "3" seconds
     And I go to gift redeem your updating child page with the redeem of sender "sender_1@littlespark.com"
-    And I wanna sleep "3" seconds
     When I click the element within "#step_4 a"
-    And I wanna sleep "3" seconds
     When I fill in "redeem[shipping_address_attributes][zip]" with "123"
     And I click the element within "#redeem_shipping_address_attributes_phone"
-    And I wanna sleep "2" seconds
     Then I should see the key "message.zip_format" within ".zip span.error"
 
   @javascript
@@ -177,12 +159,9 @@ Feature: Redeem the gift
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
     And I click the element within ".btn_login"
-    And I wanna sleep "3" seconds
     And I go to gift redeem Shipping page with the redeem of sender "sender_1@littlespark.com"
-    And I wanna sleep "3" seconds
     When I fill in "redeem[shipping_address_attributes][phone]" with "123"
     And I click the element within "#redeem_shipping_address_attributes_city"
-    And I wanna sleep "3" seconds
     Then I should see the key "message.phone_invalid" within ".phone span.error"
 
   @javascript
@@ -194,9 +173,7 @@ Feature: Redeem the gift
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
     And I click the element within ".btn_login"
-    And I wanna sleep "3" seconds
     And I go to gift redeem Shipping page with the redeem of sender "sender_4@littlespark.com"
-    And I wanna sleep "3" seconds
     When I fill in "redeem[shipping_address_attributes][first_name]" with "first name" within ".form-inputs"
     And I fill in "redeem[shipping_address_attributes][last_name]" with "last name" within ".form-inputs"
     And I fill in "redeem[shipping_address_attributes][address_1]" with "abc"
@@ -204,25 +181,19 @@ Feature: Redeem the gift
     And I select "California" from "redeem[shipping_address_attributes][state]" within ".form-inputs"
     And I fill in "redeem[shipping_address_attributes][zip]" with "12345"
     And I fill in "redeem[shipping_address_attributes][phone]" with "1234567890"
-    And I wanna sleep "5" seconds
     And I click the element within ".shipping_continue .next"
-    And I wanna sleep "5" seconds
     Then I should see the text "font-family" in "'GudeaBold'" within "#step_5 a"
 
 # STEP Congratulations
   @javascript
   Scenario: Place the order when staying in step 5 with checking "I agree with the Terms and Conditions" (logged in)
     Given I go to the login page
-    And I wanna sleep "3" seconds
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
     And I click the element within ".btn_login"
-    And I wanna sleep "3" seconds
     And I go to gift redeem Payment page with the redeem of sender "sender_4@littlespark.com"
-    And I wanna sleep "3" seconds
     When I click the element within "#cb_terms"
     And I click the element within ".btn-place"
-    And I wanna sleep "2" seconds
     And I should see the key "content.page.congrate.title" within ".congrate_finish_content"
     And I should see the text "color" in "rgb(81, 82, 87)" within ".title_page"
     And I should see the text "font-size" in "34px" within ".title_page"
