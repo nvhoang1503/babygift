@@ -8,7 +8,7 @@ class window.Card
     ]
 
   validateCard:  =>
-    @autoSelectCardType() if $('#card_number').val().trim()!=''
+    @autoSelectCardType() if $('#card_number').val().replace(/\s/g,'')!=''
     $('#card_number').blur @autoSelectCardType
     $('#card_security').blur @isExistCvv
     $.each ['#date_exp_month', '#date_exp_year'], (idx, val) =>
@@ -33,7 +33,7 @@ class window.Card
     result = false
     card_num = $('#card_number')
     for validator in @CARD_TYPE_VALIDATORS
-      if validator.reg.test card_num.val().trim()
+      if validator.reg.test card_num.val().replace(/\s/g,'')
         result = true
         break
     helper.showErrorMessage(result, '#card_number', message.card_format, 'mismatch')
@@ -48,7 +48,7 @@ class window.Card
 
   isExistCardNum: ->
     card_num = $('#card_number')
-    if card_num.val().trim() == ''
+    if card_num.val().replace(/\s/g,'') == ''
       if card_num.siblings('.error').length==0
         card_num.after("<span class='error blank'>#{message.not_blank}</span>")
       else
@@ -60,7 +60,7 @@ class window.Card
 
   isExistCvv: ->
     card_num = $('#card_security')
-    if card_num.val().trim() == ''
+    if card_num.val().replace(/\s/g,'') == ''
       if card_num.siblings('.error').length==0
         card_num.siblings('a').after("<span class='error blank'>#{message.not_blank}</span>")
       else
@@ -105,7 +105,7 @@ class window.Card
 
   validateSelectedCardType: =>
     if @isExistCardType()
-      @isCorrectCardNumWithType() if $('#card_number').val().trim() != ''
+      @isCorrectCardNumWithType() if $('#card_number').val().replace(/\s/g,'') != ''
 
   isCorrectCardNumWithType: ->
     result = true
@@ -113,7 +113,7 @@ class window.Card
     card_num = $('#card_number')
     for validator in @CARD_TYPE_VALIDATORS
       if validator.value == card_type.val()
-        if !validator.reg.test card_num.val().trim()
+        if !validator.reg.test card_num.val().replace(/\s/g,'')
           if card_num.siblings('.error').length==0
             card_num.after("<span class='error mismatch'>#{message.card_format}</span>")
           else

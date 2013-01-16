@@ -27,7 +27,7 @@ class window.Gift
     helper.changePlanOnClick(event.target)
 
   onPaymentSubmit: (event) =>
-    return helper.checkTermsNConditions(cb_terms, @card.validateCardInfo)
+    return helper.checkTermsNConditions('#cb_terms', @card.validateCardInfo)
 
   initFormGiftInfo: ->
     func =-> $('#gift-info').inputHintOverlay() if $('#gift-info').length > 0
