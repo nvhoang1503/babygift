@@ -45,8 +45,12 @@ class window.Register
           if email == email_cf
             helper.showErrorMessage(true,'.register_email_conform_field',message.email_not_match)
           else
-            helper.showErrorMessage(true,'.register_email_field',message.email_not_match)
-            helper.showErrorMessage(false,'.register_email_conform_field',message.email_not_match)
+            if !helper.isEmail(email)
+              helper.showErrorMessage(true,'.register_email_conform_field',message.email_not_match)
+              helper.showErrorMessage(false,'.register_email_field',message.invalid_email)
+            else
+              helper.showErrorMessage(true,'.register_email_field',message.email_not_match)
+              helper.showErrorMessage(false,'.register_email_conform_field',message.email_not_match)
       else
         if email.length > 0
           helper.showErrorMessage(true,'.register_email_field',message.not_blank)
