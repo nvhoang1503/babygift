@@ -1,5 +1,5 @@
 .page_content_space
-  = render 'steps_nav'
+  = render '/redeems/steps_nav'
   = simple_form_for @redeem, :method => 'post', :url => finish_redeems_path(:redeem_id => @redeem.id), :html => { :class => 'enroll-form payment-form', :id => 'frm-payment' } do |f|
     .tittle_content= I18n.t('content.page.enroll_5.title')
     .enroll5_box.pull-left

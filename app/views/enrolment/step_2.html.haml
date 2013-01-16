@@ -1,5 +1,5 @@
 .page_content_space
-  = render 'steps_nav'
+  = render '/enrolment/steps_nav'
 
   = simple_form_for @order, :as => :plan, :url => plan_enrolments_path(:order_id => params[:order_id], :baby_id => params[:baby_id]), :html => { :class => 'enroll-form', :id => 'plan-register' } do |f|
     .tittle_content= I18n.t('content.page.enroll_2.title')
