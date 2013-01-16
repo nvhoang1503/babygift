@@ -18,12 +18,18 @@ class window.Register
       email = $('#user_mail_register').val()
       email_cf = $('#email_register_conform').val()
       if email.length > 0
-        if !helper.isEmail(email)
-          helper.showErrorMessage(helper.isEmail(email),'.register_email_field',message.invalid_email)
-        else if email_cf.length > 0
-          if email == email_cf
+        if helper.isEmail(email)
+          helper.showErrorMessage(true,'.register_email_field',message.invalid_email)
+        else
+          helper.showErrorMessage(true,'.register_email_conform_field',message.invalid_email)
+          helper.showErrorMessage(false,'.register_email_field',message.invalid_email)
+        if helper.isEmail(email) && email_cf.length > 0
+          if !helper.isEmail(email_cf)
+            helper.showErrorMessage(false,'.register_email_conform_field',message.invalid_email)
+          else if email == email_cf
             helper.showErrorMessage(true,'.register_email_conform_field',message.email_not_match)
           else
+            helper.showErrorMessage(true,'.register_email_field',message.email_not_match)
             helper.showErrorMessage(false,'.register_email_conform_field',message.email_not_match)
 
 
@@ -33,13 +39,17 @@ class window.Register
       email_cf = $('#email_register_conform').val()
       if email_cf.length > 0
         if !helper.isEmail(email_cf)
-          helper.showErrorMessage(helper.isEmail(email_cf),'.register_email_conform_field',message.invalid_email)
+          helper.showErrorMessage(true,'.register_email_field',message.invalid_email)
+          helper.showErrorMessage(false,'.register_email_conform_field',message.invalid_email)
         else if email.length > 0
           if email == email_cf
             helper.showErrorMessage(true,'.register_email_conform_field',message.email_not_match)
           else
+            helper.showErrorMessage(true,'.register_email_field',message.email_not_match)
             helper.showErrorMessage(false,'.register_email_conform_field',message.email_not_match)
       else
+        if email.length > 0
+          helper.showErrorMessage(true,'.register_email_field',message.not_blank)
         helper.showErrorMessage(false,'.register_email_conform_field',message.not_blank)
 
 
