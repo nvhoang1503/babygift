@@ -117,7 +117,7 @@ class window.Helper
       todayHighlight: true
       startView: 0
     }).on 'changeDate', ->
-      if $(elem).val().trim() != ''
+      if $.trim($(elem).val()) != ''
         $("#{elem} ~ label.inputHintOverlay").css({display:'none'})
         func =-> $(elem).focusout()
         window.setTimeout(func, 100)
