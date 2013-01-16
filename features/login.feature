@@ -16,8 +16,7 @@ Feature: Login
     Given I go to the login page
     And I click the element within ".btn_login"
     And I wanna sleep "2" seconds
-    Then I should see "Can't be blank" within "#email_login_error"
-    Then I should see "Can't be blank" within "#passwork_login_error"
+    Then I should see 2 error message(s) with the key "message.not_blank" within "span.error"
 
   @javascript
   Scenario: Sign in with invalid email
@@ -25,41 +24,41 @@ Feature: Login
     When  I fill in "user[email]" with "!" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
     And I click the element within ".btn_login"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "~" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "#" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "$" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "%" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "^" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "&" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "*" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "(" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with ")" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "_" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "+" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with '"' within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with ":" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "'" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "?" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "<" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with ">" within ".login_box"
-    Then I should see "Invalid email" within "#email_login_error"
+    Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
 
 
   @javascript
@@ -94,7 +93,7 @@ Feature: Login
 
     And I click the element within ".btn_register"
     And I wanna sleep "2" seconds
-    Then I should see "Password must be at least 6 characters" within ".register_box .error"
+    Then I should see "Password must be at least 6 characters" within "span.error"
 
   @javascript
   Scenario: Sign up (Join the family) with existing email address
@@ -116,7 +115,6 @@ Feature: Login
     And I click the element within ".btn_forgot"
     Then I should see "An email has been sent to your email to reset your password." within "#flash-panel"
     When I visited "test@littlesparks.com" mail a link to reset your password
-    And I wanna sleep "3" seconds
     And I fill in "user[password]" with "123123" within ".change_box"
     And I fill in "user[password_confirmation]" with "123123" within ".change_box"
     And I click the element within ".btn_change_pass"
