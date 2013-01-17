@@ -8,15 +8,15 @@ class window.Helper
 
   validateZip: (event) ->
     reg = /^\d{0,5}(-\d{0,4})?$/
-    return true unless event.charCode
+    return true unless event.which
     part1 = @.value.substring 0, @.selectionStart
     part2 = @.value.substring @.selectionEnd, @.value.length
-    return reg.test(part1 + String.fromCharCode(event.charCode) + part2)
+    return reg.test(part1 + String.fromCharCode(event.which) + part2)
 
   validateEmail: (event) ->
     reg = /^([a-zA-Z0-9_@\.])$/
-    return true unless event.charCode
-    return reg.test(String.fromCharCode(event.charCode))
+    return true unless event.which
+    return reg.test(String.fromCharCode(event.which))
 
 
   isEmail: (email) ->
@@ -29,15 +29,15 @@ class window.Helper
     # reg need cover other special characters
     # reg = /^[-,\d,\s]$/i
     reg = /^[\d]$/i
-    return true unless event.charCode
-    return reg.test(String.fromCharCode(event.charCode))
+    return true unless event.which
+    return reg.test(String.fromCharCode(event.which))
 
   validateCvv: (event) ->
     reg = /^\d{0,4}?$/
-    return true unless event.charCode
+    return true unless event.which
     part1 = @.value.substring 0, @.selectionStart
     part2 = @.value.substring @.selectionEnd, @.value.length
-    return reg.test(part1 + String.fromCharCode(event.charCode) + part2)
+    return reg.test(part1 + String.fromCharCode(event.which) + part2)
 
   showErrorMessage: (condit_value , elem ,msg_text, cl = '') ->
     if !condit_value
