@@ -182,9 +182,15 @@ div.flash-content.error{
     padding-top: 2px !important;
     font-size: 16px !important;
   }
+
   input{
     height: 30px !important;
   }
+
+  input[type="text"] {
+    line-height: 38px; /* Middle aligned text for IE8 */
+  }
+
   input[type='submit'],input[type='button'] {
     height: 40px !important;
     padding-top: 5px !important;
