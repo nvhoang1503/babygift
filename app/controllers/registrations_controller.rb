@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
           params[:submit_from] == REDEEM_RECEIVE
           ob_id = params[:redeem_id]
         end
-        respond_with resource, :location => after_sign_up_path_for(resource, params[:submit_from], params[:order_id])
+        respond_with resource, :location => after_sign_up_path_for(resource, params[:submit_from], ob_id)
         flash[:notice] = I18n.t('content.page.login.sign_up_successfully')
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
