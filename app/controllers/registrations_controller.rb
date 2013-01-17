@@ -36,7 +36,7 @@ class RegistrationsController < Devise::RegistrationsController
         req_referer = Rack::Request.new env
         @redeem = Redeem.find_by_id params[:redeem_id]
         @submit_from = REDEEM_RECEIVE
-        render '/redeems/step_3b'
+        render '/redeems/step_2'
       else
         respond_with resource
       end
