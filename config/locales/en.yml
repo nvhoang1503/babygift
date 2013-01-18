@@ -79,6 +79,8 @@ en:
         child_gender: "Child’s Gender"
       redeem_4:
         step: 'Shipping'
+      redeem_5:
+        title: 'Confirmation'
       redeem_finish:
         step: 'Payment'
 
