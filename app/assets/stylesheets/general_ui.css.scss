@@ -148,6 +148,13 @@ div.flash-content.error{
   margin-top: 10px;
 }
 
+.msie {
+  .simple_form, .field{
+    input[type="text"] {
+      line-height: 38px; /* Middle aligned text for IE8 */
+    }
+  }
+}
 .simple_form, .field{
   clear: both;
   label{
@@ -185,10 +192,6 @@ div.flash-content.error{
 
   input{
     height: 30px !important;
-  }
-
-  input[type="text"] {
-    line-height: 38px; /* Middle aligned text for IE8 */
   }
 
   input[type='submit'],input[type='button'] {

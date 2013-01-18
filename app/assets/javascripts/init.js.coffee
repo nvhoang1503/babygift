@@ -4,3 +4,15 @@ $ ->
   window.gift = new Gift if window.Gift
   window.redeem = new Redeem if window.Redeem
   window.register = new Register if window.Register
+
+
+# Fix for browser compatibility
+$(document).ready ->
+  if $.browser.mozilla == true
+    $('body').addClass('mozilla')
+  if $.browser.chrome == true
+    $('body').addClass('chrome')
+  if $.browser.safari == true
+    $('body').addClass('safari')
+  if $.browser.msie == true
+    $('body').addClass('msie')
