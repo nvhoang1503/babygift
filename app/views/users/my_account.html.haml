@@ -1,2 +1,37 @@
-%h1 Users#index
-%p Find me in app/views/users/index.html.haml
+.page-title.uppercase= I18n.t('content.page.account_sum.step')
+.dotted-line
+#main-content
+  .clearfix
+    #personal-info.section.pull-left
+      .title.pull-left= I18n.t('content.page.account_sum.personal_title')
+      %a.underline-link.pull-right{:href => '#'}= I18n.t('label.edit')
+      .clearfix
+      .dotted-line
+      - if @user.fullname
+        .text.line22.font16= @user.fullname
+      .text.line22.font16= @user.email
+      .text.line22.font16= '*'*10
+    #payment-info.section.pull-right
+      .title.pull-left= I18n.t('content.page.account_sum.payment_title')
+      %a.underline-link.pull-right{:href => '#'}= I18n.t('label.edit')
+      .clearfix
+      .dotted-line
+      - if @billing_address
+        .text.line22.font16= @billing_address.fullname
+        .text.line22.font16= @billing_address.address_1
+        .text.line22.font16= @billing_address.city_state
+        .text.line22.font16= 'xxxx-xxxx-xxxx-1234'
+  #child-n-plan.section.clearfix
+    .title.pull-left= I18n.t('content.page.account_sum.child_n_plan_title')
+    %a.underline-link.pull-right{:href => '#'}= I18n.t('label.edit')
+    .clearfix
+    .dotted-line
+    .info-line
+      .name.header.uppercase.pull-left= I18n.t('content.page.account_sum.name')
+      .birthday.header.uppercase.pull-left= I18n.t('content.page.account_sum.birthday')
+      .plan.header.uppercase.pull-left= I18n.t('content.page.account_sum.plan')
+    - @plans.each do |pl|
+      .info-line
+        .name.text.line22.font16.pull-left= pl.baby.fullname
+        .birthday.text.line22.font16.pull-left= pl.baby.birthday.strftime('%m/%d/%Y')
+        .plan.text.line22.font16.pull-left= plan_detail(pl.plan_type, pl.price)

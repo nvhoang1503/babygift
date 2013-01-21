@@ -9,7 +9,10 @@ module ApplicationHelper
   end
 
   def us_states_collection
-
     Country['US'].states.map { |k,v| [k, v['name']]}
+  end
+
+  def plan_detail(type, price)
+    [number_to_currency(price), Order::TYPE_DURATION[type]].join('/')
   end
 end

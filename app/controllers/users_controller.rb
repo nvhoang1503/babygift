@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   layout 'account'
+  before_filter :authenticate_user!
 
   def my_account
+    @user = current_user
+    @billing_address = @user.billing_address
+    @plans = @user.plans
   end
 
   def contact

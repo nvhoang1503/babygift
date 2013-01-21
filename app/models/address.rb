@@ -10,6 +10,11 @@ class Address < ActiveRecord::Base
     [self.first_name, self.last_name].join(' ')
   end
 
+  def city_state
+    state = [self.state, self.zip].join(' ')
+    return [self.city, state].join(',')
+  end
+
   def to_AN_billing_address
     return AuthorizeNet::Address.new({
       :first_name => self.first_name,

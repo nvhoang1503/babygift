@@ -9,6 +9,12 @@ class Order < ActiveRecord::Base
     '6_mon' => 3,
     '12_mon' => 4
   }
+  TYPE_DURATION = {
+    TYPE['1_mon'] => '1 month',
+    TYPE['3_mon'] => '3 months',
+    TYPE['6_mon'] => '6 months',
+    TYPE['12_mon'] =>'12 months'
+  }
   TYPE_NAME = {
     TYPE['1_mon'] => '1-Month Kit',
     TYPE['3_mon'] => '3-Months Kit',
