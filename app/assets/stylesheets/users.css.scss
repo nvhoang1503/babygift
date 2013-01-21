@@ -1,3 +1,31 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$font-color: #44464b;
+
+#left-nav {
+  border-right: 2px solid #45474c;
+  min-height: 500px;
+  #account-steps{
+    margin-left: 30px;
+    width: 210px;
+    li {
+      &.selected, &:hover {
+        background: url('common/icon-left-arrow.jpg') no-repeat;
+        background-position: 192px 12px;
+        a{
+            font-family: 'GudeaBold';
+        }
+      }
+      a {
+        font-size: 18px;
+        font-family: 'Gudea';
+        color: $font-color;
+        line-height: 41px;
+      }
+    }
+  }
+}
+#right-content {
+  margin: 0 32px 0 54px;
+}

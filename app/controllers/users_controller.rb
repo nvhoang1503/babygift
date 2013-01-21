@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
-  def index
+  layout 'account'
+
+  def my_account
   end
 end

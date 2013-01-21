@@ -60,6 +60,17 @@ en:
       about: 'About Us'
       copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
+      account_sum:
+        step: 'Account Summary'
+      account_contact:
+        step: 'Contact Information'
+      account_payment:
+        step: 'Payment Information'
+      account_child_plan:
+        step: 'Your Children & Plan'
+      account_order_his:
+        step: 'Your Order History'
+
       redeem_1:
         step: 'Redeem'
         title: 'Welcome to Little Spark!'

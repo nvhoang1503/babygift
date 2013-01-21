@@ -18,8 +18,10 @@ Littlespark::Application.routes.draw do
     end
   end
 
+  match 'my_account' => 'users#my_account', :via => [:get]
   resources :users, :only => [:edit, :update] do
-    get 'index'
+    collection do
+    end
   end
 
   resources :enrolment, :as => 'enrolments', :path => 'enrollment', :only => [] do
