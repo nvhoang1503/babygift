@@ -18,6 +18,10 @@ Littlespark::Application.routes.draw do
     end
   end
 
+  resources :users, :only => [:edit, :update] do
+    get 'index'
+  end
+
   resources :enrolment, :as => 'enrolments', :path => 'enrollment', :only => [] do
     collection do
       get 'step_1'
