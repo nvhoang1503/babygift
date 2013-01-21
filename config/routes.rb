@@ -1,6 +1,6 @@
 Littlespark::Application.routes.draw do
   # devise_for :users
-  devise_for :users, :controllers => {:registrations => "registrations", :sessions => 'sessions'}
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => 'sessions' }
 
   root :to => 'home#index'
 
@@ -15,6 +15,7 @@ Littlespark::Application.routes.draw do
       get 'curriculum'
       get 'kits'
       get 'fan_page'
+      # get 'test'
     end
   end
 
@@ -22,6 +23,12 @@ Littlespark::Application.routes.draw do
   resources :users, :only => [:edit, :update] do
     collection do
     end
+    get 'index'
+    get 'contact'
+    put 'contact_update'
+    get 'edit_password'
+    put 'update_password'
+
   end
 
   resources :enrolment, :as => 'enrolments', :path => 'enrollment', :only => [] do

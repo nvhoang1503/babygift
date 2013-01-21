@@ -1,41 +1,20 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-  %body
-    %div{:style => "margin-left:50px; width:800px; color:#000;"}
-      .mail_logo= image_tag(@image_link)
-      %div{:style => "margin-top:40px; font-weight:bolder;"}
-        = 'Congratulations,'
-        =  @gift.recipient_email
-        = "!"
-      %div{:style => "margin-top:40px; color:#000;"}
-        %p
-          Lucky you! Susan Kim has sent you a gi9 from LiRle Spark. Click below to redeem your gift
-          %br
-          or visit
-          = link_to "www.littlespark.com/redeem.", @url
-          You will receive a kit of curated, developmental toys
-          %br
-          for your baby, chosen by a panel of experts.
-        %p
-          Please ask us any questions by contact us at
-          = link_to "service@littlespark.com.", @url_service
+.register_box.pull-right
+  .title_login= I18n.t('content.page.login.welcome')
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => :user_validator) do |f|
+    .form-inputs
+      = f.input :email, :input_html => {:id => "user_mail_register"}, :wrapper_html => {:class => 'register_email_field'}
+      = f.input :email, :input_html => {:id => "user_mail_register"}, :wrapper_html => {:class => 'register_email_field'}
+      = f.input :email, :input_html => {:id => "user_mail_register"}, :wrapper_html => {:class => 'register_email_field'}
+      .register_email_conform_field
+        %label
+          %abbr{:title => "required"} *
+          = I18n.t('content.page.login.email_confirm')
+        %input{:type => 'text' , :id => 'email_register_conform'}
+      .email_noti
+        %label Emailnotification
+        %input{:type => 'checkbox'}
+      .pass_change
+        %label Passwork
+        = link_to "Change password" , "#", :class => "mybtn btn-green btn_pass_change"
 
-      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
-        %p.month= "Gift Type: #{Order::TYPE_NAME[@gift.plan_type]} Gift"
-        %p= "Gift Code: #{@gift.gift_code} "
-
-
-
-
-brew tap homebrew/dupes
-      brew install autoconf automake apple-gcc42
-      rvm pkg install openssl 
-
-
-
-gem install nokogiri -- --with-xml2-include=/usr/local/Cellar/libxml2/2.7.8/include/libxml2   --with-xml2-lib=/usr/local/Cellar/libxml2/2.7.8/lib        --with-xslt-dir=/usr/local/Cellar/libxslt/1.1.26   --with-iconv-include=/usr/local/Cellar/libiconv/1.13.1/include  --with-iconv-lib=/usr/local/Cellar/libiconv/1.13.1/lib
-
-
-
+    = f.button :submit, I18n.t('content.page.login.join') , :class => "mybtn btn-pink uppercase btn_contact_info"

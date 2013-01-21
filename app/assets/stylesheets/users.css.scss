@@ -1,6 +1,3 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 $font-color: #44464b;
 
 #left-nav {
@@ -28,4 +25,55 @@ $font-color: #44464b;
 }
 #right-content {
   margin: 0 32px 0 54px;
+}
+.contact_information {
+  .tittle_box{
+    .tittle_content{
+      margin-left: 190px;
+    }
+  }
+  label{
+    width: 185px;
+  }
+  input{
+    width: 225px;
+  }
+  .email_notification_field{
+    clear: both;
+    height: 40px;
+    label{
+      width: 183px;
+      line-height: 25px;
+
+    }
+    input[type='checkbox']{
+      // float: right;
+      margin-left: 0px;
+      width: 17px;
+      height: 17px;
+      margin-top: 0px;
+    }
+
+  }
+  .btn_pass_change{
+    width: 225px;
+    font-size: 18px;
+    height: 17px;
+    padding-top:5px;
+  }
+  .btn_contact_info{
+    margin-top: 20px;
+    width: 227px;
+    margin-left: 193px;
+    font-size: 20px !important;
+  }
+  .line{
+    background-image: url("common/bg_line.png");
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    height: 2px;
+    width: 600px;
+    margin-bottom:30px;
+
+  }
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 201301071035051) do
+ActiveRecord::Schema.define(:version => 20130121034924) do
 
   create_table "addresses", :force => true do |t|
     t.string   "first_name"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 201301071035051) do
     t.integer  "billing_address_id"
     t.integer  "purchaser_id"
     t.string   "transaction_code"
-    t.date     "transaction_date"
+    t.datetime "transaction_date"
     t.string   "transaction_status"
     t.string   "gift_code"
     t.datetime "created_at",                           :null => false
@@ -92,6 +92,9 @@ ActiveRecord::Schema.define(:version => 201301071035051) do
     t.integer  "billing_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "email_notification"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
