@@ -43,8 +43,6 @@ class EnrolmentController < ApplicationController
     if @order.save
       redirect_to step_3_enrolments_path(:order_id => @order.id)
     else
-      # puts '='*100
-      # puts @order.errors.full_message
       # flash[:error] = @order.errors.full_message
       render :action => :step_2
     end
@@ -131,6 +129,6 @@ class EnrolmentController < ApplicationController
       else
         @baby = Baby.find_by_id params[:baby_id]
       end
-      @baby.birthday = @baby.birthday.strftime('%m/%d/%Y') if @baby and @baby.birthday
+      # @baby.birthday = @baby.birthday.strftime('%m/%d/%Y') if @baby and @baby.birthday
     end
 end
