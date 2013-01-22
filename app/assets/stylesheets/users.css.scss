@@ -92,18 +92,28 @@ $page-title-color: #2fb495;
     clear: both;
     height: 40px;
     label{
-      width: 183px;
+      width: 190px;
+      // width: 183px;
       line-height: 25px;
 
     }
     input[type='checkbox']{
-      // float: right;
-      margin-left: 0px;
+      float: right;
+      margin-left: 10px;
+      // margin-left: 0px;
       width: 17px;
       height: 17px;
       margin-top: 0px;
     }
 
+  }
+  span.error{
+    margin-right: 180px;
+  }
+  .update_error{
+    text-align: center;
+    color:red;
+    margin-bottom: 10px;
   }
   .btn_pass_change{
     width: 225px;

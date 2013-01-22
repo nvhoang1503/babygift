@@ -9,9 +9,12 @@ en:
             email:
               blank: "Can't be blank"
               invalid: "Invalid email"
+            current_password:
+              blank: "Can't be blank"
+              invalid: 'Password is invalid'
             password:
               blank: "Can't be blank"
-              confirmation: 'Passwords do not match.'
+              confirmation: 'Passwords does not match.'
             password_confirmation:
               blank: "Can't be blank"
 

@@ -6,6 +6,7 @@ en:
   message:
     email_not_match: 'Email addresses do not match.'
     pass_not_match: 'Passwords do not match.'
+    pass_invalid: 'Password is invalid'
     not_match: 'Does not match confirmation'
     not_blank: "Can't be blank"
     invalid_email: "Invalid email"
@@ -72,6 +73,8 @@ en:
         plan: 'plan'
       account_contact:
         step: 'Contact Information'
+        change_pass: 'Change password'
+        save: 'Save contact info'
       account_payment:
         step: 'Payment Information'
       account_child_plan:

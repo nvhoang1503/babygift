@@ -4,6 +4,7 @@ $ ->
   window.gift = new Gift if window.Gift
   window.redeem = new Redeem if window.Redeem
   window.register = new Register if window.Register
+  window.user = new User if window.User
 
 
 # Fix for browser compatibility

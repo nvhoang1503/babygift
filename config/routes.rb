@@ -27,7 +27,7 @@ Littlespark::Application.routes.draw do
     get 'contact'
     put 'contact_update'
     get 'edit_password'
-    put 'update_password'
+    put 'update_acount_password'
 
   end
 
