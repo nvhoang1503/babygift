@@ -282,6 +282,22 @@ div.flash-content.error{
   }
 }
 
+#drd-top-actions {
+  min-width: 160px;
+  float: right;
+  .dropdown-menu {
+    right: 0px;
+    background-color: #FFC91E;
+    border: none;
+    border-radius: 0px 0px 6px 6px;
+    padding: 0px;
+  }
+  .dropdown-toggle {
+    color: #44464b;
+    padding: 3px 5px;
+    background-color: #FFC91E;
+  }
+}
 /*============ PAYMENT INFO ==========*/
 .card_info_box label {
   width: 140px;

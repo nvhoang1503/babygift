@@ -1,7 +1,17 @@
 #head_top
-  / = link_to image_tag("common/btn_login.png") , "#" , :class => "btn_top_login"
   - if user_signed_in?
-    = link_to "Log out" , destroy_user_session_path, :method => :delete , :class => "btn_top_login"
+    #drd-top-actions.dropdown
+      %a#dLabel.dropdown-toggle{'data-hover'=>"dropdown", "data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+        - if current_user.fullname
+          = current_user.fullname
+        - else
+          = current_user.email
+        %b.caret
+      %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
+        %li
+          %a{:href => my_account_path}= I18n.t('label.account')
+        %li
+          = link_to I18n.t('label.logout'), destroy_user_session_path, :method => :delete
   - else
     = link_to "Log in" , new_user_session_path , :class => "btn_top_login"
   %p.text_free_shipping

@@ -36,6 +36,8 @@ en:
       home: 'Home'
 
   label:
+    account: 'My account'
+    logout: 'Logout'
     edit: 'edit'
     button:
       enroll: 'enroll'
