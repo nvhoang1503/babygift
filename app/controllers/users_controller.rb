@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.attributes = params[:user]
     if @user.save(:validate=> false)
+      flash[:success] = I18n.t('content.page.account_contact.saved')
       redirect_to my_account_path
     else
       # puts @user.errors.inspect
@@ -37,6 +38,10 @@ class UsersController < ApplicationController
       @user = current_user
       render :action => :edit_password
     end
+  end
+
+  def order_history
+
   end
 
 end

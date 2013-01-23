@@ -77,6 +77,7 @@ en:
         step: 'Contact Information'
         change_pass: 'Change password'
         save: 'Save contact info'
+        saved: 'Information saved'
       account_payment:
         step: 'Payment Information'
       account_child_plan:
