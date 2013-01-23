@@ -1,0 +1,19 @@
+Given /^a user exists with email: "(.*?)", password: "(.*?)"$/ do |email, password|
+  u = User.new
+  u.email = email
+  u.password = password
+  u.password_confirmation = password
+  u.save
+end
+
+When /^I log in with email "(.*?)" and password "(.*?)"$/ do |email, password|
+  with_scope(".login_box") do
+    fill_in("user[email]", :with => email)
+    fill_in("user[password]", :with => "123123")
+  end
+  find(".btn_login").click
+end
+
+When /^clicking on top\-right corner I go to My Account page$/ do
+end
+
