@@ -1,6 +1,6 @@
 %ul#account-steps
   = customized_link_to I18n.t('content.page.account_sum.step') , my_account_path, :wrap_tag => ['li', :id => 'account_sum', :class => 'capitalize'], :active_class => 'selected', :active_at => [my_account_path]
-  = customized_link_to I18n.t('content.page.account_contact.step'), user_contact_path, :wrap_tag => ['li', :id => 'account_contact', :class => 'capitalize'], :active_class => 'selected', :active_at => [user_edit_password_path]
+  = customized_link_to I18n.t('content.page.account_contact.step'), contact_users_path, :wrap_tag => ['li', :id => 'account_contact', :class => 'capitalize'], :active_class => 'selected', :active_at => [edit_password_users_path]
   = customized_link_to I18n.t('content.page.account_payment.step'), '#', :wrap_tag => ['li', :id => 'account_payment', :class => 'capitalize'], :active_class => 'selected', :active_at => []
   = customized_link_to I18n.t('content.page.account_child_plan.step'), '#', :wrap_tag => ['li', :id => 'account_child_plan', :class => 'capitalize'], :active_class => 'selected', :active_at => []
   = customized_link_to I18n.t('content.page.account_order_his.step'), '#', :wrap_tag => ['li', :id => 'account_order_his', :class => 'capitalize'], :active_class => 'selected', :active_at => []

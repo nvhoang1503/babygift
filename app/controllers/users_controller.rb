@@ -16,10 +16,10 @@ class UsersController < ApplicationController
     @user = current_user
     @user.attributes = params[:user]
     if @user.save(:validate=> false)
-      redirect_to user_contact_path
+      redirect_to my_account_path
     else
-      puts @user.errors.inspect
-      redirect_to user_contact_path
+      # puts @user.errors.inspect
+      redirect_to contact_users_path
     end
   end
 
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     if @user.update_with_password(params[:user])
       sign_in(@user, :bypass => true)
       flash[:notice] = 'Password updated.'
-      redirect_to user_contact_path
+      redirect_to contact_users_path
     else
       @user = current_user
       render :action => :edit_password

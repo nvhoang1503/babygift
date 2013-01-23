@@ -135,6 +135,9 @@ $page-title-color: #2fb495;
   }
   .current_passwork_field{
     float: left;
+    span.error{
+      margin-right: 0px;
+    }
   }
   .forgot_pass_link{
     margin-left: 10px;

@@ -2,7 +2,7 @@
   .tittle_box
     .tittle_content.uppercase= I18n.t('content.page.account_contact.step')
   .line
-  = simple_form_for @user, :as => :user, :url => user_contact_update_path, :html => {:class => 'user-contact-form clearfix' }, :validate => :user_validator do |f|
+  = simple_form_for @user, :as => :user, :url => contact_update_users_path, :html => {:class => 'user-contact-form clearfix' }, :validate => :user_validator do |f|
     .form-inputs
       = f.input :first_name, :input_html => {:id => "user_mail_register"}, :wrapper_html => {:class => 'first_name_field'}
       = f.input :last_name, :input_html => {:id => "user_mail_register"}, :wrapper_html => {:class => 'last_name_field'}
@@ -11,7 +11,7 @@
         = f.input :email_notification,  :input_html => {:type => 'checkbox', :id => "user_mail_register"}, :wrapper_html => {:class => 'email_noti_check'}, :label_html => {:class => 'clear-fix'        }
       .pass_change
         %label Password
-        = link_to "Change password" , user_edit_password_path, :class => "mybtn btn-green btn_pass_change"
+        = link_to "Change password" , edit_password_users_path, :class => "mybtn btn-green btn_pass_change"
 
     .action-form
     = f.button :submit, I18n.t('content.page.account_contact.save') , :class => "mybtn btn-pink uppercase btn_contact_info"

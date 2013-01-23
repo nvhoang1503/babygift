@@ -22,12 +22,12 @@ Littlespark::Application.routes.draw do
   match 'my_account' => 'users#my_account', :via => [:get]
   resources :users, :only => [:edit, :update] do
     collection do
+      get 'index'
+      get 'contact'
+      put 'contact_update'
+      get 'edit_password'
+      put 'update_acount_password'
     end
-    get 'index'
-    get 'contact'
-    put 'contact_update'
-    get 'edit_password'
-    put 'update_acount_password'
 
   end
 
