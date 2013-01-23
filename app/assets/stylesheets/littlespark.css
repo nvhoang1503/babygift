@@ -41,18 +41,24 @@ body{
 }
 
 table{
-  /*border:1px solid #000000;*/
   border-collapse:collapse;
   margin-bottom:1.5em;
-}
-
-table td,table th{
-  border-bottom: 1px solid #656363;
-  padding:5px;
+  width: 100%;
 }
 
 table th{
+  text-align: left;
+  padding:5px;
+  background-image: url("common/bg_line.png");
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  /*height: 2px;*/
   cursor:pointer;
+}
+table td{
+  border-bottom: 1px solid #656363;
+  padding:15px 5px;
+
 }
 
 table tr:hover{
