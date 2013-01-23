@@ -41,12 +41,10 @@ module NavigationHelpers
     when /your child 1 page with the first gift code "([^"]*)"/ then
       ob = Gift.find_by_gift_code($1)
       step_3_redeems_path(:redeem_id => ob.id)
-    when /contact information page of the account has email "([^"]*)"/ then
-      user = User.find_by_email($1)
-      user_contact_path(:user_id => user.id)
-    when /change password page of the account has email "([^"]*)"/ then
-      user = User.find_by_email($1)
-      user_edit_password_path(:user_id => user.id)
+    when /contact information page/ then
+      contact_users_path
+    when /change password page/ then
+      edit_password_users_path
     end
   end
 end

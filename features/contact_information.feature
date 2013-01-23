@@ -5,7 +5,7 @@ Feature: Contact information
   @javascript
   Scenario: Submit contact information with empty first name & last name & email
     Given I am logged in with email "test@littlesparks.com"
-    And I am on contact information page of the account has email "test@littlesparks.com"
+    And I am on contact information page
     When I fill in "First name" with "" on contact information page
     And I fill in "Last name" with "" on contact information page
     And I fill in "Email" with "" on contact information page
@@ -16,7 +16,7 @@ Feature: Contact information
   @javascript
   Scenario: Submit contact information with incorrect email format
     Given I am logged in with email "test@littlesparks.com"
-    And I am on contact information page of the account has email "test@littlesparks.com"
+    And I am on contact information page
     When I fill in "First name" with "AAAAA" on contact information page
     And I fill in "Last name" with "BBBBB" on contact information page
     And I fill in "Email" with "111" on contact information page
@@ -27,7 +27,7 @@ Feature: Contact information
   @javascript
   Scenario: Submit contact information successfully
     Given I am logged in with email "test@littlesparks.com"
-    And I am on contact information page of the account has email "test@littlesparks.com"
+    And I am on contact information page
     When I fill in "First name" with "AAAAA" on contact information page
     And I fill in "Last name" with "BBBBB" on contact information page
     And I fill in "Email" with "good@littlesparks.com" on contact information page
@@ -38,22 +38,22 @@ Feature: Contact information
   @javascript
   Scenario: Go to change password page from contact information
     Given I am logged in with email "test@littlesparks.com"
-    And I am on contact information page of the account has email "test@littlesparks.com"
+    And I am on contact information page
     When I click "Change Password" on contact information page
     Then I should see "CHANGE PASSWORD" on the title of change password page
 
   @javascript
   Scenario: Submit change pasword with empty Old Password, New Password, Confirm New Password
     Given I am logged in with email "test@littlesparks.com"
-    And I am on change password page of the account has email "test@littlesparks.com"
+    And I am on change password page
     When I click "CHANGE PASSWORD" on change password page
-    Then I should see "Can't be blank" near Old Password, New Password, Confirm New Password
+    Then I should see "Can't be blank" near Old Password, New Password
 
 
   @javascript
   Scenario: Submit change pasword with New Password field has less than 6 characters
     Given I am logged in with email "test@littlesparks.com"
-    And I am on change password page of the account has email "test@littlesparks.com"
+    And I am on change password page
     When I fill in "Old Password" with "123123" on change password page
     And I fill in "New Password" with "123" on change password page
     And I fill in "Confirm New Password" with "123" on change password page
@@ -63,31 +63,31 @@ Feature: Contact information
   @javascript
   Scenario: Submit change pasword with New Password field has more than 20 characters
     Given I am logged in with email "test@littlesparks.com"
-    And I am on change password page of the account has email "test@littlesparks.com"
+    And I am on change password page
     When I fill in "Old Password" with "123123" on change password page
     And I fill in "New Password" with "0123456789012345678901" on change password page
     And I fill in "Confirm New Password" with "0123456789012345678901" on change password page
     And I click "CHANGE PASSWORD" on change password page
-    Then I should see "Password must be at maximum 20 characters" near New Password and Confirm New Password
+    Then I should see "Password must be at maximum 20 characters" near New Password
 
   @javascript
   Scenario: Submit change pasword with new password does not match
     Given I am logged in with email "test@littlesparks.com"
-    And I am on change password page of the account has email "test@littlesparks.com"
+    And I am on change password page
     When I fill in "Old Password" with "123123" on change password page
-    And I fill in "New Password" with "123" on change password page
-    And I fill in "Confirm New Password" with "345" on change password page
+    And I fill in "New Password" with "12312345" on change password page
+    And I fill in "Confirm New Password" with "12312344" on change password page
     And I click "CHANGE PASSWORD" on change password page
-    Then I should see "Passwords do not match" near New Password and Confirm New Password
+    Then I should see "Passwords do not match" near Confirm New Password
 
   @javascript
   Scenario: Submit change pasword successfully
     Given I am logged in with email "test@littlesparks.com"
-    And I am on change password page of the account has email "test@littlesparks.com"
+    And I am on change password page
     When I fill in "Old Password" with "123123" on change password page
     And I fill in "New Password" with "1234567" on change password page
     And I fill in "Confirm New Password" with "1234567" on change password page
     And I click "CHANGE PASSWORD" on change password page
-    Then I should see "Password has changed successfully" on account summary page
+    Then I should see "Password updated." on contact information page
 
 

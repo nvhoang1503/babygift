@@ -97,8 +97,8 @@ When /^I click "CHANGE PASSWORD" on change password page$/ do
   find(".btn_change_password").click
 end
 
-Then /^I should see "(.*?)" near Old Password, New Password, Confirm New Password$/ do |error_message|
-  with_scope(".old_password_field") do
+Then /^I should see "(.*?)" near Old Password, New Password$/ do |error_message|
+  with_scope(".current_passwork_field") do
     if page.respond_to? :should
       page.should have_content(error_message)
     else
@@ -114,11 +114,58 @@ Then /^I should see "(.*?)" near Old Password, New Password, Confirm New Passwor
     end
   end
 
+end
+
+
+When /^I fill in "Old Password" with "(.*?)" on change password page$/ do |value|
+  with_scope(".current_passwork_field") do
+    fill_in("user[current_password]", :with => value)
+  end
+end
+
+
+When /^I fill in "New Password" with "(.*?)" on change password page$/ do |value|
+  with_scope(".new_password_field") do
+    fill_in("user[password]", :with => value)
+  end
+end
+
+When /^I fill in "Confirm New Password" with "(.*?)" on change password page$/ do |value|
   with_scope(".cf_new_password_field") do
+    fill_in("user[password_confirmation]", :with => value)
+  end
+end
+
+
+Then /^I should see "(.*?)" near New Password$/ do |message|
+  with_scope(".new_password_field") do
     if page.respond_to? :should
-      page.should have_content(error_message)
+      page.should have_content(message)
     else
-      assert page.has_content?(error_message)
+      assert page.has_content?(message)
     end
   end
 end
+
+
+Then /^I should see "(.*?)" near Confirm New Password$/ do |message|
+  with_scope(".cf_new_password_field") do
+    if page.respond_to? :should
+      page.should have_content(message)
+    else
+      assert page.has_content?(message)
+    end
+  end
+end
+
+Then /^I should see "(.*?)" on contact information page$/ do |message|
+  with_scope("#flash-panel") do
+    if page.respond_to? :should
+      page.should have_content(message)
+    else
+      assert page.has_content?(message)
+    end
+  end
+end
+
+
