@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   validates :email, :password, :presence => { :message => "Can't be blank" }
   validates :first_name, :last_name , :presence => { :message => "Can't be blank" }, :on => :update
+
   validates :email, :format => {:with => EMAIL_REG_EXP, :message => I18n.t('message.invalid_email')}
 
 

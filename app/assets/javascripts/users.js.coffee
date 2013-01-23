@@ -5,6 +5,7 @@ class window.User
     @checkValidNewPass()
     @checkValidCfNewPass()
     @checkValidAccountEmail()
+    @checkValidChangePass()
 
   checkValidCurPass: ->
     $('#user_current_password').blur ->
@@ -49,4 +50,18 @@ class window.User
       email = $('#user_mail').val()
       if email.length > 0
         helper.showErrorMessage(helper.isEmail(email),'.email_field',message.invalid_email)
+
+  checkValidChangePass: ->
+    $('.btn_change_password').live 'click', ->
+      cur_pass = $("#user_current_password").val()
+      new_pass = $("#new_password").val()
+      if cur_pass.length <= 0
+        helper.showErrorMessage(false,'#user_current_password',message.not_blank)
+      if new_pass.length <= 0
+        helper.showErrorMessage(false,'#new_password',message.not_blank)
+
+
+
+
+
 
