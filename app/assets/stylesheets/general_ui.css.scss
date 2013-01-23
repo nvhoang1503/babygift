@@ -285,17 +285,42 @@ div.flash-content.error{
 #drd-top-actions {
   min-width: 160px;
   float: right;
+  margin-left: 10px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: #FFC91E;
   .dropdown-menu {
     right: 0px;
-    background-color: #FFC91E;
     border: none;
     border-radius: 0px 0px 6px 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 0px;
+    margin-top: 0px;
+    background-color: #FFC91E;
+    li:last-child a:hover {
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
   }
   .dropdown-toggle {
     color: #44464b;
-    padding: 3px 5px;
-    background-color: #FFC91E;
+    padding: 5px 0px 5px 5px;
+    line-height: 31px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    .caret {
+      margin-right: 5px;
+      margin-top: 12px;
+    }
+  }
+  &.open {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    .dropdown-toggle {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
   }
 }
 /*============ PAYMENT INFO ==========*/
