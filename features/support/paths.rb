@@ -44,6 +44,9 @@ module NavigationHelpers
     when /contact information page of the account has email "([^"]*)"/ then
       user = User.find_by_email($1)
       user_contact_path(:user_id => user.id)
+    when /change password page of the account has email "([^"]*)"/ then
+      user = User.find_by_email($1)
+      user_edit_password_path(:user_id => user.id)
     end
   end
 end
