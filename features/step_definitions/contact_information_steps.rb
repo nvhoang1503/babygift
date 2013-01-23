@@ -168,4 +168,15 @@ Then /^I should see "(.*?)" on contact information page$/ do |message|
   end
 end
 
+Then /^I should see "(.*?)" on the alert box of account summary page$/ do |message|
+  with_scope("#flash-panel") do
+    if page.respond_to? :should
+      page.should have_content(message)
+    else
+      assert page.has_content?(message)
+    end
+  end
+end
+
+
 

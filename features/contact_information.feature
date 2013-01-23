@@ -32,8 +32,8 @@ Feature: Contact information
     And I fill in "Last name" with "BBBBB" on contact information page
     And I fill in "Email" with "good@littlesparks.com" on contact information page
     And I click "JOIN THE FAMILY" on contact information page
-    And I wanna sleep "5" seconds
-    Then I should see "Save successfully" on account summary page
+    And I wanna sleep "3" seconds
+    Then I should see "Information saved" on the alert box of account summary page
 
   @javascript
   Scenario: Go to change password page from contact information
@@ -58,7 +58,7 @@ Feature: Contact information
     And I fill in "New Password" with "123" on change password page
     And I fill in "Confirm New Password" with "123" on change password page
     And I click "CHANGE PASSWORD" on change password page
-    Then I should see "Password must be at least 6 characters" near New Password and Confirm New Password
+    Then I should see "Password must be at least 6 characters" near New Password
 
   @javascript
   Scenario: Submit change pasword with New Password field has more than 20 characters
@@ -78,6 +78,7 @@ Feature: Contact information
     And I fill in "New Password" with "12312345" on change password page
     And I fill in "Confirm New Password" with "12312344" on change password page
     And I click "CHANGE PASSWORD" on change password page
+    And I wanna sleep "3" seconds
     Then I should see "Passwords do not match" near Confirm New Password
 
   @javascript
