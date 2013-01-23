@@ -79,7 +79,7 @@ $page-title-color: #2fb495;
   }
 
   span.error {
-    margin-right: 179px;
+    margin-right: 192px;
   }
 
   label{
@@ -102,13 +102,10 @@ $page-title-color: #2fb495;
       margin-left: 10px;
       // margin-left: 0px;
       width: 17px;
-      height: 17px;
+      height: 17px !important;
       margin-top: 0px;
     }
 
-  }
-  span.error{
-    margin-right: 180px;
   }
   .update_error{
     text-align: center;
@@ -132,8 +129,15 @@ $page-title-color: #2fb495;
     background-position: 0 100%;
     background-repeat: repeat-x;
     height: 2px;
-    width: 600px;
+    width: 620px;
     margin-bottom:30px;
 
+  }
+  .current_passwork_field{
+    float: left;
+  }
+  .forgot_pass_link{
+    margin-left: 10px;
+    font-size: 14px;
   }
 }

@@ -133,6 +133,7 @@ en:
       login:
         title: 'Log in'
         forgot_pass: 'Forgot your password?'
+        forgot_current_pass: 'forgot your current password?'
         login: 'Already Registered? %{login_text}'
         sign_in: 'Sign in'
         welcome: 'New to Little Spark? Welcome!'
