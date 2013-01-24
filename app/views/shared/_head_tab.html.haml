@@ -9,7 +9,7 @@
         %b.caret
       %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
         %li
-          %a{:href => my_account_path}= I18n.t('label.account')
+          %a{:href => my_account_path, :class => "my_acc"}= I18n.t('label.account')
         %li
           = link_to I18n.t('label.logout'), destroy_user_session_path, :method => :delete
   - else

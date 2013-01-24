@@ -12,8 +12,6 @@ When /^I log in with email "(.*?)" and password "(.*?)"$/ do |email, password|
     fill_in("user[password]", :with => "123123")
   end
   find(".btn_login").click
-end
-
-When /^clicking on top\-right corner I go to My Account page$/ do
+  @current_user = User.find_by_email(email)
 end
 

@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
       return [self.first_name, self.last_name].join(" ")
     end
   end
+
+  def displayed_name 
+    name = fullname.nil? ? email : fullname 
+  end
 end
 
 

@@ -66,8 +66,8 @@ en:
     page:
       account_sum:
         step: 'Account Summary'
-        welcome_back: "Welcome back, %{name}"
-        personal_title: 'Name, Email, & Password'
+        welcome_back: "Welcome back, %{name}!"
+        personal_title: 'Name, Email & Password'
         payment_title: 'Payment Information'
         child_n_plan_title: 'Your Child(ren) & Plan'
         name: 'name'

@@ -20,6 +20,7 @@
             - else
               = content_tag :div, val, :class => "flash-content success page_content_space alert-box #{key}" unless val.blank?
         .page_content_space
+          #welcome= I18n.t('content.page.account_sum.welcome_back',:name => current_user.displayed_name)
           #left-nav.pull-left
             = render 'shared/account_nav'
           #right-content.pull-left

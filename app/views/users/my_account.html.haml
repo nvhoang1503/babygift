@@ -10,17 +10,17 @@
       - if @user.fullname
         .text.line22.font16= @user.fullname
       .text.line22.font16= @user.email
-      .text.line22.font16= '*'*10
-    #payment-info.section.pull-right
-      .title.pull-left= I18n.t('content.page.account_sum.payment_title')
-      %a.underline-link.pull-right{:href => '#'}= I18n.t('label.edit')
-      .clearfix
-      .dotted-line
-      - if @billing_address
-        .text.line22.font16= @billing_address.fullname
-        .text.line22.font16= @billing_address.address_1
-        .text.line22.font16= @billing_address.city_state
-        .text.line22.font16= 'xxxx-xxxx-xxxx-1234'
+      .text.line22.font16= '*'*11
+    / #payment-info.section.pull-right
+    /   .title.pull-left= I18n.t('content.page.account_sum.payment_title')
+    /   %a.underline-link.pull-right{:href => '#'}= I18n.t('label.edit')
+    /   .clearfix
+    /   .dotted-line
+    /   - if @billing_address
+    /     .text.line22.font16= @billing_address.fullname
+    /     .text.line22.font16= @billing_address.address_1
+    /     .text.line22.font16= @billing_address.city_state
+    /     .text.line22.font16= 'xxxx-xxxx-xxxx-1234'
   #child-n-plan.section.clearfix
     .title.pull-left= I18n.t('content.page.account_sum.child_n_plan_title')
     %a.underline-link.pull-right{:href => '#'}= I18n.t('label.edit')
