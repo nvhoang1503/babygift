@@ -89,6 +89,12 @@ en:
         recipient: 'recipient'
         child: 'Child'
         plan: 'Plan'
+        order_number: "ORDER NUMBER"
+        order_placed: "Order placed"
+        for_little_spark: "For Little Spark"
+        shipping_information: "SHIPPING INFORMATION"
+        payment_information: "PAYMENT INFORMATION"
+        return_order_history: "RETURN TO COMPLETE ORDER HISTORY"
 
       redeem_1:
         step: 'Redeem'

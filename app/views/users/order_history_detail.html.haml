@@ -1,0 +1,42 @@
+.order_history_detail
+  .tittle_box
+    .tittle_content.capitalize= I18n.t('content.page.account_order_his.step')
+  .line
+  .main_info
+    .info_field.order_number
+      %p.info_label.text.bold.pink= I18n.t('content.page.account_order_his.order_number')<<":"
+      %p.info_text.text.number.pink= @order.transaction_code
+    .info_field.order_placed
+      %p.info_label.text.bold= I18n.t('content.page.account_order_his.order_placed')<<":"
+      %p.info_text= @order.transaction_date.strftime("%m/%d/%Y")
+    .info_field.baby
+      %p.info_label.text.bold= I18n.t('content.page.account_order_his.for_little_spark')<<":"
+      %p.info_text= @order.baby.fullname
+
+  .shipping_payment_information.pull-left
+    .shipping_info
+      .section_title.text.bold= I18n.t('content.page.account_order_his.shipping_information')
+      .info_field.full_name
+        %p.info_text= @order.shipping_address.fullname
+      .info_field.address_1
+        %p.info_text= @order.shipping_address.address_1
+      .info_field.city_state_zip
+        %p.info_text= @order.shipping_address.city_state
+
+    .payment_info
+      .section_title.text.bold= I18n.t('content.page.account_order_his.payment_information')
+      .info_field.full_name
+        %p.info_text= @order.billing_address.fullname
+      .info_field.address_1
+        %p.info_text= @order.shipping_address.address_1
+      .info_field.city_state_zip
+        %p.info_text= @order.shipping_address.city_state
+      .info_field.credit_card
+        %p.info_text= "Visa-xxxx-xxxx-xxxx-1234"
+
+  .order_summary_info.pull-right
+    = render 'shared/order_summary_info', :price => @order.price, :tax => @order.get_tax, :total => @order.total_order, :plan_type => @order.plan_type
+
+  .return_btn_section
+    = link_to I18n.t('content.page.account_order_his.return_order_history') , order_history_users_path, :class => "mybtn btn-pink btn_return"
+

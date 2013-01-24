@@ -44,4 +44,8 @@ class UsersController < ApplicationController
     @orders = Order.order_by_user(current_user.id)
   end
 
+  def order_history_detail
+    @order = Order.find params[:order_id]
+  end
+
 end

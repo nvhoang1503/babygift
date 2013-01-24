@@ -1,0 +1,27 @@
+/locals: form_builder, price, tax, total, plan_type
+.title_box
+  .left_box Order Summary
+  .right_box
+    - if (params[:controller] == 'enrolment')
+      .text.font16= link_to 'edit' , enroll_path(:step_2) ,:class => 'underline-link'
+    - if (params[:controller] == 'gifts')
+      .text.font16= link_to 'edit' , step_2_gifts_path(:gift_id => params[:gift_id]) ,:class => 'underline-link'
+.order_info_box
+  .info_box.pull-left
+    .info_field.plan_type
+      %p.info_text.text.bold=Order::TYPE_NAME[plan_type]
+      %p.number= number_to_currency price
+    .info_field.shipping
+      %p.info_text.text.bold Shipping
+      %p.number FREE
+    .line_sum
+    .info_field.tax
+      %p.info_text
+        %span.text.bold Tax
+        %span (CA residents only)
+      %p.number= number_to_currency tax
+    .line_total
+    .info_field.order_total
+      %p.info_text.text.bold.pink ORDER TOTAL
+      %p.text.number.bold.pink= number_to_currency total
+  .img_box.pull-right= image_tag('common/gifts.jpg')

@@ -28,6 +28,8 @@ Littlespark::Application.routes.draw do
       get 'edit_password'
       put 'update_acount_password'
       get 'order_history'
+      # get 'orders/:id' => "users#order_history_detail"
+      get 'order_history_detail'
     end
 
   end

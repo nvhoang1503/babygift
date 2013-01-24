@@ -170,3 +170,87 @@ $page-title-color: #2fb495;
   }
 
 }
+.order_history_detail{
+  .tittle_box{
+    .tittle_content{
+      margin-left: 190px;
+    }
+  }
+
+  .line{
+    background-image: url("common/bg_line.png");
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    height: 2px;
+    width: 620px;
+    margin-bottom:30px;
+  }
+
+  .main_info {
+
+    .info_field {
+      .info_label {
+        float: left;
+        padding-right: 8px;
+      }
+      .info_text {
+
+      }
+    }
+    .order_number {
+      .info_label {
+        font-size: 17px;
+      }
+      .info_text {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .shipping_payment_information {
+    padding-top: 21px;
+    padding-bottom: 38px;
+  }
+
+  .shipping_info {
+    .section_title {
+      padding-bottom: 10px;
+
+    }
+  }
+
+  .payment_info {
+    .section_title {
+      padding-bottom: 8px;
+    }
+
+  }
+  .order_summary_info {
+    width: 390px;
+    .title_box {
+      .left_box {
+        font-family: "GudeaBold";
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+    }
+    .order_total {
+      p {
+        color: #333333;
+      }
+
+    }
+
+  }
+
+  .return_btn_section {
+    clear: both;
+  }
+  .btn_return{
+    width: 371px;
+    font-size: 18px;
+    height: 21px;
+    padding-top:11px;
+  }
+
+}
