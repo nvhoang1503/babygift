@@ -84,6 +84,11 @@ en:
         step: 'Your Children & Plan'
       account_order_his:
         step: 'Your Order History'
+        order: 'Order'
+        date: 'Date'
+        recipient: 'recipient'
+        child: 'Child'
+        plan: 'Plan'
 
       redeem_1:
         step: 'Redeem'

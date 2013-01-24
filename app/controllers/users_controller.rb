@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
 
   def order_history
-
+    @orders = Order.order_by_user(current_user.id)
   end
 
 end

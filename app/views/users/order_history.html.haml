@@ -1,19 +1,28 @@
 .order_history
   .tittle_box
-    .tittle_content.uppercase= I18n.t('content.page.account_order_his.step')
+    .tittle_content.capitalize= I18n.t('content.page.account_order_his.step')
   .line
-  %table
-    %thead
-      %tr.bg
-        %th Order
-        %th date
-        %th recipient
-        %th Child
-        %th Plan
-    %tbody
-      %tr{:class=>""}
-        %td aaa
-        %td aaa
-        %td aaa
-        %td aaa
-        %td aaa
+  - if @orders
+    %table
+      %thead
+        %tr.uppercase
+          %th= I18n.t('content.page.account_order_his.order')
+          %th= I18n.t('content.page.account_order_his.date')
+          %th= I18n.t('content.page.account_order_his.recipient')
+          %th= I18n.t('content.page.account_order_his.child')
+          %th= I18n.t('content.page.account_order_his.plan')
+      %tbody
+        - @orders.each do |order|
+          %tr{:class=>""}
+            %td= link_to order.transaction_code, "#", :class => 'underline-link'
+            %td
+              - if order.transaction_date
+                = order.transaction_date.strftime("%m/%d/%Y")
+            %td
+              - if order.baby_id
+                = get_recipient_name(order.baby_id)
+            %td
+              - if order.baby_id
+                = get_child_name(order.baby_id)
+            %td= Order::TYPE_NAME[order.plan_type]
+

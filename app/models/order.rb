@@ -66,6 +66,21 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def self.order_by_user(user_id)
+    transaction_status = Order::TRANSACTION_STATUS[:completed]
+    sql = " select *
+            from orders
+            where transaction_status = '#{transaction_status}'
+            and baby_id in (
+              select id
+              from babies
+              where user_id = #{user_id}
+            )
+          "
+    orders = Order.find_by_sql(sql)
+    return orders
+  end
+
   protected
     def update_transaction_status
       self.transaction_status = TRANSACTION_STATUS[:start]
