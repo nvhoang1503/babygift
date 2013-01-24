@@ -4,8 +4,8 @@
     .box_lef
       .description= I18n.t('content.page.about.story_text').html_safe
       %p.link
-        = link_to I18n.t('content.page.about.team_link'), "#"
+        = link_to I18n.t('content.page.about.team_link'), our_team_homes_path
       %p.link
-        = link_to I18n.t('content.page.about.expert_link'), "#"
+        = link_to I18n.t('content.page.about.expert_link'), our_panel_expert_homes_path
     .box_right
       = image_tag("common/p_about.jpg")

@@ -26,6 +26,12 @@ class HomeController < ApplicationController
   def term
   end
 
+  def our_team
+  end
+
+  def our_panel_expert
+  end
+
   # def test
   # end
 

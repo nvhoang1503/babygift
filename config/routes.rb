@@ -15,6 +15,8 @@ Littlespark::Application.routes.draw do
       get 'curriculum'
       get 'kits'
       get 'fan_page'
+      get 'our_team'
+      get 'our_panel_expert'
       # get 'test'
     end
   end
