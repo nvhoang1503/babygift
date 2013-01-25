@@ -656,3 +656,53 @@ ul.fqa_menu_link{
 
   }
 }
+
+/*===================== OUR PANEL EXPERT ====================*/
+
+#our_panel_expert{
+  .content_box{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    .right{
+      margin-left:0px;
+    }
+
+    .member_info{
+      width:235px;
+      float: left;
+    }
+    .head_box{
+      clear: both;
+      margin-bottom: 20px;
+      padding-left: 0px;
+      .img_box{
+        // border:solid 1px red;
+        float: left;
+        padding: 10px;
+        box-shadow: 0px 0px 5px 3px gray;
+        -moz-box-shadow: 0px 0px 5px 3px gray;
+        -webkit-box-shadow: 0px 0px 5px 3px gray;
+        -ms-box-shadow: 0px 0px 5px 3px gray;
+        -o-box-shadow: 0px 0px 5px 3px gray;
+        img.img_our_team{
+          width: 200px;
+          height: 200px;
+        }
+      }
+      .name_box{
+        float: left;
+        margin-left: 0px;
+        padding-top: 25px;
+        height: 65px;
+        width: 200px;
+        color: #2fb495;
+      }
+    }
+    .desc_text{
+      clear:both;
+      padding-right: 8px;
+
+    }
+
+  }
+}
