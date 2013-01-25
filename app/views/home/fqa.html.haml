@@ -2,5 +2,17 @@
   .title_page= I18n.t('content.page.fqa.title')
   #fqa_menu_link_page
     = render "shared/fqa_menu_link"
-  #fqa_about_littlespark
-    = render "home/fqa_about_littlespark"
+  #desc_box
+    #fqa_about_littlespark
+      = render "home/fqa_about_littlespark"
+    #fqa_signup.hidden
+      = render "home/fqa_sign_up"
+    #fqa_shipping_billing.hidden
+      = render "home/fqa_shipping_billing"
+    #fqa_gifts.hidden
+      = render "home/fqa_gifts"
+    #fqa_other.hidden
+      = render "home/fqa_other"
+
+= content_for :js do
+  = javascript_include_tag 'hard.js'

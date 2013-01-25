@@ -1,7 +1,9 @@
-.fqa_about_lef.tittle_content= I18n.t('content.page.fqa.about')
-.fqa_about_right
-  %p.tittle_p= I18n.t('content.page.fqa.question1')
-  = I18n.t('content.page.fqa.question1_text').html_safe
-  %p.tittle_p= I18n.t('content.page.fqa.question2')
-  = I18n.t('content.page.fqa.question2_text').html_safe
+.tittle_content.fqa_lef_title= I18n.t('content.page.fqa.about')
+.fqa_desc_right
+  .text_field
+    %p.tittle_p= I18n.t('content.page.fqa.question1')
+    = I18n.t('content.page.fqa.question1_text').html_safe
+  .text_field
+    %p.tittle_p= I18n.t('content.page.fqa.question2')
+    = I18n.t('content.page.fqa.question2_text').html_safe
 .clearboth

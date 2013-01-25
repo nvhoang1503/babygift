@@ -5,6 +5,7 @@ $ ->
   window.redeem = new Redeem if window.Redeem
   window.register = new Register if window.Register
   window.user = new User if window.User
+  window.hard = new Hard if window.Hard
 
 
 # Fix for browser compatibility

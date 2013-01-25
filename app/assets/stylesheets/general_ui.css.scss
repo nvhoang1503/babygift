@@ -28,7 +28,7 @@
   }
 }
 
-a:hover , a:focus{
+a:hover , a:focus, a.selected{
   color: #FFC91E;
 }
 a.btn:hover{

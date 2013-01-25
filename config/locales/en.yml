@@ -213,14 +213,56 @@ en:
       fqa:
         title: 'Frequently Asked Questions'
         about: 'About Little Spark'
-        sign_up: 'Signing Up'
-        ship: 'Shipping ang Billing'
-        gift: 'Gifts'
-        other: 'Other'
         question1: 'What is Little Spark?'
         question1_text: '<p> Little Spark is an early childhood development company. Our team of experts have devel-<br>oped a monthly curriculum for parents interested in development in babies 0 to 36 months old.</p> <p> With your enrollment, each month you will receive a kit that contains 2-4 developmental toys and an activity guide. The activity guideexplains what skills your baby is developing that month and how to use the toys to encourage your baby to practice those all-<br>important life skills. Our kits are progressive, meaning that each month’s kit builds upon the previous month. It progresses as your baby progresses! Click here to see a sample kit.</p> <p>You keep the toys so that your baby can continue to practice existing skills and play with them in a different way to learn other skills.</p>'
         question2: 'What is special about your curriculum, kits, and toys?'
         question2_text: '<p> Our curriculum of 36 kits is developed by an expert panel that includes an infant develop-<br>mental psychologist, a pediatrician, an infant cognitive researcher, an infant occupational therapist, teachers, and parents. Click here to read their bios.</p> <p> The toys are specifically chosen for their learning and play value. The included activity guide details how to use the toys to encourage developmental growth. We also ship only toys that meet our high standards for high quality and safe materials used. Some of the brands we feature are Plan Toys, Hape, Haba, Melissa & Doug, Wimmer Ferguson, Lamaze, among others.</p>'
+        sign_up: 'Signing Up'
+        sign_up_tl1: 'How do I enroll in Little Spark?'
+        sign_up_tl2: 'What credit cards to you take?'
+        sign_up_tl3: 'How much does Little Spark cost?'
+        sign_up_tl4: 'I just signed up, what now?'
+        sign_up_text1: 'Click here to start. Tell us about your baby, including how old he or she is so we send a kit custom to the age. Then select which Little Spark plan you would like. Provide your billing information and tell us where to send your kit. Your first kit will arrive in 5-10 business days!'
+        sign_up_text2: 'We accept Visa, Mastercard, American Express, or Discover. We do not accept checks, money orders, or cash. '
+        sign_up_text3: 'You can choose the plan that is most convenient to you!'
+        sign_up_text3_1: 'Monthly enrollment for $34.99 per month'
+        sign_up_text3_2: '3 months enrollment for $99.99'
+        sign_up_text3_3: '6 months enrollment for $199.99'
+        sign_up_text3_3: '12 months enrollment for $379.99'
+        sign_up_text4: "Welcome to the Little Spark family! Your first kit will arrive in 5-10 business days and is matched to your baby’s age. In the meantime, please visit us on Facebook, Twitter, and Pinterest or read our blog for the latest in baby development."
+        ship: 'Shipping and Billing'
+        ship_tl_1: "Where do you ship to?"
+        ship_tl_2: "How much is shipping?"
+        ship_tl_3: "When will my Little Spark kit ship?"
+        ship_tl_4: "Hey! My box still hasn’t arrived ..."
+        ship_tl_5: "When do you charge my credit card?"
+        ship_text_1: "At this time, we only ship to US. We are working on international shipping. Send us an e-mail and let us know what country you would like us to add."
+        ship_text_2: "Shipping is free in the US - always!"
+        ship_text_3: "You will receive your first kit 5-10 business days after you place your order. Thereafter, you will receive future kits approximately every 4 weeks."
+        ship_text_4: 'Sorry about that! Please email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> and we will help you track it down!'
+        ship_text_5: 'Depending on which plan you selected, we will bill you every 30, 90, 180, or 360 days from the day you signed up in the month. For example, if you sign up for a 1 month subscription on July 23, we will bill you on the 23rd on the following months. If you sign up for a 6 month subscription, on August 3, we will bill you on the 3rd every 180 days. Feel free to email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> if you have a billing question. '
+        gift: 'Gifts'
+        gift_tl_1: "Can I gift a Little Spark enrollment?"
+        gift_tl_2: "I received an e-gift email, what do I now?"
+        gift_tl_3: "I have a gift subscription. What happens when I reach my last month?"
+        gift_text_1: "Sure! Little Spark is perfect for baby showers as well as birthdays and holidays. You can gift 1, 3, 6, or 12 months to anyone you choose. Click here to get started. We need your payment information and the recipient’s email address. Then, we will send your recipient an email to let them know and prompt them to sign up using their unique gift code."
+        gift_text_2: "Lucky you! Click the “Redeem” link in your gift email and enter your baby’s information and your shipping details. Your kit will be on it’s way!"
+        gift_text_3: "We will send you an email to remind you that your gift subscription is ending and send you a link to continue with your own subscription."
+        other: 'Other'
+        other_tl_1: "I moved! How do I change my address?"
+        other_tl_2: "What is your cancellation policy?"
+        other_tl_3: "Can I return my kit?"
+        other_tl_4: "Will I know what’s coming in my next kit?"
+        other_tl_5: "What do I do if I receive a broken toy?"
+        other_tl_6: "Help! My baby does not know how to play with the toys. Is something wrong with him or her?"
+        other_tl_7: "I couldn’t find my question here, how do I get help?"
+        other_text_1: 'You can login and go to “My Profile” and chose to “Edit Billing Info” or “Edit Shipping Info,” depending on which one you would like to change. Be sure to make the change at least 1 week prior to your next shipment or email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> for help.'
+        other_text_2: 'You can cancel your enrollment by logging in and going to “My Profile” and clicking “Cancel membership” or contacting us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a>. You will not get a refund for kits that are either in process or shipped but we will suspend your account and you will not be charged in the future. You can check the status of your kits on “My Profile.”'
+        other_text_3: 'If you have a problem with something you received in your kit, please email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> and we will help you.'
+        other_text_4: 'We are continuously refining and updating our curriculum. If you would like more details on upcoming kits, please email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> and we are happy to answer your questions.'
+        other_text_5: 'We check all of our toys before we ship but sometimes accidents can happen on the delivery truck! Please email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> and we will get a new toy sent to you right away.'
+        other_text_6: 'Different babies develop at different paces. Even the same baby will occasionally “plateau,” and seemingly not learn anything new for awhile. Bring back some toys from previous kits and let your baby practice existing skills and after a few weeks slowly introduce toys from the latest kit. If you need ideas for new ways to play with old toys, feel free to contact us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a>.'
+        other_text_7: 'Please email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> and we will answer your question as promptly as we can.'
       how:
         title: 'How It Works'
         step1: "Simple <a href='%{link1}'>join</a> for a monthly subscription or send a <a href='%{link2}'>gift</a> . "
