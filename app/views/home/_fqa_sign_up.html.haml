@@ -2,7 +2,7 @@
 .fqa_desc_right
   .text_field
     %p.tittle_p= I18n.t('content.page.fqa.sign_up_tl1')
-    %p= I18n.t('content.page.fqa.sign_up_text1').html_safe
+    %p= I18n.t('content.page.fqa.sign_up_text1', :link => step_1_enrolments_path).html_safe
   .text_field
     %p.tittle_p= I18n.t('content.page.fqa.sign_up_tl2')
     %p= I18n.t('content.page.fqa.sign_up_text2').html_safe

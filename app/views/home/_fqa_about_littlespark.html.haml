@@ -2,8 +2,8 @@
 .fqa_desc_right
   .text_field
     %p.tittle_p= I18n.t('content.page.fqa.question1')
-    = I18n.t('content.page.fqa.question1_text').html_safe
+    = I18n.t('content.page.fqa.question1_text', :link => kits_homes_path).html_safe
   .text_field
     %p.tittle_p= I18n.t('content.page.fqa.question2')
-    = I18n.t('content.page.fqa.question2_text').html_safe
+    = I18n.t('content.page.fqa.question2_text', :link => our_panel_expert_homes_path).html_safe
 .clearboth
