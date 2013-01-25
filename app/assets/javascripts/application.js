@@ -17,6 +17,7 @@
 //= require bootstrap-datepicker
 //= require libs/jquery.simplemodal
 //= require helper
+//= require common
 //= require application
 //= require rails.validations
 //= require rails.validations.simple_form

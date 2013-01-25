@@ -21,8 +21,6 @@ class window.Gift
     @checkSelectPlan()
     @checkBillingValid()
 
-    helper.initTermsNConditionsPopup()
-
   onPlanChange: (event) ->
     helper.changePlanOnClick(event.target)
 

@@ -3,7 +3,6 @@ class window.Enrolment
     helper.initCvvPopup()
     @card = new Card if window.Card
     @card.validateCard() if @card
-    helper.initTermsNConditionsPopup()
     @autoshowTooltip()
     @updateShipToBilling()
     @genderSelectChecking()

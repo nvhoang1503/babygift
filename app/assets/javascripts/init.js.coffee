@@ -6,6 +6,7 @@ $ ->
   window.register = new Register if window.Register
   window.user = new User if window.User
   window.hard = new Hard if window.Hard
+  window.common = new Common if window.Common
 
 
 # Fix for browser compatibility

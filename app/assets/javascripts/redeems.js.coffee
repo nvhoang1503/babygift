@@ -1,6 +1,5 @@
 class window.Redeem
   constructor: ->
-    helper.initTermsNConditionsPopup()
     @checkBillingValid()
     @reloadChild()
     @onPaymentSubmit()

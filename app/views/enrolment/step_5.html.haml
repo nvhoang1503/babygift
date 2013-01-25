@@ -10,8 +10,7 @@
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
         - if @order.plan_type != Order::TYPE['1_mon']
           %p.text.italic= I18n.t('text.plan_renew')
-  #terms_popup_content
-    = render 'shared/terms_conditions_popup'
+
 
 = content_for :js do
   = javascript_tag do

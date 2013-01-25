@@ -7,7 +7,7 @@
     %li#refer
       = link_to I18n.t('content.footer.refer') , "#"
     %li#terms
-      = link_to I18n.t('content.footer.term') , term_homes_path
+      = link_to I18n.t('content.footer.term') , "#", :id => 'terms_content'
     %li#privacy
       = link_to I18n.t('content.footer.privacy') , "#"
     %li#contact{:class => (current_page?(contact_us_homes_path)  ? "selected" : "")}
@@ -16,3 +16,5 @@
       = link_to I18n.t('content.footer.about') , about_us_homes_path
 .footer_line
 .footer_text.text.italic= I18n.t('content.footer.copyright')
+#terms_popup_content
+  = render 'shared/terms_conditions_popup'
