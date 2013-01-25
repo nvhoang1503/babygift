@@ -229,18 +229,18 @@ en:
         sign_up_text3_2: '3 months enrollment for $99.99'
         sign_up_text3_3: '6 months enrollment for $199.99'
         sign_up_text3_4: '12 months enrollment for $379.99'
-        sign_up_text4: "Welcome to the Little Spark family! Your first kit will arrive in 5-10 business days and is matched to your baby’s age. In the meantime, please visit us on Facebook, Twitter, and Pinterest or read our blog for the latest in baby development."
+        sign_up_text4: 'Welcome to the Little Spark family! Your first kit will arrive in 5-10 business days and is matched to your babys age. In the meantime, please visit us on <a href="%{facebook}" class="underline-link"> Facebook </a>, <a href="%{twitter}" class="underline-link"> Twitter </a>, <a href="%{pinterest}" class="underline-link"> Pinterest </a> or read our <a href="%{blog}" class="underline-link"> blog </a> for the latest in baby development.'
         ship: 'Shipping and Billing'
         ship_tl_1: "Where do you ship to?"
         ship_tl_2: "How much is shipping?"
         ship_tl_3: "When will my Little Spark kit ship?"
         ship_tl_4: "Hey! My box still hasn’t arrived ..."
         ship_tl_5: "When do you charge my credit card?"
-        ship_text_1: "At this time, we only ship to US. We are working on international shipping. Send us an e-mail and let us know what country you would like us to add."
+        ship_text_1: 'At this time, we only ship to US. We are working on international shipping. Send us an <a href="%{link}" class="underline-link"> e-mail</a>  and let us know what country you would like us to add.'
         ship_text_2: "Shipping is free in the US - always!"
         ship_text_3: "You will receive your first kit 5-10 business days after you place your order. Thereafter, you will receive future kits approximately every 4 weeks."
         ship_text_4: 'Sorry about that! Please email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> and we will help you track it down!'
-        ship_text_5: 'Depending on which plan you selected, we will bill you every 30, 90, 180, or 360 days from the day you signed up in the month. For example, if you sign up for a 1 month subscription on July 23, we will bill you on the 23rd on the following months. If you sign up for a 6 month subscription, on August 3, we will bill you on the 3rd every 180 days. Feel free to email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> if you have a billing question. '
+        ship_text_5: 'Depending on which plan you selected, we will bill you every 30, 90, 180, or 360 days from the day you signed up in the month. For example, if you sign up for a 1 month subscription on July 23, we will bill you on the 23rd on the following months. If you sign up for a 6 months subscription, on August 3, we will bill you on the 3rd every 180 days. Feel free to email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> if you have a billing question. '
         gift: 'Gifts'
         gift_tl_1: "Can I gift a Little Spark enrollment?"
         gift_tl_2: "I received an e-gift email, what do I now?"
@@ -257,7 +257,7 @@ en:
         other_tl_6: "Help! My baby does not know how to play with the toys. Is something wrong with him or her?"
         other_tl_7: "I couldn’t find my question here, how do I get help?"
         other_text_1: 'You can login and go to “My Profile” and chose to “Edit Billing Info” or “Edit Shipping Info,” depending on which one you would like to change. Be sure to make the change at least 1 week prior to your next shipment or email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> for help.'
-        other_text_2: 'You can cancel your enrollment by logging in and going to “My Profile” and clicking “Cancel membership” or contacting us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a>. You will not get a refund for kits that are either in process or shipped but we will suspend your account and you will not be charged in the future. You can check the status of your kits on “My Profile.”'
+        other_text_2: 'You can cancel your enrollment by logging in and going to “My Profile” and clicking “Cancel membership” or contacting us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a>. You will not get a refund for kits that are either in process or shipped but we will suspend your account and you will not be charged in the future. You can check the status of your kits on <a href="%{link_myprofile}" class="underline-link" > My Profile</a>.'
         other_text_3: 'If you have a problem with something you received in your kit, please email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> and we will help you.'
         other_text_4: 'We are continuously refining and updating our curriculum. If you would like more details on upcoming kits, please email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> and we are happy to answer your questions.'
         other_text_5: 'We check all of our toys before we ship but sometimes accidents can happen on the delivery truck! Please email us at <a href="%{link}" class="underline-link" > contactus@littlespark.com</a> and we will get a new toy sent to you right away.'
