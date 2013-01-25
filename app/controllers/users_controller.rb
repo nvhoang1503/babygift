@@ -48,4 +48,17 @@ class UsersController < ApplicationController
     @order = Order.find params[:order_id]
   end
 
+  def child_n_plan
+    @user = current_user
+    @plans = @user.plans.order("id")
+  end
+
+  def edit_child_n_plan
+    @user = current_user
+    @plan = Order.find_by_id(params[:plan_id])
+    @childs = current_user.babies
+    @child = @plan.baby
+    @child.birthday = @child.birthday.strftime('%m/%d/%Y') if @child.birthday
+  end
+
 end

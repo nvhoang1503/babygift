@@ -29,6 +29,10 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  load "#{Rails.root}/config/routes.rb"
+  # load "#{Rails.root}/config/locales/en.yml"
+  Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
+
   # By default, any exception happening in your Rails application will bubble up
   # to Cucumber so that your scenario will fail. This is a different from how
   # your application behaves in the production environment, where an error page will

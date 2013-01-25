@@ -1,3 +1,6 @@
+World(ApplicationHelper)
+World(ActionView::Helpers::NumberHelper)
+
 module NavigationHelpers
   def path_to(page_name)
     case page_name

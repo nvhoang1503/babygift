@@ -1,6 +1,14 @@
 $font-color: #44464b;
 $page-title-color: #2fb495;
 
+#welcome {
+  color: #44464b;
+  font-size: 24px;
+  font-family: 'GudeaBold';
+  margin-left: 30px;
+  margin-bottom: 25px;
+}
+
 #left-nav {
   border-right: 2px solid #45474c;
   min-height: 500px;
@@ -44,22 +52,26 @@ $page-title-color: #2fb495;
         font-family: 'GudeaBold';
         margin-bottom: 5px;
       }
-      .dotted-line {
-        margin-bottom: 8px;
-      }
       .info-line {
-        .header {
+        &.header {
           font-family: 'GudeaBold';
           font-size: 13px;
+          color: $font-color;
+          .name, .birthday, .plan {
+            line-height: 30px;
+          }
         }
         .name {
+          line-height: 60px;
           width: 213px;
         }
         .birthday {
-          width: 242px;
+          line-height: 60px;
+          width: 189px;
         }
         .plan {
-          width: 157px;
+          line-height: 60px;
+          width: 210px;
         }
       }
     }
@@ -69,6 +81,28 @@ $page-title-color: #2fb495;
   }
   #child-n-plan {
     margin-top: 32px;
+  }
+  #list-children {
+    color: $font-color;
+    .info-line {
+      border-bottom: 1px solid rgb(212,213,215);
+      &.header {
+        border-bottom: none;
+      }
+    }
+  }
+  #action {
+    margin-top: 20px;
+    .text{
+      color: $font-color;
+    }
+  }
+  #child-info .child_box {
+    padding-left: 0px;
+    margin-top: 0px;
+    .form_field:first-child {
+      margin-top: 0px;
+    }
   }
 }
 .contact_information, .change_password {

@@ -1,0 +1,22 @@
+.page-title.uppercase= I18n.t("content.page.account_child_plan.title")
+.dotted-line
+#main-content
+  #list-children.section.clearfix
+    .info-line.header
+      .name.uppercase.pull-left= I18n.t('content.page.account_sum.name')
+      .birthday.uppercase.pull-left= I18n.t('content.page.account_sum.birthday')
+      .plan.uppercase.pull-left= I18n.t('content.page.account_sum.plan')
+    .clearfix
+    .dotted-line
+    - @plans.each do |pl|
+      .info-line.clearfix{:id => "plan-#{pl.id}"}
+        .name.text.line22.font16.pull-left= pl.baby.fullname
+        .birthday.text.line22.font16.pull-left= pl.baby.birthday.strftime('%m/%d/%Y')
+        .plan.text.line22.font16.pull-left
+          = plan_detail(pl.plan_type, pl.price)
+          %a.pull-right{:href => edit_child_n_plan_users_path(:plan_id => pl.id) }= I18n.t('label.edit')
+  #action
+    %span.text.font16.bold= I18n.t('content.page.account_child_plan.add_another')
+    %a.underline-link{:href => step_1_enrolments_path }= I18n.t('content.page.account_child_plan.sign_up')
+
+

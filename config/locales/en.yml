@@ -39,6 +39,9 @@ en:
     account: 'My account'
     logout: 'Logout'
     edit: 'edit'
+    name: 'name'
+    birthday: 'birthday'
+    plan: 'plan'
     button:
       enroll: 'enroll'
       gift: 'gift'
@@ -82,6 +85,18 @@ en:
         step: 'Payment Information'
       account_child_plan:
         step: 'Your Children & Plan'
+        title: 'Your Child(ren) & Plan'
+        add_another: 'Want to add another child?'
+        sign_up: 'Sign him or her up here.'
+      edit_child_plan:
+        title: 'Edit your child & plan'
+        which_child: 'Which child'
+        name: "Child's Name"
+        birthday: "Child's Birthday"
+        gender: "Child's Gender"
+        plan: 'Plan'
+        cancel: 'Cancel this plan'
+        save: 'Save child & plan'
       account_order_his:
         step: 'Your Order History'
         order: 'Order'

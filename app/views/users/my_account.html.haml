@@ -4,7 +4,7 @@
   .clearfix
     #personal-info.section.pull-left
       .title.pull-left= I18n.t('content.page.account_sum.personal_title')
-      %a.underline-link.pull-right{:href => '#'}= I18n.t('label.edit')
+      %a.underline-link.pull-right{:href => contact_users_path}= I18n.t('label.edit')
       .clearfix
       .dotted-line
       - if @user.fullname
@@ -23,13 +23,13 @@
     /     .text.line22.font16= 'xxxx-xxxx-xxxx-1234'
   #child-n-plan.section.clearfix
     .title.pull-left= I18n.t('content.page.account_sum.child_n_plan_title')
-    %a.underline-link.pull-right{:href => '#'}= I18n.t('label.edit')
+    %a.underline-link.pull-right{:href => child_n_plan_users_path }= I18n.t('label.edit')
     .clearfix
     .dotted-line
-    .info-line
-      .name.header.uppercase.pull-left= I18n.t('content.page.account_sum.name')
-      .birthday.header.uppercase.pull-left= I18n.t('content.page.account_sum.birthday')
-      .plan.header.uppercase.pull-left= I18n.t('content.page.account_sum.plan')
+    .info-line.header
+      .name.uppercase.pull-left= I18n.t('content.page.account_sum.name')
+      .birthday.uppercase.pull-left= I18n.t('content.page.account_sum.birthday')
+      .plan.uppercase.pull-left= I18n.t('content.page.account_sum.plan')
     - @plans.each do |pl|
       .info-line
         .name.text.line22.font16.pull-left= pl.baby.fullname

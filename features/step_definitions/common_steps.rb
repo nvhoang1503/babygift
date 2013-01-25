@@ -1,3 +1,26 @@
+def check_text(element, text)
+  with_scope(element) do
+    if page.respond_to? :should
+      page.should have_content(text)
+    else
+      assert page.has_content?(text)
+    end
+  end
+end
+
+#check content & css of a label
+def check_label(element, text, size,ffamily,color)
+  with_scope(element) do
+    if page.respond_to? :should
+      page.should have_content(text)
+    else
+      assert page.has_content?(text)
+    end
+  end
+  page.evaluate_script("$('#{element}').css('font-size')").should == size
+  page.evaluate_script("$('#{element}').css('font-family')").should == ffamily
+  page.evaluate_script("$('#{element}').css('color')").should == color
+end
 
 #steps to click on My Account on right-top corner to go to My Account page
 When /^clicking on top\-right corner I go to My Account page$/ do
@@ -36,15 +59,15 @@ Then /^I should see links in the left menu$/ do
   page.evaluate_script("$('#account_sum a').css('font-family')").should == "'GudeaBold'"
   page.evaluate_script("$('#account_sum a').css('color')").should == "rgb(68, 70, 75)"
   ["account_contact", "account_child_plan","account_order_his"].each do |el|
-  	element = "#" + el + " a"
-  	page.should have_css(element)
-  	with_scope(element) do
-	  if page.respond_to? :should
-	    page.should have_content(I18n.t("content.page.#{el}.step"))
-	  else
-	    assert page.has_content?(I18n.t("content.page.#{el}.step"))
-	  end
-	end
+    element = "#" + el + " a"
+    page.should have_css(element)
+    with_scope(element) do
+    if page.respond_to? :should
+      page.should have_content(I18n.t("content.page.#{el}.step"))
+    else
+      assert page.has_content?(I18n.t("content.page.#{el}.step"))
+    end
+  end
     page.evaluate_script("$('#{element}').css('font-size')").should == "18px"
     page.evaluate_script("$('#{element}').css('font-family')").should == "'Gudea'"
     page.evaluate_script("$('#{element}').css('color')").should == "rgb(68, 70, 75)"
@@ -56,6 +79,14 @@ When /^I click "(.*?)" button$/ do |button_text|
   find('a', :text => button_text).click
   #The case for input
   #...
+end
+
+When /^I should see edit link next to Children and Plan text$/ do
+  check_text("#child-n-plan a", I18n.t("label.edit"))
+end
+
+When /^clicking on edit link I go to Children and Plan page$/ do
+  find("#child-n-plan a").click
 end
 
 #Wanna sleep to wait for loading

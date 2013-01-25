@@ -54,4 +54,7 @@ FactoryGirl.define do
   end
 end
 
-
+FactoryGirl.define do
+  factory :order do
+  end
+end
