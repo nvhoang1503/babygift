@@ -36,7 +36,6 @@ class Payment < ActiveRecord::Base
   def self.an_process(price, params)
     card_num = params[:card_number]
     card_sec = params[:card_security]
-    card_type = CARD_NAME[params[:card_type]]
     exp_date = Date.civil params[:date][:exp_year].to_i, params[:date][:exp_month].to_i
 
     transaction = AuthorizeNet::AIM::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
@@ -44,9 +43,9 @@ class Payment < ActiveRecord::Base
     address = Address.find_by_id params[:billing_address_id]
     shipping_address = Address.find_by_id params[:shipping_address_id]
     transaction.set_address address.to_AN_billing_address if address
-    transaction.set_shipping_address shipping_address.to_AN_billing_address if shipping_address
+    transaction.set_shipping_address shipping_address.to_AN_shipping_address if shipping_address
 
-    credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec, :card_type => card_type
+    credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec
     return transaction.purchase(price, credit_card)
   end
 
@@ -66,15 +65,14 @@ class Payment < ActiveRecord::Base
   def self.an_create_recurring(price, params)
     card_num = params[:card_number]
     card_sec = params[:card_security]
-    card_type = CARD_NAME[params[:card_type]]
     exp_date = Date.civil params[:date][:exp_year].to_i, params[:date][:exp_month].to_i
-    credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec, :card_type => card_type
+    credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec
     transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
 
     address = Address.find_by_id params[:billing_address_id]
     shipping_address = Address.find_by_id params[:shipping_address_id]
     transaction.set_address address.to_AN_billing_address if address
-    transaction.set_shipping_address shipping_address.to_AN_billing_address if shipping_address
+    transaction.set_shipping_address shipping_address.to_AN_shipping_address if shipping_address
 
     subscription = AuthorizeNet::ARB::Subscription.new(
       :length => 7,

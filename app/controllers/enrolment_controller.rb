@@ -126,9 +126,8 @@ class EnrolmentController < ApplicationController
         error = @response.message_text
       end
     end
-
     if @response.success?
-      flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
+      flash[:success] = "Successfully made a purchase"
       order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => transaction_id, :subscription_id => subscription_id})
       user = current_user
       UserMailer.order_confirm(user, order, params, @response.transaction_id).deliver
