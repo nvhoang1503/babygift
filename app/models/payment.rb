@@ -48,7 +48,7 @@ class Payment < ActiveRecord::Base
 
     credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec, :card_type => card_type
     return transaction.purchase(price, credit_card)
-	end
+  end
 
   def self.get_error_messages(an_response)
     if an_response.success?
@@ -61,6 +61,45 @@ class Payment < ActiveRecord::Base
       result.append AVS_RESPONSE[avs_result] if AVS_RESPONSE.has_key?(avs_result)
     end
     return result
+  end
+
+  def self.an_create_recurring(price, params)
+    card_num = params[:card_number]
+    card_sec = params[:card_security]
+    card_type = CARD_NAME[params[:card_type]]
+    exp_date = Date.civil params[:date][:exp_year].to_i, params[:date][:exp_month].to_i
+    credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec, :card_type => card_type
+    transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+
+    address = Address.find_by_id params[:billing_address_id]
+    shipping_address = Address.find_by_id params[:shipping_address_id]
+    transaction.set_address address.to_AN_billing_address if address
+    transaction.set_shipping_address shipping_address.to_AN_billing_address if shipping_address
+
+    subscription = AuthorizeNet::ARB::Subscription.new(
+      :length => 7,
+      :unit => :day,
+      :start_date => Date.today,
+      :total_occurrences => AuthorizeNet::ARB::Subscription::UNLIMITED_OCCURRENCES,
+      :amount => price,
+      # :invoice_number => '1234567',
+      :description => params[:description],
+      :credit_card => credit_card,
+    )
+    response = transaction.create(subscription)
+
+    return response
+  end
+
+  def self.an_cancel_recurring(subscription_id)
+    transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+    response = transaction.cancel(subscription_id)
+    if response.success?
+      puts "Successfully cancel a subscription (subscription id: #{subscription_id})"
+    else
+      raise "Failed to cancel subscription."
+    end
+    return response
   end
 
 end

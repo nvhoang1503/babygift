@@ -108,15 +108,33 @@ class EnrolmentController < ApplicationController
     order.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
     params[:billing_address_id] = order.billing_address_id
     params[:shipping_address_id] = order.shipping_address_id
-    @response = Payment.an_process(order.total_order, params)
+    if order.plan_type == Order::TYPE['1_mon']
+      @response = Payment.an_process(order.total_order, params)
+      if @response.success?
+        transaction_id = @response.transaction_id
+        subscription_id = nil
+      else
+        error = Payment.get_error_messages(@response)
+      end
+    else
+      params[:description] = Order::TYPE_NAME[order.plan_type]
+      @response = Payment.an_create_recurring(order.total_order, params)
+      if @response.success?
+        transaction_id = nil
+        subscription_id = @response.subscription_id
+      else
+        error = @response.message_text
+      end
+    end
+
     if @response.success?
       flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
-      order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => @response.transaction_id})
+      order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => transaction_id, :subscription_id => subscription_id})
       user = current_user
       UserMailer.order_confirm(user, order, params, @response.transaction_id).deliver
       UserMailer.order_confirm_to_admin(user, order, params, @response.transaction_id).deliver
     else
-      flash[:error] = Payment.get_error_messages(@response)
+      flash[:error] = error
       redirect_to :back
     end
   end
