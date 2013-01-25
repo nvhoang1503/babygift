@@ -45,6 +45,8 @@ module NavigationHelpers
       contact_users_path
     when /change password page/ then
       edit_password_users_path
+    when /order history page/ then
+      order_history_users_path
     end
   end
 end

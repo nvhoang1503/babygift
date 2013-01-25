@@ -3,26 +3,26 @@
     .tittle_content.capitalize= I18n.t('content.page.account_order_his.step')
   .line
   - if @orders
-    %table
-      %thead
+    %table.your_order_history_table
+      %thead.table_headers
         %tr.uppercase
-          %th= I18n.t('content.page.account_order_his.order')
-          %th= I18n.t('content.page.account_order_his.date')
-          %th= I18n.t('content.page.account_order_his.recipient')
-          %th= I18n.t('content.page.account_order_his.child')
-          %th= I18n.t('content.page.account_order_his.plan')
-      %tbody
-        - @orders.each do |order|
-          %tr{:class=>""}
-            %td= link_to order.transaction_code, order_history_detail_users_path(:order_id => order.id), :class => 'underline-link'
-            %td
+          %th.order_header= I18n.t('content.page.account_order_his.order')
+          %th.date_header= I18n.t('content.page.account_order_his.date')
+          %th.recipient_header= I18n.t('content.page.account_order_his.recipient')
+          %th.child_header= I18n.t('content.page.account_order_his.child')
+          %th.plan_header= I18n.t('content.page.account_order_his.plan')
+      %tbody.table_rows
+        - @orders.each_with_index do |order, index|
+          %tr{:class=>"row_number_#{index}"}
+            %td.order_column= link_to order.transaction_code, order_history_detail_users_path(:order_id => order.id), :class => 'underline-link'
+            %td.date_column
               - if order.transaction_date
                 = order.transaction_date.strftime("%m/%d/%Y")
-            %td
+            %td.recipient_column
               - if order.baby_id
                 = get_recipient_name(order.baby_id)
-            %td
+            %td.child_column
               - if order.baby_id
                 = get_child_name(order.baby_id)
-            %td= Order::TYPE_NAME[order.plan_type]
+            %td.plan_column= Order::TYPE_NAME[order.plan_type]
 

@@ -1,3 +1,4 @@
+
 #steps to click on My Account on right-top corner to go to My Account page
 When /^clicking on top\-right corner I go to My Account page$/ do
   page.evaluate_script("$('.dropdown-toggle').trigger('mouseover')")
@@ -6,7 +7,7 @@ When /^clicking on top\-right corner I go to My Account page$/ do
   sleep 4
 end
 
-#welcome sentence 
+#welcome sentence
 Then /^I should see the welcome sentence at the top\-left page$/ do
   page.should have_css("#welcome")
   with_scope("#welcome") do
@@ -50,6 +51,13 @@ Then /^I should see links in the left menu$/ do
   end
 end
 
+When /^I click "(.*?)" button$/ do |button_text|
+  #The case for a hyperlink
+  find('a', :text => button_text).click
+  #The case for input
+  #...
+end
+
 #Wanna sleep to wait for loading
 Then /^I wanna sleep "([^"]*)" seconds$/ do |arg1|
   sleep arg1.to_i
@@ -65,3 +73,5 @@ Then /^I should see "([^"]*)" in "([^"]*)"$/ do |value, field_id|
   field_value = (field.tag_name == 'textarea') ? field.text : field.value
   field_value.send(:should) == value
 end
+
+
