@@ -106,11 +106,12 @@ $page-title-color: #2fb495;
       margin-top: 5px;
     }
     #btn-cancel {
-      width: 138px !important;
-      height: 30px !important;
-      font-size: 14px !important;
+      width: 138px;
+      line-height: 30px;
+      font-size: 14px;
       margin-left: 16px;
       margin-top: 10px;
+      padding: 0px;
     }
     #btn-submit {
       width: 225px;

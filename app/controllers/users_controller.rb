@@ -92,4 +92,19 @@ class UsersController < ApplicationController
       render :json => {:success => false, :msg => I18n.t('message.not_found', :obj => 'This child')}
     end
   end
+
+  def cancel_plan
+    plan = Order.find_by_id params[:plan_id]
+    if plan
+      response = Payment.an_cancel_recurring(plan.subscription_id)
+      if response.success?
+        flash[:warning] = I18n.t('message.success_cancel_plan')
+      else
+        flash[:error] = I18n.t('message.fail_cancel_plan')
+      end
+      redirect_to :action => :edit_child_n_plan, :plan_id => plan.id
+    else
+      redirect_to :action => :child_n_plan
+    end
+  end
 end

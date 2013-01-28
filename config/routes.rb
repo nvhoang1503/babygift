@@ -37,6 +37,7 @@ Littlespark::Application.routes.draw do
       get 'edit_child_n_plan'
       put 'update_child_n_plan'
       get 'reload_plan'
+      post 'cancel_plan'
     end
 
   end

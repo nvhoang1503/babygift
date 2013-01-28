@@ -92,11 +92,6 @@ class Payment < ActiveRecord::Base
   def self.an_cancel_recurring(subscription_id)
     transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
     response = transaction.cancel(subscription_id)
-    if response.success?
-      puts "Successfully cancel a subscription (subscription id: #{subscription_id})"
-    else
-      raise "Failed to cancel subscription."
-    end
     return response
   end
 
