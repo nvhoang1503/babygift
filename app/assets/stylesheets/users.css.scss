@@ -132,6 +132,7 @@ $page-title-color: #2fb495;
 
   label{
     width: 185px;
+    text-transform: capitalize;
   }
   input{
     width: 225px;
@@ -151,7 +152,7 @@ $page-title-color: #2fb495;
       // margin-left: 0px;
       width: 17px;
       height: 17px !important;
-      margin-top: 0px;
+      margin-top: 6px;
     }
 
   }
@@ -165,6 +166,7 @@ $page-title-color: #2fb495;
     font-size: 18px;
     height: 17px;
     padding-top:5px;
+    text-transform: capitalize;
   }
   .btn_contact_info,.btn_change_password{
     margin-top: 20px;
