@@ -15,6 +15,12 @@ class Order < ActiveRecord::Base
     TYPE['6_mon'] => '6 months',
     TYPE['12_mon'] =>'12 months'
   }
+  TYPE_DUR = {
+    TYPE['1_mon'] => '1-month',
+    TYPE['3_mon'] => '3-month',
+    TYPE['6_mon'] => '6-month',
+    TYPE['12_mon'] =>'12-month'
+  }
   TYPE_NAME = {
     TYPE['1_mon'] => '1-Month Kit',
     TYPE['3_mon'] => '3-Months Kit',
@@ -40,17 +46,17 @@ class Order < ActiveRecord::Base
     :payment => 4
   }
 
-  attr_accessible :baby_id, :plan_type, :price, :transaction_status, :transaction_date, :transaction_code, :shipping_address_attributes, :billing_address_attributes
+  attr_accessible :baby_id, :plan_type, :price, :transaction_status, :transaction_date, :transaction_code, :shipping_address_attributes, :billing_address_attributes, :baby_attributes
   validates_presence_of :baby, :plan_type, :price
 
   belongs_to :baby
+  belongs_to :purchaser,
+    :class_name => 'User', :foreign_key => :purchaser_id
   belongs_to :shipping_address,
     :class_name => 'Address', :foreign_key => :shipping_address_id
   belongs_to :billing_address,
     :class_name => 'Address', :foreign_key => :billing_address_id
   accepts_nested_attributes_for :shipping_address, :billing_address, :baby
-  belongs_to :purchaser,
-    :class_name => 'User', :foreign_key => :purchaser_id
 
   before_create :update_transaction_status
 

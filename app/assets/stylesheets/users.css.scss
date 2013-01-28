@@ -103,6 +103,20 @@ $page-title-color: #2fb495;
     .form_field:first-child {
       margin-top: 0px;
     }
+    #btn-cancel {
+      width: 138px !important;
+      height: 30px !important;
+      font-size: 14px !important;
+      margin-left: 16px;
+      margin-top: 10px;
+    }
+    #btn-submit {
+      width: 225px;
+      height: 40px;
+      font-size: 20px;
+      padding: 0px !important;
+      margin-left: 7px;
+    }
   }
 }
 .contact_information, .change_password {

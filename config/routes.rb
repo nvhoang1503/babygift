@@ -34,6 +34,7 @@ Littlespark::Application.routes.draw do
       get 'order_history_detail'
       get 'child_n_plan'
       get 'edit_child_n_plan'
+      put 'update_child_n_plan'
     end
 
   end

@@ -15,4 +15,12 @@ module ApplicationHelper
   def plan_detail(type, price)
     [number_to_currency(price), Order::TYPE_DURATION[type]].join('/')
   end
+
+  def plan_options
+    arr = []
+    Order::TYPE.each do |k,v|
+      arr << ["#{Order::TYPE_DUR[v]} #{number_to_currency Order::PRICE[v]}", v]
+    end
+    return arr
+  end
 end

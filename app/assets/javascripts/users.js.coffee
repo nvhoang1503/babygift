@@ -6,6 +6,7 @@ class window.User
     @checkValidCfNewPass()
     @checkValidAccountEmail()
     @checkValidChangePass()
+    helper.initDatepicker('#plan_baby_attributes_birthday')
 
   checkValidCurPass: ->
     $('#user_current_password').blur ->

@@ -61,4 +61,24 @@ class UsersController < ApplicationController
     @child.birthday = @child.birthday.strftime('%m/%d/%Y') if @child.birthday
   end
 
+  def update_child_n_plan
+    @plan = Order.find_by_id params[:plan_id]
+    if @plan
+      params[:plan][:baby_attributes][:birthday] = Date.strptime(params[:plan][:baby_attributes][:birthday], '%m/%d/%Y') if params[:plan][:baby_attributes][:birthday].present?
+      if @plan.update_attributes(params[:plan])
+        redirect_to :action => :child_n_plan
+      else
+        @user = current_user
+        @childs = current_user.babies
+        @child = @plan.baby
+        @child.birthday = @child.birthday.strftime('%m/%d/%Y') if @child.birthday
+
+        render :action => :edit_child_n_plan, :plan_id => @plan.id
+      end
+    else
+      redirect_to :action => :child_n_plan
+    end
+
+  end
+
 end

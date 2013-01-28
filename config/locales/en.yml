@@ -90,10 +90,7 @@ en:
         sign_up: 'Sign him or her up here.'
       edit_child_plan:
         title: 'Edit your child & plan'
-        which_child: 'Which child'
-        name: "Child's Name"
-        birthday: "Child's Birthday"
-        gender: "Child's Gender"
+        which_child: 'Which Child?'
         plan: 'Plan'
         cancel: 'Cancel this plan'
         save: 'Save child & plan'
