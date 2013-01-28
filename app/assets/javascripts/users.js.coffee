@@ -15,7 +15,10 @@ class window.User
         helper.showErrorMessage(false,'#user_current_password',message.not_blank)
       else
         if cur_pass.length < 6 or  cur_pass.length > 20
-          helper.showErrorMessage(false,'#user_current_password',message.pass_format)
+          if cur_pass.length < 6
+            helper.showErrorMessage(false,'#user_current_password',message.pass_format_6)
+          else
+            helper.showErrorMessage(false,'#user_current_password',message.pass_format_20)
         else
           helper.showErrorMessage(true,'#user_current_password',message.not_blank)
 

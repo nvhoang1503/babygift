@@ -49,6 +49,28 @@ Feature: Contact information
     When I click "CHANGE PASSWORD" on change password page
     Then I should see "Can't be blank" near Old Password, New Password
 
+  @javascript
+  Scenario: Submit change pasword with Old Password field has less than 6 characters
+    Given I am logged in with email "test@littlesparks.com"
+    And I am on change password page
+    When I fill in "Old Password" with "123" on change password page
+    And I fill in "New Password" with "123" on change password page
+    And I fill in "Confirm New Password" with "123" on change password page
+    And I click "CHANGE PASSWORD" on change password page
+    Then I should see "Password must be at least 6 characters" near Old Password
+
+  @javascript
+  Scenario: Submit change pasword with Old Password field has more than 20 characters
+    Given I am logged in with email "test@littlesparks.com"
+    And I wanna sleep "3" seconds
+    And I am on change password page
+    And I wanna sleep "3" seconds
+    When I fill in "Old Password" with "0123456789012345678901" on change password page
+    And I fill in "New Password" with "0123456789012345678901" on change password page
+    And I fill in "Confirm New Password" with "0123456789012345678901" on change password page
+    And I click "CHANGE PASSWORD" on change password page
+    And I wanna sleep "3" seconds
+    Then I should see "Password must be at maximum 20 characters" near Old Password
 
   @javascript
   Scenario: Submit change pasword with New Password field has less than 6 characters
@@ -74,6 +96,7 @@ Feature: Contact information
   Scenario: Submit change pasword with new password does not match
     Given I am logged in with email "test@littlesparks.com"
     And I am on change password page
+    And I wanna sleep "3" seconds
     When I fill in "Old Password" with "123123" on change password page
     And I fill in "New Password" with "12312345" on change password page
     And I fill in "Confirm New Password" with "12312344" on change password page

@@ -137,6 +137,16 @@ When /^I fill in "Confirm New Password" with "(.*?)" on change password page$/ d
 end
 
 
+Then /^I should see "(.*?)" near Old Password$/ do |message|
+  with_scope(".current_passwork_field") do
+    if page.respond_to? :should
+      page.should have_content(message)
+    else
+      assert page.has_content?(message)
+    end
+  end
+end
+
 Then /^I should see "(.*?)" near New Password$/ do |message|
   with_scope(".new_password_field") do
     if page.respond_to? :should
@@ -146,6 +156,8 @@ Then /^I should see "(.*?)" near New Password$/ do |message|
     end
   end
 end
+
+
 
 
 Then /^I should see "(.*?)" near Confirm New Password$/ do |message|

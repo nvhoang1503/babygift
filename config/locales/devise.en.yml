@@ -22,6 +22,7 @@ en:
         taken: "An account with this email already exists"
         confirmation: "Does not match confirmation"
         too_short: "Password must be at least %{count} characters"
+        too_long: "Password must be at maximum %{count} characters"
   errors:
     messages:
       expired: "Has expired, please request a new one"
