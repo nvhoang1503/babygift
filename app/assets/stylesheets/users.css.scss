@@ -130,8 +130,14 @@ $page-title-color: #2fb495;
     }
   }
 
+  .input_fields {
+    float: left;
+    width: 420px;
+  }
+
+
   span.error {
-    margin-right: 192px;
+    margin-right: 0px;
   }
 
   label{
@@ -198,7 +204,6 @@ $page-title-color: #2fb495;
     margin-bottom:30px;
   }
   .current_passwork_field{
-    float: left;
     span.error{
       margin-right: 0px;
     }
@@ -206,6 +211,8 @@ $page-title-color: #2fb495;
   .forgot_pass_link{
     margin-left: 10px;
     font-size: 14px;
+    float: right;
+    width: 182px;
   }
 }
 .order_history{
