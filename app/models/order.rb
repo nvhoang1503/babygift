@@ -87,6 +87,10 @@ class Order < ActiveRecord::Base
     return orders
   end
 
+  def plan_detail_with_price
+    "#{TYPE_DUR[self.plan_type]} $#{PRICE[self.plan_type]}"
+  end
+
   protected
     def update_transaction_status
       self.transaction_status = TRANSACTION_STATUS[:start]

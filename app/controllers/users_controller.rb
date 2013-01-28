@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   def edit_child_n_plan
     @user = current_user
     @plan = Order.find_by_id(params[:plan_id])
-    @childs = current_user.babies
+    @childs = current_user.babies.select{|b| b.plan}
     @child = @plan.baby
     @child.birthday = @child.birthday.strftime('%m/%d/%Y') if @child.birthday
   end
@@ -78,7 +78,18 @@ class UsersController < ApplicationController
     else
       redirect_to :action => :child_n_plan
     end
-
   end
 
+  def reload_plan
+    baby_id = params[:baby_id].to_i
+    child = Baby.find_by_id(baby_id)
+    if child
+      result = child.attributes
+      result[:birthday] = child.birthday.strftime('%m/%d/%Y')
+      result[:plan] = child.plan.plan_detail_with_price
+      render :json => {:success => true, :data => result}
+    else
+      render :json => {:success => false, :msg => I18n.t('message.not_found', :obj => 'This child')}
+    end
+  end
 end

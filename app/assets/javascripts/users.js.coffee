@@ -7,6 +7,7 @@ class window.User
     @checkValidAccountEmail()
     @checkValidChangePass()
     helper.initDatepicker('#plan_baby_attributes_birthday')
+    @reloadPlan()
 
   checkValidCurPass: ->
     $('#user_current_password').blur ->
@@ -36,7 +37,6 @@ class window.User
               helper.showErrorMessage(false,'#cf_new_password',message.pass_not_match)
             else
               helper.showErrorMessage(true,'#cf_new_password',message.pass_not_match)
-
 
   checkValidCfNewPass: ->
     $('#cf_new_password').blur ->
@@ -71,6 +71,26 @@ class window.User
         flag = false
       return flag
 
+  reloadPlan: ->
+    $("#child_id").change ->
+      baby_id = $("#child_id").val()
+      $.ajax
+        type: "GET"
+        url: "/users/reload_plan"
+        data: {baby_id: baby_id}
+        dataType: 'json'
+        success: (response)->
+          if response.success
+            data = response.data
+            $('#plan_baby_attributes_first_name').val(data.first_name)
+            $('#plan_baby_attributes_last_name').val(data.last_name)
+            $('#plan_baby_attributes_birthday').val(data.birthday)
+            $('#plan_baby_attributes_gender').val(data.gender)
+            $('#plan-info').text(data.plan)
+          else
+            alert(response.msg)
+        error: (response)->
+          alert(message.server_error)
 
 
 

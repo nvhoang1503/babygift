@@ -19,7 +19,7 @@
           = b.input :gender, :collection => gender_options, :label_method => :first, :value_method => :second, :label => false, :prompt => 'Please select one'
       .form_field
         %label=I18n.t('content.page.edit_child_plan.plan')
-        = f.input :plan_type, :collection => plan_options, :label_method => :first, :value_method => :second, :label => false, :prompt => 'Please select one', :disabled => true
+        #plan-info.text.font16.pull-left= f.object.plan_detail_with_price
       .form_field
         = f.submit I18n.t('content.page.edit_child_plan.cancel'), :id => 'btn-cancel', :class => 'mybtn btn-green uppercase'
         = f.submit I18n.t('content.page.edit_child_plan.save'), :id => 'btn-submit', :class => 'mybtn btn-pink uppercase'
