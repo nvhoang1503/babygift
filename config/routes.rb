@@ -17,6 +17,7 @@ Littlespark::Application.routes.draw do
       get 'fan_page'
       get 'our_team'
       get 'our_panel_expert'
+      get 'privacy'
       # get 'test'
     end
   end

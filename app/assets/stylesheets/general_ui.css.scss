@@ -127,6 +127,7 @@ a.underline-link { border-bottom: solid 1px #ffc91e; }
   &.italic {
     font-family: "GudeaItalic"
   }
+  &.under{text-decoration:underline;}
   &.green { color: #2fb596; }
   &.pink{ color: #e42f5a}
   &.font16 { font-size: 16px; }
@@ -672,10 +673,15 @@ ul.social_medial_icon_line{
     border-top-right-radius: 5px;
   }
   .popup_content{
-    height: 400px;
+    height: 420px;
     background-color: #fff;
     padding: 20px;
     padding:10px 20px 10px 20px;
+    overflow-y:scroll;
+    .popup_title{
+      margin-top: 20px;
+    }
+
 
   }
   .popup_footer{

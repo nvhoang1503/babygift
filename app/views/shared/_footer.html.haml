@@ -9,7 +9,7 @@
     %li#terms
       = link_to I18n.t('content.footer.term') , "#", :id => 'terms_content'
     %li#privacy
-      = link_to I18n.t('content.footer.privacy') , "#"
+      = link_to I18n.t('content.footer.privacy') , privacy_homes_path
     %li#contact{:class => (current_page?(contact_us_homes_path)  ? "selected" : "")}
       = link_to I18n.t('content.footer.contact') , contact_us_homes_path
     %li#about{:class => (current_page?(about_us_homes_path)  ? "selected" : "")}

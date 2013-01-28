@@ -2,8 +2,133 @@
   .popup_header
     %span Terms & Conditions
   .popup_content
-    Simple popup
+    / Simple popup
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.codittion.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.codittion.text1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.codittion.text2')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.service.title')
+    %p.popup_title.text.bold.font18.under= I18n.t('content.page.term_condition.service.title1')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.service.title2')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.service.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.newsletter.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.newsletter.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.enroll.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.enroll.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.contest.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.contest.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.modifi_sv.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.modifi_sv.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.gen_prac.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.gen_prac.text')
+
+    %p.popup_title.text.bold.font18.under= I18n.t('content.page.term_condition.use.title')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.use.title1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.use.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.license.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.license.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.policy.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.policy.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.enfor.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.enfor.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.other_user.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.other_user.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.release.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.release.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.payment.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.payment.text', :link => "#").html_safe
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.taxe.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.taxe.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.commer_use.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.commer_use.text')
+    %p.popup_title.text.bold.font18.under= I18n.t('content.page.term_condition.return_policy.title')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.return_policy.title1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.return_policy.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.exchange.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.exchange.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.damaged_product.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.damaged_product.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.ruturn_proce.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.ruturn_proce.text')
+
+    %p.popup_title.text.bold.font18.under= I18n.t('content.page.term_condition.intellectual.title')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.intellectual.title1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.intellectual.text1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.intellectual.text2')
+
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.third_party.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.third_party.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.user_content.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.user_content.text1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.user_content.text2')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.user_content.text3')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.copyright.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.copyright.text1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.copyright.text2')
+    %ul
+      %li= I18n.t('content.page.term_condition.copyright.text2_1')
+      %li= I18n.t('content.page.term_condition.copyright.text2_2')
+      %li= I18n.t('content.page.term_condition.copyright.text2_3')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.copyright.text3')
+
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.copyright.text4')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.copyright.text5')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.copyright.text6')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.copyright.text7')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.copyright.text8')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.counter.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.counter.text1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.counter.text2')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.counter.text3')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.repeat.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.repeat.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.third_party_website.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.third_party_website.text')
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.third_party_service.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.third_party_service.text1',:link => privacy_homes_path).html_safe
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.third_party_service.text2')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.indemnity_release.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.indemnity_release.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.disclaimer_warranties.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.disclaimer_warranties.text1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.disclaimer_warranties.text2')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.limitation_liability.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.limitation_liability.text1')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.limitation_liability.text2')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.arbitration.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.arbitration.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.termination.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.termination.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.user_disputes.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.user_disputes.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.general.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.general.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.your_privacy.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.your_privacy.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.notice_california.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.notice_california.text')
+
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.questions_concerns_suggestions.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.questions_concerns_suggestions.text', :link => "#").html_safe
+
   .popup_footer
     %input.no.btn.btn-gray.simplemodal-close{:type => "submit", :value => "Cancel"}
-    / %input#agree_save.yes.btn.btn-gray{:type => "submit", :value => "Submit"}
 

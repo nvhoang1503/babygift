@@ -32,6 +32,9 @@ class HomeController < ApplicationController
   def our_panel_expert
   end
 
+  def privacy
+  end
+
   # def test
   # end
 
