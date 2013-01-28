@@ -46,6 +46,9 @@ $page-title-color: #2fb495;
   #main-content {
     margin-top: 45px;
     .section {
+      .dotted-line {
+        margin-bottom: 5px;
+      }
       .title {
         color: $font-color;
         font-size: 18px;
@@ -53,10 +56,12 @@ $page-title-color: #2fb495;
         margin-bottom: 5px;
       }
       .info-line {
+        border-bottom: 1px solid rgb(212,213,215);
         &.header {
           font-family: 'GudeaBold';
           font-size: 13px;
           color: $font-color;
+          border-bottom: none;
           .name, .birthday, .plan {
             line-height: 30px;
           }
@@ -84,12 +89,6 @@ $page-title-color: #2fb495;
   }
   #list-children {
     color: $font-color;
-    .info-line {
-      border-bottom: 1px solid rgb(212,213,215);
-      &.header {
-        border-bottom: none;
-      }
-    }
   }
   #action {
     margin-top: 20px;

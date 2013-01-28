@@ -13,7 +13,7 @@
         .name.text.line22.font16.pull-left= pl.baby.fullname
         .birthday.text.line22.font16.pull-left= pl.baby.birthday.strftime('%m/%d/%Y')
         .plan.text.line22.font16.pull-left
-          = plan_detail(pl.plan_type, pl.price)
+          .pull-left= plan_detail(pl.plan_type, pl.price)
           %a.pull-right{:href => edit_child_n_plan_users_path(:plan_id => pl.id) }= I18n.t('label.edit')
   #action
     %span.text.font16.bold= I18n.t('content.page.account_child_plan.add_another')
