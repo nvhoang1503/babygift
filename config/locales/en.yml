@@ -314,7 +314,17 @@ en:
         expert_link: '> Meet Our Panel of Experts'
       our_team:
         title: 'Our Team'
-        susan_text1: ''
+        name1: 'Susan Kim'
+        co1: 'Co-Founder'
+        text1_1: 'Susan has spent her career creating products and marketing to women within several notable companies. With a background in consumer research and marketing, Susan began her career in toys. She spent over six years at Mattel, the world’s largest toy manufacturer, managing the girls’ entertainment portfolio. At Mattel, she managed the product development and launch of over 200 products under brands like Disney Princess, High School Musical, Hannah Montana, and Monster High. Susan has also led product development, and marketing & branding initiatives at Starwood Hotels, L’Oreal Paris, and Benefit Cosmetics.'
+        text1_2: 'In addition, she is a founding member of Project by Project Southern California, a nonprofit organization that partners with an under-funded nonprofit to help accelerate their development through fundraising, awareness, and outreach. She has also served on the board of the Asian Pacific Women’s Center, a transitional housing center for domestic violence victims.'
+        text1_3: 'Susan has a BS from the University of Southern California and an MBA from Harvard Business School.'
+
+        name2: 'Vivian Song Maritz'
+        co2: 'Co-Founder'
+        text2_1: 'Vivian has over ten years of experience in the technology, retail, and finance industries. Prior to co-founding Little Spark, Vivian served as a product manager on the leadership team at Shop It To Me, an ecommerce platform with over 4 million subscribers. Previously, she led marketing efforts for one of Google’s top performing sales teams. She started her career at Goldman Sachs, covering retail and financial stocks for top-ranked Institutional Investor analysts.'
+        text2_2: 'She is a mom to a toddler, who has personally tested all of Little Spark’s toys. He interest in baby development began long before her daughter arrived over dinner table conversations with her mother-in-law, who is an infant developmental psychologist.'
+        text2_3: 'Vivian graduated cum laude from Harvard College and earned an MBA Harvard Business School.'
       our_panel_of_experts:
         title: 'Our Panel of Experts'
       term_condition:
