@@ -4,14 +4,16 @@
   .popup_content
     / %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.codittion.title')
     %p.popup_text.text.font16= I18n.t('content.page.term_condition.codittion.text1')
-    %p.popup_text.text.font16= I18n.t('content.page.term_condition.codittion.text2')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.codittion.text2', :link => privacy_homes_path).html_safe
 
     %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.service.title')
     %p.popup_title.text.bold.font18.under= I18n.t('content.page.term_condition.service.title1')
     %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.service.title2')
     %p.popup_text.text.font16= I18n.t('content.page.term_condition.service.text')
     %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.newsletter.title')
-    %p.popup_text.text.font16= I18n.t('content.page.term_condition.newsletter.text')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.newsletter.text', :link => fqa_homes_path).html_safe
+    %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.certain_product_disc.title')
+    %p.popup_text.text.font16= I18n.t('content.page.term_condition.certain_product_disc.text')
     %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.enroll.title')
     %p.popup_text.text.font16= I18n.t('content.page.term_condition.enroll.text')
     %p.popup_title.text.bold.font18= I18n.t('content.page.term_condition.contest.title')

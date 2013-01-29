@@ -98,6 +98,8 @@ class window.Helper
         persist: true
         maxWidth: "740px"
         minWidth: "700px"
+        overlayCss:
+          backgroundColor:"#121212"
 
         onShow: (dialog) ->
             $('.popup_content .yes').click ->
