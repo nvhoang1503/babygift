@@ -44,6 +44,7 @@ class Payment < ActiveRecord::Base
     shipping_address = Address.find_by_id params[:shipping_address_id]
     transaction.set_address address.to_AN_billing_address if address
     transaction.set_shipping_address shipping_address.to_AN_shipping_address if shipping_address
+    transaction.set_fields(:invoice_num => params[:order_code]) if params.has_key?(:order_code)
 
     credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec
     return transaction.purchase(price, credit_card)
@@ -80,7 +81,7 @@ class Payment < ActiveRecord::Base
       :start_date => Date.today,
       :total_occurrences => AuthorizeNet::ARB::Subscription::UNLIMITED_OCCURRENCES,
       :amount => price,
-      # :invoice_number => '1234567',
+      :invoice_number => params[:order_code],
       :description => params[:description],
       :credit_card => credit_card,
     )

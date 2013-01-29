@@ -5,7 +5,7 @@
   .main_info
     .info_field.order_number
       %p.info_label.text.bold.pink= I18n.t('content.page.account_order_his.order_number')<<":"
-      %p.info_text.text.number.pink= @order.transaction_code
+      %p.info_text.text.number.pink= @order.order_code
     .info_field.order_placed
       %p.info_label.text.bold= I18n.t('content.page.account_order_his.order_placed')<<":"
       %p.info_text= @order.transaction_date.strftime("%m/%d/%Y")

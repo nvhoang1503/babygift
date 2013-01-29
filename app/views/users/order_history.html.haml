@@ -14,7 +14,7 @@
       %tbody.table_rows
         - @orders.each_with_index do |order, index|
           %tr{:class=>"row_number_#{index}"}
-            %td.order_column= link_to order.transaction_code, order_history_detail_users_path(:order_id => order.id), :class => 'underline-link'
+            %td.order_column= link_to order.order_code, order_history_detail_users_path(:order_id => order.id), :class => 'underline-link'
             %td.date_column
               - if order.transaction_date
                 = order.transaction_date.strftime("%m/%d/%Y")

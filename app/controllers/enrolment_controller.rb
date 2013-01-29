@@ -104,34 +104,35 @@ class EnrolmentController < ApplicationController
   end
 
   def finish
-    order = Order.find_by_id(params[:order_id])
-    order.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
-    params[:billing_address_id] = order.billing_address_id
-    params[:shipping_address_id] = order.shipping_address_id
-    if order.plan_type == Order::TYPE['1_mon']
-      @response = Payment.an_process(order.total_order, params)
-      if @response.success?
-        transaction_id = @response.transaction_id
+    @order = Order.find_by_id(params[:order_id])
+    @order.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
+    params[:billing_address_id] = @order.billing_address_id
+    params[:shipping_address_id] = @order.shipping_address_id
+    params[:order_code] = @order.order_code
+    if @order.plan_type == Order::TYPE['1_mon']
+      response = Payment.an_process(@order.total_order, params)
+      if response.success?
+        transaction_id = response.transaction_id
         subscription_id = nil
       else
-        error = Payment.get_error_messages(@response)
+        error = Payment.get_error_messages(response)
       end
     else
-      params[:description] = Order::TYPE_NAME[order.plan_type]
-      @response = Payment.an_create_recurring(order.total_order, params)
-      if @response.success?
+      params[:description] = Order::TYPE_NAME[@order.plan_type]
+      response = Payment.an_create_recurring(@order.total_order, params)
+      if response.success?
         transaction_id = nil
-        subscription_id = @response.subscription_id
+        subscription_id = response.subscription_id
       else
-        error = @response.message_text
+        error = response.message_text
       end
     end
-    if @response.success?
+    if response.success?
       flash[:success] = "Successfully made a purchase"
-      order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => transaction_id, :subscription_id => subscription_id})
+      @order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => transaction_id, :subscription_id => subscription_id})
       user = current_user
-      UserMailer.order_confirm(user, order, params, transaction_id).deliver
-      UserMailer.order_confirm_to_admin(user, order, params, transaction_id).deliver
+      UserMailer.order_confirm(user, @order, params, @order.order_code).deliver
+      UserMailer.order_confirm_to_admin(user, @order, params, @order.order_code).deliver
     else
       flash[:error] = error
       redirect_to :back

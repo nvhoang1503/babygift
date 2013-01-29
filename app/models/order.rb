@@ -58,7 +58,7 @@ class Order < ActiveRecord::Base
     :class_name => 'Address', :foreign_key => :billing_address_id
   accepts_nested_attributes_for :shipping_address, :billing_address, :baby
 
-  before_create :update_transaction_status
+  before_create :update_transaction_status, :generate_order_code
 
   def total_order
     self.price + self.get_tax + self.shipping_fee  #temp
@@ -94,5 +94,9 @@ class Order < ActiveRecord::Base
   protected
     def update_transaction_status
       self.transaction_status = TRANSACTION_STATUS[:start]
+    end
+
+    def generate_order_code
+      self.order_code = SecureRandom.hex(4) + Order.count.to_s
     end
 end

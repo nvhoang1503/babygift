@@ -2,7 +2,7 @@
   .title_page= I18n.t('content.page.congrate.title')
   .content_box
     %p= I18n.t('content.page.congrate.tk')
-    %p=I18n.t('content.page.congrate.order', :order => @response.transaction_id).html_safe
+    %p=I18n.t('content.page.congrate.order', :order => @order.order_code).html_safe
     %p.check=I18n.t('content.page.congrate.check', :link => "#").html_safe
     .social
       = render 'shared/social_media_icon_line'
