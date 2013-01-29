@@ -91,7 +91,7 @@ $page-title-color: #2fb495;
     color: $font-color;
   }
   #action {
-    margin-top: 20px;
+    margin: 20px 0px;
     .text{
       color: $font-color;
     }
@@ -99,8 +99,17 @@ $page-title-color: #2fb495;
   #child-info .child_box {
     padding-left: 0px;
     margin-top: 0px;
+    label {
+      width: 187px;
+    }
+    input, select {
+      width: 175px;
+    }
     .form_field:first-child {
       margin-top: 0px;
+    }
+    .first_name_field {
+      margin-right: 10px;
     }
     #plan-info {
       margin-top: 5px;
@@ -109,7 +118,7 @@ $page-title-color: #2fb495;
       width: 138px;
       line-height: 30px;
       font-size: 14px;
-      margin-left: 18px;
+      margin-left: 51px;
       margin-top: 10px;
       padding: 0px;
     }
@@ -122,7 +131,7 @@ $page-title-color: #2fb495;
     }
     #replacement {
       width: 138px;
-      margin-left: 18px;
+      margin-left: 51px;
     }
   }
 }
