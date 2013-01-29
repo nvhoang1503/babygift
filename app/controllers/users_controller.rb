@@ -46,6 +46,10 @@ class UsersController < ApplicationController
 
   def order_history_detail
     @order = Order.find params[:order_id]
+    if current_user.id != @order.baby.parent.id
+      flash[:error] = 'Incorrect order'
+      redirect_to :action => :order_history
+    end
   end
 
   def child_n_plan
