@@ -46,19 +46,17 @@ table{
   width: 100%;
 }
 
-table th{
-  text-align: left;
-  padding:5px;
-  background-image: url("common/bg_line.png");
+table th, table td {
+  padding:15px 5px;
   background-position: 0 100%;
   background-repeat: repeat-x;
 }
+table th{
+  text-align: left;
+  background-image: url("common/bg_line.png");
+}
 table td{
   background-image: url("common/line_black.jpg");
-  background-position: 0 100%;
-  background-repeat: repeat-x;
-  padding:15px 5px;
-
 }
 
 table tr:hover{

@@ -111,4 +111,5 @@ class UsersController < ApplicationController
       redirect_to :action => :child_n_plan
     end
   end
+
 end
