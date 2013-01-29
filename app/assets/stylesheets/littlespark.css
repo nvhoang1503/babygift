@@ -84,7 +84,6 @@ a:hover,a:focus{
 input, textarea,select{
   resize: none;
   border: 1px solid #CCCCCC;
-  /*box-shadow: 0 0 4px #CCCCCC inset;*/
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.075) inset !important;
   font-family:"Gudea";
   -moz-box-sizing: border-box;

@@ -7,6 +7,7 @@ $ ->
   window.user = new User if window.User
   window.hard = new Hard if window.Hard
   window.common = new Common if window.Common
+  window.home = new Home if window.Home
 
 
 # Fix for browser compatibility

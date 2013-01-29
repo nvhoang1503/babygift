@@ -152,14 +152,12 @@ $page-title-color: #2fb495;
     height: 40px;
     label{
       width: 190px;
-      // width: 183px;
       line-height: 25px;
 
     }
     input[type='checkbox']{
       float: right;
       margin-left: 10px;
-      // margin-left: 0px;
       width: 17px;
       height: 17px !important;
       margin-top: 6px;
@@ -299,9 +297,7 @@ $page-title-color: #2fb495;
       p {
         color: #333333;
       }
-
     }
-
   }
 
   .return_btn_section {
@@ -313,5 +309,4 @@ $page-title-color: #2fb495;
     height: 21px;
     padding-top:11px;
   }
-
 }

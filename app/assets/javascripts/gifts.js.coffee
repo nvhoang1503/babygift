@@ -83,10 +83,6 @@ class window.Gift
     $('#gift-plan').live 'submit',  ->
       ck = $('input[name="gift[plan_type]"]').is(':checked')
       helper.showErrorMessage(ck,'.plan-section' , message.plan_missing, 'plan_type_error')
-      # if $('input:radio:checked').length == 0
-      #   # helper.showFlashMessage(message.plan_missing)
-      #   helper.showErrorMessage()
-      #   return false
 
   checkBillingValid: ->
     $('#gift_billing_address_attributes_zip').keypress helper.validateZip

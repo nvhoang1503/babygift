@@ -1,7 +1,6 @@
 .page_content_space
   = render 'steps_nav'
   = simple_form_for @gift, :url => update_gift_billing_gifts_path(:gift_id => params[:gift_id]), :html => {:class => "gift-form", :id => 'gift-billing'} , :validate => :gift_validator do |f|
-    / .tittle_content= I18n.t('content.page.enroll_4.title')
     .billing-address.pull-left
       = render 'shared/form_billing', :form_builder => f
     .clearfix

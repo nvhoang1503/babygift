@@ -153,8 +153,6 @@ en:
         recipient_hint: "recipient's email"
         recipient_cfrm_hint: "confirm recipient's email"
         redeem: 'Redeem your gift! >>'
-
-
       login:
         title: 'Log in'
         forgot_pass: 'Forgot your password?'
@@ -184,6 +182,8 @@ en:
         hint: 'Your account will be debited monthly'
         monthly: '/month*'
         plan_missing: 'Please make a selection'
+        text_bill_month1: 'Billed monthly,<br> cancel anytime'
+        text_bill_month2: 'Pay upfront and save,<br> renews automatically'
       enroll_3:
         step: 'Your account'
         title: 'Sign in'

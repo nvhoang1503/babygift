@@ -23,9 +23,6 @@ class HomeController < ApplicationController
   def fan_page
   end
 
-  def term
-  end
-
   def our_team
   end
 
@@ -34,8 +31,5 @@ class HomeController < ApplicationController
 
   def privacy
   end
-
-  # def test
-  # end
 
 end

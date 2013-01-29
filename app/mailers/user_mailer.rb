@@ -14,7 +14,6 @@ class UserMailer < ActionMailer::Base
     @user = user
     @user_mail = user.email
     @user_id = user.id
-    # @email = "littlesparktesting@gmail.com"
     @email = User::ADMIN_EMAIL
     mail(:to => @email ,subject: "New User testing" )
   end
@@ -29,7 +28,6 @@ class UserMailer < ActionMailer::Base
     @billing_address = @order.billing_address
     @shipping_address = @order.shipping_address
     @url = url_for :controller=>'sessions', :action=>'new'
-    # mail(:to => @user_email, :subject => "Congratulation!")
     mail(:to => @user_email, :subject => "Order Confirmation")
   end
 

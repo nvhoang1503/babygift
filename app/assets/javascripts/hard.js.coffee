@@ -5,7 +5,6 @@ class window.Hard
 
   displayFaqTab: ->
     $('.fqa_about').live "click", ->
-      # $(this).addClass('selected')
       # hightlight selected link
       $('.fqa_about').addClass('selected')
       $('.fqa_sign_up').removeClass('selected')
