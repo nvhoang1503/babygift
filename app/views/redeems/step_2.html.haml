@@ -5,7 +5,7 @@
     = render 'devise/sessions/form_login_and_register', :login_text => "Sign In"
 = render 'shared/submit_form', :btn_form => '.btn_login'
 = content_for :js do
-  = javascript_include_tag 'libs/jquery.inputHintOverlay.js', 'enrolment.js','redeems.js'
+  = javascript_include_tag 'enrolment.js','redeems.js'
   :erb
     <script>
       $("li#step_2").addClass("selected");

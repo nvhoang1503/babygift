@@ -13,9 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require libs/twitter-bootstrap-hover-dropdown.min
+//= require twitter-bootstrap-hover-dropdown.min
 //= require bootstrap-datepicker
-//= require libs/jquery.simplemodal
+//= require jquery.simplemodal
+//= require jquery.inputHintOverlay
 //= require helper
 //= require common
 //= require application
