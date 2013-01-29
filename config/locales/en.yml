@@ -97,7 +97,7 @@ en:
         save: 'Save child & plan'
       account_order_his:
         step: 'Your Order History'
-        order: 'Order'
+        order: 'Order#'
         date: 'Date'
         recipient: 'recipient'
         child: 'Child'
