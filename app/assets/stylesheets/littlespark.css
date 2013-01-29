@@ -52,17 +52,18 @@ table th{
   background-image: url("common/bg_line.png");
   background-position: 0 100%;
   background-repeat: repeat-x;
-  /*height: 2px;*/
-  cursor:pointer;
 }
 table td{
-  border-bottom: 1px solid #656363;
+  background-image: url("common/line_black.jpg");
+  background-position: 0 100%;
+  background-repeat: repeat-x;
   padding:15px 5px;
 
 }
 
 table tr:hover{
   background:#E8E7E6 ;
+  border-top: none;
 }
 
 a{
