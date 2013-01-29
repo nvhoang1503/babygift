@@ -130,8 +130,8 @@ class EnrolmentController < ApplicationController
       flash[:success] = "Successfully made a purchase"
       order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => transaction_id, :subscription_id => subscription_id})
       user = current_user
-      UserMailer.order_confirm(user, order, params, @response.transaction_id).deliver
-      UserMailer.order_confirm_to_admin(user, order, params, @response.transaction_id).deliver
+      UserMailer.order_confirm(user, order, params, transaction_id).deliver
+      UserMailer.order_confirm_to_admin(user, order, params, transaction_id).deliver
     else
       flash[:error] = error
       redirect_to :back

@@ -290,6 +290,7 @@ div.flash-content.error{
   margin-left: 10px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-color: #FFC91E;
   .dropdown-menu {
     right: 0px;
@@ -308,7 +309,6 @@ div.flash-content.error{
     color: #44464b;
     padding: 5px 0px 5px 5px;
     line-height: 31px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     .caret {
