@@ -72,6 +72,24 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def plan_detail_with_price
+    "#{TYPE_DUR[self.plan_type]} $#{PRICE[self.plan_type]}"
+  end
+
+  def is_cancelable?
+    return false if self.plan_type == TYPE['1_mon'] or self.subscription_id.blank?
+
+    transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+    response = transaction.get_status(self.subscription_id)
+    p '-'*100, self.subscription_id, response.subscription_status
+    if response.subscription_status.nil? or response.subscription_status == AuthorizeNet::ARB::Subscription::Status::CANCELED
+      result = false
+    else
+      result = true
+    end
+    return result
+  end
+
   def self.order_by_user(user_id)
     transaction_status = Order::TRANSACTION_STATUS[:completed]
     sql = " select *
@@ -85,10 +103,6 @@ class Order < ActiveRecord::Base
           "
     orders = Order.find_by_sql(sql)
     return orders
-  end
-
-  def plan_detail_with_price
-    "#{TYPE_DUR[self.plan_type]} $#{PRICE[self.plan_type]}"
   end
 
   protected

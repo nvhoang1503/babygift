@@ -98,18 +98,21 @@ class UsersController < ApplicationController
   end
 
   def cancel_plan
+    result = {}
     plan = Order.find_by_id params[:plan_id]
     if plan
       response = Payment.an_cancel_recurring(plan.subscription_id)
       if response.success?
-        flash[:warning] = I18n.t('message.success_cancel_plan')
+        result[:success] = true
+        result[:msg] = I18n.t('message.success_cancel_plan')
       else
-        flash[:error] = I18n.t('message.fail_cancel_plan')
+        result[:success] = false
+        result[:msg] = I18n.t('message.fail_cancel_plan')
       end
-      redirect_to :action => :edit_child_n_plan, :plan_id => plan.id
     else
-      redirect_to :action => :child_n_plan
+      result[:success] = false
     end
+    render :json => result
   end
 
 end

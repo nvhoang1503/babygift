@@ -21,10 +21,15 @@
         %label=I18n.t('content.page.edit_child_plan.plan')
         #plan-info.text.font16.pull-left= f.object.plan_detail_with_price
       .form_field
-        .pull-left
-          %a#btn-cancel.mybtn.btn-green.uppercase{:href => cancel_plan_users_path(:plan_id => @plan.id, :authenticity_token => form_authenticity_token), 'data-method' => 'post' }= I18n.t('content.page.edit_child_plan.cancel')
+        - if @plan.is_cancelable?
+          #btn-cancel.pull-left.mybtn.btn-green.uppercase{'data-plan' => @plan.id }= I18n.t('content.page.edit_child_plan.cancel')
+        - else
+          #replacement.pull-left &nbsp;
         = f.submit I18n.t('content.page.edit_child_plan.save'), :id => 'btn-submit', :class => 'mybtn btn-pink uppercase'
 
 = content_for :js do
+  = javascript_tag do
+    :erb
+      var auth_token = '<%=raw form_authenticity_token %>';
   = yield :child_validator
   = javascript_include_tag 'users.js'

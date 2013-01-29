@@ -1,8 +1,8 @@
 class Redeem < Gift
 
   STATUS = {
-    :start => 'starting',
-    :completed => 'completed'
+    :start => '1',
+    :completed => '2'
   }
 
   attr_accessible :gift_code, :user_id, :gender, :shipping_address_id, :price, :tax, :shipping_fee, :total, :transaction_code, :transaction_date, :transaction_status

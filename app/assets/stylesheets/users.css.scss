@@ -109,7 +109,7 @@ $page-title-color: #2fb495;
       width: 138px;
       line-height: 30px;
       font-size: 14px;
-      margin-left: 16px;
+      margin-left: 18px;
       margin-top: 10px;
       padding: 0px;
     }
@@ -119,6 +119,10 @@ $page-title-color: #2fb495;
       font-size: 20px;
       padding: 0px !important;
       margin-left: 7px;
+    }
+    #replacement {
+      width: 138px;
+      margin-left: 18px;
     }
   }
 }

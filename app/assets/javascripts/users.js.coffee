@@ -8,6 +8,22 @@ class window.User
     @checkValidChangePass()
     helper.initDatepicker('#plan_baby_attributes_birthday')
     @reloadPlan()
+    $('#btn-cancel').click @cancelPlan
+
+  cancelPlan: ->
+    plan_id = $(@).attr('data-plan')
+    $.ajax
+      type: "POST"
+      url: "/users/cancel_plan"
+      data: {plan_id: plan_id, authenticity_token: auth_token}
+      dataType: 'json'
+      success: (response)->
+        if response.msg
+          helper.showFlashMessage(response.msg)
+        else
+          window.location.href = '/users/child_n_plan'
+      error: (response)->
+        alert(message.server_error)
 
   checkValidCurPass: ->
     $('#user_current_password').blur ->

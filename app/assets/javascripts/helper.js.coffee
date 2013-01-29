@@ -55,8 +55,8 @@ class window.Helper
       $('#flash-panel').append("<div class='page_content_space alert-box'>#{text}</div>")
     else
       $('#flash-panel .alert-box').text("#{text}")
-      $('#flash-panel').fadeIn()
-      @autoHideFlash()
+    $('#flash-panel').fadeIn()
+    @autoHideFlash()
 
   checkTermsNConditions: (cb_terms, callback) ->
     if $(cb_terms).is(':checked')
