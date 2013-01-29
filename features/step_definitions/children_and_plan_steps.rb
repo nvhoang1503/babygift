@@ -55,12 +55,37 @@ Then /^I should see the child form in the middle section$/ do
   check_label('#meo', I18n.t("content.page.account_child_plan.which_child", '18px', "'GudeaBold'", "rgb(68, 70, 75)"))
 end
 
+Then /^I should see Which Child\? combo\-box$/ do
+end
+
+Then /^I should see Plan combo\-box$/ do
+end
+
+When /^I cancel this plan$/ do
+end
+
+Then /^I should see the successful notification flash$/ do
+end
+
+When /^I edit some fields for child$/ do
+end
+
+Then /^I should see new info was saved$/ do
+end
+
+
 Then /^I should see the cancel button$/ do
-  pending # express the regexp above with the code you wish you had
 end
 
 Then /^I should see the save button$/ do
-  pending # express the regexp above with the code you wish you had
 end
 
+Then /^I should see Child's Name text\-box$/ do
+end
+
+Then /^I should see Child's Birthday box$/ do
+end
+
+Then /^I should see Child's Gender combo\-box$/ do
+end
 
