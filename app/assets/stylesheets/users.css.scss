@@ -158,6 +158,9 @@ $page-title-color: #2fb495;
       font-size: 22px;
     }
   }
+  span.error {
+    margin-right: 0px;
+  }
 }
 .contact_information {
   .tittle_box{
@@ -166,17 +169,15 @@ $page-title-color: #2fb495;
       font-size: 22px;
     }
   }
+  span.error {
+    margin-right: 190px;
+  }
 }
 .contact_information, .change_password {
 
   .input_fields {
     float: left;
     width: 420px;
-  }
-
-
-  span.error {
-    margin-right: 0px;
   }
 
   label{
