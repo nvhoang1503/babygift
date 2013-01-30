@@ -48,6 +48,7 @@ class Order < ActiveRecord::Base
 
   attr_accessible :baby_id, :plan_type, :price, :transaction_status, :transaction_date, :subscription_id, :transaction_code, :shipping_address_attributes, :billing_address_attributes, :baby_attributes
   validates_presence_of :baby, :plan_type, :price
+  validates_uniqueness_of :order_code
 
   belongs_to :baby
   belongs_to :purchaser,
@@ -81,7 +82,6 @@ class Order < ActiveRecord::Base
 
     transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
     response = transaction.get_status(self.subscription_id)
-    p '-'*100, self.subscription_id, response.subscription_status
     if response.subscription_status.nil? or response.subscription_status == AuthorizeNet::ARB::Subscription::Status::CANCELED
       result = false
     else
