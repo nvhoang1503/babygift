@@ -111,14 +111,20 @@ class window.Helper
       return
 
   initDatepicker: (elem) ->
-    $(elem).datepicker({
+    target = $(elem)
+    target.datepicker({
+      id: target.attr('id')
       format: 'mm/dd/yyyy'
       weekStart: 1
       autoclose: true
       todayHighlight: true
       startView: 0
     }).on 'changeDate', ->
-      if $.trim($(elem).val()) != ''
+      if $.trim(target.val()) != ''
         $("#{elem} ~ label.inputHintOverlay").css({display:'none'})
-        func =-> $(elem).focusout()
+        func =-> target.focusout()
         window.setTimeout(func, 100)
+    if target.length > 0
+      target_id = target.prop('id')
+      $('.datepicker').prop('id', "date-#{target_id}") if target_id.length > 0
+
