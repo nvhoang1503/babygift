@@ -327,6 +327,26 @@ en:
         text2_3: 'Vivian graduated cum laude from Harvard College and earned an MBA Harvard Business School.'
       our_panel_of_experts:
         title: 'Our Panel of Experts'
+        name_1: "Jane Hu"
+        role_1_1: "Infant Cognitive"
+        role_1_2: "Researcher"
+        text_1_1: "Jane is a researcher at the University of California Berkeley Early Learning Lab (Lawrence Hall of Sciences) researching children's cognitive, social, and linguistic development. Her current research examines children's ability to understand others' beliefs. As part of her research, Jane designs and plays fun, interactive games with children and parents at the Berkeley Early Learning Lab and various preschools around the Bay Area. Before moving to the Bay Area, Jane received her B.A. in Psychology from Yale University, where she was an undergraduate research assistant and senior thesis student at the Yale Infant Cognition Center. She is a recipient of the National Science Foundation's Graduate Research Fellowship."
+        name_2: "Leslie Lee"
+        role_2_1: "Pediatric Occupational"
+        role_2_2: "Therapist"
+        text_2_1: "Leslie is a certified pediatric occupational therapist, with nearly a decade of experience treating newborns and toddlers. As a pediatric occupational therapist, Leslie evaluates and treats children to enhance their functioning within varying environments. With a focus on newborns, Leslie works at the Neonatal Intensive Care Unit at the Queen of the Valley hospital in Los Angeles, CA. She evaluates and treats the development and reflexes of neonatal infants, as well as develops and prescribes home programs, exercises, and adaptive equipment. She is also Neonatal Oral Motor Assessment Scale (NOMAS) certified psychologist."
+        text_2_2: "Leslie is also a new mom to a baby girl."
+        name_3: "Yaffa Maritz"
+        role_3_1: "Developmental"
+        role_3_2: "Psychologist"
+        text_3_1: "Yaffa is the co‐founder of Listening Mothers and Clinical Director of both Listening Mothers and Reflective Parenting, two research‐based parenting programs. She is founder and Director of the Community of Mindful Parents, nominated by Red Tricycle for top parenting resource in the Seattle area. Yaffa was trained in Israel as a clinical psychologist. She is also a licensed mental health counselor with advanced training in infant mental health. She is an advocate for the well‐being of children and their families and serves on several local and national boards that promote this agenda, including the Governor’s Commission for Child Abuse and Neglect Prevention."
+        text_3_2: "Yaffa is a mother and a grandmother."
+        name_4: "Ami Walstrom"
+        role_4_1: "Teacher and Parent"
+        text_4_1: "Ami Walstrom is a teacher and parent. With a scholarship to Fresno State for swimming, Ami received her Clear Multiple Subject Teaching Credential K-8 with CLAD Emphasis. She also received her supplementary Authorization PE in May 1998. In addition to her credentials, Ami received her Master of Arts in Teaching, with a specialization in Educational Technology from Nation University."
+        text_4_2: "Ami taught in Irvine Unified School District at Santiago Hills Elementary for 4th/5th combo, 4th, and 5th grades. In addition, she taught for the Anaheim City School District for 4th GATE, 4th, and 6th grade at Clara Barton School. Ami was also resource teacher at Clara Barton where she specially focused students who were below grade level to develop reading and comprehension skills. In 2006, she received the Teacher of the Year."
+        text_4_3: "Ami is now a stay-at-home mom of 2 boys (James, 5-years-old and Andrew, 4-years-old)."
+
       term_condition:
         codittion:
           title: 'LITTLE SPARK: TERMS AND CONDITIONS'
