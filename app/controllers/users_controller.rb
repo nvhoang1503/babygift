@@ -41,11 +41,15 @@ class UsersController < ApplicationController
   end
 
   def order_history
-    @orders = Order.order_by_user(current_user.id)
+    @orders = Order.order_redeem_by_user(current_user.id)
+    # @orders = Order_Redeem.order_redeem_by_user(current_user.id)
   end
 
   def order_history_detail
-    @order = Order.find params[:order_id]
+    id = params[:order_id].to_i
+    @order_type = params[:order_type].to_i
+    # @order = Order.find params[:order_id]
+    @order = Order.order_redeem_detail(id,@order_type)
     if current_user.id != @order.baby.parent.id
       flash[:error] = 'Incorrect order'
       redirect_to :action => :order_history
