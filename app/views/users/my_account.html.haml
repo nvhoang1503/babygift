@@ -32,8 +32,9 @@
       .plan.uppercase.pull-left= I18n.t('content.page.account_sum.plan')
     .clearfix
     .dotted-line
-    - @plans.each do |pl|
-      .info-line.clearfix
-        .name.text.line22.font16.pull-left= pl.baby.fullname
-        .birthday.text.line22.font16.pull-left= pl.baby.birthday.strftime('%m/%d/%Y')
-        .plan.text.line22.font16.pull-left= plan_detail(pl.plan_type, pl.price)
+    .content
+      - @plans.each do |pl|
+        .info-line.clearfix
+          .name.text.line22.font16.pull-left= pl.baby.fullname
+          .birthday.text.line22.font16.pull-left= pl.baby.birthday.strftime('%m/%d/%Y')
+          .plan.text.line22.font16.pull-left= plan_detail(pl.plan_type, pl.price)

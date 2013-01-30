@@ -10,8 +10,6 @@ $page-title-color: #2fb495;
 }
 
 #left-nav {
-  border-right: 2px solid #45474c;
-  min-height: 500px;
   #account-steps{
     margin-left: 30px;
     width: 210px;
@@ -33,8 +31,12 @@ $page-title-color: #2fb495;
   }
 }
 #right-content {
-  margin: 0 32px 0 54px;
   width: 612px;
+  min-height: 500px;
+  margin-bottom: 20px;
+  padding: 0 32px 0 54px;
+  border-left: 2px solid #45474c;
+
   .page-title {
     color: $page-title-color;
     font-size: 22px;
@@ -57,6 +59,7 @@ $page-title-color: #2fb495;
       }
       .info-line {
         border-bottom: 1px solid rgb(212,213,215);
+        width: 612px;
         &.header {
           font-family: 'GudeaBold';
           font-size: 13px;
@@ -86,9 +89,21 @@ $page-title-color: #2fb495;
   }
   #child-n-plan {
     margin-top: 32px;
+    .content {
+      width: 630px;
+      min-height: 200px;
+      max-height: 400px;
+      overflow-y: scroll;
+    }
   }
   #list-children {
     color: $font-color;
+    .content {
+      width: 630px;
+      min-height: 200px;
+      max-height: 600px;
+      overflow-y: scroll;
+    }
   }
   #action {
     margin: 20px 0px;
