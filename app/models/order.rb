@@ -48,7 +48,7 @@ class Order < ActiveRecord::Base
 
   attr_accessible :baby_id, :plan_type, :price, :transaction_status, :transaction_date, :subscription_id, :transaction_code, :shipping_address_attributes, :billing_address_attributes, :baby_attributes
   validates_presence_of :baby, :plan_type, :price
-  validates_uniqueness_of :order_code
+  validates_uniqueness_of :order_code, :message => I18n.t('message.unq_order_code')
 
   belongs_to :baby
   belongs_to :purchaser,
