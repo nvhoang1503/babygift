@@ -42,9 +42,24 @@ class User < ActiveRecord::Base
     end
   end
 
-  def displayed_name 
-    name = fullname.nil? ? email : fullname 
+  def displayed_name
+    name = fullname.nil? ? email : fullname
   end
+
+  def first_name
+    if self['first_name'] == nil
+      self['first_name'] = ""
+    end
+    return self['first_name']
+  end
+
+  def last_name
+    if self['last_name'] == nil
+      self['last_name'] = ""
+    end
+    return self['last_name']
+  end
+
 end
 
 
