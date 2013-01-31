@@ -125,7 +125,7 @@ class EnrolmentController < ApplicationController
         transaction_id = nil
         subscription_id = response.subscription_id
       else
-        error = response.message_text
+        error = I18n.t('message.fail_enroll')
       end
     end
     if response.success?

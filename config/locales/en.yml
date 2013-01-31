@@ -28,6 +28,7 @@ en:
     server_error: 'Something went wrong!'
     invalid_gift: "This gift was redeemed."
     fail_redeem: "Redeem is not successful right now."
+    fail_enroll: "Enroll is not successful right now."
     success_cancel_plan: "You successfully canceled your plan and you won't receive anymore kits at the end of the planned periode"
     fail_cancel_plan: "Failed to cancel this plan."
     unq_order_code: 'Order code must be unique'
