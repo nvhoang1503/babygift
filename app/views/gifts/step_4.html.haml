@@ -8,8 +8,8 @@
       = render 'shared/order_summary', :price => @gift.price, :tax => @gift.tax, :total => @gift.total_price, :plan_type => @gift.plan_type
       .action_box
         = f.submit 'PLACE YOUR ORDER', :class => 'mybtn btn-pink btn-place'
-        - if @gift.plan_type != Order::TYPE['1_mon']
-          %p.text.italic= I18n.t('text.plan_renew')
+        / - if @gift.plan_type != Order::TYPE['1_mon']
+        /   %p.text.italic= I18n.t('text.plan_renew')
 
 = content_for :js do
   = javascript_tag do
