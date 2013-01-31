@@ -20,9 +20,8 @@
         %label=I18n.t('content.page.edit_child_plan.plan')
         #plan-info.text.font16.pull-left= "#{Order::TYPE_DUR[@baby.plan_type.to_i]} $#{Order::PRICE[@baby.plan_type.to_i]}"
       .form_field
-        / = hidden_field_tag 'cancelable', @plan.is_cancelable?
-        / - btn_class = @plan.is_cancelable? ? "mybtn btn-green" : "disabled-mybtn btn-gray"
-        - btn_class = "mybtn btn-green"
+        = hidden_field_tag 'cancelable', cancelable?(@baby)
+        - btn_class = cancelable?(@baby) ? "mybtn btn-green" : "disabled-mybtn btn-gray"
         #btn-cancel.pull-left.uppercase{'data-plan' => @baby.plan_id, :class => btn_class}= I18n.t('content.page.edit_child_plan.cancel')
         = b.submit I18n.t('content.page.edit_child_plan.save'), :id => 'btn-submit', :class => 'mybtn btn-pink uppercase'
       .form_field.hidden

@@ -60,7 +60,6 @@ class UsersController < ApplicationController
   end
 
   def edit_child_n_plan
-    @babies = current_user.enroll_n_redeem_babies
     @baby = current_user.get_baby_by_plan(params[:plan_id], params[:enroll], params[:redeem])
     @baby.birthday = @baby.birthday.strftime('%m/%d/%Y') if @baby.birthday
   end
@@ -88,6 +87,7 @@ class UsersController < ApplicationController
       result = baby.attributes
       result[:birthday] = baby.birthday.strftime('%m/%d/%Y')
       result[:plan] = "#{Order::TYPE_DUR[baby.plan_type.to_i]} $#{Order::PRICE[baby.plan_type.to_i]}"
+      result[:cancelable] = self.class.helpers.cancelable?(baby)
       render :json => {:success => true, :data => result}
     else
       render :json => {:success => false, :msg => I18n.t('message.not_found', :obj => 'This child')}

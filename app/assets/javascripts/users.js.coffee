@@ -114,12 +114,12 @@ class window.User
             $('#plan_id').val(data.plan_id)
             $('#enroll').val(data.is_enroll_plan)
             $('#redeem').val(data.is_redeem_plan)
+            $('#cancelable').val(data.cancelable)
+            if data.cancelable
+              $('#btn-cancel').removeClass("disabled-mybtn btn-gray").addClass("mybtn btn-green")
+            else
+              $('#btn-cancel').removeClass("mybtn btn-green").addClass("disabled-mybtn btn-gray")
           else
             alert(response.msg)
         error: (response)->
           alert(message.server_error)
-
-
-
-
-

@@ -15,7 +15,6 @@ module UsersHelper
     return name
   end
 
-  # user_plan_babies: from
   def child_plan_options(selected=nil)
     babies = current_user.enroll_n_redeem_babies
     arr = []
@@ -26,4 +25,16 @@ module UsersHelper
     options_for_select(arr, selected)
   end
 
+  # baby_plan: return obj from current_user.get_baby_by_plan
+  def cancelable?(baby_plan)
+    is_enroll_plan = SharedMethods::Parser::Boolean baby_plan.is_enroll_plan
+    is_redeem_plan = SharedMethods::Parser::Boolean baby_plan.is_redeem_plan
+    if !is_enroll_plan and is_redeem_plan
+      return false
+    elsif is_enroll_plan and !is_redeem_plan
+      return baby_plan.plan.is_cancelable?
+    else
+      return false
+    end
+  end
 end
