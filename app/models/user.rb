@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :shipping_address, :billing_address
 
   def fullname
-    if self.first_name.nil? && self.last_name.nil?
+    if self.first_name == "" && self.last_name == ""
       return nil
     else
       return [self.first_name, self.last_name].join(" ")
