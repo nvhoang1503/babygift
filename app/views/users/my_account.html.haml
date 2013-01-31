@@ -7,9 +7,9 @@
       %a.underline-link.pull-right{:href => contact_users_path}= I18n.t('label.edit')
       .clearfix
       .dotted-line
-      - if @user.fullname
-        .text.line22.font16= @user.fullname
-      .text.line22.font16= @user.email
+      - if current_user.fullname
+        .text.line22.font16= current_user.fullname
+      .text.line22.font16= current_user.email
       .text.line22.font16= '*'*11
     / #payment-info.section.pull-right
     /   .title.pull-left= I18n.t('content.page.account_sum.payment_title')

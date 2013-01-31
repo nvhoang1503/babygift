@@ -15,6 +15,15 @@ module UsersHelper
     return name
   end
 
+  # user_plan_babies: from
+  def child_plan_options(selected=nil)
+    babies = current_user.enroll_n_redeem_babies
+    arr = []
+    babies.each { |b|
+      arr << [b.first_name, b.id, {'data-plan-id' => b.plan_id, 'data-enroll' => b.is_enroll_plan, 'data-redeem' => b.is_redeem_plan}]
+    }
 
+    options_for_select(arr, selected)
+  end
 
 end

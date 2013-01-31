@@ -93,20 +93,27 @@ class window.User
 
   reloadPlan: ->
     $("#child_id").change ->
-      baby_id = $("#child_id").val()
+      baby = $('#child_id').find('option:selected')
       $.ajax
         type: "GET"
         url: "/users/reload_plan"
-        data: {baby_id: baby_id}
+        data: {
+          plan_id: baby.attr('data-plan-id'),
+          enroll: baby.attr('data-enroll'),
+          redeem: baby.attr('data-redeem')
+        }
         dataType: 'json'
         success: (response)->
           if response.success
             data = response.data
-            $('#plan_baby_attributes_first_name').val(data.first_name)
-            $('#plan_baby_attributes_last_name').val(data.last_name)
-            $('#plan_baby_attributes_birthday').val(data.birthday)
-            $('#plan_baby_attributes_gender').val(data.gender)
+            $('#baby_first_name').val(data.first_name)
+            $('#baby_last_name').val(data.last_name)
+            $('#baby_birthday').val(data.birthday)
+            $('#baby_gender').val(data.gender)
             $('#plan-info').text(data.plan)
+            $('#plan_id').val(data.plan_id)
+            $('#enroll').val(data.is_enroll_plan)
+            $('#redeem').val(data.is_redeem_plan)
           else
             alert(response.msg)
         error: (response)->

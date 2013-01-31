@@ -79,10 +79,6 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def plan_detail_with_price
-    "#{TYPE_DUR[self.plan_type]} $#{PRICE[self.plan_type]}"
-  end
-
   def is_cancelable?
     return false if self.plan_type == TYPE['1_mon'] or self.subscription_id.blank?
 

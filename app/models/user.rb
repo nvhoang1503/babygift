@@ -43,6 +43,17 @@ class User < ActiveRecord::Base
     return Baby.find_by_sql(sql)
   end
 
+  def get_baby_by_plan(plan_id, is_enroll_plan, is_redeem_plan)
+    enroll_babies_selector = self.babies.joins(:plan).where("orders.transaction_status like '#{Order::TRANSACTION_STATUS[:completed]}'").select('babies.*, orders.plan_type AS plan_type, orders.price AS price, orders.id AS plan_id, true AS is_enroll_plan, false AS is_redeem_plan').to_sql
+    redeem_babies_selector = self.babies.joins(:redeem).where("gifts.redeem_status like '#{Redeem::STATUS[:completed]}'").select('babies.*, gifts.plan_type as plan_type, gifts.price as price, gifts.id AS plan_id, false AS is_enroll_plan, true AS is_redeem_plan').to_sql
+    sql = "SELECT *
+      FROM (#{enroll_babies_selector} UNION ALL #{redeem_babies_selector})
+      AS tmp
+      WHERE plan_id = #{plan_id} AND (is_enroll_plan = '#{is_enroll_plan}') AND (is_redeem_plan= '#{is_redeem_plan}')
+      "
+    return Baby.find_by_sql(sql).first
+  end
+
   def fullname
     if self.first_name == "" && self.last_name == ""
       return nil

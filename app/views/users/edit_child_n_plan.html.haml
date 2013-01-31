@@ -1,30 +1,34 @@
 .page-title.uppercase= I18n.t("content.page.edit_child_plan.title")
 .dotted-line
 #main-content
-  = simple_form_for @plan, :as => :plan, :url => update_child_n_plan_users_path(:plan_id => @plan.id), :html => {:id => 'child-info', :class => 'child-form clearfix' }, :validate => :child_validator do |f|
+  = simple_form_for @baby, :url => update_child_n_plan_users_path, :html => {:id => 'child-info', :class => 'child-form clearfix' }, :validate => :child_validator do |b|
     .child_box
-      = f.simple_fields_for :baby do |b|
-        .form_field
-          %label= I18n.t("content.page.edit_child_plan.which_child")
-          = select_tag(:child_id , options_from_collection_for_select( @childs , :id , :first_name, b.object.id))
-        .form_field
-          %label=I18n.t('content.page.redeem_3.child_name')
-          = b.input :first_name, :label => false, :input_html => {:class=> 'first_name', :placeholder => I18n.t('content.page.enroll_1.first_name')}, :wrapper_html=>{:class => 'first_name_field'}
-          = b.input :last_name, :label => false, :input_html => {:class=> 'last_name', :placeholder => I18n.t('content.page.enroll_1.last_name')}
-        .form_field
-          %label=I18n.t('content.page.redeem_3.child_birth')
-          = b.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker', :placeholder => I18n.t('content.common.date_format') }, :wrapper_html => {:class => "pull-left"}
-        .form_field
-          %label= I18n.t('content.page.redeem_3.child_gender')
-          = b.input :gender, :collection => gender_options, :label_method => :first, :value_method => :second, :label => false, :prompt => 'Please select one'
+      .form_field
+        %label= I18n.t("content.page.edit_child_plan.which_child")
+        = select_tag :child_id, child_plan_options(@baby.id)
+      .form_field
+        %label=I18n.t('content.page.redeem_3.child_name')
+        = b.input :first_name, :label => false, :input_html => {:class=> 'first_name', :placeholder => I18n.t('content.page.enroll_1.first_name')}, :wrapper_html=>{:class => 'first_name_field'}
+        = b.input :last_name, :label => false, :input_html => {:class=> 'last_name', :placeholder => I18n.t('content.page.enroll_1.last_name')}
+      .form_field
+        %label=I18n.t('content.page.redeem_3.child_birth')
+        = b.input :birthday, :as => :string, :label => false, :required => false, :input_html => { :title => I18n.t('content.common.date_format'), 'data-behaviour' => 'datepicker', :placeholder => I18n.t('content.common.date_format') }, :wrapper_html => {:class => "pull-left"}
+      .form_field
+        %label= I18n.t('content.page.redeem_3.child_gender')
+        = b.input :gender, :collection => gender_options, :label_method => :first, :value_method => :second, :label => false, :prompt => 'Please select one'
       .form_field
         %label=I18n.t('content.page.edit_child_plan.plan')
-        #plan-info.text.font16.pull-left= f.object.plan_detail_with_price
+        #plan-info.text.font16.pull-left= "#{Order::TYPE_DUR[@baby.plan_type.to_i]} $#{Order::PRICE[@baby.plan_type.to_i]}"
       .form_field
-        = hidden_field_tag 'cancelable', @plan.is_cancelable?
-        - btn_class = @plan.is_cancelable? ? "mybtn btn-green" : "disabled-mybtn btn-gray"
-        #btn-cancel.pull-left.uppercase{'data-plan' => @plan.id, :class => btn_class}= I18n.t('content.page.edit_child_plan.cancel')
-        = f.submit I18n.t('content.page.edit_child_plan.save'), :id => 'btn-submit', :class => 'mybtn btn-pink uppercase'
+        / = hidden_field_tag 'cancelable', @plan.is_cancelable?
+        / - btn_class = @plan.is_cancelable? ? "mybtn btn-green" : "disabled-mybtn btn-gray"
+        - btn_class = "mybtn btn-green"
+        #btn-cancel.pull-left.uppercase{'data-plan' => @baby.plan_id, :class => btn_class}= I18n.t('content.page.edit_child_plan.cancel')
+        = b.submit I18n.t('content.page.edit_child_plan.save'), :id => 'btn-submit', :class => 'mybtn btn-pink uppercase'
+      .form_field.hidden
+        = hidden_field_tag 'plan_id', @baby.plan_id
+        = hidden_field_tag 'enroll', @baby.is_enroll_plan
+        = hidden_field_tag 'redeem', @baby.is_redeem_plan
 
 = content_for :js do
   = javascript_tag do

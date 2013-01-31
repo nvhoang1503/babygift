@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   def my_account
-    @user = current_user
-    @billing_address = @user.billing_address
+    @billing_address = current_user.billing_address
     @babies = current_user.enroll_n_redeem_babies
 
   end
@@ -61,26 +60,22 @@ class UsersController < ApplicationController
   end
 
   def edit_child_n_plan
-    @user = current_user
-    @plan = Order.find_by_id(params[:plan_id])
-    @childs = current_user.babies.select{|b| b.plan}
-    @child = @plan.baby
-    @child.birthday = @child.birthday.strftime('%m/%d/%Y') if @child.birthday
+    @babies = current_user.enroll_n_redeem_babies
+    @baby = current_user.get_baby_by_plan(params[:plan_id], params[:enroll], params[:redeem])
+    @baby.birthday = @baby.birthday.strftime('%m/%d/%Y') if @baby.birthday
   end
 
   def update_child_n_plan
-    @plan = Order.find_by_id params[:plan_id]
-    if @plan
-      params[:plan][:baby_attributes][:birthday] = Date.strptime(params[:plan][:baby_attributes][:birthday], '%m/%d/%Y') if params[:plan][:baby_attributes][:birthday].present?
-      if @plan.update_attributes(params[:plan])
+    @baby = current_user.get_baby_by_plan(params[:plan_id], params[:enroll], params[:redeem])
+    if @baby
+      params[:baby][:birthday] = Date.strptime(params[:baby][:birthday], '%m/%d/%Y') if params[:baby][:birthday].present?
+      if @baby.update_attributes(params[:baby])
         redirect_to :action => :child_n_plan
       else
-        @user = current_user
-        @childs = current_user.babies
-        @child = @plan.baby
-        @child.birthday = @child.birthday.strftime('%m/%d/%Y') if @child.birthday
-
-        render :action => :edit_child_n_plan, :plan_id => @plan.id
+        @babies = current_user.enroll_n_redeem_babies
+        @baby = current_user.get_baby_by_plan(params[:plan_id], params[:enroll], params[:redeem])
+        @baby.birthday = @baby.birthday.strftime('%m/%d/%Y') if @baby.birthday
+        render :action => :edit_child_n_plan, :plan_id => @plan.id, :enroll => @baby.is_enroll_plan, :redeem => @baby.is_redeem_plan
       end
     else
       redirect_to :action => :child_n_plan
@@ -88,12 +83,11 @@ class UsersController < ApplicationController
   end
 
   def reload_plan
-    baby_id = params[:baby_id].to_i
-    child = Baby.find_by_id(baby_id)
-    if child
-      result = child.attributes
-      result[:birthday] = child.birthday.strftime('%m/%d/%Y')
-      result[:plan] = child.plan.plan_detail_with_price
+    baby = current_user.get_baby_by_plan(params[:plan_id], params[:enroll], params[:redeem])
+    if baby
+      result = baby.attributes
+      result[:birthday] = baby.birthday.strftime('%m/%d/%Y')
+      result[:plan] = "#{Order::TYPE_DUR[baby.plan_type.to_i]} $#{Order::PRICE[baby.plan_type.to_i]}"
       render :json => {:success => true, :data => result}
     else
       render :json => {:success => false, :msg => I18n.t('message.not_found', :obj => 'This child')}

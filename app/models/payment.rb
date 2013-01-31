@@ -77,7 +77,7 @@ class Payment < ActiveRecord::Base
 
     subscription = AuthorizeNet::ARB::Subscription.new(
       :length => params[:cycle],
-      :unit => :mon,
+      :unit => :month,
       :start_date => Date.today,
       :total_occurrences => AuthorizeNet::ARB::Subscription::UNLIMITED_OCCURRENCES,
       :amount => price,
