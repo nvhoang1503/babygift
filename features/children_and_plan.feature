@@ -10,13 +10,12 @@ Feature: Children and plan
         |ABC       |ABCD      |12/12/2012|1     |
         |XYZ       |XYZO      |12/12/2012|0     |
       And I have some orders
-        |baby    |plan_type|price|
-        |ABC ABCD|1        |1230 |
-        |XYZ XYZO|        2| 2500|
+        |baby    |plan_type|price|subscription_id|
+        |ABC ABCD|1        |1230 |               |
+        |XYZ XYZO|        2| 2500|jasgdfjsf      |
 
   ####################VIEW PAGE####################
   @javascript
-  @current
   Scenario: access children and plan page
     Given I go to the login page
     When I log in with email "test@littlesparks.com" and password "123123"
@@ -55,11 +54,21 @@ Feature: Children and plan
       And I should see Child's Name text-box 
       And I should see Child's Birthday box
       And I should see Child's Gender combo-box 
-      And I should see Plan combo-box
-      And I should see the cancel button 
+      And I should see Plan label
+      And I should see the cancel button in disabled status 
       And I should see the save button
-    When I cancel this plan 
-    Then I should see the successful notification flash 
-    When I edit some fields for child 
-    Then I should see new info was saved 
+    
+  @javascript
+  Scenario: access children and plan edition page
+    Given I go to the login page
+    When I log in with email "test@littlesparks.com" and password "123123"
+      And clicking on top-right corner I go to My Account page
+      And clicking on edit link I go to Children and Plan page
+      And clicking on edit link of first child
+    Then I should see the title of Children and Plan edition page
+    When I update the first name info to "First Name"
+    Then I should see the title of Children and Plan page
+      And I should see "First Name ABCD" within "#plan-1 .name"
+
+
 
