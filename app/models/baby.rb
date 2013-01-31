@@ -10,6 +10,7 @@ class Baby < ActiveRecord::Base
 
   belongs_to :parent, :class_name => 'User', :foreign_key => :user_id
   has_one :plan, :class_name => 'Order', :foreign_key => :baby_id
+  has_one :redeem
 
   def fullname
     [self.first_name, self.last_name].join(' ')

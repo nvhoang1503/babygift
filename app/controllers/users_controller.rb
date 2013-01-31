@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   def my_account
     @user = current_user
     @billing_address = @user.billing_address
-    @plans = @user.plans
+    @babies = current_user.enroll_n_redeem_babies
+
   end
 
   def contact
@@ -42,7 +43,6 @@ class UsersController < ApplicationController
 
   def order_history
     @orders = Order.order_redeem_by_user(current_user.id)
-    # @orders = Order_Redeem.order_redeem_by_user(current_user.id)
   end
 
   def order_history_detail
@@ -57,8 +57,7 @@ class UsersController < ApplicationController
   end
 
   def child_n_plan
-    @user = current_user
-    @plans = @user.plans.order("id")
+    @babies = current_user.enroll_n_redeem_babies
   end
 
   def edit_child_n_plan

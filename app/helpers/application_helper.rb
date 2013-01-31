@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def plan_detail(type, price)
-    [number_to_currency(price), Order::TYPE_DURATION[type]].join('/')
+    [number_to_currency(price), Order::TYPE_DURATION[type.to_i]].join('/')
   end
 
   def plan_options

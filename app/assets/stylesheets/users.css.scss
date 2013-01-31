@@ -67,6 +67,7 @@ $page-title-color: #2fb495;
           border-bottom: none;
           .name, .birthday, .plan {
             line-height: 30px;
+            margin: 0px;
           }
         }
         .name {
@@ -95,6 +96,9 @@ $page-title-color: #2fb495;
       max-height: 400px;
       overflow-y: scroll;
     }
+    .header ~ .dotted-line {
+      margin-bottom: 0px !important;
+    }
   }
   #list-children {
     color: $font-color;
@@ -103,6 +107,9 @@ $page-title-color: #2fb495;
       min-height: 200px;
       max-height: 600px;
       overflow-y: scroll;
+    }
+    .header ~ .dotted-line {
+      margin-bottom: 0px !important;
     }
   }
   #action {

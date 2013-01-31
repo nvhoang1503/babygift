@@ -33,8 +33,8 @@
     .clearfix
     .dotted-line
     .content
-      - @plans.each do |pl|
+      - @babies.each do |b|
         .info-line.clearfix
-          .name.text.line22.font16.pull-left= pl.baby.fullname
-          .birthday.text.line22.font16.pull-left= pl.baby.birthday.strftime('%m/%d/%Y')
-          .plan.text.line22.font16.pull-left= plan_detail(pl.plan_type, pl.price)
+          .name.text.line22.font16.pull-left= b.fullname
+          .birthday.text.line22.font16.pull-left= b.birthday.strftime('%m/%d/%Y')
+          .plan.text.line22.font16.pull-left= plan_detail(b.plan_type, b.price)
