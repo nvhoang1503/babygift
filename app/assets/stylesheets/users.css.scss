@@ -46,7 +46,7 @@ $page-title-color: #2fb495;
     margin-bottom: 8px;
   }
   #main-content {
-    margin-top: 45px;
+    // margin-top: 45px;
     .section {
       .dotted-line {
         margin-bottom: 5px;
@@ -71,15 +71,15 @@ $page-title-color: #2fb495;
           }
         }
         .name {
-          margin: 20px 0;
+          margin: 10px 0;
           width: 213px;
         }
         .birthday {
-          margin: 20px 0;
+          margin: 10px 0;
           width: 189px;
         }
         .plan {
-          margin: 20px 0;
+          margin: 10px 0;
           width: 210px;
         }
       }
@@ -104,7 +104,7 @@ $page-title-color: #2fb495;
     color: $font-color;
     .content {
       width: 630px;
-      min-height: 200px;
+      min-height: 50px;
       max-height: 600px;
       overflow-y: scroll;
     }

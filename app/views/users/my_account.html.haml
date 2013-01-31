@@ -22,15 +22,15 @@
     /     .text.line22.font16= @billing_address.city_state
     /     .text.line22.font16= 'xxxx-xxxx-xxxx-1234'
   #child-n-plan.section.clearfix
-    .title.pull-left= I18n.t('content.page.account_sum.child_n_plan_title')
-    %a.underline-link.pull-right{:href => child_n_plan_users_path }= I18n.t('label.edit')
-    .clearfix
+    .title-box.clearfix
+      .title.pull-left= I18n.t('content.page.account_sum.child_n_plan_title')
+      %a.underline-link.pull-right{:href => child_n_plan_users_path }= I18n.t('label.edit')
     .dotted-line
-    .info-line.header
+    .info-line.header.clearfix
       .name.uppercase.pull-left= I18n.t('content.page.account_sum.name')
       .birthday.uppercase.pull-left= I18n.t('content.page.account_sum.birthday')
       .plan.uppercase.pull-left= I18n.t('content.page.account_sum.plan')
-    .clearfix
+
     .dotted-line
     .content
       - @babies.each do |b|
