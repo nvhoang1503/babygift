@@ -309,9 +309,13 @@ $page-title-color: #2fb495;
   .shipping_payment_information {
     padding-top: 21px;
     padding-bottom: 38px;
+    width: 200px;
   }
 
   .shipping_info {
+    p{
+      margin:0px;
+    }
     .section_title {
       padding-bottom: 10px;
 
@@ -319,8 +323,12 @@ $page-title-color: #2fb495;
   }
 
   .payment_info {
+    margin-top: 30px;
     .section_title {
       padding-bottom: 8px;
+    }
+    p{
+      margin:0px;
     }
 
   }

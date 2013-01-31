@@ -36,4 +36,15 @@ module GiftsHelper
         ".html_safe]
     ]
   end
+
+  def get_shipping_fullname(shipping_address_id)
+    address = Address.find_by_id(shipping_address_id)
+    fullname = ""
+    if !( address.first_name.nil? && address.last_name.nill?)
+      fullname = [address.first_name,address.last_name].join(" ")
+    end
+    return fullname
+  end
+
+
 end

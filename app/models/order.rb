@@ -93,7 +93,7 @@ class Order < ActiveRecord::Base
   def self.order_redeem_by_user(user_id)
     transaction_status = Order::TRANSACTION_STATUS[:completed]
     redeem_status = Redeem::STATUS[:completed]
-    sql = " select id, baby_id,plan_type,transaction_date,order_code, 1 as order_type
+    sql = " select id, baby_id,plan_type,transaction_date,order_code, shipping_address_id, 1 as order_type
             from orders
             where transaction_status = '#{transaction_status}'
             and baby_id in (
@@ -102,7 +102,7 @@ class Order < ActiveRecord::Base
               where user_id = #{user_id}
               )
             union all
-            select id, baby_id,plan_type,transaction_date, order_code, 2
+            select id, baby_id,plan_type,transaction_date, order_code,shipping_address_id, 2
             from gifts
             where redeem_status = '#{redeem_status}'
             and baby_id in (
