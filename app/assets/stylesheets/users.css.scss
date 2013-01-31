@@ -46,7 +46,7 @@ $page-title-color: #2fb495;
     margin-bottom: 8px;
   }
   #main-content {
-    // margin-top: 45px;
+    margin-top: 45px;
     .section {
       .dotted-line {
         margin-bottom: 5px;
@@ -67,19 +67,18 @@ $page-title-color: #2fb495;
           border-bottom: none;
           .name, .birthday, .plan {
             line-height: 30px;
-            margin: 0px;
           }
         }
         .name {
-          margin: 10px 0;
+          margin: 20px 0;
           width: 213px;
         }
         .birthday {
-          margin: 10px 0;
+          margin: 20px 0;
           width: 189px;
         }
         .plan {
-          margin: 10px 0;
+          margin: 20px 0;
           width: 210px;
         }
       }
@@ -96,9 +95,6 @@ $page-title-color: #2fb495;
       max-height: 400px;
       overflow-y: scroll;
     }
-    .header ~ .dotted-line {
-      margin-bottom: 0px !important;
-    }
   }
   #list-children {
     color: $font-color;
@@ -107,9 +103,6 @@ $page-title-color: #2fb495;
       min-height: 50px;
       max-height: 600px;
       overflow-y: scroll;
-    }
-    .header ~ .dotted-line {
-      margin-bottom: 0px !important;
     }
   }
   #action {
