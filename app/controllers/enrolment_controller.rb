@@ -119,6 +119,7 @@ class EnrolmentController < ApplicationController
       end
     else
       params[:description] = Order::TYPE_NAME[@order.plan_type]
+      params[:cycle] = Order::TYPE_CYCLE[@order.plan_type]
       response = Payment.an_create_recurring(@order.total_order, params)
       if response.success?
         transaction_id = nil

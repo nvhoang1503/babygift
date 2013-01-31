@@ -76,8 +76,8 @@ class Payment < ActiveRecord::Base
     transaction.set_shipping_address shipping_address.to_AN_shipping_address if shipping_address
 
     subscription = AuthorizeNet::ARB::Subscription.new(
-      :length => 7,
-      :unit => :day,
+      :length => params[:cycle],
+      :unit => :mon,
       :start_date => Date.today,
       :total_occurrences => AuthorizeNet::ARB::Subscription::UNLIMITED_OCCURRENCES,
       :amount => price,
