@@ -12,7 +12,7 @@ class window.User
 
   cancelPlan: ->
     if $("#cancelable").val() != "false"
-      plan_id = $(@).attr('data-plan')
+      plan_id = $(@).prop('data-plan')
       $.ajax
         type: "POST"
         url: "/users/cancel_plan"
@@ -117,6 +117,7 @@ class window.User
             $('#cancelable').val(data.cancelable)
             if data.cancelable
               $('#btn-cancel').removeClass("disabled-mybtn btn-gray").addClass("mybtn btn-green")
+              $('#btn-cancel').prop('data-plan', data.plan_id)
             else
               $('#btn-cancel').removeClass("mybtn btn-green").addClass("disabled-mybtn btn-gray")
           else
