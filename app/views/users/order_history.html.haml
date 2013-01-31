@@ -1,11 +1,11 @@
 .order_history
   .tittle_box
-    .tittle_content.uppercase= I18n.t('content.page.account_order_his.step')
+    .tittle_content.uppercase.text.font22= I18n.t('content.page.account_order_his.step')
   .line
   - if @orders
     %table.your_order_history_table
       %thead.table_headers
-        %tr.uppercase
+        %tr.uppercase.his_title
           %th.order_header= I18n.t('content.page.account_order_his.order')
           %th.date_header= I18n.t('content.page.account_order_his.date')
           %th.recipient_header= I18n.t('content.page.account_order_his.recipient')

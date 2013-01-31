@@ -11,7 +11,7 @@ class RedeemsController < ApplicationController
     flag = true
     @redeem = Redeem.find_by_gift_code(gift_code)
     if @redeem
-      if @redeem.redeem_status == Redeem::STATUS[:completed]
+      if @redeem.redeem_status.to_s == Redeem::STATUS[:completed].to_s
         @redeem = Redeem.new
         @redeem.errors.add('gift_code', I18n.t('message.invalid_gift'))
         params[:gift_code] = gift_code
