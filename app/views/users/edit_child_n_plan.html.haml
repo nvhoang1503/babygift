@@ -21,10 +21,9 @@
         %label=I18n.t('content.page.edit_child_plan.plan')
         #plan-info.text.font16.pull-left= f.object.plan_detail_with_price
       .form_field
-        - if @plan.is_cancelable?
-          #btn-cancel.pull-left.mybtn.btn-green.uppercase{'data-plan' => @plan.id }= I18n.t('content.page.edit_child_plan.cancel')
-        - else
-          #replacement.pull-left &nbsp;
+        = hidden_field_tag 'cancelable', @plan.is_cancelable?
+        - btn_class = @plan.is_cancelable? ? "mybtn btn-green" : "disabled-mybtn btn-gray"
+        #btn-cancel.pull-left.uppercase{'data-plan' => @plan.id, :class => btn_class}= I18n.t('content.page.edit_child_plan.cancel')
         = f.submit I18n.t('content.page.edit_child_plan.save'), :id => 'btn-submit', :class => 'mybtn btn-pink uppercase'
 
 = content_for :js do

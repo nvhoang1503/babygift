@@ -11,19 +11,23 @@ class window.User
     $('#btn-cancel').click @cancelPlan
 
   cancelPlan: ->
-    plan_id = $(@).attr('data-plan')
-    $.ajax
-      type: "POST"
-      url: "/users/cancel_plan"
-      data: {plan_id: plan_id, authenticity_token: auth_token}
-      dataType: 'json'
-      success: (response)->
-        if response.msg
-          helper.showFlashMessage(response.msg)
-        else
-          window.location.href = '/users/child_n_plan'
-      error: (response)->
-        alert(message.server_error)
+    if $("#cancelable").val() != "false"
+      plan_id = $(@).attr('data-plan')
+      $.ajax
+        type: "POST"
+        url: "/users/cancel_plan"
+        data: {plan_id: plan_id, authenticity_token: auth_token}
+        dataType: 'json'
+        success: (response)->
+          if response.msg
+            helper.showFlashMessage(response.msg)
+          else
+            window.location.href = '/users/child_n_plan'
+          $('#btn-cancel').removeClass("mybtn btn-green")
+          $('#btn-cancel').addClass("disabled-mybtn btn-gray")
+          $("#cancelable").val("false")
+        error: (response)->
+          alert(message.server_error)
 
   checkValidCurPass: ->
     $('#user_current_password').blur ->
