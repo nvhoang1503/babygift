@@ -4,9 +4,9 @@
   .line
   = simple_form_for @user, :as => :user, :url => contact_update_users_path, :html => {:class => 'user-contact-form clearfix' }, :validate => :user_validator do |f|
     .form-inputs
-      .form_field
+      .form_field.first_name_box
         = f.input :first_name, :wrapper_html => {:class => 'first_name_field'}
-      .form_field
+      .form_field.last_name_box
         = f.input :last_name, :wrapper_html => {:class => 'last_name_field'}
       = f.input :email, :wrapper_html => {:class => 'email_field'}
       .email_notification_field.clear-fix

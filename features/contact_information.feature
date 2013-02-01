@@ -14,6 +14,18 @@ Feature: Contact information
     Then I should see "Can't be blank" near first name, last name, email on contact information page
 
   @javascript
+  Scenario: Submit contact information with only 1 letters for first name & last name
+    Given I am logged in with email "test@littlesparks.com"
+    And I am on contact information page
+    When I fill in "First name" with "a" on contact information page
+    And I fill in "Last name" with "b" on contact information page
+    And I fill in "Email" with "test@littlesparks.com" on contact information page
+    And I click "JOIN THE FAMILY" on contact information page
+    And I wanna sleep "5" seconds
+    Then I should see "First name must be at least 2 characters" near first name on contact information page
+    And I should see "Last name must be at least 2 characters" near last name on contact information page
+
+  @javascript
   Scenario: Submit contact information with incorrect email format
     Given I am logged in with email "test@littlesparks.com"
     And I am on contact information page

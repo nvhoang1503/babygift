@@ -46,6 +46,32 @@ When /^I click "Change Password" on contact information page$/ do
   find(".btn_pass_change").click
 end
 
+Then /^I should see "(.*?)" near first name on contact information page$/ do |error_message|
+  with_scope(".form_field.first_name_box .error") do
+    if page.respond_to? :should
+      page.should have_content(error_message)
+    else
+      assert page.has_content?(error_message)
+    end
+  end
+
+
+
+end
+
+Then /^I should see "(.*?)" near last name on contact information page$/ do |error_message|
+
+
+  with_scope(".form_field.last_name_box .error") do
+    if page.respond_to? :should
+      page.should have_content(error_message)
+    else
+      assert page.has_content?(error_message)
+    end
+  end
+
+end
+
 Then /^I should see "(.*?)" near first name, last name, email on contact information page$/ do |error_message|
   with_scope(".first_name_field") do
     if page.respond_to? :should
