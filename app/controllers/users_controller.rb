@@ -100,6 +100,7 @@ class UsersController < ApplicationController
     if plan
       response = Payment.an_cancel_recurring(plan.subscription_id)
       if response.success?
+        plan.update_attribute(:is_active_subscription, false)
         result[:success] = true
         result[:msg] = I18n.t('message.success_cancel_plan')
       else

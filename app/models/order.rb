@@ -80,16 +80,11 @@ class Order < ActiveRecord::Base
   end
 
   def is_cancelable?
-    return false if self.plan_type == TYPE['1_mon'] or self.subscription_id.blank?
-
-    transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
-    response = transaction.get_status(self.subscription_id)
-    if response.subscription_status.nil? or response.subscription_status == AuthorizeNet::ARB::Subscription::Status::CANCELED
-      result = false
+    if self.plan_type == TYPE['1_mon'] or self.subscription_id.blank?
+      return false
     else
-      result = true
+      return self.is_active_subscription
     end
-    return result
   end
 
   def self.order_redeem_by_user(user_id)

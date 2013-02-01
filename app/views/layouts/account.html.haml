@@ -7,6 +7,8 @@
     %title
       = @page_title || I18n.t('titles.pages.name')
   %body
+    #loading
+      = image_tag('common/loading.gif')
     #page-wrapper
       #header
         = render 'shared/head_tab'

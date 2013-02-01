@@ -3,6 +3,7 @@ class EnrolmentController < ApplicationController
 
   def step_1
     @baby = Baby.new unless @baby
+    @baby.birthday = @baby.birthday.strftime('%m/%d/%Y') if @baby.birthday
   end
 
   def enroll_baby
@@ -124,6 +125,7 @@ class EnrolmentController < ApplicationController
       if response.success?
         transaction_id = nil
         subscription_id = response.subscription_id
+        @order.update_attribute(:is_active_subscription, true)
       else
         error = I18n.t('message.fail_enroll')
       end

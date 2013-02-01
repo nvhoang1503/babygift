@@ -128,3 +128,13 @@ class window.Helper
       target_id = target.prop('id')
       $('.datepicker').prop('id', "date-#{target_id}") if target_id.length > 0
 
+  waitingLoading: ->
+    $("#loading").modal
+      position: [ "35%" ]
+      focus: false
+      persist: true
+      overlayCss:
+        backgroundColor:"#121212"
+
+  waitingClose: ->
+    $.modal.close()

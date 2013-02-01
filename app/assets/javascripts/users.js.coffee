@@ -13,6 +13,7 @@ class window.User
   cancelPlan: ->
     if $("#cancelable").val() != "false"
       plan_id = $(@).attr('data-plan')
+      helper.waitingLoading()
       $.ajax
         type: "POST"
         url: "/users/cancel_plan"
@@ -21,12 +22,14 @@ class window.User
         success: (response)->
           if response.msg
             helper.showFlashMessage(response.msg)
+            $('#btn-cancel').removeClass("mybtn btn-green")
+            $('#btn-cancel').addClass("disabled-mybtn btn-gray")
+            $("#cancelable").val("false")
+            helper.waitingClose()
           else
             window.location.href = '/users/child_n_plan'
-          $('#btn-cancel').removeClass("mybtn btn-green")
-          $('#btn-cancel').addClass("disabled-mybtn btn-gray")
-          $("#cancelable").val("false")
         error: (response)->
+          helper.waitingClose()
           alert(message.server_error)
 
   checkValidCurPass: ->
@@ -94,6 +97,7 @@ class window.User
   reloadPlan: ->
     $("#child_id").change ->
       baby = $('#child_id').find('option:selected')
+      helper.waitingLoading()
       $.ajax
         type: "GET"
         url: "/users/reload_plan"
@@ -120,7 +124,10 @@ class window.User
               $('#btn-cancel').attr('data-plan', data.plan_id)
             else
               $('#btn-cancel').removeClass("mybtn btn-green").addClass("disabled-mybtn btn-gray")
+            helper.waitingClose()
           else
+            helper.waitingClose()
             alert(response.msg)
         error: (response)->
+          helper.waitingClose()
           alert(message.server_error)
