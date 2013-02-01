@@ -32,6 +32,8 @@ en:
     success_cancel_plan: "You successfully canceled your plan and you won't receive anymore kits at the end of the planned periode"
     fail_cancel_plan: "Failed to cancel this plan."
     unq_order_code: 'Order code must be unique'
+    first_name_short: "First name must be at least 2 characters"
+    last_name_short: "Last name must be at least 2 characters"
 
   titles:
     pages:

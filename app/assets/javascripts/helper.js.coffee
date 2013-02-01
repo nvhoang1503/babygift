@@ -138,3 +138,9 @@ class window.Helper
 
   waitingClose: ->
     $.modal.close()
+
+  minChar: (elem,n) ->
+    val = $(elem).val().trim()
+    if val.length > 0 && val.length < n
+      return false
+    return true

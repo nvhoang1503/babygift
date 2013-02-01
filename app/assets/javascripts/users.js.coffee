@@ -9,6 +9,9 @@ class window.User
     helper.initDatepicker('#baby_birthday')
     @reloadPlan()
     $('#btn-cancel').click @cancelPlan
+    $('#user_email').keypress helper.validateEmail
+    @minLastFirstName()
+    @checkMinName()
 
   cancelPlan: ->
     if $("#cancelable").val() != "false"
@@ -131,3 +134,19 @@ class window.User
         error: (response)->
           helper.waitingClose()
           alert(message.server_error)
+
+  minLastFirstName: ->
+    $("#user_first_name").blur ->
+      helper.showErrorMessage(helper.minChar("#user_first_name",2),'.first_name_field',message.first_name_short)
+
+    $("#user_last_name").blur ->
+      helper.showErrorMessage(helper.minChar("#user_last_name",2),'.last_name_field',message.last_name_short)
+
+  checkMinName: ->
+    $('.btn_contact_info').live "click", ->
+      f_name = $("#user_first_name").val().trim()
+      l_name = $("#user_last_name").val().trim()
+      if f_name.length < 2 or l_name.length < 2
+        return false
+
+
