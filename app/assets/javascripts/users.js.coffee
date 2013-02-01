@@ -6,7 +6,7 @@ class window.User
     @checkValidCfNewPass()
     @checkValidAccountEmail()
     @checkValidChangePass()
-    helper.initDatepicker('#plan_baby_attributes_birthday')
+    helper.initDatepicker('#baby_birthday')
     @reloadPlan()
     $('#btn-cancel').click @cancelPlan
 

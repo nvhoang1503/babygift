@@ -89,20 +89,14 @@ $page-title-color: #2fb495;
   }
   #child-n-plan {
     margin-top: 32px;
-    .content {
-      width: 630px;
-      min-height: 200px;
-      max-height: 400px;
-      overflow-y: scroll;
+    .header ~ .dotted-line {
+      margin-bottom: 0px !important;
     }
   }
   #list-children {
     color: $font-color;
-    .content {
-      width: 630px;
-      min-height: 50px;
-      max-height: 600px;
-      overflow-y: scroll;
+    .header ~ .dotted-line {
+      margin-bottom: 0px !important;
     }
   }
   #action {
