@@ -806,3 +806,21 @@ ul.social_medial_icon_line{
   position: absolute;
   display: none;
 }
+#privacy_content{
+  color: #515257;
+
+  .version{
+    clear: both;
+    margin-top: 20px;
+
+  }
+  .content_box{
+    margin-top: 30px;
+    height: 500px;
+    overflow-y: scroll;
+    .title{
+      margin-top: 30px;
+    }
+  }
+}
+
