@@ -1,4 +1,4 @@
-.page_content_space
+.page_content_space.gifts_step_1
   = render 'steps_nav'
   = simple_form_for @gift, :as => :gift, :url => create_update_gift_gifts_path(:gift_id => params[:gift_id]), :html => {:id => 'gift-info', :class => 'gift-form clearfix' }, :validate => :gift_validator do |f|
     .tittle_content= I18n.t('content.page.gift_1.title')

@@ -1,4 +1,4 @@
-.page_content_space
+.page_content_space.redeems_step_5
   = render '/redeems/steps_nav'
   = simple_form_for @redeem, :method => 'post', :url => finish_redeems_path(:redeem_id => @redeem.id), :html => { :class => 'enroll-form payment-form', :id => 'frm-payment' } do |f|
     .tittle_content= I18n.t('content.page.redeem_5.title')

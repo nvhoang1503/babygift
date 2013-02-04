@@ -310,3 +310,31 @@
     margin-top: 10px;
   }
 }
+
+
+.msie {
+  .enrolment_step_1 {
+    .simple_form, .field{
+      input[type="text"] {
+        line-height: 20px !important; /* Middle aligned text for IE8 */
+      }
+    }
+  }
+
+  .enrolment_step_4 {
+    .simple_form, .field{
+      input[type="text"] {
+        line-height: 20px !important; /* Middle aligned text for IE8 */
+      }
+    }
+  }
+
+  .enrolment_step_5 {
+    .simple_form, .field{
+      input[type="text"] {
+        line-height: 20px !important; /* Middle aligned text for IE8 */
+      }
+    }
+  }
+
+}

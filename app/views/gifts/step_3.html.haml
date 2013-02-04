@@ -1,4 +1,4 @@
-.page_content_space
+.page_content_space.gifts_step_3
   = render 'steps_nav'
   = simple_form_for @gift, :url => update_gift_billing_gifts_path(:gift_id => params[:gift_id]), :html => {:class => "gift-form", :id => 'gift-billing'} , :validate => :gift_validator do |f|
     .billing-address.pull-left

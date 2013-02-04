@@ -113,3 +113,40 @@ $color-text: #44464b;
     padding-right: 24px;
     width: 288px;
 }
+
+
+.msie {
+  .redeems_step_1 {
+    .simple_form, .field{
+      input[type="text"] {
+        line-height: 20px !important; /* Middle aligned text for IE8 */
+      }
+    }
+  }
+
+  .redeems_step_3 {
+    .simple_form, .field{
+      input[type="text"] {
+        line-height: 20px !important; /* Middle aligned text for IE8 */
+      }
+    }
+  }
+
+  .redeems_step_3b {
+    .simple_form, .field{
+      input[type="text"] {
+        line-height: 20px !important; /* Middle aligned text for IE8 */
+      }
+    }
+  }
+
+  .redeems_step_4 {
+    .simple_form, .field{
+      input[type="text"] {
+        line-height: 20px !important; /* Middle aligned text for IE8 */
+      }
+    }
+  }
+
+
+}

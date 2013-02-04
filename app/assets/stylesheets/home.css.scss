@@ -500,6 +500,17 @@ ul.fqa_menu_link{
 }
 
 /*======================= REGISTER ==================*/
+
+.msie {
+  #register_login {
+    .simple_form, .field{
+      input[type="text"] {
+        line-height: 25px; /* Middle aligned text for IE8 */
+      }
+    }
+  }
+}
+
 #register_login{
   .wrapper {
     width: 870px;

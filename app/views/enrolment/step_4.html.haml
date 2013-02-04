@@ -1,4 +1,4 @@
-.page_content_space
+.page_content_space.enrolment_step_4
   = render '/enrolment/steps_nav'
   = simple_form_for @order, :as => :plan, :url => shipping_info_enrolments_path, :html => {:class => "enroll-form", :id => 'plan-addresses'}, :validate => :addresses_validator do |f|
     .tittle_content= I18n.t('content.page.enroll_4.title')

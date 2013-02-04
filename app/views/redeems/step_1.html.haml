@@ -1,4 +1,4 @@
-.page_content_space
+.page_content_space.redeems_step_1
   = render '/redeems/steps_nav'
   = simple_form_for @redeem, :as => :redeem, :url => create_update_redeems_path(:gift_id => params[:redeem_id]), :html => {:id => 'redeem-info', :class => 'redeem-form clearfix' }, :validate => :gift_validator do |f|
     .tittle_content.redeem_title= I18n.t('content.page.redeem_1.title')

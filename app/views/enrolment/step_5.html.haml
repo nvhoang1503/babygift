@@ -1,4 +1,4 @@
-.page_content_space
+.page_content_space.enrolment_step_5
   = render '/enrolment/steps_nav'
   = simple_form_for @order, :as => :order, :method => 'post', :url => finish_enrolments_path(:order_id => @order.id), :html => { :class => 'enroll-form payment-form', :id => 'frm-payment' } do |f|
     .tittle_content= I18n.t('content.page.enroll_5.title')

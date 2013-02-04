@@ -1,4 +1,4 @@
-.page_content_space
+.page_content_space.enrolment_step_2
   = render '/enrolment/steps_nav'
 
   = simple_form_for @order, :as => :plan, :url => plan_enrolments_path(:order_id => params[:order_id], :baby_id => params[:baby_id]), :html => { :class => 'enroll-form', :id => 'plan-register' } do |f|
