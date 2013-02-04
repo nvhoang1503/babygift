@@ -120,16 +120,17 @@ class EnrolmentController < ApplicationController
       end
     else
       params[:description] = Order::TYPE_NAME[@order.plan_type]
-      params[:cycle] = Order::TYPE_CYCLE[@order.plan_type]
+      params[:cycle]=  Order::TYPE_CYCLE[@order.plan_type]
       response = Payment.an_create_recurring(@order.total_order, params)
       if response.success?
         transaction_id = nil
         subscription_id = response.subscription_id
         @order.update_attribute(:is_active_subscription, true)
       else
-        error = I18n.t('message.fail_enroll')
+        error = Payment.get_recurring_error_messages(response)
       end
     end
+
     if response.success?
       flash[:success] = "Successfully made a purchase"
       @order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => transaction_id, :subscription_id => subscription_id})

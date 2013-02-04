@@ -33,6 +33,24 @@ class Payment < ActiveRecord::Base
     # 'U' => "Address information is not available for the customer's credit card"
   }
 
+  RECURRING_RESPONSE = {
+    'E00001' => 'An error occurred during processing. Please try again.',
+    'E00002' => 'An error occurred during processing. Please try again.',
+    'E00003' => 'The card number/code is invalid.',
+    'E00004' => 'An error occurred during processing. Please try again.',
+    'E00005' => 'Merchant authentication requires a valid value for transaction key.',
+    'E00006' => 'An error occurred during processing. Please try again.',
+    'E00007' => 'An error occurred during processing. Please try again.',
+    'E00008' => 'An error occurred during processing. Please try again.',
+    'E00009' => 'The payment gateway account is in Test Mode. The request cannot be processed.',
+    'E00010' => 'An error occurred during processing. Please try again.',
+    'E00011' => 'An error occurred during processing. Please try again.',
+    'E00012' => 'A duplicate subscription already exists',
+    'E00017' => 'The startDate cannot occur in the past.',
+    'E00018' => 'The credit card expires before the subscription startDate.',
+    'E00021' => 'The payment gateway account is not enabled for credit card subscriptions.'
+  }
+
   def self.an_process(price, params)
     card_num = params[:card_number]
     card_sec = params[:card_security]
@@ -59,6 +77,20 @@ class Payment < ActiveRecord::Base
       avs_result = an_response.fields[:avs_response]
       result.append CCV_RESPONSE[ccv_result] if CCV_RESPONSE.has_key?(ccv_result)
       result.append AVS_RESPONSE[avs_result] if AVS_RESPONSE.has_key?(avs_result)
+    end
+    return result
+  end
+
+  def self.get_recurring_error_messages(an_response)
+    if an_response.success?
+      result = nil
+    else
+      result = []
+      if RECURRING_RESPONSE.has_key? an_response.message_code
+        result.append RECURRING_RESPONSE[an_response.message_code]
+      else
+        result.append I18n.t('message.fail_enroll')
+      end
     end
     return result
   end
