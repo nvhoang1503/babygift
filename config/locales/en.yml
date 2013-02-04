@@ -340,7 +340,7 @@ en:
           text2: 'In order to access and use the Site and Services, you must agree to our Online Terms and Conditions (the “Terms and Conditions”) posted on the Site.  Persons and organizations with permission to use the Service are considered “Registered Users.”  You may view portions of the Site even if you are not an Registered User of the Service.  This privacy policy applies to Company’s collection, use and disclosure of Personal Information (defined below) from Registered Users of the Site, as well as from persons who merely visit the Site.  Company has adopted and implemented this privacy policy as part of our commitment to protecting your personal information from misuse.'
 
         info_we_collect:
-          title: 'Information We Collect'
+          title: 'Information We Collect:'
           text: 'When you interact with us through the Site or the Services, we may collect Personal Data and other information from you, as further described below:'
 
         personal_data:
@@ -396,11 +396,11 @@ en:
           text: 'This Privacy Policy applies only to the Site. This Site may contain links to other web sites not operated or controlled by Little Spark (the “Third Party Sites”). The policies and procedures we described here do not apply to the Third Party Sites. The links from this Site do not imply that Little Spark endorses or has reviewed the Third Party Sites. We suggest contacting those sites directly for information on their privacy policies.'
 
         security:
-          title: 'Security'
+          title: 'Security:'
           text: 'Little Spark takes reasonable steps to protect the Personal Data provided via the Site from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. However, no Internet, email or other electronic transmission is ever fully secure or error free, so you should take special care in deciding what information you send to us in this way.'
 
         other_term:
-          title: 'Other Terms and Conditions'
+          title: 'Other Terms and Conditions:'
           text: 'Your access to and use of this Site is subject to the Terms of Service.'
 
         chang_to_lit:
