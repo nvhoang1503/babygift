@@ -43,6 +43,7 @@ group :development do
   gem "guard-coffeescript"
   gem "guard-rails"
   gem 'guard-annotate'
+  gem 'debugger'
 end
 
 group :test do

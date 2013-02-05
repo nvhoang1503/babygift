@@ -12,8 +12,11 @@ class User < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :last_name,:email_notification, :email, :email_confirmation, :password, :password_confirmation, :remember_me
 
-  validates :email, :password, :presence => { :message => "Can't be blank" }
-  validates :first_name, :last_name , :presence => { :message => "Can't be blank" }, :on => :update
+  validates :email, :presence => { :message => "Can't be blank" }
+  # validates :first_name, :last_name , :presence => { :message => "Can't be blank" }, :on => :update
+  validates :first_name, :last_name, :presence => true, :on => :update, :unless => :password_required?
+
+
 
   validates :email, :format => {:with => EMAIL_REG_EXP, :message => I18n.t('message.invalid_email')}
 
@@ -22,7 +25,7 @@ class User < ActiveRecord::Base
   # validates :password,  :presence => { :message => "Can't be blank" },:unless => lambda {|u| u.password.nil? }
   # validates :password,  :length => {:maximum => 20, :minimum => 6, :message => I18n.t('message.pass_format')},:unless => lambda {|u| u.password.nil? }
 
-  validates :password,  :length => {:maximum => 20, :minimum => 6, :message => I18n.t('message.pass_format')}
+  # validates :password,  :length => {:maximum => 20, :minimum => 6, :message => I18n.t('message.pass_format')}
 
   ADMIN_EMAIL = 'littlesparktesting@gmail.com'
 

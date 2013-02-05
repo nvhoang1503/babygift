@@ -14,8 +14,7 @@ class UsersController < ApplicationController
 
   def contact_update
     @user = current_user
-    @user.attributes = params[:user]
-    if @user.save(:validate=> false)
+    if @user.update_attributes(params[:user])
       flash[:success] = I18n.t('content.page.account_contact.saved')
       redirect_to my_account_path
     else
