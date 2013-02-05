@@ -2,7 +2,7 @@ class Baby < ActiveRecord::Base
   GENDER = {
     :boy => 1,
     :girl => -1,
-    :surprize => 0
+    :surprise => 0
   }
 
   attr_accessible :birthday, :user_id, :first_name, :gender, :last_name

@@ -33,8 +33,8 @@ module EnrolmentHelper
         "<div class='icon-gender boy pull-left #{'selected' if selected== Baby::GENDER[:boy]}'></div>".html_safe] ,
       [Baby::GENDER[:girl],
         "<div class='icon-gender girl pull-left #{'selected' if selected== Baby::GENDER[:girl]}'></div>".html_safe],
-      [Baby::GENDER[:surprize],
-        "<div class='icon-gender surprize pull-left #{'selected' if selected== Baby::GENDER[:surprize]}'></div>".html_safe]
+      [Baby::GENDER[:surprise],
+        "<div class='icon-gender surprise pull-left #{'selected' if selected== Baby::GENDER[:surprise]}'></div>".html_safe]
     ]
   end
 
