@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
     if req_referer.path == url_for(:controller => '/enrolment', :action => :step_3, :only_path => true)
       step_4_enrolments_path(req_referer.params)
     else
-      root_path
+      # root_path
+      my_account_path
     end
   end
 
