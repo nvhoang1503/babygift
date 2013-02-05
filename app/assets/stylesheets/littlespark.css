@@ -124,7 +124,16 @@ ul, ol{
   width:940px;
   height: 110px;
   margin: 0 auto;
-  border-bottom: solid 3px #43454a;
+  /*background-color: red;*/
+}
+.line_header{
+  /*border-bottom: solid 3px #43454a;*/
+  background-color: #43454a;
+  height: 3px;
+  margin-top: 0px;
+  width:940px;
+  margin-left: 55px;
+  position: absolute;
 }
 
 #container{
