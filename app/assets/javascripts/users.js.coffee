@@ -143,10 +143,22 @@ class window.User
       helper.showErrorMessage(helper.minChar("#user_last_name",2),'.last_name_field',message.last_name_short)
 
   checkMinName: ->
-    # $('.btn_contact_info').live "click", ->
-    #   f_name = $("#user_first_name").val().trim()
-    #   l_name = $("#user_last_name").val().trim()
-    #   if f_name.length < 2 or l_name.length < 2
-    #     return false
+    $('.btn_contact_info').live "click", ->
+      f_name = $("#user_first_name").val().trim()
+      l_name = $("#user_last_name").val().trim()
+      flag = true
+      if f_name.length < 2
+        if f_name.length == 0
+          helper.showErrorMessage(false,'.first_name_field',message.not_blank)
+        else
+          helper.showErrorMessage(helper.minChar("#user_first_name",2),'.first_name_field',message.first_name_short)
+        flag = false
+      if l_name.length < 2
+        if l_name.length == 0
+          helper.showErrorMessage(false,'.last_name_field',message.not_blank)
+        else
+          helper.showErrorMessage(helper.minChar("#user_last_name",2),'.last_name_field',message.last_name_short)
+        flag = false
+      return flag
 
 

@@ -13,7 +13,9 @@
         %li
           = link_to I18n.t('label.logout'), destroy_user_session_path, :method => :delete
   - else
-    = link_to "Log in" , new_user_session_path , :class => "btn_top_login"
+    #drd-top-actions
+      = link_to "Log in" , new_user_session_path , :class => "btn_login"
+      / = link_to "Log in" , new_user_session_path , :class => "btn_top_login"
   %p.text_free_shipping
     = image_tag("common/text_free_shipping.png")
 #head_nav.clear-fix

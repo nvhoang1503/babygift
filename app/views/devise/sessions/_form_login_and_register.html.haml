@@ -29,8 +29,8 @@
           %abbr{:title => "required"} *
           = I18n.t('content.page.login.email_confirm')
         %input{:type => 'text' , :id => 'email_register_conform'}
-      = f.input :password, :input_html => {:id => "user_passwork_register"}
-      = f.input :password_confirmation, :input_html => {:id => "user_passwork_confirm_register"}, :label => I18n.t('content.page.login.pass_confirm')
+      = f.input :password,:required => true, :input_html => {:id => "user_passwork_register"}
+      = f.input :password_confirmation,:required => true, :input_html => {:id => "user_passwork_confirm_register"}, :label => I18n.t('content.page.login.pass_confirm')
       = hidden_field_tag 'submit_from', @submit_from
       - if @submit_from==RegistrationsController::ENROLMENT_RECEIVE and @order.id
         = hidden_field_tag 'order_id', @order.id
