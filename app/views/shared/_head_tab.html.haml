@@ -11,7 +11,7 @@
         %li
           %a{:href => my_account_path, :class => "my_acc"}= I18n.t('label.account')
         %li
-          = link_to I18n.t('label.logout'), destroy_user_session_path, :method => :delete
+          = link_to I18n.t('label.logout'), destroy_user_session_path, :method => :delete , :class => "btn_top_logout"
   - else
     #drd-top-actions
       = link_to "Log in" , new_user_session_path , :class => "btn_login"

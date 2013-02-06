@@ -67,8 +67,9 @@ Feature: Login
     When  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
     And I click the element within ".btn_login"
-    And I click the element within ".btn_top_login"
-    And I wanna sleep "20" seconds
+    And I mouseover to "#drd-top-actions"
+    And I click the element within ".btn_top_logout"
+    And I wanna sleep "3" seconds
     Then I should see "Log in" within ".btn_top_login"
 
   @javascript

@@ -99,7 +99,7 @@ end
 
 When /^I select the month "(.*?)" from "(.*?)" within "(.*?)"$/ do |value, field, selector|
   month = Date.today.month
-  if month > 1 
+  if month > 1
     with_scope(selector) do
       select(value, :from => field)
     end
@@ -191,7 +191,7 @@ end
 Then /^I should see (\d+) error message\(s\) with the key "(.*?)" within "(.*?)"$/ do |num, text, selector|
   count = all(selector).length
   count.should == num.to_i
-  message = first(selector).text 
+  message = first(selector).text
   message.should == I18n.t(text)
 end
 
@@ -406,7 +406,8 @@ When 'I wait for the page to load' do
 end
 
 When /^I mouseover to "(.*?)"$/ do |selector|
-  page.evaluate_script("$('#{selector}').trigger('mouseover')")
+  #page.evaluate_script("$('#{selector}').trigger('mouseover')")
+  find(selector).hover
 end
 
 When /^I choose element within "(.*?)"$/ do |selector|

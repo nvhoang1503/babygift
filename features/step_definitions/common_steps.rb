@@ -1,3 +1,14 @@
+#adding mouse hover trigger
+module Capybara
+  module Node
+    class Element
+      def hover
+        @session.driver.browser.action.move_to(self.native).perform
+      end
+    end
+  end
+end
+
 def check_text(element, text)
   with_scope(element) do
     if page.respond_to? :should
