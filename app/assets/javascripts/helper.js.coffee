@@ -14,13 +14,13 @@ class window.Helper
     return reg.test(part1 + String.fromCharCode(event.charCode) + part2)
 
   validateEmail: (event) ->
-    reg = /^([a-zA-Z0-9_@\.])$/
+    reg = /^([a-zA-Z0-9_@+-\.])$/
     return true unless event.charCode
     return reg.test(String.fromCharCode(event.charCode))
 
 
   isEmail: (email) ->
-    regex = /^([a-zA-Z0-9_\.])+\@(([a-zA-Z0-9])+\.)+([a-zA-Z0-9]{2,4})+$/
+    regex = /^([a-zA-Z0-9_+-\.])+\@(([a-zA-Z0-9])+\.)+([a-zA-Z0-9]{2,4})+$/
     if email.indexOf('..') > 0 or email.indexOf('.@') > 0
       return false
     return regex.test(email)

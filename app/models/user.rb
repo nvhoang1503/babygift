@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
 
-  EMAIL_REG_EXP = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@(([0-9a-zA-Z])+([-\w]*[0-9a-zA-Z])*\.)+[a-zA-Z]{2,9})$/i
+  EMAIL_REG_EXP = /^([0-9a-zA-Z]([-+.\w]{0,1}[0-9a-zA-Z])*@(([0-9a-zA-Z])+([-\w]{0,1}[0-9a-zA-Z])*\.)+[a-zA-Z]{2,9})$/i
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
