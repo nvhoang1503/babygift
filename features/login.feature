@@ -7,14 +7,14 @@ Feature: Login
     Given I go to the login page
     When  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login .btn_login"
     And I wanna sleep "2" seconds
     Then I should see the key "devise.sessions.signed_in" within "#flash-panel"
 
   @javascript
   Scenario: Sign in with empty fields
     Given I go to the login page
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login .btn_login"
     And I wanna sleep "2" seconds
     Then I should see 2 error message(s) with the key "message.not_blank" within "span.error"
 
@@ -23,7 +23,7 @@ Feature: Login
     Given I go to the login page
     When  I fill in "user[email]" with "!" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login .btn_login"
     Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
     When  I fill in "user[email]" with "~" within ".login_box"
     Then I should see 1 error message(s) with the key "message.not_blank" within "span.error"
@@ -66,11 +66,11 @@ Feature: Login
     Given I go to the login page
     When  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login .btn_login"
     And I mouseover to "#drd-top-actions"
     And I click the element within ".btn_top_logout"
     And I wanna sleep "3" seconds
-    Then I should see "Log in" within ".btn_top_login"
+    Then I should see "Log in" within "#drd-top-actions .btn_login"
 
   @javascript
   Scenario: Sign up (Join the family)
