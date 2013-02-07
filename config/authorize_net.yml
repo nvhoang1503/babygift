@@ -3,6 +3,13 @@ default:
   api_transaction_key: 63gH5n8XE64XptNZ
   merchant_hash_value: 9Y853Fpaf
 
-development: 
-test: 
-production: 
+development:
+  api_login_id: 9Y853Fpaf
+  api_transaction_key: 63gH5n8XE64XptNZ
+  merchant_hash_value: 9Y853Fpaf
+
+test:
+production:
+  api_login_id: 948Q68ryBw
+  api_transaction_key: 95g4N5GhAjFs7T4x
+  merchant_hash_value: 948Q68ryBw

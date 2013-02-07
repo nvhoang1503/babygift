@@ -56,7 +56,11 @@ class Payment < ActiveRecord::Base
     card_sec = params[:card_security]
     exp_date = Date.civil params[:date][:exp_year].to_i, params[:date][:exp_month].to_i
 
-    transaction = AuthorizeNet::AIM::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+    if Rails.env == 'production'
+      transaction = AuthorizeNet::AIM::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'])
+    else
+      transaction = AuthorizeNet::AIM::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+    end
 
     address = Address.find_by_id params[:billing_address_id]
     shipping_address = Address.find_by_id params[:shipping_address_id]
@@ -100,7 +104,12 @@ class Payment < ActiveRecord::Base
     card_sec = params[:card_security]
     exp_date = Date.civil params[:date][:exp_year].to_i, params[:date][:exp_month].to_i
     credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec
-    transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+
+    if Rails.env == 'production'
+      transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'])
+    else
+      transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+    end
 
     address = Address.find_by_id params[:billing_address_id]
     shipping_address = Address.find_by_id params[:shipping_address_id]
@@ -123,7 +132,11 @@ class Payment < ActiveRecord::Base
   end
 
   def self.an_cancel_recurring(subscription_id)
-    transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+    if Rails.env == 'production'
+      transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'])
+    else
+      transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+    end
     response = transaction.cancel(subscription_id)
     return response
   end
