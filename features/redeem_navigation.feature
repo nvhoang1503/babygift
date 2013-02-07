@@ -77,7 +77,7 @@ Feature: Redeem the gift
     Given I go to the login page
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login  .btn_login"
     And I go to gift redeem page
     When I fill in "redeem_gift_code" with the first gift code
       And I press the key "content.page.redeem_1.btn_submit_form"
@@ -89,7 +89,7 @@ Feature: Redeem the gift
     Given I go to the login page
     And  I fill in "user[email]" with "test_no_child@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login  .btn_login"
     And I go to gift redeem your child page with the redeem of sender "sender_1@littlespark.com"
     When I click the element within "#step_4 a"
     Then I should see the key "message.not_blank" within "#wrapfirstnamejqiho span.error"
@@ -98,13 +98,13 @@ Feature: Redeem the gift
 
   @javascript
   Scenario: Go to step 5 when staying in step 4 with blank input values (logged in)
-    Given the below babies exist
-      |first_name|last_name|birthday   |gender|user_id|
-      |A         |B        |01/01/1999 |-1    |1      |
+    Given user "test@littlesparks.com" has children
+        |first_name|last_name |birthday  |gender|
+        |A         |B         |01/01/1999|-1    |
     And I go to the login page
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login .btn_login"
     And I go to gift redeem Shipping page with the redeem of sender "sender_1@littlespark.com"
     When I click the element within "#step_5 a"
     And I wanna sleep "7" seconds
@@ -115,7 +115,7 @@ Feature: Redeem the gift
     Given I go to the login page
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login  .btn_login"
     And I go to gift redeem Payment page with the redeem of sender "sender_4@littlespark.com"
     When I click the element within ".btn-place"
     And I should see the key "message.term_missing" within ".error.term_error"
@@ -125,7 +125,7 @@ Feature: Redeem the gift
     Given I go to the login page
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login  .btn_login"
     And I go to gift redeem Payment page with the redeem of sender "sender_4@littlespark.com"
     When I click the element within "#cb_terms"
     And I click the element within ".btn-place"
@@ -135,44 +135,46 @@ Feature: Redeem the gift
 # STEP 3: Shipping
   @javascript
   Scenario: Go to step 5 when staying in step 4 with wrong format of zip (logged in)
-    Given the below babies exist
-      |first_name|last_name|birthday   |gender|user_id|
-      |A         |B        |01/01/1999 |-1    |1      |
+    Given user "test@littlesparks.com" has children
+        |first_name|last_name |birthday  |gender|
+        |A         |B         |01/01/1999|-1    |
     And I go to the login page
     And I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     #And I wanna sleep "7" seconds
     And I fill in "user[password]" with "123123" within ".login_box"
     #And I wanna sleep "7" seconds
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login  .btn_login"
     And I go to gift redeem your updating child page with the redeem of sender "sender_1@littlespark.com"
     When I click the element within "#step_4 a"
     When I fill in "redeem[shipping_address_attributes][zip]" with "123"
     And I click the element within "#redeem_shipping_address_attributes_phone"
+    And I wanna sleep "3" seconds
     Then I should see the key "message.zip_format" within ".zip span.error"
 
   @javascript
   Scenario: Go to step 5 when staying in step 4 with wrong format of phone (logged in)
-    Given the below babies exist
-      |first_name|last_name|birthday   |gender|user_id|
-      |A         |B        |01/01/1999 |-1    |1      |
+    Given user "test@littlesparks.com" has children
+        |first_name|last_name |birthday  |gender|
+        |A         |B         |01/01/1999|-1    |
     And I go to the login page
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login  .btn_login"
     And I go to gift redeem Shipping page with the redeem of sender "sender_1@littlespark.com"
     When I fill in "redeem[shipping_address_attributes][phone]" with "123"
     And I click the element within "#redeem_shipping_address_attributes_city"
+    And I wanna sleep "3" seconds
     Then I should see the key "message.phone_invalid" within ".phone span.error"
 
   @javascript
   Scenario: Submit to step 5 when staying in step 4 successfully (logged in)
-    Given the below babies exist
-      |first_name|last_name|birthday   |gender|user_id|
-      |A         |B        |01/01/1999 |-1    |1      |
+    Given user "test@littlesparks.com" has children
+        |first_name|last_name |birthday  |gender|
+        |A         |B         |01/01/1999|-1    |
     And I go to the login page
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login  .btn_login"
     And I go to gift redeem Shipping page with the redeem of sender "sender_4@littlespark.com"
     When I fill in "redeem[shipping_address_attributes][first_name]" with "first name" within ".form-inputs"
     And I fill in "redeem[shipping_address_attributes][last_name]" with "last name" within ".form-inputs"
@@ -190,7 +192,7 @@ Feature: Redeem the gift
     Given I go to the login page
     And  I fill in "user[email]" with "test@littlesparks.com" within ".login_box"
     And I fill in "user[password]" with "123123" within ".login_box"
-    And I click the element within ".btn_login"
+    And I click the element within "#register_login  .btn_login"
     And I go to gift redeem Payment page with the redeem of sender "sender_4@littlespark.com"
     When I click the element within "#cb_terms"
     And I click the element within ".btn-place"
