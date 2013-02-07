@@ -69,7 +69,11 @@ class Payment < ActiveRecord::Base
     transaction.set_fields(:invoice_num => params[:order_code]) if params.has_key?(:order_code)
 
     credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec
-    return transaction.purchase(price, credit_card)
+    response = transaction.purchase(price, credit_card)
+    Rails.logger.info '=============================AN process result================================'
+    Rails.logger.info response.inspect
+    Rails.logger.info '=============================END================================='
+    return response
   end
 
   def self.get_error_messages(an_response)
@@ -128,6 +132,9 @@ class Payment < ActiveRecord::Base
     )
     response = transaction.create(subscription)
 
+    Rails.logger.info '=============================AN process result================================'
+    Rails.logger.info response.inspect
+    Rails.logger.info '=============================END================================='
     return response
   end
 
@@ -138,6 +145,10 @@ class Payment < ActiveRecord::Base
       transaction = AuthorizeNet::ARB::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
     end
     response = transaction.cancel(subscription_id)
+
+    Rails.logger.info '=============================AN process result================================'
+    Rails.logger.info response.inspect
+    Rails.logger.info '=============================END================================='
     return response
   end
 
