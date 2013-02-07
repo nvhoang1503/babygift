@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   # validates :password,  :length => {:maximum => 20, :minimum => 6, :message => I18n.t('message.pass_format')}
 
-  ADMIN_EMAIL = 'littlesparktesting@gmail.com'
+  ADMIN_EMAIL = 'vivian@littlespark.com'
 
   has_many :babies
   has_many :plans, :through => :babies, :conditions => ["orders.transaction_status like '#{Order::TRANSACTION_STATUS[:completed]}'"]
