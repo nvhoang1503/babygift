@@ -82,6 +82,14 @@ Littlespark::Application.routes.draw do
       get 'step_5'
       post 'finish'
     end
+  end
 
+  resources :admin, :as => :admins, :only => [:index] do
+    collection do
+      get 'user_export'
+      get 'enroll_export'
+      get 'gift_export'
+      get 'redeem_export'
+    end
   end
 end

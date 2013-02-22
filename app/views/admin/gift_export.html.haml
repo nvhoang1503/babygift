@@ -1,0 +1,24 @@
+%table{:border => "1"}
+  %tr{:style => 'font-weight: bold;'}
+    %th.text.bold.font26 No
+    %th Email Giver
+    %th Date
+    %th Email Recipient
+    %th Plan
+    %th Billing
+    %th Status
+    %th Order #
+  - @gifts.each_with_index do |gift, index|
+    %tr
+      %td= index + 1
+      %td= gift.sender_email
+      %td= gift.created_at.strftime("%m/%d/%Y")
+      %td= gift.recipient_email
+      %td= Order::TYPE_NAME[gift.plan_type]
+      %td= gift.billing_address.address_full if gift.billing_address
+      %td
+        - if gift.redeem_status.to_i == Redeem::STATUS[:completed].to_i
+          Redeemed
+        - else
+          Pending
+      %td= gift.order_code

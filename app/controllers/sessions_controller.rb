@@ -1,6 +1,7 @@
 class SessionsController < Devise::SessionsController
   ENROLMENT_RECEIVE = 'enrolment'
   REDEEM_RECEIVE = 'redeem'
+  ADMIN_RECEIVE = 'admin'
 
   def create
     custom_auth_options = auth_options
@@ -25,6 +26,8 @@ class SessionsController < Devise::SessionsController
         step_4_enrolments_path(:order_id => ob_id)
       elsif submit_from == REDEEM_RECEIVE
         step_3b_redeems_path(:redeem_id => ob_id)
+      elsif submit_from == ADMIN_RECEIVE
+        admins_path
       else
         after_sign_in_path_for(resource)
       end

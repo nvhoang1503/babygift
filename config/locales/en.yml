@@ -47,6 +47,7 @@ en:
     name: 'name'
     birthday: 'birthday'
     plan: 'plan'
+    download: 'Download'
     button:
       enroll: 'enroll'
       gift: 'gift'
@@ -72,6 +73,13 @@ en:
       about: 'About Us'
       copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
+      admin:
+        title: 'Follow the details of Little Spark activities and details.'
+        lb_download: 'Click to download list of %{obj}'
+        user: 'users'
+        enroll: 'enroll orders'
+        gift: 'gift orders'
+        redeem: 'redeem orders'
       account_sum:
         step: 'Account Summary'
         welcome_back: "Welcome back, %{name}!"

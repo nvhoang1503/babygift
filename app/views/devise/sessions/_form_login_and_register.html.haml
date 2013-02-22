@@ -18,25 +18,26 @@
 
     = f.button :submit, I18n.t('content.page.login.sign_in') , :class => "mybtn btn-pink btn_login uppercase"
 
-.register_box.pull-right
-  .title_login= I18n.t('content.page.login.welcome')
-  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => :user_validator) do |f|
-    / = f.error_notification
-    .form-inputs
-      = f.input :email, :input_html => {:id => "user_mail_register"}, :wrapper_html => {:class => 'register_email_field'}
-      .register_email_conform_field
-        %label
-          %abbr{:title => "required"} *
-          = I18n.t('content.page.login.email_confirm')
-        %input{:type => 'text' , :id => 'email_register_conform'}
-      = f.input :password,:required => true, :input_html => {:id => "user_passwork_register"}
-      = f.input :password_confirmation,:required => true, :input_html => {:id => "user_passwork_confirm_register"}, :label => I18n.t('content.page.login.pass_confirm')
-      = hidden_field_tag 'submit_from', @submit_from
-      - if @submit_from==RegistrationsController::ENROLMENT_RECEIVE and @order.id
-        = hidden_field_tag 'order_id', @order.id
-      - if @submit_from==RegistrationsController::REDEEM_RECEIVE and @redeem.id
-        = hidden_field_tag 'redeem_id', @redeem.id
-    = f.button :submit, I18n.t('content.page.login.join') , :class => "mybtn btn-pink btn_register uppercase"
+- if @submit_from!=SessionsController::ADMIN_RECEIVE
+  .register_box.pull-right
+    .title_login= I18n.t('content.page.login.welcome')
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => :user_validator) do |f|
+      / = f.error_notification
+      .form-inputs
+        = f.input :email, :input_html => {:id => "user_mail_register"}, :wrapper_html => {:class => 'register_email_field'}
+        .register_email_conform_field
+          %label
+            %abbr{:title => "required"} *
+            = I18n.t('content.page.login.email_confirm')
+          %input{:type => 'text' , :id => 'email_register_conform'}
+        = f.input :password,:required => true, :input_html => {:id => "user_passwork_register"}
+        = f.input :password_confirmation,:required => true, :input_html => {:id => "user_passwork_confirm_register"}, :label => I18n.t('content.page.login.pass_confirm')
+        = hidden_field_tag 'submit_from', @submit_from
+        - if @submit_from==RegistrationsController::ENROLMENT_RECEIVE and @order.id
+          = hidden_field_tag 'order_id', @order.id
+        - if @submit_from==RegistrationsController::REDEEM_RECEIVE and @redeem.id
+          = hidden_field_tag 'redeem_id', @redeem.id
+      = f.button :submit, I18n.t('content.page.login.join') , :class => "mybtn btn-pink btn_register uppercase"
 
 = render 'shared/submit_form', :btn_form => '.btn_login'
 

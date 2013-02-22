@@ -1,0 +1,21 @@
+- if user_signed_in?
+  #admin.page_content_space
+    .title
+      .text.bold.font18= I18n.t('content.page.admin.title')
+      .dotted-line
+    .field_box.space_top
+      %p= I18n.t('content.page.admin.lb_download', :obj => I18n.t('content.page.admin.user'))
+      = link_to I18n.t('label.download') , user_export_admins_path , :class => "mybtn btn-green btn-download"
+    .field_box
+      %p= I18n.t('content.page.admin.lb_download', :obj => I18n.t('content.page.admin.enroll'))
+      = link_to I18n.t('label.download') , enroll_export_admins_path , :class => "mybtn btn-green btn-download"
+    .field_box
+      %p= I18n.t('content.page.admin.lb_download', :obj => I18n.t('content.page.admin.gift'))
+      = link_to I18n.t('label.download') , gift_export_admins_path , :class => "mybtn btn-green btn-download"
+    .field_box
+      %p= I18n.t('content.page.admin.lb_download', :obj => I18n.t('content.page.admin.redeem'))
+      = link_to I18n.t('label.download') , redeem_export_admins_path , :class => "mybtn btn-green btn-download"
+- else
+  #register_login.page_content_space.clear-fix
+    .title_page Log in
+    = render 'devise/sessions/form_login_and_register', :login_text => I18n.t('content.page.login.title')

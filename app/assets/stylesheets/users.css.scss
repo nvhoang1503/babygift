@@ -356,3 +356,33 @@ $page-title-color: #2fb495;
     padding-top:11px;
   }
 }
+
+/*================ ADMIN ======================*/
+#admin{
+  .title{
+    width: 570px;
+    .text{
+      margin-bottom: 10px;
+    }
+  }
+  .space_top{
+    margin-top: 50px !important;
+  }
+  .field_box{
+    clear: both;
+    height: 40px;
+    margin-top: 5px;
+    p{
+      float: left;
+      width: 320px;
+      margin-top: 10px;
+      margin-left: 100px;
+    }
+    .btn-download{
+      width: 150px;
+    }
+  }
+
+}
+
+

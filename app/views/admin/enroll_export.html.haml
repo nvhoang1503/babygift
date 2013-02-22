@@ -1,0 +1,26 @@
+%table{:border => "1"}
+  %tr{:style => 'font-weight: bold;'}
+    %th.text.bold.font26 No
+    %th Email
+    %th Date enrolled
+    %th Child
+    %th Plan
+    %th Billing
+    %th Shipping
+    %th Status
+    %th Order #
+  - @orders.each_with_index do |order,index|
+    %tr
+      %td= index + 1
+      %td= order.purchaser.email
+      %td= order.created_at.strftime("%m/%d/%Y")
+      %td= order.baby.fullname
+      %td= Order::TYPE_NAME[order.plan_type]
+      %td= order.billing_address.address_full if order.billing_address
+      %td= order.shipping_address.address_full if order.shipping_address
+      %td
+        - if order.is_active_subscription
+          On going
+        - else
+          Canceled
+      %td= order.order_code
