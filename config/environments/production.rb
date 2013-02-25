@@ -66,7 +66,7 @@ Littlespark::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'littlespark.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'littlespark.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.default :charset => "utf-8"
@@ -76,7 +76,7 @@ Littlespark::Application.configure do
   config.action_mailer.smtp_settings = {
       :address => "smtp.gmail.com",
       :port => 587,
-      :domain => 'littlespark.herokuapp.com',
+      :domain => 'littlespark.com',
       :user_name => 'tpldev1',
       :password => 'tpldev1@',
       :authentication => 'plain',
