@@ -22,6 +22,9 @@ Littlespark::Application.configure do
 
   config.assets.compile = true
 
+  # auto force Rails application to use SSL and the HTTPS protocol
+  config.force_ssl = true
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
