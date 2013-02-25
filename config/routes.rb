@@ -86,6 +86,7 @@ Littlespark::Application.routes.draw do
 
   resources :admin, :as => :admins, :only => [:index] do
     collection do
+      get 'login'
       get 'user_export'
       get 'enroll_export'
       get 'gift_export'

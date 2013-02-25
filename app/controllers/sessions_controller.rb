@@ -9,15 +9,28 @@ class SessionsController < Devise::SessionsController
     if params[:submit_from] == ENROLMENT_RECEIVE
       custom_auth_options[:recall] = "enrolment#step_3"
       ob_id = params[:order_id]
-    elsif
-      params[:submit_from] == REDEEM_RECEIVE
+    elsif params[:submit_from] == REDEEM_RECEIVE
       custom_auth_options[:recall] = "redeems#step_2"
       ob_id = params[:redeem_id]
+    elsif params[:submit_from] == ADMIN_RECEIVE
+      custom_auth_options[:recall] = 'admin#login'
     end
     resource = warden.authenticate!(custom_auth_options)
-    set_flash_message(:notice, :signed_in) if is_navigational_format?
-    sign_in(resource_name, resource)
-    respond_with resource, :location => after_sign_in_path(resource, params[:submit_from], ob_id)
+    if params[:submit_from] == ADMIN_RECEIVE
+      if resource.is_admin
+        set_flash_message(:notice, :signed_in) if is_navigational_format?
+        sign_in(resource_name, resource)
+        respond_with resource, :location => after_sign_in_path(resource, params[:submit_from], ob_id)
+      else
+        sign_out(resource)
+        redirect_to login_admins_path
+      end
+    else
+      set_flash_message(:notice, :signed_in) if is_navigational_format?
+      sign_in(resource_name, resource)
+      respond_with resource, :location => after_sign_in_path(resource, params[:submit_from], ob_id)
+
+    end
   end
 
   protected

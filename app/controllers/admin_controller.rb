@@ -1,15 +1,14 @@
 class AdminController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index]
-  # before_filter :authenticate_user!
+  before_filter :authenticate_admin_user
   before_filter :export_environment, :only => [:user_export, :enroll_export, :gift_export, :redeem_export  ]
 
   layout 'export_layout', :only => [:user_export, :enroll_export, :gift_export, :redeem_export]
 
+  def login
+    @submit_from = SessionsController::ADMIN_RECEIVE
+  end
+
   def index
-    if user_signed_in?
-    else
-      @submit_from = SessionsController::ADMIN_RECEIVE
-    end
   end
 
   def user_export
@@ -34,7 +33,16 @@ class AdminController < ApplicationController
     headers['Cache-Control'] = ''
   end
 
-  def init
+  def authenticate_admin_user
+    if user_signed_in?
+      if !current_user.is_admin?
+        flash[:notice] = "You do not have permission to access admin page!"
+        redirect_to root_path
+      end
+
+    else
+      redirect_to(:action => :login) if params[:action]!= 'login'
+    end
   end
 
 end

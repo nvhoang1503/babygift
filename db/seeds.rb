@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+unless User.exists?(:email => "admin@littlespark.com")
+  User.create({
+             :email => "admin@littlespark.com",
+             :password => "123123",
+             :password_confirmation => "123123",
+             :is_admin => true
+           })
+else
+  admin = User.find_by_email("admin@littlespark.com")
+  admin.update_attribute(:is_admin,true)
+end

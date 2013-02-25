@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     if params[:go_to_page] == 'forget_pass'
       new_user_password_path
+    # elsif params[:go_to_page] == 'admin_login'
+    #   login_admins_path
     else
       root_path
     end

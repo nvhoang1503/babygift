@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129041827) do
+ActiveRecord::Schema.define(:version => 20130225073543) do
 
   create_table "addresses", :force => true do |t|
     t.string   "first_name"
@@ -56,14 +56,15 @@ ActiveRecord::Schema.define(:version => 20130129041827) do
     t.string   "gift_code"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
+    t.string   "order_code"
   end
 
   create_table "orders", :force => true do |t|
-    t.integer  "baby_id",                              :null => false
-    t.integer  "plan_type",                            :null => false
-    t.float    "price",               :default => 0.0
-    t.float    "tax",                 :default => 0.0
-    t.float    "shipping_fee",        :default => 0.0
+    t.integer  "baby_id",                                   :null => false
+    t.integer  "plan_type",                                 :null => false
+    t.float    "price",                  :default => 0.0
+    t.float    "tax",                    :default => 0.0
+    t.float    "shipping_fee",           :default => 0.0
     t.float    "total"
     t.string   "current_step"
     t.integer  "shipping_address_id"
@@ -73,15 +74,16 @@ ActiveRecord::Schema.define(:version => 20130129041827) do
     t.datetime "transaction_date"
     t.string   "transaction_status"
     t.string   "gift_code"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "subscription_id"
     t.string   "order_code"
+    t.boolean  "is_active_subscription", :default => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -92,11 +94,12 @@ ActiveRecord::Schema.define(:version => 20130129041827) do
     t.string   "last_sign_in_ip"
     t.integer  "shipping_id"
     t.integer  "billing_id"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "email_notification"
+    t.boolean  "is_admin",               :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :first_name, :last_name,:email_notification, :email, :email_confirmation, :password, :password_confirmation, :remember_me
+  attr_accessible :first_name, :last_name,:email_notification, :email, :email_confirmation, :password, :password_confirmation, :remember_me,:is_admin
 
   validates :email, :presence => { :message => "Can't be blank" }
   # validates :first_name, :last_name , :presence => { :message => "Can't be blank" }, :on => :update
