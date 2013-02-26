@@ -1,18 +1,12 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-  %body
-    .mail_logo= image_tag(@image_link)
-    .mail_content{:style => "margin:20px;"}
-      %p{:style => "font-weight:bolder;"}
-        = "Hello, "
-        = @email
-        = "!"
-      %p
-        = "You got a new user: "
-        %span{:style => "color:#2fb495;"}= @user_mail
-      %p
-        Have Fun!
-        %br/
-        The Little Spark Team.
+.mail_content{:style => "margin:20px;"}
+  %p{:style => "font-weight:bolder;"}
+    = "Hello, "
+    = @email
+    = "!"
+  %p
+    = "You got a new user: "
+    %span{:style => "color:#2fb495;"}= @user_mail
+  %p
+    Have Fun!
+    %br/
+    The Little Spark Team.

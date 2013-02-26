@@ -1,8 +1,14 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  layout 'email'
+
+  def initial
+    @logo_link = root_url.to_s + 'assets/common/logo_text.png'
+    @btn_account_bg = root_url.to_s + 'assets/common/btn_account.png'
+    @btn_gift_bg = root_url.to_s + 'assets/common/btn_gift.png'
+  end
 
 	def welcome_email(user)
-    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    initial
 	  @email = user.email
     @password = user.password
     @url = url_for :controller=>'sessions', :action=>'new'
@@ -10,7 +16,7 @@ class UserMailer < ActionMailer::Base
 	end
 
   def register_mail(user)
-    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    initial
     @user = user
     @user_mail = user.email
     @user_id = user.id
@@ -19,7 +25,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def order_confirm(user, order ,params , trans_id)
-    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    initial
     @user = user
     @user_email = user.email
     @trans_id = trans_id
@@ -32,7 +38,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def order_confirm_to_admin(user, order ,params , trans_id)
-    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    initial
     @user = user
     @admin_email = User::ADMIN_EMAIL
     @user_email = user.email
@@ -46,7 +52,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def gift_confirm_to_admin(gift, params , trans_id)
-    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    initial
     @gift = gift
     @admin_email = User::ADMIN_EMAIL
     @trans_id = trans_id
@@ -57,7 +63,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def gift_confirm_to_sender(gift ,params , trans_id)
-    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    initial
     @gift = gift
     @admin_email = User::ADMIN_EMAIL
     @trans_id = trans_id
@@ -68,7 +74,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def gift_confirm_to_recipient(gift, params , trans_id)
-    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    initial
     @gift = gift
     @admin_email = User::ADMIN_EMAIL
     @params = params
@@ -78,7 +84,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def redeem_confirm_to_admin(redeem)
-    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    initial
     @redeem = redeem
     @admin_email = User::ADMIN_EMAIL
     @shipping_address = @redeem.shipping_address
@@ -88,7 +94,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def redeem_confirm_to_recipient(redeem)
-    @image_link = root_url.to_s + 'assets/common/logo_text.png'
+    initial
     @redeem = redeem
     @admin_email = User::ADMIN_EMAIL
     @url = url_for :controller=>'home', :action=>'index'
@@ -96,4 +102,5 @@ class UserMailer < ActionMailer::Base
     mail(:to => @user.email, :subject => "Redeem Recipient Notification")
 
   end
+
 end

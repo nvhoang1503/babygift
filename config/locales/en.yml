@@ -152,6 +152,8 @@ en:
       gift_2:
         title: 'Choose a gift option'
         step: 'Monthly Plan'
+        text_bill_month1: 'Billed monthly'
+        text_bill_month2: 'Pay upfront and save'
       gift_1:
         step: 'Recipient'
         title: 'Tell us a little about your lucky recipient'

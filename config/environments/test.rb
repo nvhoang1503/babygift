@@ -34,6 +34,7 @@ Littlespark::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  config.admin_email = 'littlesparktesting@gmail.com'
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # ActionMailer Config

@@ -1,30 +1,19 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-  %body
-    %div{:style => "margin-left:50px; width:800px; color:#000;"}
-      .mail_logo= image_tag(@image_link)
-      %div{:style => "margin-top:40px; font-weight:bolder;"}
-        = 'Congratulations,'
-        =  @gift.recipient_email
-        = "!"
-      %div{:style => "margin-top:40px; color:#000;"}
-        %p
-          = "Lucky you! #{@gift.sender_email} has sent you a gift from Little Spark. Click below to redeem your gift"
-          %br
-          or visit
-          = link_to "www.littlespark.com/redeem.", @url
-          You will receive a kit of curated, developmental toys
-          %br
-          for your baby, chosen by a panel of experts.
-        %p
-          Please contact us at
-          = link_to "contactus@littlespark.com", @admin_email
+%div{:style => "margin-top:40px; font-weight:bolder;"}
+  = 'Congratulations,'
+  =  @gift.recipient_email
+  = "!"
+%div{:style => "margin-top:40px; color:#000;"}
+  %p
+    = "Lucky you! #{@gift.sender_email} has sent you a gift from Little Spark. Click below to redeem your gift or visit"
+    = link_to "www.littlespark.com/redeem.", @url
+    You will receive a kit of curated, developmental toys for your baby, chosen by a panel of experts.
+  %p
+    Please contact us at
+    = link_to "contactus@littlespark.com", @admin_email
 
-      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
-        %p= @gift.note
+%div{:style => "clear:both; margin:40px 0px; color:#000;"}
+  %p= @gift.note
 
-      %div{:style => "clear:both; margin:40px 0px; color:#000;"}
-        %p.month= "Gift Type: #{Order::TYPE_NAME[@gift.plan_type]} Gift"
-        %p= "Gift Code: #{@gift.gift_code} "
+%div{:style => "clear:both; margin:40px 0px; color:#000;"}
+  %p.month= "Gift Type: #{Order::TYPE_NAME[@gift.plan_type]} Gift"
+  %p= "Gift Code: #{@gift.gift_code} "
