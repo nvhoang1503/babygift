@@ -12,24 +12,28 @@ class AdminController < ApplicationController
   end
 
   def user_export
+    headers['Content-Disposition'] = 'attachment; filename="users.xls"'
     @users = User.order('created_at desc')
   end
 
   def enroll_export
+    headers['Content-Disposition'] = 'attachment; filename="enrolls.xls"'
      @orders = Order.where("transaction_status" => Order::TRANSACTION_STATUS[:completed].to_s).order('created_at desc')
   end
 
   def gift_export
+    headers['Content-Disposition'] = 'attachment; filename="gifts.xls"'
     @gifts = Gift.where("transaction_status" => Order::TRANSACTION_STATUS[:completed].to_s).order('created_at desc')
   end
 
   def redeem_export
+    headers['Content-Disposition'] = 'attachment; filename="redeems.xls"'
     @redeems = Redeem.where("transaction_status" => Order::TRANSACTION_STATUS[:completed].to_s).order('created_at desc')
   end
 
   def export_environment
     headers['Content-Type'] = "application/vnd.ms-excel"
-    headers['Content-Disposition'] = 'attachment; filename="export_1.xls"'
+    # headers['Content-Disposition'] = 'attachment; filename="export_1.xls"'
     headers['Cache-Control'] = ''
   end
 

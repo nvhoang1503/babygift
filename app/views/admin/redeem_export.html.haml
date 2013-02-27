@@ -5,7 +5,6 @@
     %th Redeem Date
     %th Child
     %th Plan
-    %th Billing
     %th Shipping
     %th Status
     %th Order #
@@ -18,7 +17,6 @@
       %td
         = redeem.baby.fullname if redeem.baby
       %td= Order::TYPE_NAME[redeem.plan_type]
-      %td= redeem.billing_address.address_full if redeem.billing_address
       %td= redeem.shipping_address.address_full if redeem.shipping_address
       %td
         - if redeem.redeem_status.to_i == Redeem::STATUS[:completed].to_i

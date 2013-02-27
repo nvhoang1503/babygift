@@ -3,7 +3,6 @@
     = stylesheet_link_tag    "application", :media => "all"
     / = javascript_include_tag "head/application"
     = yield :head
-
     %title
       = @page_title || I18n.t('titles.pages.name')
   %body
