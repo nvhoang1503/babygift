@@ -24,8 +24,12 @@
   %p Payment Method: Credit Card
   %p= "Credit Card Type: #{Payment::CARD_NAME[@params[:card_type]]}"
   %p= "Credit Card Number: xxxx-#{@params[:card_number].slice(/\d{4}$/)}"
-%p Children:
-%P lola Starks
+%p
+  %span Children:
+  = @order.baby.fullname
+%p
+  %span Birthday:
+  = @order.baby.birthday.strftime("%m/%d/%Y") if @order.baby.birthday
 %div{:style => "height:150px; margin-top:40px;"}
   %div{:style => "float:left; width:50% ; color:#000;" }
     %o.item Item:
