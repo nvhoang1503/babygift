@@ -12,12 +12,18 @@
   - @orders.each_with_index do |order,index|
     %tr
       %td= index + 1
-      %td= order.purchaser.email
-      %td= order.created_at.strftime("%m/%d/%Y")
-      %td= order.baby.fullname
-      %td= Order::TYPE_NAME[order.plan_type]
-      %td= order.billing_address.address_full if order.billing_address
-      %td= order.shipping_address.address_full if order.shipping_address
+      %td
+        = order.purchaser.email if order.purchaser
+      %td
+        = order.created_at.strftime("%m/%d/%Y")
+      %td
+        = order.baby.fullname if order.baby
+      %td
+        = Order::TYPE_NAME[order.plan_type]
+      %td
+        = order.billing_address.address_full if order.billing_address
+      %td
+        = order.shipping_address.address_full if order.shipping_address
       %td
         - if order.is_active_subscription
           On going

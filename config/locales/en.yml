@@ -74,7 +74,7 @@ en:
       copyright: '2012 Little Spark Inc. All Rights Reserved.'
     page:
       admin:
-        title: 'Follow the details of Little Spark activities and details.'
+        title: 'Follow the details of Little Spark activities.'
         lb_download: 'Click to download list of %{obj}'
         user: 'users'
         enroll: 'enroll orders'
