@@ -33,7 +33,6 @@ class AdminController < ApplicationController
 
   def export_environment
     headers['Content-Type'] = "application/vnd.ms-excel"
-    # headers['Content-Disposition'] = 'attachment; filename="export_1.xls"'
     headers['Cache-Control'] = ''
   end
 
