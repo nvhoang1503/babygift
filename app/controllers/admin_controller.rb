@@ -16,15 +16,15 @@ class AdminController < ApplicationController
   end
 
   def enroll_export
-    @orders = Order.order('created_at desc')
+     @orders = Order.where("transaction_status" => Order::TRANSACTION_STATUS[:completed].to_s).order('created_at desc')
   end
 
   def gift_export
-    @gifts = Gift.order('created_at desc')
+    @gifts = Gift.where("transaction_status" => Order::TRANSACTION_STATUS[:completed].to_s).order('created_at desc')
   end
 
   def redeem_export
-    @redeems = Redeem.order('created_at desc')
+    @redeems = Redeem.where("transaction_status" => Order::TRANSACTION_STATUS[:completed].to_s).order('created_at desc')
   end
 
   def export_environment
