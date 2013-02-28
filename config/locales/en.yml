@@ -34,6 +34,7 @@ en:
     unq_order_code: 'Order code must be unique'
     first_name_short: "First name must be at least 2 characters"
     last_name_short: "Last name must be at least 2 characters"
+    email_pass_invalid: "Your email or password is invalid."
 
   titles:
     pages:

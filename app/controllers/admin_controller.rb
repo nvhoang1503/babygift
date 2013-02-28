@@ -5,6 +5,9 @@ class AdminController < ApplicationController
   layout 'export_layout', :only => [:user_export, :enroll_export, :gift_export, :redeem_export]
 
   def login
+    if params[:flag] == 'false'
+      flash[:alert] = I18n.t('message.email_pass_invalid')
+    end
     @submit_from = SessionsController::ADMIN_RECEIVE
   end
 
@@ -42,9 +45,9 @@ class AdminController < ApplicationController
         flash[:notice] = "You do not have permission to access admin page!"
         redirect_to root_path
       end
-
     else
-      redirect_to(:action => :login) if params[:action]!= 'login'
+      skip_redirect = [{:controller => 'admin', :action => 'login'}, {:controller => 'sessions', :action => 'create'}]
+      redirect_to(:action => :login, :controller => :admin) unless skip_redirect.include?({:controller => params[:controller], :action => params[:action]})
     end
   end
 
