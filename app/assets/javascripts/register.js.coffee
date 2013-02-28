@@ -69,9 +69,16 @@ class window.Register
       vl = $('#user_password').val()
       if vl.length == 0
         helper.showErrorMessage(false,'#user_password',message.not_blank)
+
+      else if pass.length > 0
+        if pass.length < 6
+          helper.showErrorMessage(false,'#user_password',message.pass_format_6)
+        else if pass.length > 20
+          helper.showErrorMessage(false,'#user_password',message.pass_format_20)
+        else
+          helper.showErrorMessage(true,'#user_password',message.pass_format_20)
       else
         helper.showErrorMessage(true,'#user_password',message.not_blank)
-
 
   checkPassComform: ->
     $('#user_passwork_register').blur ->
@@ -146,7 +153,12 @@ class window.Register
         flag =  helper.showErrorMessage(helper.isEmail(email),'#user_email',message.invalid_email)
       else
         flag =  helper.showErrorMessage(false,'#user_email',message.not_blank)
-      if pass.length == 0
+      if pass.length > 0
+        if pass.length < 6
+          flag =  helper.showErrorMessage(false,'#user_password',message.pass_format_6)
+        else if pass.length > 20
+          flag =  helper.showErrorMessage(false,'#user_password',message.pass_format_20)
+      else
         flag =  helper.showErrorMessage(false,'#user_password',message.not_blank)
       return flag
 
