@@ -80,7 +80,8 @@ class Order < ActiveRecord::Base
   end
 
   def is_cancelable?
-    if self.plan_type == TYPE['1_mon'] or self.subscription_id.blank?
+    # if self.plan_type == TYPE['1_mon'] or self.subscription_id.blank?
+    if self.subscription_id.blank?
       return false
     else
       return self.is_active_subscription
