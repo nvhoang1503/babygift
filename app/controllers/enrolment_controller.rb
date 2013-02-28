@@ -61,7 +61,6 @@ class EnrolmentController < ApplicationController
     end
 
     if user_signed_in?
-      Order.where(:id => params[:order_id].to_i).update_all(:purchaser_id => current_user.id)
       return redirect_to step_4_enrolments_path(:order_id => params[:order_id])
     end
     @submit_from = RegistrationsController::ENROLMENT_RECEIVE
@@ -71,6 +70,7 @@ class EnrolmentController < ApplicationController
     return redirect_to step_1_enrolments_path(:submit => false) unless @baby
     return redirect_to step_2_enrolments_path(:baby_id => @baby.id, :submit => false) unless @order
     return redirect_to step_3_enrolments_path(:order_id => @order.id, :submit => false) unless user_signed_in?
+    @order.update_attribute(:purchaser_id, current_user.id)
     @order.build_shipping_address unless @order.shipping_address
     @order.build_billing_address unless @order.billing_address
     # update parent_id for current baby
@@ -110,25 +110,37 @@ class EnrolmentController < ApplicationController
     params[:billing_address_id] = @order.billing_address_id
     params[:shipping_address_id] = @order.shipping_address_id
     params[:order_code] = @order.order_code
-    if @order.plan_type == Order::TYPE['1_mon']
-      response = Payment.an_process(@order.total_order, params)
-      if response.success?
-        transaction_id = response.transaction_id
-        subscription_id = nil
-      else
-        error = Payment.get_error_messages(response)
-      end
+
+    # recurring for enrollment except 1 month
+    # if @order.plan_type == Order::TYPE['1_mon']
+    #   response = Payment.an_process(@order.total_order, params)
+    #   if response.success?
+    #     transaction_id = response.transaction_id
+    #     subscription_id = nil
+    #   else
+    #     error = Payment.get_error_messages(response)
+    #   end
+    # else
+    #   params[:description] = Order::TYPE_NAME[@order.plan_type]
+    #   params[:cycle]=  Order::TYPE_CYCLE[@order.plan_type]
+    #   response = Payment.an_create_recurring(@order.total_order, params)
+    #   if response.success?
+    #     transaction_id = nil
+    #     subscription_id = response.subscription_id
+    #     @order.update_attribute(:is_active_subscription, true)
+    #   else
+    #     error = Payment.get_recurring_error_messages(response)
+    #   end
+    # end
+    params[:description] = Order::TYPE_NAME[@order.plan_type]
+    params[:cycle]=  Order::TYPE_CYCLE[@order.plan_type]
+    response = Payment.an_create_recurring(@order.total_order, params)
+    if response.success?
+      transaction_id = nil
+      subscription_id = response.subscription_id
+      @order.update_attribute(:is_active_subscription, true)
     else
-      params[:description] = Order::TYPE_NAME[@order.plan_type]
-      params[:cycle]=  Order::TYPE_CYCLE[@order.plan_type]
-      response = Payment.an_create_recurring(@order.total_order, params)
-      if response.success?
-        transaction_id = nil
-        subscription_id = response.subscription_id
-        @order.update_attribute(:is_active_subscription, true)
-      else
-        error = Payment.get_recurring_error_messages(response)
-      end
+      error = Payment.get_recurring_error_messages(response)
     end
 
     if response.success?
