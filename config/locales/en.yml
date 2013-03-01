@@ -230,7 +230,7 @@ en:
         instruction_sum: 'Instruction Manual Included!'
         instruction_text: 'We’ve heard parents say they wish babies came with instruction manuals. While we can’t provide that, but each Little Spark kit does come with an activity guide explaining what skills your baby is developing that month and tips on how to use the included toys to play and practice. And don’t worry, it’s short. We want you to spend time doing what matters most—playing and bonding with your baby!'
         delight_sum: 'Delighted Parents and Babies'
-        delight_text: 'Read <a href="%{link1}" class="underline-link">testimonials</a> from parents and see <a href="%{link2}" class="underline-link">babies</a> in action.'
+        delight_text: 'Read <a href="%{link1}" class="underline-link">testimonials</a> from parents and see babies in action.'
         enjoy: 'Sign up for a monthly box of baby learning and fun!'
       contact:
         title: 'Contact Us'

@@ -24,7 +24,7 @@
       .info.text.font18= I18n.t('content.page.kits.instruction_text')
     .section.clearfix
       .text.green.bold.font26= I18n.t('content.page.kits.delight_sum')
-      .info.text.font18= I18n.t('content.page.kits.delight_text', :link1 => fan_page_homes_path, :link2 => '#').html_safe
+      .info.text.font18= I18n.t('content.page.kits.delight_text', :link1 => fan_page_homes_path).html_safe
   .clearfix
   #gift_box
     = render "shared/gift_box", :text => I18n.t('content.page.kits.enjoy')
