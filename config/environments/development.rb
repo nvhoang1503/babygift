@@ -48,8 +48,8 @@ Littlespark::Application.configure do
       :address => "smtp.gmail.com",
       :port => 587,
       :domain => 'localhost:3000',
-      :user_name => 'tpldev1',
-      :password => 'tpldev1@',
+      :user_name => 'admin@littlespark.com',
+      :password => 'littlesparkadmin',
       :authentication => 'plain',
       :enable_starttls_auto => true
   }

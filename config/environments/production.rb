@@ -63,7 +63,7 @@ Littlespark::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
-  config.admin_email = 'vivian@littlespark.com'
+  config.admin_email = 'admin@littlespark.com'
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
@@ -79,8 +79,8 @@ Littlespark::Application.configure do
       :address => "smtp.gmail.com",
       :port => 587,
       :domain => 'littlespark.com',
-      :user_name => 'tpldev1',
-      :password => 'tpldev1@',
+      :user_name => 'admin@littlespark.com',
+      :password => 'littlesparkadmin',
       :authentication => 'plain',
       :enable_starttls_auto => true
   }

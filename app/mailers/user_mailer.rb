@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   layout 'email'
 
-  default from: "from@example.com"
+  default from: "Little Spark"
 
   def initial
     @logo_link = root_url.to_s + 'assets/common/logo_text.png'
