@@ -17,6 +17,8 @@
     %p Billing Information:
     %p= @billing_address.fullname
     %p= @billing_address.address_1
+    - if @billing_address.address_2
+      %p= @billing_address.address_2
     %p= "#{@billing_address.city}, #{@billing_address.state} #{@billing_address.zip}"
   %div{:style => "float:left; width:50% ;"}
     %p Shipping Information:

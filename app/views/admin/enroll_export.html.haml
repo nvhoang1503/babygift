@@ -24,9 +24,17 @@
       %td
         = Order::TYPE_NAME[order.plan_type]
       %td
-        = order.billing_address.address_full if order.billing_address
+        - if order.billing_address
+          = order.billing_address.address_full
+          - if order.billing_address.address_2
+            %br
+            = order.billing_address.address2_full
       %td
-        = order.shipping_address.address_full if order.shipping_address
+        - if order.shipping_address
+          = order.shipping_address.address_full
+          - if order.shipping_address.address_2
+            %br
+            = order.shipping_address.address2_full
       %td
         - if order.is_active_subscription
           On going

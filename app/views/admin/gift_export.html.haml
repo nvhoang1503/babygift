@@ -15,7 +15,12 @@
       %td= gift.created_at.strftime("%m/%d/%Y")
       %td= gift.recipient_email
       %td= Order::TYPE_NAME[gift.plan_type]
-      %td= gift.billing_address.address_full if gift.billing_address
+      %td
+        - if gift.billing_address
+          = gift.billing_address.address_full
+          - if gift.billing_address.address_2
+            %br
+            = gift.billing_address.address2_full
       %td
         - if gift.redeem_status.to_i == Redeem::STATUS[:completed].to_i
           Redeemed

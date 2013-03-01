@@ -50,4 +50,12 @@ class Address < ActiveRecord::Base
     [address_1, city_state].join(', ')
   end
 
+  def address2_full
+    add = nil
+    if !address_2.blank?
+      add = [address_2, city_state].join(', ')
+    end
+    return add
+  end
+
 end

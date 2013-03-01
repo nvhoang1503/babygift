@@ -23,6 +23,9 @@
           %p.info_text= @order.shipping_address.fullname
         .info_field.address_1
           %p.info_text= @order.shipping_address.address_1
+        - if @order.shipping_address.address_2
+          .info_field.address_1
+            %p.info_text= @order.shipping_address.address_2
         .info_field.city_state_zip
           %p.info_text= @order.shipping_address.city_state
 
@@ -33,6 +36,9 @@
           %p.info_text= @order.billing_address.fullname
         .info_field.address_1
           %p.info_text= @order.billing_address.address_1
+        - if @order.billing_address.address_2
+          .info_field.address_1
+            %p.info_text= @order.billing_address.address_2
         .info_field.city_state_zip
           %p.info_text= @order.billing_address.city_state
 

@@ -1,6 +1,10 @@
-#------- Email ------
+#------- Local Email ------
 Email: littlesparktesting@gmail.com
 Password: little123456789
+
+#------- Production & staging Admin email ---------
+Email: admin@littlespark.com
+Password: littlesparkadmin
 
 #------------ Authorize .Net
 Account:  littlespark123
