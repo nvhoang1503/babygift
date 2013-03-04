@@ -17,11 +17,7 @@ class Gift < ActiveRecord::Base
   end
 
   def get_tax
-    if Order::TAX[:state].include? self.billing_address.state
-      return self.price * Order::TAX[:rate]
-    else
-      return 0
-    end
+    return 0
   end
 
   protected

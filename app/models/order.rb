@@ -1,8 +1,15 @@
 class Order < ActiveRecord::Base
-  TAX = {
-    :rate => 0.05,
-    :state => ['CA']
+  # Anyone with a shipping address in California: 7.5%
+  # Anyone with a shipping address in San Mateo County zipcodes: 8.25%
+  CA = {
+    :tax => 0.075,
+    :name => 'CA'
   }
+  SAN_MATEO = {
+    :tax => 0.0825,
+    :zipcodes => ['94401', '94402', '94403', '94404']
+  }
+
   TYPE = {
     '1_mon' => 1,
     '3_mon' => 2,
@@ -72,15 +79,20 @@ class Order < ActiveRecord::Base
   end
 
   def get_tax
-    if TAX[:state].include? self.billing_address.state
-      return self.price * TAX[:rate]
-    else
-      return 0
+    result = 0
+
+    if self.shipping_address.state == CA[:name]
+      tax = CA[:tax]
+      if SAN_MATEO[:zipcodes].include? self.shipping_address.zip
+        tax = SAN_MATEO[:tax]
+      end
+      result = tax * self.price
     end
+
+    return result
   end
 
   def is_cancelable?
-    # if self.plan_type == TYPE['1_mon'] or self.subscription_id.blank?
     if self.subscription_id.blank?
       return false
     else
