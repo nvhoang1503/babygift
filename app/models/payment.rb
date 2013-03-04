@@ -69,7 +69,7 @@ class Payment < ActiveRecord::Base
     transaction.set_fields(:invoice_num => params[:order_code]) if params.has_key?(:order_code)
 
     credit_card = AuthorizeNet::CreditCard.new card_num, exp_date.strftime('%m%y'), :card_code => card_sec
-    response = transaction.purchase(price, credit_card)
+    response = transaction.purchase(price.round(2), credit_card)
     Rails.logger.info '=============================AN process result================================'
     Rails.logger.info response.inspect
     Rails.logger.info '=============================END================================='
@@ -125,7 +125,7 @@ class Payment < ActiveRecord::Base
       :unit => :month,
       :start_date => Date.today,
       :total_occurrences => AuthorizeNet::ARB::Subscription::UNLIMITED_OCCURRENCES,
-      :amount => price,
+      :amount => price.round(2),
       :invoice_number => params[:order_code],
       :description => params[:description],
       :credit_card => credit_card,
