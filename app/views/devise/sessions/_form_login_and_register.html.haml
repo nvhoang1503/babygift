@@ -4,7 +4,8 @@
     .form-inputs
       = f.input :email, :required => false, :wrapper_html => {:class => 'login_email_field'}
       = f.input :password, :required => false
-      - if flash[:alert] == 'Your email or password is invalid.'
+
+      - if flash[:alert] == I18n.t('message.email_pass_invalid') or flash[:alert] ==I18n.t('message.admin_invalid')
         %span#exsting_email.error= flash[:alert]
       .foget_pass
         = link_to I18n.t('content.page.login.forgot_pass'), new_password_path(resource_name), :class => 'underline-link'
@@ -22,7 +23,6 @@
   .register_box.pull-right
     .title_login= I18n.t('content.page.login.welcome')
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => :user_validator) do |f|
-      / = f.error_notification
       .form-inputs
         = f.input :email, :input_html => {:id => "user_mail_register"}, :wrapper_html => {:class => 'register_email_field'}
         .register_email_conform_field

@@ -35,6 +35,8 @@ en:
     first_name_short: "First name must be at least 2 characters"
     last_name_short: "Last name must be at least 2 characters"
     email_pass_invalid: "Your email or password is invalid."
+    admin_invalid: "Invalid admin user."
+    admin_permission_denied: "You do not have permission to access admin page!"
 
   titles:
     pages:

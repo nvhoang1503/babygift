@@ -6,6 +6,15 @@ Given /^a user exists with email: "(.*?)", password: "(.*?)"$/ do |email, passwo
   u.save
 end
 
+Given /^a admin user exists with email: "(.*?)", password: "(.*?)"$/ do |email, password|
+  u = User.new
+  u.email = email
+  u.password = password
+  u.password_confirmation = password
+  u.is_admin = true
+  u.save
+end
+
 When /^I log in with email "(.*?)" and password "(.*?)"$/ do |email, password|
   with_scope(".login_box") do
     fill_in("user[email]", :with => email)

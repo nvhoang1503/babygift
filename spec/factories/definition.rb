@@ -25,6 +25,7 @@ FactoryGirl.define do
     last_name "BBB"
     password "123123"
     password_confirmation "123123"
+    is_admin false
   end
 end
 

@@ -10,6 +10,8 @@ module NavigationHelpers
       root_path
     when /login page/ then
       new_user_session_path
+    when /admin login/ then
+      login_admins_path
     when /gift recipient/ then
       step_1_gifts_path
     when /gift monthly plan with gift of sender "([^"]*)"/ then

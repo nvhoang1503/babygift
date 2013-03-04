@@ -18,7 +18,7 @@ Pass: Authorize259
 API login ID: 948Q68ryBw
 Transaction Key: 95g4N5GhAjFs7T4x
 
-
 *** GODADDY HOST ***
 Account: 35118486
 Pass: mochi5683
+

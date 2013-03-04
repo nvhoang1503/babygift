@@ -25,6 +25,15 @@ Spork.prefork do
   # prefer to use XPath just remove this line and adjust any selectors in your
   # steps to use the XPath syntax.
   Capybara.default_selector = :css
+  # WebDriver driver = new ChromeDriver();
+  # driver.get("http://www.google.com");
+  # Selenium::WebDriver::Chrome.path = "/usr/lib/chromium-browser/chromium-browser"
+  # driver = Selenium::WebDriver.for :chrome
+
+  Capybara.register_driver :selenium do |app|
+   Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
+  # Capybara.default_driver = :chrome
 
 end
 

@@ -6,7 +6,7 @@ class AdminController < ApplicationController
 
   def login
     if params[:flag] == 'false'
-      flash[:alert] = I18n.t('message.email_pass_invalid')
+      flash[:alert] = I18n.t('message.admin_invalid')
     end
     @submit_from = SessionsController::ADMIN_RECEIVE
   end
@@ -42,7 +42,7 @@ class AdminController < ApplicationController
   def authenticate_admin_user
     if user_signed_in?
       if !current_user.is_admin?
-        flash[:notice] = "You do not have permission to access admin page!"
+        flash[:notice] = I18n.t('message.admin_permission_denied')
         redirect_to root_path
       end
     else
