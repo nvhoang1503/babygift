@@ -9,8 +9,8 @@
 unless User.exists?(:email => "admin@littlespark.com")
   User.create({
              :email => "admin@littlespark.com",
-             :password => "123123",
-             :password_confirmation => "123123",
+             :password => "littlesparkadmin",
+             :password_confirmation => "littlesparkadmin",
              :is_admin => true
            })
 else
