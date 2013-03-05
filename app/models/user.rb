@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   def enroll_n_redeem_babies
     enroll_babies_selector = self.babies.joins(:plan).where("orders.transaction_status like '#{Order::TRANSACTION_STATUS[:completed]}'").select('babies.*, orders.plan_type AS plan_type, orders.price AS price, orders.id AS plan_id, true AS is_enroll_plan, false AS is_redeem_plan').to_sql
     redeem_babies_selector = self.babies.joins(:redeem).where("gifts.redeem_status like '#{Redeem::STATUS[:completed]}'").select('babies.*, gifts.plan_type as plan_type, gifts.price as price, gifts.id AS plan_id, false AS is_enroll_plan, true AS is_redeem_plan').to_sql
-    sql = "#{enroll_babies_selector} UNION ALL #{redeem_babies_selector}"
+    sql = "#{enroll_babies_selector} UNION ALL #{redeem_babies_selector} order by updated_at DESC"
 
     return Baby.find_by_sql(sql)
   end

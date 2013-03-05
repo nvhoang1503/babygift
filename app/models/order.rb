@@ -120,7 +120,7 @@ class Order < ActiveRecord::Base
             from babies
             where user_id = #{user_id}
             )
-            order by transaction_date
+            order by transaction_date DESC
           "
     orders = Order.find_by_sql(sql)
     return orders
