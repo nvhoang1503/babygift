@@ -1,6 +1,8 @@
 %table{:border => "1"}
   %tr{:style => 'font-weight: bold;'}
     %th.text.bold.font26 No
+    %th First name
+    %th Last name
     %th Email Recipient
     %th Redeem Date
     %th Child
@@ -11,6 +13,12 @@
   - @redeems.each_with_index do |redeem, index|
     %tr
       %td= index + 1
+      %td
+        - if redeem.shipping_address
+          = redeem.shipping_address.first_name
+      %td
+        - if redeem.shipping_address
+          = redeem.shipping_address.last_name
       %td= redeem.recipient_email
       %td
         = redeem.redeem_date.strftime("%m/%d/%Y") if redeem.redeem_date

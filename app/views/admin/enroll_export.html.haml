@@ -1,6 +1,8 @@
 %table{:border => "1"}
   %tr{:style => 'font-weight: bold;'}
     %th.text.bold.font26 No
+    %th First name
+    %th Last name
     %th Email
     %th Date enrolled
     %th Child
@@ -13,6 +15,12 @@
   - @orders.each_with_index do |order,index|
     %tr
       %td= index + 1
+      %td
+        - if order.shipping_address
+          = order.shipping_address.first_name
+      %td
+        - if order.shipping_address
+          = order.shipping_address.last_name
       %td
         = order.purchaser.email if order.purchaser
       %td

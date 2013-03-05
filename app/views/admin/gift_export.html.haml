@@ -1,6 +1,8 @@
 %table{:border => "1"}
   %tr{:style => 'font-weight: bold;'}
     %th.text.bold.font26 No
+    %th First name
+    %th Last name
     %th Email Giver
     %th Date
     %th Email Recipient
@@ -11,6 +13,12 @@
   - @gifts.each_with_index do |gift, index|
     %tr
       %td= index + 1
+      %td
+        - if gift.billing_address
+          = gift.billing_address.first_name
+      %td
+        - if gift.billing_address
+          = gift.billing_address.last_name
       %td= gift.sender_email
       %td= gift.created_at.strftime("%m/%d/%Y")
       %td= gift.recipient_email
