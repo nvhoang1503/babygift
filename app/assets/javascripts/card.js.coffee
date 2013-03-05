@@ -2,7 +2,7 @@ class window.Card
   constructor: ->
     @CARD_TYPE_VALIDATORS = [
       { value: CARD_TYPE.am_express.toString(), reg: /^3[47][0-9]{13}$/, class: 'am-express' },
-      { value: CARD_TYPE.discover.toString(), reg: /^6(?:011|5[0-9]{2})[0-9]{12}$/, class: 'discover' },
+      { value: CARD_TYPE.discover.toString(), reg: /^6(?:(011|5[0-9]{2}))[0-9]{12}$/, class: 'discover' },
       { value: CARD_TYPE.visa.toString(), reg: /^4[0-9]{12}(?:[0-9]{3})?$/, class: 'visa' },
       { value: CARD_TYPE.master.toString(), reg: /^5[1-5][0-9]{14}$/, class: 'master' }
     ]
@@ -32,6 +32,7 @@ class window.Card
   validateCardNum: (card_checking=false) =>
     result = false
     card_num = $('#card_number')
+
     for validator in @CARD_TYPE_VALIDATORS
       if validator.reg.test card_num.val().replace(/\s/g,'')
         result = true
