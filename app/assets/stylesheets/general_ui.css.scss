@@ -837,6 +837,9 @@ ul.social_medial_icon_line{
     margin-top: 30px;
     height: 500px;
     overflow-y: scroll;
+    p {
+      min-height: 24px;
+    }
     .title{
       margin-top: 30px;
     }
