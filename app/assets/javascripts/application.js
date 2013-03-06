@@ -19,6 +19,5 @@
 //= require jquery.inputHintOverlay
 //= require helper
 //= require common
-//= require application
 //= require rails.validations
 //= require rails.validations.simple_form
