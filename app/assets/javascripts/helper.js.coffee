@@ -8,16 +8,23 @@ class window.Helper
 
   validateZip: (event) ->
     reg = /^\d{0,5}(-\d{0,4})?$/
-    return true unless event.charCode
-    part1 = @.value.substring 0, @.selectionStart
-    part2 = @.value.substring @.selectionEnd, @.value.length
-    return reg.test(part1 + String.fromCharCode(event.charCode) + part2)
+    key = 0
+    if event.charCode
+      key = event.charCode
+    else if event.keyCode
+      key = event.keyCode
+
+    # 8 = backspace, 9 = tab, 13 = enter, 35 = end, 36 = home, 37 = left, 39 = right, 46 = delete
+    if (key == 8 || key == 9 || key == 13 || key == 35 || key == 36|| key == 37 || key == 39 || key == 46)
+      return true
+    else
+      str = $(@).caret().replace(String.fromCharCode(key))
+      return reg.test str
 
   validateEmail: (event) ->
     reg = /^([a-zA-Z0-9_@+-\.])$/
     return true unless event.charCode
     return reg.test(String.fromCharCode(event.charCode))
-
 
   isEmail: (email) ->
     regex = /^([a-zA-Z0-9_+-\.])+\@(([a-zA-Z0-9])+\.)+([a-zA-Z0-9]{2,4})+$/
@@ -26,10 +33,19 @@ class window.Helper
     return regex.test(email)
 
   validatePhone: (event) ->
-    # reg need cover other special characters
-    reg = /^[\d]$/i
-    return true unless event.charCode
-    return reg.test(String.fromCharCode(event.charCode))
+    reg = /^\d{0,10}$/
+    key = 0
+    if event.charCode
+      key = event.charCode
+    else if event.keyCode
+      key = event.keyCode
+
+    # 8 = backspace, 9 = tab, 13 = enter, 35 = end, 36 = home, 37 = left, 39 = right, 46 = delete
+    if (key == 8 || key == 9 || key == 13 || key == 35 || key == 36|| key == 37 || key == 39 || key == 46)
+      return true
+    else
+      str = $(@).caret().replace(String.fromCharCode(key))
+      return reg.test str
 
   validateCvv: (event) ->
     reg = /^\d{0,4}?$/
