@@ -1,6 +1,6 @@
 #------- Local Email ------
 Email: littlesparktesting@gmail.com
-Password: little123456789
+Password: little1234567890
 
 #------- Production & staging Admin email ---------
 Email: admin@littlespark.com
