@@ -75,7 +75,7 @@ Littlespark::Application.configure do
       :address => "smtp.gmail.com",
       :port => 587,
       :domain => 'littlespark-stg.herokuapp.com',
-      :user_name => 'littlesparktesting@gmail.com',
+      :user_name => 'littlesparktesting',
       :password => 'little123456789',
       :authentication => 'plain',
       :enable_starttls_auto => true
