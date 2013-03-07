@@ -3,11 +3,11 @@
   =  @user_email
   = "!"
 %div{:style => "margin-top:40px; color:#000;"}
-  %p Thank you for your order from Little Spark. You can check the status of your order by
   %p
-    = 'logging into'
-    = link_to " your account", @url
-    = '. Please contact us with any questions at contactus@littlespark.com'
+    %span Thank you for your order. You can check the status of your order by logging into
+    = link_to " your account.", @url
+    %span Please contact us with any questions at
+    = link_to "contactus@littlespark.com.", "mailto:contactus@littlespark.com"
 %div{:style => "clear:both; margin:40px 0px; color:#000;"}
   = "Your Order #{@trans_id} (placed on #{@order.transaction_date.strftime('%m/%d/%Y %l:%M %p')})"
 %div{:style => "height:85px; color:#000;"}
@@ -39,7 +39,9 @@
 %div{:style => "height:150px; margin-top:40px; color:#000;"}
   %div{:style => "float:left; width:50% ;"}
     %o.item Item:
-    %p.month Monthly Subscription
+    %p.month
+      %span= Order::TYPE_DUR[@order.plan_type]
+      %span Subscription
     %p{:style => "text-align:right; margin-right:20px;"} Sub-total
     %p{:style => "text-align:right; margin-right:20px;"} Tax:
     %p{:style => "text-align:right; margin-right:20px;"} Shipping:
