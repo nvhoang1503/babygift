@@ -72,13 +72,13 @@ Littlespark::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :domain => 'littlespark-stg.herokuapp.com',
-      :user_name => 'littlesparktesting',
-      :password => 'little123456789',
-      :authentication => 'plain',
-      :enable_starttls_auto => true
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'littlespark-stg.herokuapp.com',
+    :user_name => 'littlesparktesting',
+    :password => 'little1234567890',
+    :authentication => 'plain',
+    :enable_starttls_auto => true
   }
 
   # Log the query plan for queries taking more than this (works
