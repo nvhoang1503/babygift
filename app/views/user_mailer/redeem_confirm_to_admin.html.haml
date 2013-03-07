@@ -42,3 +42,10 @@
     %p= number_to_currency @redeem.get_tax
     %p FREE
     %p= number_to_currency @redeem.total_price
+%div{:style => "height:150px; margin-top:40px; color:#000;"}
+  %p
+    %span Child's Name:
+    = @redeem.baby.fullname
+  %p
+    %span Birthday:
+    = @redeem.baby.birthday.strftime("%m/%d/%Y") if @redeem.baby.birthday

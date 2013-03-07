@@ -78,10 +78,8 @@ class UserMailer < ActionMailer::Base
   def gift_confirm_to_recipient(gift, params , trans_id)
     initial
     @gift = gift
-    @admin_email = User::ADMIN_EMAIL
-    @params = params
     @url = url_for :controller=>'redeems', :action=>'step_1'
-    mail(:to => @gift.recipient_email, :subject => "Gift Recipient Notification")
+    mail(:to => @gift.recipient_email, :subject => "You've reveived a gift from #{@gift.sender_email}")
 
   end
 
@@ -98,10 +96,8 @@ class UserMailer < ActionMailer::Base
   def redeem_confirm_to_recipient(redeem)
     initial
     @redeem = redeem
-    @admin_email = User::ADMIN_EMAIL
-    @url = url_for :controller=>'home', :action=>'index'
     @user = @redeem.baby.parent
-    mail(:to => @user.email, :subject => "Redeem Recipient Notification")
+    mail(:to => @user.email, :subject => "Thank you for redeeming your Little Spark gift!")
 
   end
 

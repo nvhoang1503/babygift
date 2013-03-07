@@ -8,12 +8,15 @@
     = link_to "www.littlespark.com/redeem.", @url
     You will receive a kit of curated, developmental toys for your baby, chosen by a panel of experts.
   %p
-    Please contact us with any questions at
-    = link_to "contactus@littlespark.com", @admin_email
+    Please contact us with any questions at contactus@littlespark.com.
 
-%div{:style => "clear:both; margin:40px 0px; color:#000;"}
-  %p= @gift.note
+- if @gift.note.present?
+  %div{:style => "clear:both; margin:40px 0px; color:#000;"}
+    %p Gift Message
+    %p= @gift.note
 
 %div{:style => "clear:both; margin:40px 0px; color:#000;"}
   %p.month= "Gift Type: #{Order::TYPE_NAME[@gift.plan_type]} Gift"
-  %p= "Gift Code: #{@gift.gift_code} "
+  %p
+    Gift Code:
+    = link_to "#{@gift.gift_code}", @url
