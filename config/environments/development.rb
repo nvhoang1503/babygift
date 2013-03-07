@@ -56,7 +56,7 @@ Littlespark::Application.configure do
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
-    :domain => 'littlespark-stg.herokuapp.com',
+    :domain => 'localhost:3000',
     :user_name => 'littlesparktesting',
     :password => 'little1234567890',
     :authentication => 'plain',
