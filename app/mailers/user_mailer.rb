@@ -23,7 +23,7 @@ class UserMailer < ActionMailer::Base
     @user_mail = user.email
     @user_id = user.id
     @email = User::ADMIN_EMAIL
-    mail(:to => @email ,subject: "New User testing" )
+    mail(:to => @email ,subject: "New User" )
   end
 
   def order_confirm(user, order ,params , trans_id)
