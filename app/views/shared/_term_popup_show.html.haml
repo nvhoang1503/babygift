@@ -1,0 +1,25 @@
+= javascript_tag do
+  :erb
+    window.onload = function(){
+      // your code here
+      $('#terms_popup_content').modal({
+        closeHTML: "<div> <a class='modalCloseImg' href='#for_module' title='Close' onclick=\"$('.popup_content .no').trigger('click')\" style='color:#000 !important'>              <img src='/assets/common/closebox.png' width='24px' height='24px' alt='X'>            </a>          </div>",
+        position: ["10%"],
+        focus: false,
+        persist: true,
+        maxWidth: "740px",
+        minWidth: "700px",
+        overlayCss: {
+          backgroundColor: "#121212"
+        },
+        onShow: function(dialog) {
+          $('.popup_content .yes').click(function() {});
+          return $('.popup_content .no').click(function() {
+            return $.modal.close();
+          });
+        },
+        onClose: function(dialog) {
+          return $.modal.close();
+        }
+      });
+    };

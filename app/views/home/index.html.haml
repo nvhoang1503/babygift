@@ -39,6 +39,8 @@
 .testimonial
   = render "shared/people_say"
 
+- if params[:terms_of_service] == "show"
+  = render 'shared/term_popup_show'
 
 - content_for :js do
   = javascript_include_tag 'slides.jquery.js', 'home'
