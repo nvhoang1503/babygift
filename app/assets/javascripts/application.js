@@ -21,3 +21,4 @@
 //= require common
 //= require rails.validations
 //= require rails.validations.simple_form
+//= require jquery.caret
