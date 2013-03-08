@@ -1,17 +1,14 @@
 %div{:style => "margin-top:40px; font-weight:bolder;"}
-  = 'Hello,'
-  =  @gift.sender_email
-  = "!"
+  = "Hello, #{@gift.sender_email}!"
 %div{:style => "margin-top:40px; color:#000;"}
   %p
     Thank you for your gift order from Little Spark. You can now share the gift code below to the lucky recipient for redemption. Please contact us  with any questions at
-    = link_to "contactus@littlespark.com.", @url
+    = link_to "contactus@littlespark.com", @url, :style => "margin-right: -5px !important; padding-right:0px;"
+    = "."
 
 %div{:style => "clear:both; margin:40px 0px; color:#000;"}
   %p= "Your Order #{@trans_id} (placed on #{@gift.transaction_date.strftime('%m/%d/%Y %l:%M %p')})"
-
   %p= "Gift Code #{@gift.gift_code} "
-
 %div{:style => "height:85px; color:#000;"}
   %div{:style => "float:left; width:50% ;"}
     %p Billing Information:
