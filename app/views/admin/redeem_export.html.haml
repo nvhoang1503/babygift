@@ -1,11 +1,12 @@
 %table{:border => "1"}
   %tr{:style => 'font-weight: bold;'}
     %th.text.bold.font26 No
-    %th First name
-    %th Last name
+    %th First Name
+    %th Last Name
     %th Email Recipient
     %th Redeem Date
     %th Child
+    %th Birthday
     %th Plan
     %th Shipping
     %th Status
@@ -24,6 +25,8 @@
         = redeem.redeem_date.strftime("%m/%d/%Y") if redeem.redeem_date
       %td
         = redeem.baby.fullname if redeem.baby
+      %td
+        = redeem.baby.birthday.strftime("%m/%d/%Y") if redeem.baby
       %td= Order::TYPE_NAME[redeem.plan_type]
       %td
         - if redeem.shipping_address
