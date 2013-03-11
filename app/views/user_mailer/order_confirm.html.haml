@@ -1,30 +1,34 @@
-%div{:style => "margin-top:40px; font-weight:bolder;"}
+%div{:style => "padding-top:10px; font-weight:bolder;"}
   = "Hello, #{@user_email}!"
-%div{:style => "margin-top:40px; color:#000;"}
+%div{:style => "padding-top:10px; color:#000;"}
   %p
     %span Thank you for your order. You can check the status of your order by logging into
-    = link_to " your account", @url, :style => "margin-right: -5px !important; padding-right:0px;"
+    = link_to " your account", @url, :style => "padding-right: -5px !important; padding-right:0px;"
     = ". Please contact us with any questions at"
-    = link_to "contactus@littlespark.com", "mailto:contactus@littlespark.com", :style => "margin-right: -5px !important; padding-right:0px;"
+    = link_to "contactus@littlespark.com", "mailto:contactus@littlespark.com", :style => "padding-right: -5px !important; padding-right:0px;"
     = "."
-%div{:style => "clear:both; margin:40px 0px; color:#000;"}
+%div{:style => "clear:both; padding:10px 0px; color:#000;"}
   = "Your Order #{@trans_id} (placed on #{@order.transaction_date.strftime('%m/%d/%Y %l:%M %p')})"
-%div{:style => "height:85px; color:#000;"}
-  %div{:style => "float:left; width:50% ;"}
-    %p Billing Information:
-    %p= @billing_address.fullname
-    %p= @billing_address.address_1
-    -if @billing_address.address_2
-      %p= @billing_address.address_2
-    %p= "#{@billing_address.city}, #{@billing_address.state} #{@billing_address.zip}"
-  %div{:style => "float:left; width:50% ;"}
-    %p Shipping Information:
-    %p= @shipping_address.fullname
-    %p= @shipping_address.address_1
-    - if @shipping_address.address_2
-      %p= @shipping_address.address_2
-    %p= "#{@shipping_address.city}, #{@shipping_address.state} #{@shipping_address.zip}"
-%div{:style => "clear:both; margin:40px 0px; color:#000;"}
+
+%table
+  %tr
+    %td{:style => 'width:400px; vertical-align:top;'}
+      %p Billing Information:
+      %p= @billing_address.fullname
+      %p= @billing_address.address_1
+      - if @billing_address.address_2.present?
+        %p= @billing_address.address_2
+      %p= "#{@billing_address.city}, #{@billing_address.state} #{@billing_address.zip}"
+    %td{:style => 'width:400px; vertical-align:top;'}
+      %p Shipping Information:
+      %p= @shipping_address.fullname
+      %p= @shipping_address.address_1
+      - if @shipping_address.address_2.present?
+        %p= @shipping_address.address_2
+      %p= "#{@shipping_address.city}, #{@shipping_address.state} #{@shipping_address.zip}"
+
+
+%div{:style => "clear:both; padding:10px 0px; color:#000;"}
   %p Payment Method: Credit Card
   %p= "Credit Card Type: #{Payment::CARD_NAME[@params['card_type'].to_i]}"
   %p= "Credit Card Number: xxxx-#{@params[:card_number].slice(/\d{4}$/)}"
@@ -34,20 +38,22 @@
 %p
   %span Birthday:
   = @order.baby.birthday.strftime("%m/%d/%Y") if @order.baby.birthday
-%div{:style => "height:150px; margin-top:40px; color:#000;"}
-  %div{:style => "float:left; width:50% ;"}
-    %o.item Item:
-    %p.month
-      %span= Order::TYPE_NAME[@order.plan_type]
-      %span Subscription
-    %p{:style => "text-align:right; margin-right:20px;"} Sub-total
-    %p{:style => "text-align:right; margin-right:20px;"} Tax:
-    %p{:style => "text-align:right; margin-right:20px;"} Shipping:
-    %p{:style => "text-align:right; margin-right:20px;"} Total:
-  %div{:style => "float:left; width:50% ;"}
-    %o.item Amount
-    %p.month= number_to_currency @order.price
-    %p= number_to_currency @order.price
-    %p= number_to_currency @order.get_tax
-    %p FREE
-    %p= number_to_currency @order.total_order
+
+%table
+  %tr
+    %td{:style => 'width:400px; vertical-align:top;'}
+      %p.item Item:
+      %p.month
+        %span= Order::TYPE_NAME[@order.plan_type]
+        %span Subscription
+      %p{:style => "text-align:right; padding-right:20px;"} Sub-total
+      %p{:style => "text-align:right; padding-right:20px;"} Tax:
+      %p{:style => "text-align:right; padding-right:20px;"} Shipping:
+      %p{:style => "text-align:right; padding-right:20px;"} Total:
+    %td{:style => 'width:400px; vertical-align:top;'}
+      %p.item Amount
+      %p.month= number_to_currency @order.price
+      %p= number_to_currency @order.price
+      %p= number_to_currency @order.get_tax
+      %p FREE
+      %p= number_to_currency @order.total_order

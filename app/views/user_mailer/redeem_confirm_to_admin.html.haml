@@ -1,48 +1,52 @@
-%div{:style => "margin-top:30px; font-weight:bolder; color:#000;"}
+%div{:style => "padding-top:10px; font-weight:bolder; color:#000;"}
   = 'Hello,'
   =  @admin_email
   = "!"
-%div{:style => "margin-top:40px; color:#000;"}
+%div{:style => "padding-top:10px; color:#000;"}
   %p
     = 'You got a new redeem by '
     = @redeem.recipient_email
-%div{:style => "clear:both; margin:40px 0px; color:#000;"}
+%div{:style => "clear:both; padding:10px 0px; color:#000;"}
   %p Detail:
   %p= "Your Order #{@redeem.transaction_code} (Redeemed on #{@redeem.redeem_date.strftime('%m/%d/%Y %l:%M %p')})"
 
   %p= "Gift Code #{@redeem.gift_code} "
 
-%div{:style => "height:85px; color:#000;"}
-  %div{:style => "float:left; width:50% ;"}
-    %p Billing Information:
-    %p= @billing_address.fullname
-    %p= @billing_address.address_1
-    - if @billing_address.address_2
-      %p= @billing_address.address_2
-    %p= "#{@billing_address.city}, #{@billing_address.state} #{@billing_address.zip}"
-  %div{:style => "float:left; width:50% ;"}
-    %p Shipping Information:
-    %p= @shipping_address.fullname
-    %p= @shipping_address.address_1
-    - if @shipping_address.address_2
-      %p= @shipping_address.address_2
-    %p= "#{@shipping_address.city}, #{@shipping_address.state} #{@shipping_address.zip}"
-%div{:style => "height:150px; margin-top:40px; color:#000;"}
-  %div{:style => "float:left; width:50% ;"}
-    %o.item Item:
+%table
+  %tr
+    %td{:style => 'width:400px; vertical-align:top;'}
+      %p Billing Information:
+      %p= @billing_address.fullname
+      %p= @billing_address.address_1
+      - if @billing_address.address_2.present?
+        %p= @billing_address.address_2
+      %p= "#{@billing_address.city}, #{@billing_address.state} #{@billing_address.zip}"
+    %td{:style => 'width:400px; vertical-align:top;'}
+      %p Shipping Information:
+      %p= @shipping_address.fullname
+      %p= @shipping_address.address_1
+      - if @shipping_address.address_2.present?
+        %p= @shipping_address.address_2
+      %p= "#{@shipping_address.city}, #{@shipping_address.state} #{@shipping_address.zip}"
+%br
+%table
+  %tr
+    %td{:style => 'width:400px; vertical-align:top;'}
+      %p.item Item:
     %p.month= "#{Order::TYPE_NAME[@redeem.plan_type]} Gift"
-    %p{:style => "text-align:right; margin-right:20px;"} Sub-total
-    %p{:style => "text-align:right; margin-right:20px;"} Tax:
-    %p{:style => "text-align:right; margin-right:20px;"} Shipping:
-    %p{:style => "text-align:right; margin-right:20px;"} Total:
-  %div{:style => "float:left; width:50% ;"}
-    %o.item Amount
-    %p.month= number_to_currency @redeem.price
-    %p= number_to_currency @redeem.price
-    %p= number_to_currency @redeem.get_tax
-    %p FREE
-    %p= number_to_currency @redeem.total_price
-%div{:style => "height:150px; margin-top:40px; color:#000;"}
+      %p{:style => "text-align:right; padding-right:20px;"} Sub-total
+      %p{:style => "text-align:right; padding-right:20px;"} Tax:
+      %p{:style => "text-align:right; padding-right:20px;"} Shipping:
+      %p{:style => "text-align:right; padding-right:20px;"} Total:
+    %td{:style => 'width:400px; vertical-align:top;'}
+      %p.item Amount
+      %p.month= number_to_currency @redeem.price
+      %p= number_to_currency @redeem.price
+      %p= number_to_currency @redeem.get_tax
+      %p FREE
+      %p= number_to_currency @redeem.total_price
+
+%div{:style => "height:150px; padding-top:10px; color:#000;"}
   %p
     %span Child's Name:
     = @redeem.baby.fullname
