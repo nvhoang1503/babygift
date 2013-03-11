@@ -8,6 +8,7 @@ class window.Enrolment
     @genderSelectChecking()
     @planSelectChecking()
     helper.initDatepicker('#child_birthday')
+    @checkBirthdayValid()
     $('#child-register').inputHintOverlay() if $('#child-register').length > 0
 
     $('#plan-addresses').delegate '#ship_to_billing input', 'click', @copyAddress
@@ -74,9 +75,26 @@ class window.Enrolment
       if ( $.browser.webkit && $("#child_birthday").val() != "")
         $('#child_birthday').siblings('.error').remove()
         $('#child_birthday').removeAttr("data-validate")
+      if $("#child_birthday").val() != ""
+        birthday = $("#child_birthday").val()
+        birth_data= Date.parse(birthday)
+        if birth_data > 0
+          helper.showErrorMessage(true,'#child_birthday',message.date_wrong_format)
+        else
+          helper.showErrorMessage(false,'#child_birthday',message.date_wrong_format)
+          return false
       if !ck
         $("#child-register").submit()
 
+  checkBirthdayValid: ->
+    $("#child_birthday").live 'blur', ->
+      if $("#child_birthday").val() != ""
+        birthday = $("#child_birthday").val()
+        birth_data= Date.parse(birthday)
+        if birth_data > 0
+          helper.showErrorMessage(true,'#child_birthday',message.date_wrong_format)
+        else
+          helper.showErrorMessage(false,'#child_birthday',message.date_wrong_format)
 
   planSelectChecking: ->
     $('.btn_plan_form').live 'click', ->

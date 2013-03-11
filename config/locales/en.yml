@@ -37,6 +37,7 @@ en:
     email_pass_invalid: "Your email or password is invalid."
     admin_invalid: "Invalid admin user."
     admin_permission_denied: "You do not have permission to access admin page!"
+    date_wrong_format: "Please input with mm/dd/yyyy format."
 
   titles:
     pages:
