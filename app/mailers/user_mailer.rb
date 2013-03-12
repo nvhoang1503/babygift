@@ -79,7 +79,7 @@ class UserMailer < ActionMailer::Base
     initial
     @gift = gift
     @url = url_for :controller=>'redeems', :action=>'step_1'
-    mail(:to => @gift.recipient_email, :subject => "You've reveived a gift from #{@gift.sender_email}")
+    mail(:to => @gift.recipient_email, :subject => "You've received a gift from #{@gift.sender_email}")
 
   end
 
