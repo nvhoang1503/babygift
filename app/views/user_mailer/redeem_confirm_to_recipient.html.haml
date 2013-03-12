@@ -2,7 +2,9 @@
   = "Congratulations, #{@user.email}!"
 %div{:style => "padding-top:10px; color:#000;"}
   %p
-    = "You have successfully redeemed a Little Spark gift subscription sent by #{@redeem.sender_email}."
+    = "You have successfully redeemed a Little Spark gift subscription sent by"
+    = link_to @redeem.sender_email , "mailto:#{@redeem.sender_email}", :style => "margin-right: -5px;"
+    ="."
   %p
     We hope you and your baby will enjoy your gift. If you have a question about your order, please email us at
     = link_to "contactus@littlespark.com" , "mailto:contactus@littlespark.com", :style => "margin-right: -5px;"
