@@ -5,7 +5,8 @@
 %div{:style => "padding-top:10px; color:#000;"}
   %p
     = 'You got a new redeem by '
-    = @redeem.recipient_email
+    = link_to @redeem.recipient_email, "mailto:#{@redeem.recipient_email}", :style => "margin-right: -5px;"
+    ="."
 %div{:style => "clear:both; padding:10px 0px; color:#000;"}
   %p Detail:
   %p= "Your Order #{@redeem.transaction_code} (Redeemed on #{@redeem.redeem_date.strftime('%m/%d/%Y %l:%M %p')})"
