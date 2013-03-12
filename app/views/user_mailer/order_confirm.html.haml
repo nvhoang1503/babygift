@@ -3,9 +3,10 @@
 %div{:style => "padding-top:10px; color:#000;"}
   %p
     %span Thank you for your order. You can check the status of your order by logging into
-    = link_to " your account", @url, :style => "padding-right: -5px !important; padding-right:0px;"
+    = link_to " your account", @url, :style => "margin-right: -5px;"
     = ". Please contact us with any questions at"
-    = link_to "contactus@littlespark.com.", "mailto:contactus@littlespark.com"
+    = link_to "contactus@littlespark.com", "mailto:contactus@littlespark.com", :style => "margin-right: -5px;"
+    ="."
 %div{:style => "clear:both; padding:10px 0px; color:#000;"}
   = "Your Order #{@trans_id} (placed on #{@order.transaction_date.strftime('%m/%d/%Y %l:%M %p')})"
 
