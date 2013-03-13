@@ -260,7 +260,7 @@ en:
         sign_up_text3_2: '3 months enrollment for $99.99'
         sign_up_text3_3: '6 months enrollment for $199.99'
         sign_up_text3_4: '12 months enrollment for $379.99'
-        sign_up_text4: "Welcome to the Little Spark family! Your first kit will arrive in 5-10 business days and is matched to your baby's age. In the meantime, please visit us on <a href=\"%{facebook}\" class=\"underline-link\"> Facebook </a>, <a href=\"%{twitter}\" class=\"underline-link\"> Twitter </a>, <a href=\"%{pinterest}\" class=\"underline-link\"> Pinterest </a> or read our <a href=\"%{blog}\" class=\"underline-link\"> blog </a> for the latest in baby development."
+        sign_up_text4: "Welcome to the Little Spark family! Your first kit will arrive in 5-10 business days and is matched to your baby's age. In the meantime, please visit us on <a href=\"%{facebook}\" class=\"underline-link\"> Facebook</a>, <a href=\"%{twitter}\" class=\"underline-link\"> Twitter</a>, <a href=\"%{pinterest}\" class=\"underline-link\"> Pinterest</a> or read our <a href=\"%{blog}\" class=\"underline-link\"> blog</a> for the latest in baby development."
         ship: 'Shipping and Billing'
         ship_tl_1: "Where do you ship to?"
         ship_tl_2: "How much is shipping?"
