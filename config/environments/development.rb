@@ -53,10 +53,11 @@ Littlespark::Application.configure do
   #     :authentication => 'plain',
   #     :enable_starttls_auto => true
   # }
+  config.domain = 'localhost:3000'
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
-    :domain => 'localhost:3000',
+    :domain => config.domain,
     :user_name => 'littlesparktesting',
     :password => 'little1234567890',
     :authentication => 'plain',
