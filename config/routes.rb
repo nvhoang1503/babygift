@@ -8,7 +8,7 @@ Littlespark::Application.routes.draw do
     collection do
       # get 'index'
       get 'how_it_work'
-      get 'faq', :to => 'home#fqa'
+      get 'faq', :to => 'home#fqa', :as => 'fqa'
       get 'contact_us'
       get 'about_us'
       get 'curriculum'
