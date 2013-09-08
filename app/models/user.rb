@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
 
   # validates :password,  :length => {:maximum => 20, :minimum => 6, :message => I18n.t('message.pass_format')}
 
-  # ADMIN_EMAIL = 'vivian@littlespark.com'
   ADMIN_EMAIL = Rails.application.config.admin_email
 
   has_many :babies

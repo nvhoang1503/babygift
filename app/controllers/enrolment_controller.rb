@@ -106,7 +106,7 @@ class EnrolmentController < ApplicationController
 
   def finish
     @order = Order.find_by_id(params[:order_id])
-    @order.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
+    # @order.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
     params[:billing_address_id] = @order.billing_address_id
     params[:shipping_address_id] = @order.shipping_address_id
     params[:order_code] = @order.order_code

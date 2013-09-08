@@ -3,8 +3,9 @@
 = render 'shared/order_summary_info', :price => price, :tax => tax, :total => total, :plan_type => plan_type
 
 .signup_box.clearfix
-  %input.pull-left{:type => 'checkbox' , :name => 'check_box_signup', :id => 'cb_signup'}
-  %label.pull-left{:for => 'cb_signup'} Sign-up for updates from your friends at Little Spark!
-
-  %input.pull-left{:type => 'checkbox' , :name => 'terms_agreement', :id => 'cb_terms'}
-  %label.pull-left{:for => 'cb_terms'}= "I agree with the <a href='#' id='terms_content' rel='popover' class = 'underline-link'>Terms and Conditions</a>".html_safe
+	.row
+		%input.pull-left{:type => 'checkbox' , :name => 'check_box_signup', :id => 'cb_signup'}
+		%label.pull-left{:for => 'cb_signup'} Sign-up for updates from your friends at Baby Gift!
+	.row
+		%input.pull-left{:type => 'checkbox' , :name => 'terms_agreement', :id => 'cb_terms'}
+		%label.pull-left{:for => 'cb_terms'}= "I agree with the <a href='#' id='terms_content' rel='popover' class = 'underline-link'>Terms and Conditions</a>".html_safe

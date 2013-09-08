@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   layout 'email'
 
-  default from: "Little Spark"
+  default from: "Baby Gift"
 
   def initial
     @logo_link = root_url.to_s + 'assets/common/logo_text.png'
@@ -14,7 +14,7 @@ class UserMailer < ActionMailer::Base
 	  @email = user.email
     @password = user.password
     @url = url_for :controller=>'sessions', :action=>'new'
-    mail(:to => @email, :subject => "Welcome to Little Spark")
+    mail(:to => @email, :subject => "Welcome to Baby Gift")
 	end
 
   def register_mail(user)
@@ -97,7 +97,7 @@ class UserMailer < ActionMailer::Base
     initial
     @redeem = redeem
     @user = @redeem.baby.parent
-    mail(:to => @user.email, :subject => "Thank you for redeeming your Little Spark gift!")
+    mail(:to => @user.email, :subject => "Thank you for redeeming your Baby Gift gift!")
 
   end
 

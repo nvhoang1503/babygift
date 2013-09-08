@@ -115,7 +115,7 @@ Then /^I should see "(.*?)" near "(.*?)" label$/ do |value, label|
           assert page.has_content?(value)
         end
       end
-    when "For Little Spark" then
+    when "For Baby Gift" then
       with_scope(".main_info .baby .info_text") do
         if page.respond_to? :should
           page.should have_content(value)

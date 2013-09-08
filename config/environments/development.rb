@@ -32,7 +32,7 @@ Littlespark::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
-  config.admin_email = 'littlesparktesting@gmail.com'
+  config.admin_email = 'nvhoang1503@gmail.com'
 
   # Expands the lines which load the assets
   config.assets.debug = true
@@ -58,8 +58,8 @@ Littlespark::Application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => config.domain,
-    :user_name => 'littlesparktesting',
-    :password => 'little1234567890',
+    :user_name => 'nvhoang1503@gmail.com',
+    :password => 'hoang7585',
     :authentication => 'plain',
     :enable_starttls_auto => true
   }

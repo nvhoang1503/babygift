@@ -109,11 +109,11 @@ class GiftsController < ApplicationController
   end
 
   def finish
-    @gift.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
+    # @gift.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
     params[:billing_address_id] = @gift.billing_address_id
     params[:shipping_address_id] = @gift.shipping_address_id
     
-    flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
+    flash[:success] = "Successfully made a purchase "
     @gift.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => "transaction_id"})
 
     UserMailer.gift_confirm_to_admin(@gift, params, "transaction_id").deliver

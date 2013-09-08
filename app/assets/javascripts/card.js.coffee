@@ -85,11 +85,12 @@ class window.Card
 
 
   validateCardInfo: =>
-    result = @isValidExpirationDate('#date_exp_month', '#date_exp_year')
-    result = @isExistCardNum() and result
-    result = (@validateCardNum() and result) if result
-    result = @isExistCvv() and result
-    return result
+    return true
+    # result = @isValidExpirationDate('#date_exp_month', '#date_exp_year')
+    # result = @isExistCardNum() and result
+    # result = (@validateCardNum() and result) if result
+    # result = @isExistCvv() and result
+    # return result
 
   isValidExpirationDate: (mon_elem, year_elem) ->
     month = $(mon_elem).val()

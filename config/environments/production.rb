@@ -63,26 +63,26 @@ Littlespark::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
-  config.admin_email = 'admin@littlespark.com'
+  config.admin_email = 'nvhoang1503@gmail.com'
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'littlespark.com' }
+  config.action_mailer.default_url_options = { :host => 'babygift-stg.herokuapp.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.domain = 'littlespark.com'
+  config.domain = 'babygift-stg.herokuapp.com'
 
   config.action_mailer.smtp_settings = {
       :address => "smtp.gmail.com",
       :port => 587,
       :domain => config.domain,
-      :user_name => 'admin@littlespark.com',
-      :password => 'littlesparkadmin',
+      :user_name => 'nvhoang1503@gmail.com',
+      :password => 'hoang7585',
       :authentication => 'plain',
       :enable_starttls_auto => true
   }
