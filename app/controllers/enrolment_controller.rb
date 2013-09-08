@@ -110,49 +110,38 @@ class EnrolmentController < ApplicationController
     params[:billing_address_id] = @order.billing_address_id
     params[:shipping_address_id] = @order.shipping_address_id
     params[:order_code] = @order.order_code
-
-    # recurring for enrollment except 1 month
-    # if @order.plan_type == Order::TYPE['1_mon']
-    #   response = Payment.an_process(@order.total_order, params)
-    #   if response.success?
-    #     transaction_id = response.transaction_id
-    #     subscription_id = nil
-    #   else
-    #     error = Payment.get_error_messages(response)
-    #   end
-    # else
-    #   params[:description] = Order::TYPE_NAME[@order.plan_type]
-    #   params[:cycle]=  Order::TYPE_CYCLE[@order.plan_type]
-    #   response = Payment.an_create_recurring(@order.total_order, params)
-    #   if response.success?
-    #     transaction_id = nil
-    #     subscription_id = response.subscription_id
-    #     @order.update_attribute(:is_active_subscription, true)
-    #   else
-    #     error = Payment.get_recurring_error_messages(response)
-    #   end
-    # end
     params[:description] = Order::TYPE_NAME[@order.plan_type]
     params[:cycle]=  Order::TYPE_CYCLE[@order.plan_type]
-    response = Payment.an_create_recurring(@order.total_order, params)
-    if response.success?
-      transaction_id = nil
-      subscription_id = response.subscription_id
-      @order.update_attribute(:is_active_subscription, true)
-    else
-      error = Payment.get_recurring_error_messages(response)
-    end
+    
 
-    if response.success?
-      flash[:success] = "Successfully made a purchase"
-      @order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => transaction_id, :subscription_id => subscription_id})
-      user = current_user
-      UserMailer.order_confirm(user, @order, params, @order.order_code).deliver
-      UserMailer.order_confirm_to_admin(user, @order, params, @order.order_code).deliver
-    else
-      flash[:error] = error
-      redirect_to :back
-    end
+    transaction_id = nil
+    subscription_id = "subscription_id"
+    @order.update_attribute(:is_active_subscription, true)
+    flash[:success] = "Successfully made a purchase"
+    @order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => transaction_id, :subscription_id => subscription_id})
+    user = current_user
+    UserMailer.order_confirm(user, @order, params, @order.order_code).deliver
+    UserMailer.order_confirm_to_admin(user, @order, params, @order.order_code).deliver
+
+    # response = Payment.an_create_recurring(@order.total_order, params)
+    # if response.success?
+    #   transaction_id = nil
+    #   subscription_id = response.subscription_id
+    #   @order.update_attribute(:is_active_subscription, true)
+    # else
+    #   error = Payment.get_recurring_error_messages(response)
+    # end
+
+    # if response.success?
+    #   flash[:success] = "Successfully made a purchase"
+    #   @order.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => transaction_id, :subscription_id => subscription_id})
+    #   user = current_user
+    #   UserMailer.order_confirm(user, @order, params, @order.order_code).deliver
+    #   UserMailer.order_confirm_to_admin(user, @order, params, @order.order_code).deliver
+    # else
+    #   flash[:error] = error
+    #   redirect_to :back
+    # end
   end
 
   protected

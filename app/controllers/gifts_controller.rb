@@ -112,19 +112,28 @@ class GiftsController < ApplicationController
     @gift.update_attribute(:transaction_status, Order::TRANSACTION_STATUS[:processing])
     params[:billing_address_id] = @gift.billing_address_id
     params[:shipping_address_id] = @gift.shipping_address_id
-    @response = Payment.an_process(@gift.total_price, params)
-    if @response.success?
-      flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
-      @gift.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => @response.transaction_id})
+    
+    flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
+    @gift.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => "transaction_id"})
 
-      UserMailer.gift_confirm_to_admin(@gift, params, @response.transaction_id).deliver
-      UserMailer.gift_confirm_to_sender(@gift, params, @response.transaction_id).deliver
-      UserMailer.gift_confirm_to_recipient(@gift, params, @response.transaction_id).deliver
+    UserMailer.gift_confirm_to_admin(@gift, params, "transaction_id").deliver
+    UserMailer.gift_confirm_to_sender(@gift, params, "transaction_id").deliver
+    UserMailer.gift_confirm_to_recipient(@gift, params, "transaction_id").deliver
 
-    else
-      flash[:error] = Payment.get_error_messages(@response)
-      redirect_to :back
-    end
+
+    # @response = Payment.an_process(@gift.total_price, params)
+    # if @response.success?
+    #   flash[:success] = "Successfully made a purchase (authorization code: #{@response.authorization_code})"
+    #   @gift.update_attributes({:transaction_status => Order::TRANSACTION_STATUS[:completed], :transaction_date => Time.now, :transaction_code => @response.transaction_id})
+
+    #   UserMailer.gift_confirm_to_admin(@gift, params, @response.transaction_id).deliver
+    #   UserMailer.gift_confirm_to_sender(@gift, params, @response.transaction_id).deliver
+    #   UserMailer.gift_confirm_to_recipient(@gift, params, @response.transaction_id).deliver
+
+    # else
+    #   flash[:error] = Payment.get_error_messages(@response)
+    #   redirect_to :back
+    # end
   end
 
   protected

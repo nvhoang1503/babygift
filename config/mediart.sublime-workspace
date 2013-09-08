@@ -1,0 +1,256 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/sam/Projects/mediart/Gemfile",
+			"settings":
+			{
+				"buffer_size": 1027,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/Projects/mediart/db/migrate/20130313022921_devise_create_users.rb",
+			"settings":
+			{
+				"buffer_size": 1723,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Mediart::Application.configure do\n  # Settings specified here will take precedence over those in config/application.rb\n\n  # In the development environment your application's code is reloaded on\n  # every request. This slows down response time but is perfect for development\n  # since you don't have to restart the web server when you make code changes.\n  config.cache_classes = false\n\n  # Log error messages when you accidentally call methods on nil.\n  config.whiny_nils = true\n\n  # Show full error reports and disable caching\n  config.consider_all_requests_local       = true\n  config.action_controller.perform_caching = false\n\n  # Don't care if the mailer can't send\n  config.action_mailer.raise_delivery_errors = false\n\n  # Print deprecation notices to the Rails logger\n  config.active_support.deprecation = :log\n\n  # Only use best-standards-support built into browsers\n  config.action_dispatch.best_standards_support = :builtin\n\n  # Raise exception on mass assignment protection for Active Record models\n  config.active_record.mass_assignment_sanitizer = :strict\n\n  # Log the query plan for queries taking more than this (works\n  # with SQLite, MySQL, and PostgreSQL)\n  config.active_record.auto_explain_threshold_in_seconds = 0.5\n\n  # Do not compress assets\n  config.assets.compress = false\n\n  # Expands the lines which load the assets\n  config.assets.debug = true\n  config.action_mailer.default_url_options = { :host => 'localhost:3000' }\n  # ActionMailer Config\n  # Setup for production - deliveries, no errors raised\n  config.action_mailer.default :charset => \"utf-8\"\n  config.action_mailer.delivery_method = :smtp\n  config.action_mailer.perform_deliveries = true\n  config.action_mailer.raise_delivery_errors = true\n  config.action_mailer.smtp_settings = {\n      :address => \"smtp.gmail.com\",\n      :port => 587,\n      :domain => 'localhost:3000',\n      :user_name => 'tpldev1',\n      :password => 'tpldev1@',\n      :authentication => 'plain',\n      :enable_starttls_auto => true\n  }\nend\n",
+			"file": "/home/sam/Projects/mediart/config/environments/development.rb",
+			"file_size": 1374,
+			"file_write_time": 1359948046000000,
+			"settings":
+			{
+				"buffer_size": 1996,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/sam/Projects/little-spark/app/controllers/application_controller.rb",
+		"/home/sam/Projects/little-spark/app/views/shared/_footer.html.haml",
+		"/home/sam/Projects/little-spark/config/database.yml",
+		"/home/sam/Projects/little-spark/app/assets/javascripts/bootstrap.js.coffee",
+		"/home/sam/Projects/little-spark/.rvmrc",
+		"/home/sam/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/sam/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/sam/Projects/little-spark/app/assets/javascripts/enrolment.js.coffee"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ctrl+D",
+			"sdf",
+			"ctrl+D"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/sam/Projects/mediart/Gemfile",
+					"settings":
+					{
+						"buffer_size": 1027,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								393,
+								393
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/sam/Projects/mediart/db/migrate/20130313022921_devise_create_users.rb",
+					"settings":
+					{
+						"buffer_size": 1723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								876,
+								876
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/sam/Projects/mediart/config/environments/development.rb",
+					"settings":
+					{
+						"buffer_size": 1996,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1991,
+								1991
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 308.0,
+	"status_bar_visible": true
+}

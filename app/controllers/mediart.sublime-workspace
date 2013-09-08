@@ -1,0 +1,467 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/sam/Projects/mediart/app/views/home/index.html.haml",
+			"settings":
+			{
+				"buffer_size": 36,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/Projects/mediart/config/routes.rb",
+			"settings":
+			{
+				"buffer_size": 88,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/Projects/mediart/config/heroku.yml",
+			"settings":
+			{
+				"buffer_size": 653,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/Projects/mediart/doc/heroku_doc.txt",
+			"settings":
+			{
+				"buffer_size": 264,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/Projects/mediart/config/database.yml",
+			"settings":
+			{
+				"buffer_size": 278,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/Projects/mediart/.gitignore",
+			"settings":
+			{
+				"buffer_size": 507,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/Projects/mediart/Gemfile",
+			"settings":
+			{
+				"buffer_size": 1027,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/Projects/mediart/config/application.rb",
+			"settings":
+			{
+				"buffer_size": 2863,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/Projects/mediart/README",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/sam/Projects/mediart/.gitignore",
+		"/home/sam/Projects/mediart/.rvmrc",
+		"/home/sam/Projects/mediart/Gemfile",
+		"/home/sam/Projects/mediart/config/database.yml",
+		"/home/sam/Projects/little-spark/app/controllers/application_controller.rb",
+		"/home/sam/Projects/little-spark/app/views/shared/_footer.html.haml",
+		"/home/sam/Projects/little-spark/config/database.yml",
+		"/home/sam/Projects/little-spark/app/assets/javascripts/bootstrap.js.coffee",
+		"/home/sam/Projects/little-spark/.rvmrc",
+		"/home/sam/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/sam/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/sam/Projects/little-spark/app/assets/javascripts/enrolment.js.coffee"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"config.assets.initialize_on_precompile",
+			"ctrl+D",
+			"sdf",
+			"ctrl+D"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/sam/Projects/mediart/app/views/home/index.html.haml",
+					"settings":
+					{
+						"buffer_size": 36,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								36
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/sam/Projects/mediart/config/routes.rb",
+					"settings":
+					{
+						"buffer_size": 88,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								88
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/sam/Projects/mediart/config/heroku.yml",
+					"settings":
+					{
+						"buffer_size": 653,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/sam/Projects/mediart/doc/heroku_doc.txt",
+					"settings":
+					{
+						"buffer_size": 264,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								262,
+								262
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/sam/Projects/mediart/config/database.yml",
+					"settings":
+					{
+						"buffer_size": 278,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								135,
+								135
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/sam/Projects/mediart/.gitignore",
+					"settings":
+					{
+						"buffer_size": 507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								334,
+								334
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/sam/Projects/mediart/Gemfile",
+					"settings":
+					{
+						"buffer_size": 1027,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/sam/Projects/mediart/config/application.rb",
+					"settings":
+					{
+						"buffer_size": 2863,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2737,
+								2737
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 918.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/sam/Projects/mediart/README",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 267.0,
+	"status_bar_visible": true
+}

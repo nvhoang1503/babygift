@@ -10,14 +10,14 @@
 #     - <Heroku config:var name>: <Heroku config:var value>
 #
 production:
-  app: littlespark
+  app: babygift
   stack: cedar
   config:
     BUNDLE_WITHOUT: "development:test"
 
 staging:
   stack: cedar
-  app: littlespark-stg
+  app: babygift-stg
   config: &default
     BUNDLE_WITHOUT: "development:test"
   addons:
